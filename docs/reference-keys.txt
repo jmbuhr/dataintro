@@ -1,0 +1,3 @@
+fig:nice-fig
+tab:nice-tab
+intro

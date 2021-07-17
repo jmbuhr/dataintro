@@ -1,0 +1,16 @@
+--- 
+title: "Introduction to Data Analysis with R"
+author: "Jannik Buhr"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+csl: chicago-fullnote-bibliography.csl
+link-citations: false
+description: "This is where you will find all the resources for the course Introduction to Data Analysis with R"
+---
+
+# Prerequisites {-}
+
+This is where you will find all the resources for the course Introduction to Data Analysis with R.
+More information follows.
