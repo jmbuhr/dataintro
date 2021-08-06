@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Lesson 5 Hypothesis Testing | Introduction to Data Analysis with R</title>
+<meta name="author" content="Jannik Buhr">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Introduction to Data Analysis with R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Hello and welcome!</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">2</span> Data Wrangling</a></li>
+<li><a class="" href="tidy-data.html"><span class="header-section-number">3</span> Tidy Data</a></li>
+<li><a class="" href="functions-1.html"><span class="header-section-number">4</span> Functions</a></li>
+<li><a class="active" href="hypothesis-testing.html"><span class="header-section-number">5</span> Hypothesis Testing</a></li>
+<li><a class="" href="distributions.html"><span class="header-section-number">6</span> Distributions</a></li>
+<li><a class="" href="fallacies.html"><span class="header-section-number">7</span> Fallacies</a></li>
+<li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
+<li><a class="" href="resources-5.html">Resources</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jmbuhr/dataintro">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="hypothesis-testing" class="section level1" number="5">
+<h1>
+<span class="header-section-number">Lesson 5</span> Hypothesis Testing<a class="anchor" aria-label="anchor" href="#hypothesis-testing"><i class="fas fa-link"></i></a>
+</h1>
+<blockquote>
+<p>… in which we reason about the nature of randomness and
+discover various statistical tests.</p>
+</blockquote>
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen>
+</iframe>
+</div>
+<div id="motivation-1" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>In the first four lectures we covered the fundamentals of handling data with R.
+Now, we will shift our focus away from the <strong>how</strong> and towards the <strong>why</strong> of
+data analysis. We will talk about different statistical tests, common mistakes,
+how to avoid them and how to spot them in other research. But of course, we will
+do so using R. So you will still learn one or the other useful function or
+technique along the way. In most instances it should be clear when I use R
+solely to demonstrate an idea from statistics and the code is just included for
+the curious, or whether the code is something you will likely also use for your
+own analysis. I am open for questions if things are unclear in any of the two
+cases. For purely aesthetic code I might also speed up the typing in the edit.</p>
+<blockquote>
+<p>To understand statistics means understanding the nature of randomness first.</p>
+</blockquote>
+<p>You might not be shocked that we will be using the <code>tidyverse</code> today as well,
+simply because it makes the data wrangling for various demonstrations easier. So
+if you are following along, don’t forget:</p>
+<div class="sourceCode" id="cb313"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+</div>
+<div id="statistically-significant" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Statistically Significant…<a class="anchor" aria-label="anchor" href="#statistically-significant"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>…you keep using that word. I don’t think it means what you think it means.</p>
+</blockquote>
+<div class="figure">
+<span id="fig:unnamed-chunk-191"></span>
+<img src="images/statistically-significant.jpg" alt="A Meme where a person says: &quot;Statistically significant. You keep using that word. I don't think it means what you think it means.&quot;" width="100%"><p class="caption">
+Figure 5.1: A Meme where a person says: “Statistically significant. You keep using that word. I don’t think it means what you think it means.”
+</p>
+</div>
+<p>You will hear the phrases “statistically significant,” “significant” or even
+“very significant” thrown around quite a bit in academic literature . And while
+they are often used carelessly, they have a clearly defined meaning. A meaning
+we will uncover today. This meaning is related to the concept of so called
+p-values, which have an equally bad reputation for frequently being misused. The
+p in p-value stands for <strong>probability</strong>, so in order to understand p-values, we
+need to understand probability and learn how to deal with randomness, chance, or
+luck if you will. So…</p>
+</div>
+<div id="getting-our-hands-dirty-with-probability" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Getting our Hands dirty with Probability<a class="anchor" aria-label="anchor" href="#getting-our-hands-dirty-with-probability"><i class="fas fa-link"></i></a>
+</h2>
+<div class="figure">
+<span id="fig:chess-board"></span>
+<img src="dataintro_files/figure-html/chess-board-1.png" alt="A ggplot chessboard" width="100%"><p class="caption">
+Figure 5.2: A ggplot chessboard
+</p>
+</div>
+<p>Say you and you friend are playing a game of chess, when your friend proudly
+proclaims:<br>
+“I am definitely the better player!”<br>
+“Proof it!” you reply.<br>
+“That’s easy,” she says: “I won 7 out of the 8 rounds we played to today.”<br>
+“Pah! That’s just luck.” is your less witty and slightly stubborn response.</p>
+<p>As expected, we shall be using R to resolve this vital conflict.</p>
+<p>(ref:rainbow)<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst.”&lt;/span&gt;&lt;/p&gt;"><sup>33</sup></a></span></p>
+<div class="figure">
+<span id="fig:significant"></span>
+<img src="images/paste-5E31A2FF.png" alt="(ref:rainbow)" width="100%" class=".external"><p class="caption">
+Figure 5.3: (ref:rainbow)
+</p>
+</div>
+<div id="definitions-hypothesis" class="section level3" number="5.3.1">
+<h3>
+<span class="header-section-number">5.3.1</span> Definitions: Hypothesis<a class="anchor" aria-label="anchor" href="#definitions-hypothesis"><i class="fas fa-link"></i></a>
+</h3>
+<p>Both of you involuntarily uttered an hypothesis, a testable assumption. And we
+want to test these hypothesis using statistics. The first hypothesis (“I am the
+better player.”) is what we call the <strong>alternative hypothesis</strong> (<span class="math inline">\(H_1\)</span>). The
+name can be a bit confusing, because most often, this is your actual scientific
+hypothesis, the thing you are interested in. So, alternative to what? It is
+alternative to the so called <strong>null hypothesis</strong> (<span class="math inline">\(H_0\)</span>), which is the second
+statement (“This is just luck”). The null hypothesis provides a sort of baseline
+for all our findings. It usually goes along the lines of “What if our
+observations are just based on chance alone?” where “chance” can be any source
+of random variation in our system.</p>
+<p>The tricky part is that there is no way to directly test the alternative
+Hypothesis, all we can test is the null hypothesis. Because for any null
+hypothesis we discard, there are always multiple alternative hypothesis that
+could explain our data. In our example, even if we end up discarding the idea of
+our friend’s chess success being only down to luck, this does not prove the
+alternative hypothesis that she is the better player (she could still be
+cheating for example). Do keep this in mind when we transfer this to a more
+scientific setting. Just because we show that something is unlikely to have
+arisen by chance does not mean that your favorite alternative hypothesis is
+automatically true.</p>
+<p>So, after these words of warning, let’s test some null hypothesis!</p>
+</div>
+<div id="testing-the-null-hypothesis-with-a-simulation" class="section level3" number="5.3.2">
+<h3>
+<span class="header-section-number">5.3.2</span> Testing the Null Hypothesis with a Simulation<a class="anchor" aria-label="anchor" href="#testing-the-null-hypothesis-with-a-simulation"><i class="fas fa-link"></i></a>
+</h3>
+<p>We will start off by building a little simulation. Before testing any
+hypothesis, it is important to have defined <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span> properly, which we did in
+the previous section. But we need to be a little more specific. Winning by
+chance would entail a completely random process, which we can model with a coin
+flip. R has the lovely function <code>sample</code> to take any number of things from a
+vector, with or without replacement after taking each thing:</p>
+<div class="sourceCode" id="cb314"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">coin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"heads"</span>, <span class="st">"tails"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "tails" "heads"</code></pre>
+<p>Not giving it a number of things to draw just shuffles the vector, which is
+fairly boring in the case of just two tings. We can’t sample 10 things from a
+vector of only two elements</p>
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when 'replace = FALSE'</code></pre>
+<p>But we can, if we put the thing back every time:</p>
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, size <span class="op">=</span> <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<pre><code>##  [1] "tails" "heads" "tails" "tails" "tails" "tails" "tails" "heads" "heads"
+## [10] "tails"</code></pre>
+<p>So, let’s make this a little more specific to our question:</p>
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">winner</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"you"</span>, <span class="st">"friend"</span><span class="op">)</span>
+<span class="va">random_winners</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">winner</span>, size <span class="op">=</span> <span class="fl">8</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="va">random_winners</span></code></pre></div>
+<pre><code>## [1] "friend" "you"    "friend" "friend" "friend" "friend" "friend" "friend"</code></pre>
+<p>This script will look different every time I run this, so I won’t be to specific
+on the outcome of this. This time, you won:</p>
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">random_winners</span> <span class="op">==</span> <span class="st">"you"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>times, and your friend won:</p>
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">random_winners</span> <span class="op">==</span> <span class="st">"friend"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<p>times. If we were to run this script a million times, the resulting proportion
+of random wins for both of you would be very, very close to 50-50 because we
+used a fair coin. However, we don’t have the time to play this much Chess and we
+sure don’t have the money to run a million replicates for each experiment in the
+lab. But here, in our little simulated world, we have near infinite
+resources (our simulation is not to computationally costly).</p>
+<blockquote>
+<p>One trick used above: When we calculate e.g. a sum or mean,
+R automatically converts TRUE to 1 and FALSE to 0.</p>
+</blockquote>
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">get_n_wins</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">N</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">winner</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"you"</span>, <span class="st">"friend"</span><span class="op">)</span>
+  <span class="va">random_winners</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">winner</span>, size <span class="op">=</span> <span class="va">N</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">random_winners</span> <span class="op">==</span> <span class="st">"friend"</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>I created a function that returns a random number of wins your friend would have
+gotten by pure chance for a number of rounds <code>N</code>.</p>
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">get_n_wins</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>This number is different every time, so how does it change?</p>
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span> <span class="co"># setting a random seed for the script</span>
+             <span class="co"># this give me the same random numbers</span>
+             <span class="co"># every time</span>
+<span class="va">number_of_wins</span> <span class="op">&lt;-</span> <span class="fu">map_dbl</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">1000</span><span class="op">)</span>, <span class="va">get_n_wins</span><span class="op">)</span></code></pre></div>
+<p>A histogram is a type of plot that shows how often each value occurs in a
+vector. Usually, the values are put into bins first, grouping close values
+together for continuous values, but in this case it makes sense to just have one
+value per bin because we are dealing with discrete values (e.g. no half-wins).
+Histograms can either display the raw counts or the frequency e.g. as a
+percentage. In ggplot, we use <code>geom_bar</code> when we don’t need any binning, just
+counting occurrences, and <code>geom_histogram</code> when we need to bin continuous
+values.</p>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">tibble</span><span class="op">(</span><span class="va">number_of_wins</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">number_of_wins</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_x_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">8</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Throwing a coin 8 times"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/coin-8-times-1.png" width="100%"></div>
+<p>As expected, the most common number of wins out of 8 is 4 (unless I got really
+unlucky when compiling this script). Let us see, how this <strong>distribution</strong>
+changes for different values of <code>N</code>. First, we set up a grid of numbers (all
+possible combinations) so that we can run a bunch of simulations:</p>
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">simulation</span> <span class="op">&lt;-</span>
+  <span class="fu">crossing</span><span class="op">(</span>N   <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">15</span>,
+           rep <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">1000</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>
+    wins <span class="op">=</span> <span class="fu">map_dbl</span><span class="op">(</span><span class="va">N</span>, <span class="va">get_n_wins</span><span class="op">)</span>
+  <span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">simulation</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html">paged_table</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["N"],"name":[1],"type":["int"],"align":["right"]},{"label":["rep"],"name":[2],"type":["int"],"align":["right"]},{"label":["wins"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"1","3":"0"},{"1":"1","2":"2","3":"0"},{"1":"1","2":"3","3":"1"},{"1":"1","2":"4","3":"1"},{"1":"1","2":"5","3":"0"},{"1":"1","2":"6","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+<p>And then we use our trusty ggplot to visualize all the distributions:</p>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">simulation</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">wins</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">N</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Throwing a coin N times"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/coin-n-times-1.png" width="100%"></div>
+<p>With a fair coin, the most common number of wins should be half of the number of
+coin flips. Note, how it is still possible to flip a coin 15 times and and not
+win a single time. It is just very unlikely and the bars are so small that we
+can’t see them.</p>
+<p>Let us go back to the original debate. The first statement: “I am better.” is
+something that can never be definitively proven. Because there is always the
+possibility, no matter how small, that the same result could have arisen by pure
+chance alone. Even if she wins 100 times and we don’t take a single game from
+her, this sort of outcome is still not <em>impossible</em> to appear just by flipping a
+coin. But what we can do, is calculate, how likely a certain event is under the
+assumption of the null hypothesis (only chance). And we can also decide on some
+threshold <span class="math inline">\(\alpha\)</span> at which we reject the null hypothesis. This is called the
+<strong>significance threshold</strong>. When we make an observation and then calculate that
+the probability for an observation like this or more extreme is smaller than the
+threshold, we deem the result <strong>statistically significant</strong>. And the probability
+thus created is called the <strong>p-value</strong>.</p>
+<p>From our simulation, we find the that probability to win 7 out of 8 rounds under
+the null hypothesis is:</p>
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">number_of_wins</span> <span class="op">&gt;=</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 0.025</code></pre>
+<p>Which is smaller than the commonly used significance threshold of <span class="math inline">\(\alpha=0.05\)</span>
+(i.e. <span class="math inline">\(5\%\)</span>). So with 7 out of 8 wins, we would <strong>reject the null hypothesis</strong>.
+Do note that this threshold, no matter how commonly and thoughtlessly it is used
+throughout academic research, is completely arbitrary.</p>
+</div>
+<div id="getting-precise-with-the-binomial-distribution" class="section level3" number="5.3.3">
+<h3>
+<span class="header-section-number">5.3.3</span> Getting precise with the Binomial Distribution<a class="anchor" aria-label="anchor" href="#getting-precise-with-the-binomial-distribution"><i class="fas fa-link"></i></a>
+</h3>
+<p>Now, this was just from a simulation with 1000 trials, so the number can’t be
+arbitrarily precise, but there is a mathematical formula for this probability.
+What we created by counting the number of successes in a series of yes-no-trials
+is a <strong>binomial distribution</strong>. For the most common distributions, R provides a
+set of functions. the functions starting with <code>d</code> give us the probability
+density function. In the case of discrete values like counting wins, this is
+equivalent to the actual probability, but for continuous values we obtain the
+probability by taking the integral. We get these integrals with the
+corresponding functions starting with <code>p</code> (for probability).</p>
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">7</span>, size <span class="op">=</span> <span class="fl">8</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 0.03125</code></pre>
+<p>This is the probability to win <strong>exactly 7 out of 8</strong> games. But what we wanted
+was the probability for <strong>7 or more out of 8</strong>! So we move to the integral. This
+part can get a bit confusing, because the default for <code>pbinom</code> is
+<code>lower.tail = TRUE</code>, which according to the help page means that probabilities
+are <span class="math inline">\(P[X \le x]\)</span>.</p>
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">7</span>, size <span class="op">=</span> <span class="fl">8</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 0.9960938</code></pre>
+<p>If we set <code>lower.tail</code> to <code>FALSE</code> , we get <span class="math inline">\(P[X &gt; x]\)</span>, so the probability for a
+random variable X being bigger than a number x. So to get the probability that
+we are interested in, we need to replace the 7 with a 6 as well:</p>
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">6</span>, size <span class="op">=</span> <span class="fl">8</span>, prob <span class="op">=</span> <span class="fl">0.5</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 0.03515625</code></pre>
+<p>Our simulation was pretty close! So the exact values agrees and we reject the
+null hypothesis of both opponents being equally good.</p>
+<blockquote>
+<p><strong>Sidenote</strong>: For quick visualizations of function curves I sometimes use
+plotting functions from base-R rather than ggplot. They are not as powerful
+and versatile, but efficient at their own small tasks. Just make sure to note
+that this is not ggplot, so we can’t use our regular repertoire of themes and
+the likes with it.</p>
+</blockquote>
+<p>Here is the full graph for the probability density function of the binomial
+distribution</p>
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, <span class="fl">8</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,
+      type <span class="op">=</span> <span class="st">"s"</span>, from <span class="op">=</span> <span class="fl">0</span>,
+      to <span class="op">=</span> <span class="fl">8</span>,
+      n <span class="op">=</span> <span class="fl">9</span>, main <span class="op">=</span> <span class="st">"dbinom"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/dbinom-1.png" width="100%"></div>
+<p>And the integral, the probability <span class="math inline">\(P[X \le x]\)</span></p>
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="va">x</span>, <span class="fl">8</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,
+      type <span class="op">=</span> <span class="st">"s"</span>,
+      from <span class="op">=</span> <span class="fl">0</span>,
+      to <span class="op">=</span> <span class="fl">8</span>,
+      n <span class="op">=</span> <span class="fl">9</span>, main <span class="op">=</span> <span class="st">"pbinom"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/pbinom-1.png" width="100%"></div>
+<p>There is two more function I want to showcase from this family. The third is the
+so called <strong>quantile function</strong>. Quantiles divide a probability distribution
+into pieces of equal probability. One example for a quantile is the 50th
+percentile, also known as the median, which divides the values such that half of
+the values are above and half are below. And we can keep dividing the two halves
+as well, so that we end up with more quantiles. Eventually, we arrive at the
+quantile function. It is the inverse of the probability function, so you obtain
+it by swapping the axis.</p>
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">qbinom</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">x</span>, size <span class="op">=</span> <span class="fl">8</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,
+      type <span class="op">=</span> <span class="st">"s"</span>,
+      from <span class="op">=</span> <span class="fl">0</span>,
+      to <span class="op">=</span> <span class="fl">1</span>,
+      n <span class="op">=</span> <span class="fl">9</span>, main <span class="op">=</span> <span class="st">"qbinom"</span>
+      <span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/qbinom-1.png" width="100%"></div>
+<p>Quantiles will also be useful for
+deciding if a random sample follows a certain distribution
+with quantile-quantile plots.</p>
+<p>Lastly, there is always also an <code>r</code> variant of the function, which gives us any
+number of random numbers from the distribution.</p>
+<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, size <span class="op">=</span> <span class="fl">8</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
+<pre><code>##  [1] 4 5 5 5 5 2 3 4 6 3</code></pre>
+</div>
+<div id="but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives" class="section level3" number="5.3.4">
+<h3>
+<span class="header-section-number">5.3.4</span> But how much better? Understanding Effect Size and Power, False Positives and False Negatives<a class="anchor" aria-label="anchor" href="#but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives"><i class="fas fa-link"></i></a>
+</h3>
+<p>We decided to abandon the null hypothesis that both players are equally good,
+which equates to a 50% win-chance for each player. But we have not determined
+<strong>how much better</strong> she is. And how much better does she need to be for us to
+reliably discard the null hypothesis after just 8 games? The generalization of
+the <strong>how much better</strong> part, the <strong>true difference</strong>, is called the <strong>effect
+size</strong>.</p>
+<p>Our ability to decide that something is statistically significant when there is
+in fact a true difference is called the statistical <strong>power</strong>. It depends on the
+effect size, our significance threshold <span class="math inline">\(\alpha\)</span> and the sample size <span class="math inline">\(n\)</span> (the
+number of games). We can explore the concept with another simulation.</p>
+<div class="sourceCode" id="cb346"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2020</span><span class="op">)</span>
+<span class="va">trials</span> <span class="op">&lt;-</span> <span class="fl">10000</span>
+<span class="va">simulation</span> <span class="op">&lt;-</span> <span class="fu">crossing</span><span class="op">(</span>
+  N <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">100</span>, <span class="fl">1000</span>, <span class="fl">10000</span><span class="op">)</span>,
+  true_prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.8</span>, <span class="fl">0.9</span><span class="op">)</span>
+<span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">rowwise</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">mutate</span><span class="op">(</span>
+    wins <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">N</span>,
+                       prob <span class="op">=</span> <span class="va">true_prob</span>,
+                       n <span class="op">=</span> <span class="va">trials</span><span class="op">)</span><span class="op">)</span>,
+    p <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="va">wins</span> <span class="op">-</span> <span class="fl">1</span>,
+                    size <span class="op">=</span> <span class="va">N</span>,
+                    prob <span class="op">=</span> <span class="fl">0.5</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span>
+    <span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span>
+
+<span class="va">simulation</span></code></pre></div>
+<pre><code>## # A tibble: 12 x 4
+##        N true_prob wins           p             
+##    &lt;dbl&gt;     &lt;dbl&gt; &lt;list&gt;         &lt;list&gt;        
+##  1     8       0.5 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+##  2     8       0.8 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+##  3     8       0.9 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+##  4   100       0.5 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+##  5   100       0.8 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+##  6   100       0.9 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+##  7  1000       0.5 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+##  8  1000       0.8 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+##  9  1000       0.9 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+## 10 10000       0.5 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+## 11 10000       0.8 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;
+## 12 10000       0.9 &lt;int [10,000]&gt; &lt;dbl [10,000]&gt;</code></pre>
+<p>I also introduced a new piece of advanced dplyr syntax. <code>rowwise</code> is similar to
+<code>group_by</code> and essentially puts each row into its own group. This can be useful
+when working with list columns or running a function with varying arguments and
+allows us to treat the inside of <code>mutate</code> a bit like as if we where using one of
+the <code>map</code> functions. For more information, see <a href="https://dplyr.tidyverse.org/articles/rowwise.html">the documentation
+article</a>.</p>
+<p>It leaves us with 10000 simulated numbers of wins at N games for different
+true probabilities of her winning (i.e. how much better our friend is). We then
+calculate the probability to have this or a greater number of wins under the
+null hypothesis (equal probability for win and loss), in other words: the
+p-value.</p>
+<div class="sourceCode" id="cb348"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">simulation</span> <span class="op">%&gt;%</span>
+  <span class="fu">unnest</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">wins</span>, <span class="va">p</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">p</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">true_prob</span> <span class="op">+</span> <span class="va">N</span>,
+             labeller <span class="op">=</span> <span class="va">label_both</span>,
+             scales <span class="op">=</span> <span class="st">"free_y"</span>,
+             ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_vline</span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0.05</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"p-value"</span>,
+       y <span class="op">=</span> <span class="st">"frequency"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_y_continuous</span><span class="op">(</span>breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/p-value-hist-1.png" width="100%"></div>
+<p>We notice a couple of things in this plot. As the number of games
+played approaches very high numbers, the p-values for the
+case where the null hypothesis is in fact true (both players have
+the same chance of winning), start following a uniform distribution,
+meaning for a true null hypothesis, all p-values are equally likely.
+This seems counterintuitive at first, but is a direct consequence
+of the definition of the p-value.
+The consequence of this is, that if we apply our regular significance
+threshold of 5%, by definition we will say that there is a true
+difference, even though there is none (i.e. the null hypothesis is true
+but we falsely reject it and favor of our alternative hypothesis).
+This is called a <strong>false positive</strong>. By definition, we will get at
+least <span class="math inline">\(\alpha\)</span> false positives in all of our experiments.
+Later, we will learn, why the real number of false positives is
+even higher.
+Another name for false positives is <strong>Type I errors</strong>.</p>
+<p>On the other side of the coin, there are also cases
+where there is a true difference (we used winning probabilities
+of 0.8 and 0.9), but we don’t reject the null hypothesis because
+we get a p-values larger than <span class="math inline">\(alpha\)</span>.
+These are all <strong>false negatives</strong> and their rate is sometimes
+referred to as <span class="math inline">\(\beta\)</span>.
+Another name for false negatives is <strong>Type II errors</strong>.
+People don’t particularly like talking about negative things like errors,
+so instead you will often see the inverse of <span class="math inline">\(\beta\)</span>, the
+<strong>Statistical Power</strong> <span class="math inline">\(1-\beta\)</span>.
+The proportion of correctly identified positives out of
+the actual positives is also shown on the plot below.
+For example, say her true win probability is 90%
+and we play 8 games. If this experiment runs in an infinite
+number of parallel universes, we will conclude that she is
+better than chance in 80% of those.
+We could set our significance threshold higher to detect
+more of the true positives, but this would
+also increase our false positives.</p>
+<div class="sourceCode" id="cb349"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">simulation</span> <span class="op">%&gt;%</span>
+  <span class="fu">unnest</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">wins</span>, <span class="va">p</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">true_prob</span>, <span class="va">N</span><span class="op">)</span> <span class="op">%&gt;%</span>
+  <span class="fu">summarise</span><span class="op">(</span>signif <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">p</span> <span class="op">&lt;=</span> <span class="fl">0.05</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">true_prob</span>, <span class="va">signif</span>, fill <span class="op">=</span> <span class="va">true_prob</span> <span class="op">==</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_col</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_text</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="va">signif</span><span class="op">)</span>, vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">N</span>,
+             labeller <span class="op">=</span> <span class="va">label_both</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_y_continuous</span><span class="op">(</span>expand <span class="op">=</span> <span class="fu">expansion</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_fill_viridis_d</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Proportion of significant results"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/power-plot-1.png" width="100%"></div>
+<blockquote>
+<p>Unfortunately, there is no free lunch in statistics.</p>
+</blockquote>
+<p>There are also packages out there, which have a function
+to compute the power for the binomial test, but I think
+the simulation was way more approachable.
+The cool thing about simulations is also, that they work
+even when there is no analytical solution, so you
+can use them to play around when planning an experiment.</p>
+</div>
+</div>
+<div id="p-value-pitfalls" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> P-Value Pitfalls<a class="anchor" aria-label="anchor" href="#p-value-pitfalls"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let us look into some of the pitfalls of p-values.
+Remember from the definition of p-values, that we will get
+a significant result even if there is no true difference in
+5% of cases (assuming we use this as our alpha)?
+Well, what if we test a bunch of things?
+This is called <strong>Multiple Testing</strong> and there is a problem
+associated with it:</p>
+<p>If you test 20 different things, and your statistical
+test will produce a significant result by chance alone
+in 5% of cases, the expected number of significant results is 1.
+So we are not very surprised.
+Speaking of surprised: In his book, available for free online,
+<a href="https://www.statisticsdonewrong.com/">“Statistics done wrong”</a>, Alex Reinhart
+describes p-values as a “measure of surprise”:</p>
+<blockquote>
+<p>»A p value is not a measure of how right you are,
+or how significant the difference is;
+it’s a measure of how surprised you should be if there is no actual difference
+between the groups, but you got data suggesting there is.
+A bigger difference, or one backed up by more data,
+suggests more surprise and a smaller p value.«
+— Alex Reinhart<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Reinhart, &lt;em&gt;Statistics &lt;span&gt;Done Wrong&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;"><sup>34</sup></a></span></p>
+</blockquote>
+<p>So, we are not very surprised, but if you focus to hard on
+the one significant result, trouble ensues.
+In a “publish or perish” mentality, this can easily happen,
+and negative findings are not published nearly enough,
+so most published findings are likely exaggerated.
+John Bohannon showcased this beautifully by
+running a study on chocolate consumption and
+getting it published:
+<a href="https://io9.gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800">I Fooled Millions Into Thinking Chocolate Helps Weight Loss. Here’s How.</a></p>
+<p>What can we do about this?</p>
+<div id="multiple-testing-correction" class="section level3" number="5.4.1">
+<h3>
+<span class="header-section-number">5.4.1</span> Multiple Testing Correction<a class="anchor" aria-label="anchor" href="#multiple-testing-correction"><i class="fas fa-link"></i></a>
+</h3>
+<p>The simplest approach is to take all p-values calculate
+when running a large number of comparisons and
+dividing them by the number of tests performed.
+This is called the <strong>Bonferroni correction</strong></p>
+<div class="sourceCode" id="cb350"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">p_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.05</span>, <span class="fl">0.3</span>, <span class="fl">0.001</span>, <span class="fl">0.003</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust</a></span><span class="op">(</span><span class="va">p_values</span>, method <span class="op">=</span> <span class="st">"bonferroni"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 1.000 0.250 1.000 0.005 0.015</code></pre>
+<p>Of course, this looses some statistical power
+(remember, no free lunch).
+A slightly more sophisticated approach to
+controlling the false discovery rate (FDR)
+is the Benjamini-Hochberg procedure. It retains
+a bit more power. Here is what happens:</p>
+<ul>
+<li>Sort all p-values in ascending order.</li>
+<li>Choose a FDR <span class="math inline">\(q\)</span> you are willing to accept
+and call the number of tests done <span class="math inline">\(m\)</span>.</li>
+<li>Find the largest p-value with:
+<span class="math inline">\(p \leq iq/m\)</span> with its index <span class="math inline">\(i\)</span>.</li>
+<li>This is your new threshold for significance</li>
+<li>Scale the p-values accordingly</li>
+</ul>
+<p>And this is how you do it in R:</p>
+<div class="sourceCode" id="cb352"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust</a></span><span class="op">(</span><span class="va">p_values</span>, method <span class="op">=</span> <span class="st">"BH"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 0.50000000 0.08333333 0.37500000 0.00500000 0.00750000</code></pre>
+</div>
+<div id="other-forms-of-p-hacking" class="section level3" number="5.4.2">
+<h3>
+<span class="header-section-number">5.4.2</span> Other forms of p-hacking<a class="anchor" aria-label="anchor" href="#other-forms-of-p-hacking"><i class="fas fa-link"></i></a>
+</h3>
+<p>This sort of multiple testing is fairly obvious.
+You will notice it, when you end up with a large
+number of p-values, for example when doing a genetic
+screening and testing thousands of genes.
+Other related problems are harder to spot.
+For a single research question there are often different
+statistical tests that you could run, but trying
+them all out and then choosing the one that best
+agrees with your hypothesis is not an option!
+Likewise, simply looking at your data is a form of
+comparison if it influences your choice of statistical test.
+Ideally, you first run some exploratory experiments
+that are not meant to test your hypothesis, then
+decide on the tests you need, the sample size you
+want for a particular power and then run the actual
+experiments designed to test your hypothesis.</p>
+<p>At this point, here is another shout-out to
+Alex Reinharts book.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Reinhart.&lt;/p&gt;"><sup>35</sup></a></span>
+It is a very pleasant read
+and also shines more light on some of the other
+forms of <strong>p-hacking</strong>.</p>
+</div>
+</div>
+<div id="bayesian-statistics-and-the-base-rate-fallacy" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> Bayesian Statistics and the Base Rate Fallacy<a class="anchor" aria-label="anchor" href="#bayesian-statistics-and-the-base-rate-fallacy"><i class="fas fa-link"></i></a>
+</h2>
+<p>There is another more subtle problem called the
+base rate fallacy. As an example, we assume
+a medical test, testing for a certain condition.
+In medical testing, different words are used
+for the same concepts we defined above<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This is a slightly annoying trend
+in statistics; as it enters different fields, people come
+up with new names for old things
+(perhaps the most notorious field for this is
+machine learning).&lt;/p&gt;"><sup>36</sup></a>.</p>
+<p>Here, we have:</p>
+<ul>
+<li>Sensitivity = Power = true positive rate = <span class="math inline">\(1-\beta\)</span>
+</li>
+<li>Specificity = true negative rate = <span class="math inline">\(1-\alpha\)</span>
+</li>
+</ul>
+<p>Let us assume a test with a
+sensitivity of 90% and a specificity
+of 92%. When we visit the doctor to
+get a test, and get a positive result,
+what is the probability, that we are in
+fact positive (i.e. a true positive)?
+Well, the test has a specificity of 92%,
+so if we where negative, it would have detected
+that in 92% of cases, does this mean, that we can
+be 92% certain, that we are actually positive?</p>
+<p>Well, <strong>no</strong>. What we are ignoring here
+is <strong>base rate</strong>, which for diseases is called
+the <strong>prevalence</strong>. It is the proportion at
+which a disease exists in the general population.</p>
+<p>So, let us say, we are picking 1000 people
+at random from the population and testing
+them. We are dealing with a hypothetical
+condition that affects 1% of people,
+so we assume 10 people in our sample to be positive.
+Of those 10 people, 9 will be tested positive
+(due to our sensitivity),
+those will be our true positives.
+The remaining 1 will be a false negative.
+However, we are of course also testing
+the negatives (if we knew ahead of time
+there would be no point in testing) and of
+those due to our specificity, 8% will also be
+tested positive, which is 0.08 * 990, so
+we get 79 false positives.
+Because there are so many negatives in our
+sample, even a relatively high specificity
+will produce a lot of false positives.
+So that actual probability of being
+positive with a positive test result is</p>
+<p><span class="math display">\[\frac{true~positives}{true~positives + false~positives}=10\%\]</span></p>
+<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-210-1.png" width="100%"></div>
+<p>Formally, this is described by Bayes’s Formula</p>
+<p><span class="math display">\[P(A|B)=\frac{P(B|A)*P(A)}{P(B)}\]</span></p>
+<p>Read: The probability of A given B is the probability
+of B given A times the probability of A divided by
+the probability of B.</p>
+<p>In bayesian statistics, the prevalences are known
+as <strong>priors</strong>.</p>
+</div>
+<div id="concepts-discussed-today" class="section level2" number="5.6">
+<h2>
+<span class="header-section-number">5.6</span> Concepts discussed today<a class="anchor" aria-label="anchor" href="#concepts-discussed-today"><i class="fas fa-link"></i></a>
+</h2>
+<p>After today you should be familiar with the following concepts:</p>
+<ul>
+<li>Null and alternative hypothesis</li>
+<li>P-values and statistical significance</li>
+<li>Binomial distribution</li>
+<li>Probability density, probability and quantile functions</li>
+<li>Effect size and statistical power</li>
+<li>False positives, false negatives</li>
+<li>Multiple testing and p-hacking</li>
+<li>Bayes’s Theorem</li>
+</ul>
+</div>
+<div id="exercises-4" class="section level2" number="5.7">
+<h2>
+<span class="header-section-number">5.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-4"><i class="fas fa-link"></i></a>
+</h2>
+<p>Just by itself this is quite a bit of material to take in,
+so I try to limit the exercises for today.</p>
+</div>
+<div id="discovering-a-new-distribution" class="section level2" number="5.8">
+<h2>
+<span class="header-section-number">5.8</span> Discovering a new Distribution<a class="anchor" aria-label="anchor" href="#discovering-a-new-distribution"><i class="fas fa-link"></i></a>
+</h2>
+<p>The binomial distribution was concerned with sampling
+with replacement (you can get head or tails any number
+of times without using up the coin). In this exercise
+you will explore sampling <strong>without</strong> replacement.
+The common model for this is an urn with two
+different colored balls in it.
+The resulting distribution is called the
+<strong>hypergeometric distribution</strong> and the
+corresponding R functions are <code>&lt;r/d/p/q&gt;hyper</code>
+Unfortunately, I couldn’t think of a game that could
+be modeled by sampling without replacement,
+let me know, if you find one!</p>
+<ul>
+<li>Imagine you are a zoo manager.
+<ul>
+<li>Get yourselves in the mood by watching some cute
+animal videos and having a cup of tee or coffee.
+<a href="https://www.youtube.com/watch?v=DSehQsYU9h4">Here</a>
+are two red pandas having fun in the snow.</li>
+<li>We got a gift from another zoo! It consists
+of 8 red pandas and 2 giant pandas.
+What is the probability that they end up
+properly separated, if we randomly take 8 animals,
+put them in one enclosure and put the rest in another?</li>
+<li>Our penguin colony hatched eggs and we have
+a bunch of newcomers. We have have 15 males and
+10 females. If we look at a random subset of
+12 penguins, what does the distribution of the
+number of males look like? Which number is most
+likely? How likely is it, to get at least
+9 males in the sample?</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="resources-3" class="section level2" number="5.9">
+<h2>
+<span class="header-section-number">5.9</span> Resources<a class="anchor" aria-label="anchor" href="#resources-3"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108" class="uri">https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108</a></li>
+<li><a href="https://jimgruman.netlify.app/post/education-r/" class="uri">https://jimgruman.netlify.app/post/education-r/</a></li>
+<li><a href="http://varianceexplained.org/statistics/interpreting-pvalue-histogram/">P-Value histograms blogpost by David Robinson</a></li>
+<li><a href="https://www.statisticsdonewrong.com/">“Statistics done wrong”</a></li>
+</ul>
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="functions-1.html"><span class="header-section-number">4</span> Functions</a></div>
+<div class="next"><a href="distributions.html"><span class="header-section-number">6</span> Distributions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#hypothesis-testing"><span class="header-section-number">5</span> Hypothesis Testing</a></li>
+<li><a class="nav-link" href="#motivation-1"><span class="header-section-number">5.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#statistically-significant"><span class="header-section-number">5.2</span> Statistically Significant…</a></li>
+<li>
+<a class="nav-link" href="#getting-our-hands-dirty-with-probability"><span class="header-section-number">5.3</span> Getting our Hands dirty with Probability</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#definitions-hypothesis"><span class="header-section-number">5.3.1</span> Definitions: Hypothesis</a></li>
+<li><a class="nav-link" href="#testing-the-null-hypothesis-with-a-simulation"><span class="header-section-number">5.3.2</span> Testing the Null Hypothesis with a Simulation</a></li>
+<li><a class="nav-link" href="#getting-precise-with-the-binomial-distribution"><span class="header-section-number">5.3.3</span> Getting precise with the Binomial Distribution</a></li>
+<li><a class="nav-link" href="#but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives"><span class="header-section-number">5.3.4</span> But how much better? Understanding Effect Size and Power, False Positives and False Negatives</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#p-value-pitfalls"><span class="header-section-number">5.4</span> P-Value Pitfalls</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#multiple-testing-correction"><span class="header-section-number">5.4.1</span> Multiple Testing Correction</a></li>
+<li><a class="nav-link" href="#other-forms-of-p-hacking"><span class="header-section-number">5.4.2</span> Other forms of p-hacking</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#bayesian-statistics-and-the-base-rate-fallacy"><span class="header-section-number">5.5</span> Bayesian Statistics and the Base Rate Fallacy</a></li>
+<li><a class="nav-link" href="#concepts-discussed-today"><span class="header-section-number">5.6</span> Concepts discussed today</a></li>
+<li><a class="nav-link" href="#exercises-4"><span class="header-section-number">5.7</span> Exercises</a></li>
+<li><a class="nav-link" href="#discovering-a-new-distribution"><span class="header-section-number">5.8</span> Discovering a new Distribution</a></li>
+<li><a class="nav-link" href="#resources-3"><span class="header-section-number">5.9</span> Resources</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jmbuhr/dataintro/blob/master/05-lecture.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jmbuhr/dataintro/edit/master/05-lecture.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>

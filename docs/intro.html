@@ -9,7 +9,10 @@
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -31,8 +34,16 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Prerequisites</a></li>
+<li><a class="" href="index.html">Hello and welcome!</a></li>
 <li><a class="active" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">2</span> Data Wrangling</a></li>
+<li><a class="" href="tidy-data.html"><span class="header-section-number">3</span> Tidy Data</a></li>
+<li><a class="" href="functions-1.html"><span class="header-section-number">4</span> Functions</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">5</span> Hypothesis Testing</a></li>
+<li><a class="" href="distributions.html"><span class="header-section-number">6</span> Distributions</a></li>
+<li><a class="" href="fallacies.html"><span class="header-section-number">7</span> Fallacies</a></li>
+<li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
+<li><a class="" href="resources-5.html">Resources</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -45,186 +56,800 @@
 <h1>
 <span class="header-section-number">Lesson 1</span> Introduction<a class="anchor" aria-label="anchor" href="#intro"><i class="fas fa-link"></i></a>
 </h1>
-<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">1</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
-<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
+<blockquote>
+<p>… in which we get started with R and RStudio,
+explore the basic structures and operations of R
+and build our first plot by discovering a Grammar
+of Graphics.</p>
+</blockquote>
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/teusAoZ0IxI" allowfullscreen>
+</iframe>
+</div>
+<div id="what-you-will-learn" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> What You will Learn<a class="anchor" aria-label="anchor" href="#what-you-will-learn"><i class="fas fa-link"></i></a>
+</h2>
+<p>Throughout your scientific career — and potentially outside of it — you will encounter various forms of data. Maybe you do an experiment and measured the fluorescence of a molecular probe, or you simply count the penguins at your local zoo. Everything is data in some form or another. But raw numbers without context are meaningless and tables of numbers are not only boring to look at, but often hide the actual structure in the data.</p>
+<p>In this course you will learn to handle different kinds of data. You will learn to create pretty and insightful visualizations, compute different statistics on your data and also what these statistical concepts mean. From penguins to p-values, I got you covered.</p>
+<p>The course will be held in English, as the concepts covered will directly transfer to the research you do, where the working language is English. That being said, feel free to ask questions in any language that I understand, so German is also fine. My Latin is a little rusty, thought.</p>
+<p>In this course, we will be using the programming language R. R is a language particularly well suited for data analysis, because it was initially designed by statisticians and because of the interactive nature of the language, which makes it easier to get started. So don’t fret if this is your first encounter with programming, we will take one step at a time.</p>
+<p>The datasets chosen to illustrate the various concepts and tools are not particularly centered around Biology. Rather, I chose general datasets that require less introduction and enable us to focus on learning R and statistics. This is why we will be talking about penguins, racing games or life expectancy instead of intricate molecular measurements.</p>
+</div>
+<div id="first-things-first-installing-r" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> First Things First: Installing R<a class="anchor" aria-label="anchor" href="#first-things-first-installing-r"><i class="fas fa-link"></i></a>
+</h2>
+<div>
+<p><a href="https://cran.r-project.org/">
+<img src="images/Rlogo.png" style="width:10.0%"></a></p>
+</div>
+<p>But I was getting ahead of myself. First, we need to install R. You can download the installer for your operating system here: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a>. Feel free to post a question if you get stuck. This already gives you the ability to execute R code or use the interactive R console, but it is way more comfortable to use R inside of a so called IDE (Integrated Development Environment). IDEs give you neat things like autocompletion, a window for your plots and a help panel. The main IDE for R is called RStudio. We will be using it for this course and you can download it here: <a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a></p>
+<aside><a href="https://rstudio.com/">
+<img src="https://rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png" style="width:50.0%"></a>
+</aside>
+</div>
+<div id="executing-r-code" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> Executing R Code<a class="anchor" aria-label="anchor" href="#executing-r-code"><i class="fas fa-link"></i></a>
+</h2>
+<p>You can now execute commands in the R console in the bottom left. For example we can calculate a mathematical expression:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pressure</span>, type <span class="op">=</span> <span class="st">'b'</span>, pch <span class="op">=</span> <span class="fl">19</span><span class="op">)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<span id="fig:nice-fig"></span>
-<img src="dataintro_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%"><p class="caption">
-Figure 1.1: Here is a nice figure!
+<code class="sourceCode R"><span class="fl">1</span> <span class="op">+</span> <span class="fl">1</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Or generate the numbers from one to 10:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fl">1</span><span class="op">:</span><span class="fl">10</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>But I rarely type directly into the console. Because we want our results to be reproducible, we write our code in a <strong>script</strong> first, so that the next person<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This will most likely be future You. And you will thank yourself later&lt;/p&gt;"><sup>1</sup></a> can see what we did and replicate our analysis. You will see that reproducibility is quite near and dear to me, so it will pop up once or twice. And as scientists, I am sure you understand the importance.</p>
+<p>To create a new script, click the little button in the top left corner. In a script you can type regular R code, but it won’t get executed straight away. To send a line of code to the console to be executed, hit <strong>Ctrl+Enter</strong>. Go ahead, try it with:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Hello"</span>, <span class="st">"World!"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "Hello World!"</code></pre>
+<p>The <code>paste</code> function combines text, just like <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> combines numbers. Your code can have comments to tell your future self why you wrote a piece of code the way you did. Any line starting with the number symbol <code>#</code> will be ignored by R.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># This line will be ignored</span>
+<span class="fl">43</span> <span class="op">-</span> <span class="fl">1</span> <span class="co"># as will be the part after this #, but not before it</span></code></pre></div>
+<pre><code>## [1] 42</code></pre>
+</div>
+<div id="building-blocks-of-r" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Building Blocks of R<a class="anchor" aria-label="anchor" href="#building-blocks-of-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now it is time to introduce you to the fundamental datatypes of R. We are going to cover the so called <em>atomic datatypes</em> first and introduce others as they appear.</p>
+<div id="atomic-datatypes" class="section level3" number="1.4.1">
+<h3>
+<span class="header-section-number">1.4.1</span> Atomic Datatypes<a class="anchor" aria-label="anchor" href="#atomic-datatypes"><i class="fas fa-link"></i></a>
+</h3>
+<p>First we have numbers (which internally are called <code>numeric</code> or <code>double</code>)</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fl">12</span>
+<span class="fl">12.5</span></code></pre></div>
+<p>Then, there are whole numbers (<code>integer</code>)</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fl">1L</span> <span class="co"># denoted by L</span></code></pre></div>
+<p>as well as the rarely used complex numbers (<code>complex</code>)</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fl">1</span> <span class="op">+</span> <span class="fl">3i</span> <span class="co"># denoted by the small i for the imaginary part</span></code></pre></div>
+<p>Text data however will be used more often (<code>character</code>, <code>string</code>). Everything enclosed in quotation marks will be treated as text. Double or single quotation marks are both fine.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="st">"It was night again."</span>
+<span class="st">'This is also text'</span></code></pre></div>
+<p>Logical values can only contain yes or no, or rather <code>TRUE</code> and <code>FALSE</code> in programming terms (<code>boolean</code>, <code>logical</code>).</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="cn">TRUE</span>
+<span class="cn">FALSE</span></code></pre></div>
+<p>There are some special types that mix with any other type. Like <code>NULL</code> for no value and <code>NA</code> for Not Assigned.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="cn">NULL</span>
+<span class="cn">NA</span></code></pre></div>
+<p><code>NA</code> is contagious. Any computation involving <code>NA</code> will return <code>NA</code> (because R has no way of knowing the answer):</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="cn">NA</span> <span class="op">+</span> <span class="fl">1</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">12</span>, <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>But some functions can remove <code>NA</code>s before giving us an answer:</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">12</span>, <span class="fl">1</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 12</code></pre>
+<p>You can ask for the datatype of an object with the function <code>typeof</code>:</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="st">"hello"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "character"</code></pre>
+<p>There is also a concept called factors (<code>factor</code>) for categorical data, but we will talk about that later, when we get deeper into vectors.</p>
+</div>
+<div id="variables" class="section level3" number="1.4.2">
+<h3>
+<span class="header-section-number">1.4.2</span> Variables<a class="anchor" aria-label="anchor" href="#variables"><i class="fas fa-link"></i></a>
+</h3>
+<p>Often, you will want to store the result of a computation for reuse, or to give it a sensible name and make your code more readable. This is what <strong>variables</strong> are for. We can assign a value to a variable using the assignment operator <code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code> (In RStudio, there is a shortcut for it: <strong>Alt+Minus</strong>):</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_number</span> <span class="op">&lt;-</span> <span class="fl">42</span></code></pre></div>
+<p>Executing the above code will not give you any output, but when you use the name of the variable, you can see its content.</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_number</span></code></pre></div>
+<pre><code>## [1] 42</code></pre>
+<p>And you can do operations with those variables:</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">41</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="va">x</span> <span class="op">+</span> <span class="va">y</span></code></pre></div>
+<pre><code>## [1] 42</code></pre>
+<blockquote>
+<p><strong>NOTE</strong> Be careful about the order of execution! R enables you to work interactively and to execute the code you write in your script in any order with Ctrl+Enter, but when you execute (=“source”) the whole script, it will be executed from top to bottom.</p>
+</blockquote>
+<p>Furthermore, code is not executed again automatically, if you change some dependency of the expression later on. So the second assignment to x doesn’t change y.</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1000</span>
+<span class="va">y</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<p>Variable names can contain letters (capitalization matters), numbers (but not as the first character) and underscores <code>_</code>.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;They can also contain dots (&lt;code&gt;.&lt;/code&gt;), but it is considered bad practice because it can lead to some confusing edge cases.&lt;/p&gt;"><sup>2</sup></a></p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># snake_case</span>
+<span class="va">main_character_name</span> <span class="op">&lt;-</span> <span class="st">"Kvothe"</span>
+
+<span class="co"># or camelCase</span>
+<span class="va">bookTitle</span> <span class="op">&lt;-</span> <span class="st">"The Name of the Wind"</span>
+
+<span class="co"># you can have numbers in the name</span>
+<span class="va">x1</span> <span class="op">&lt;-</span> <span class="fl">12</span></code></pre></div>
+<div class="figure">
+<img src="images/coding_cases.png" class="external" alt=""><p class="caption">A depiction of various naming styles by.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst”&lt;/span&gt; (https://github.com/allisonhorst/stats-illustrations, 2020).&lt;/p&gt;"><sup>3</sup></a></span></p>
+</div>
+</div>
+<div id="functions" class="section level3" number="1.4.3">
+<h3>
+<span class="header-section-number">1.4.3</span> Functions<a class="anchor" aria-label="anchor" href="#functions"><i class="fas fa-link"></i></a>
+</h3>
+<blockquote>
+<p>In R, everything that exists is an object, everything that does something is a function.</p>
+</blockquote>
+<p>Functions are the main workhorse of our data analysis. For example, there are mathematical functions, like <code>sin</code>, <code>cos</code> etc.</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>Functions take arguments (sometimes called parameters) and sometimes they also return things. The <code>sin</code> function takes just one argument <code>x</code> and returns its sine. What we do with the returned value is up to us. We can use it directly in another computation or store it in a variable. If we don’t do anything with the return value, R simply prints it to the console.</p>
+<p>Note, that the <code><a href="https://rdrr.io/r/base/assignOps.html">=</a></code> inside the function parenthesis gives <code>x = 0</code> to the function and is separate from any <code>x</code> defined outside of the function. For example:</p>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">10</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Trig.html">cos</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># x outside of the function is still 10</span>
+<span class="va">x</span></code></pre></div>
+<pre><code>## [1] 10</code></pre>
+<p>To learn more about a function in R, execute <code><a href="https://rdrr.io/r/utils/Question.html">?</a></code> with the function name or press <strong>F1</strong> with your mouse over the function. This is actually one of the most important things to learn today, because the help pages can be… well… incredibly helpful.</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="op">?</span><span class="va">sin</span></code></pre></div>
+<p>We can pass arguments by name or by order of appearance. The following two expressions are equivalent.</p>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">12</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="fl">12</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="vectors" class="section level3" number="1.4.4">
+<h3>
+<span class="header-section-number">1.4.4</span> Vectors<a class="anchor" aria-label="anchor" href="#vectors"><i class="fas fa-link"></i></a>
+</h3>
+<p>A vector is an ordered collection of things which have the same datatype, where a datatype is something like numbers (<code>numeric</code>), text (<code>character</code> also called <code>string</code>) or whole numbers (<code>integer</code>).</p>
+<p>The basic datatypes in R are all vectors, which means they can contain more than one entry. You can create a vector by combining things of the same data type with the function <code>c</code> for <strong>combine</strong>.</p>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span><span class="op">)</span>
+<span class="va">x</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<p>Any atomic datatype mentioned above can be in a vector, but atomic vectors can only store data of the same type. For example, you can have a character vector</p>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"is"</span>, <span class="st">"a"</span>, <span class="st">"character"</span>, <span class="st">"vector"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "This"      "is"        "a"         "character" "vector"</code></pre>
+<p>or a vector of logical values</p>
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE</code></pre>
+<p>But not a vector with, say text and numbers. If we try to combine data of a different type, R will force all the data into the more permissive type. Because all Numbers can easily be converted into text, but not all text can be converted to numbers, this makes everything text in this example:</p>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Some text"</span>, <span class="fl">42</span>, <span class="fl">12</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "Some text" "42"        "12"</code></pre>
+<p>Note the quotation marks around the numbers, marking them as text. If we were to try and use them as numbers, we would get and error message:</p>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="st">"12"</span> <span class="op">+</span> <span class="fl">1</span></code></pre></div>
+<pre><code>## Error in "12" + 1: non-numeric argument to binary operator</code></pre>
+<p>There are other cases where we will encounter error messages. Programming languages are not unlike human languages. The computer will not always understand, what you want it to do, unless you use exactly the right grammar and vocabulary. An <code>error messages</code> is R’s way of telling us, that it didn’t understand, or that we asked it to do something impossible. Even experienced programmers are very fond of this advice:</p>
+<div class="figure">
+<span id="fig:googling"></span>
+<img src="images/errors.jpg" alt="Maybe the most important programming advice." width="100%"><p class="caption">
+Figure 1.1: Maybe the most important programming advice.
 </p>
 </div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="intro.html#fig:nice-fig">1.1</a>. Similarly, you can reference tables generated from <code><a href="https://rdrr.io/pkg/knitr/man/kable.html">knitr::kable()</a></code>, e.g., see Table <a href="intro.html#tab:nice-tab">1.1</a>.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">iris</span>, <span class="fl">20</span><span class="op">)</span>, caption <span class="op">=</span> <span class="st">'Here is a nice table!'</span>,
-  booktabs <span class="op">=</span> <span class="cn">TRUE</span>
-<span class="op">)</span></code></pre></div>
+<p>To solve above error message, we need to explicitly tell R to convert the text to a number:</p>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="st">"12"</span><span class="op">)</span> <span class="op">+</span> <span class="fl">1</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+<div id="subsetting" class="section level4" number="1.4.4.1">
+<h4>
+<span class="header-section-number">1.4.4.1</span> Subsetting<a class="anchor" aria-label="anchor" href="#subsetting"><i class="fas fa-link"></i></a>
+</h4>
+<p>We can look at, or change, subsets of vectors using square brackets <code>[]</code> like so:</p>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_elements</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"first"</span>, <span class="st">"second"</span>, <span class="st">"third"</span><span class="op">)</span>
+<span class="va">my_elements</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
+<pre><code>## [1] "second"</code></pre>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_elements</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"new element"</span>
+<span class="va">my_elements</span></code></pre></div>
+<pre><code>## [1] "first"       "second"      "new element"</code></pre>
+<p>If we assign names to the elements, we can also reference them by name.</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">my_elements</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"e1"</span>, <span class="st">"e2"</span>, <span class="st">"e3"</span><span class="op">)</span>
+<span class="va">my_elements</span></code></pre></div>
+<pre><code>##            e1            e2            e3 
+##       "first"      "second" "new element"</code></pre>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_elements</span><span class="op">[</span><span class="st">"e3"</span><span class="op">]</span></code></pre></div>
+<pre><code>##            e3 
+## "new element"</code></pre>
+<p>Pass a <em>vector</em> of indices (or names) to the square brackets to get (or set) multiple elements:</p>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_elements</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<pre><code>##            e1            e3 
+##       "first" "new element"</code></pre>
+<p>Using a logical vector yields all elements where the vector is <code>TRUE</code>:</p>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_elements</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<pre><code>##       e1       e2 
+##  "first" "second"</code></pre>
+</div>
+</div>
+<div id="vectorization" class="section level3" number="1.4.5">
+<h3>
+<span class="header-section-number">1.4.5</span> Vectorization<a class="anchor" aria-label="anchor" href="#vectorization"><i class="fas fa-link"></i></a>
+</h3>
+<p>The basic mathematical operations in R and a lot of functions are vectorized. This means, they operate on every element of the vector. Here, every element is multiplied by 2 and the result is printed to the console.</p>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">*</span> <span class="fl">2</span></code></pre></div>
+<pre><code>## [1]  2  4  6  8 10 12</code></pre>
+<p>The original vector <code>x</code> was not changed in doing so.</p>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5 6</code></pre>
+<p>But we could have, by assigning the result back to <code>x</code>, thus overwriting its previous content. The right hand side (RHS) is executed first:</p>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span></code></pre></div>
+<p>Now <code>x</code> changed:</p>
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span></code></pre></div>
+<pre><code>## [1]  2  4  6  8 10 12</code></pre>
+<p>A handy way of creating vectors of numbers is with the <code><a href="https://rdrr.io/r/base/Colon.html">:</a></code> operator to specify a range of values:</p>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fl">1</span><span class="op">:</span><span class="fl">5</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<p>Or using the <code>seq</code> function with some additional (optional) parameters:</p>
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">1</span>, to <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<blockquote>
+<p><strong>Now you:</strong> Look at the documentation/help page for <code>seq</code> and find out how to create a vector of all even numbers from 2 to 100.</p>
+</blockquote>
+</div>
+</div>
+<div id="functions-and-packages-making-our-lives-easier" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Functions and Packages – Making our lives easier<a class="anchor" aria-label="anchor" href="#functions-and-packages-making-our-lives-easier"><i class="fas fa-link"></i></a>
+</h2>
+<p>You just learned about the functions <code>sin</code>, <code>seq</code> and <code>max</code>. But wait, there is more! Not only in the sense that there are more functions in R (what kind of language would that be with only two verbs?!), but also in a more powerful way:</p>
+<blockquote>
+<p>We can define our own functions!</p>
+</blockquote>
+<p>The syntax (<span class="math inline">\(\leftarrow\)</span> grammar for programming languages) is as follows.</p>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">name_for_the_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">parameter1</span>, <span class="va">parameter2</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span> <span class="co"># etc.</span>
+  <span class="co"># body of the function</span>
+  <span class="co"># things happen</span>
+  <span class="va">result</span> <span class="op">&lt;-</span> <span class="va">parameter1</span> <span class="op">+</span> <span class="va">parameter2</span>
+  <span class="co"># Something the function should return to the caller</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+<p>The function ends when it reaches the <code>return</code> keyword. It also ends when it reaches the end of the function body and implicitly returns the last expression. So we could have written it a bit shorter and in fact you will often see people omitting the explicit return at the end:</p>
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">add</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">x</span> <span class="op">+</span> <span class="va">y</span>
+<span class="op">}</span></code></pre></div>
+<p>And we can call our freshly defined function:</p>
+<div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">add</span><span class="op">(</span><span class="fl">23</span>, <span class="fl">19</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 42</code></pre>
+<p>Got an error like <code>Error in add(23, 19) : could not find function "add"</code>? Check that you did in fact execute the code that defines the function (i.e. put your cursor on the line with the <code>function</code> keyword and hit Ctrl+Enter.).</p>
+<blockquote>
+<p><strong>Now you:</strong> Define a function that takes one argument, a vector of numbers, devides each element by the length of the vector (hint: <code>length</code> is the function to get the length) and returns the resulting scaled vector.</p>
+</blockquote>
+<p>You are not the only one using R. There is a welcoming and helpful community out there. Some people also write a bunch of functions and put them together in a so called <code>package</code>. And some people even went a step further. The <code>tidyverse</code> is a <strong>collection of packages</strong> that play very well together and also iron out some of the quirkier ways in which R works.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Hadley Wickham et al., &lt;span&gt;“Welcome to the &lt;span class="nocase"&gt;tidyverse&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;Journal of Open Source Software&lt;/em&gt; 4, no. 43 (2019): 1686, &lt;a href="https://doi.org/10.21105/joss.01686" role="doc-biblioref"&gt;https://doi.org/10.21105/joss.01686&lt;/a&gt;.&lt;/p&gt;'><sup>4</sup></a></span> They provide a consistent interface to enable us to do more while having to learn less special cases. The R function <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("&lt;package_name_here&gt;")</a></code> installs packages from CRAN a curated set of R packages.</p>
+<div id="the-tidyverse" class="section level3" number="1.5.1">
+<h3>
+<span class="header-section-number">1.5.1</span> The Tidyverse<a class="anchor" aria-label="anchor" href="#the-tidyverse"><i class="fas fa-link"></i></a>
+</h3>
+<p>Go ahead and install the tidyverse packages with</p>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code></pre></div>
+<p>This is one exception to our effort of having everything in our script and not just in the console. We don’t want R trying to install the package every time we run the script, as this needs to happen only once. So you can either turn it into a comment, delete it from the script, or only type it in the console. You can also use RStudio’s built-in panel for package installation.</p>
+<aside><a href="https://tidyverse.org/">
+<img src="images/tidyverse.png" class="external"></a>
+</aside><p>To make the functions from a package available to your R session, run the <code>library</code> function with the name of the package.</p>
+<div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<p>The convention is, to keep all <code>library</code>-calls at the top of your script, so that you ,and others, can see straight away, which packages are needed. Don’t worry about the messages that pop up. This is just the tidyverse telling us that two of it’s functions (<code>lag</code> and <code>filter</code>) have functions with the same names in another package (or in this case base-R) and because we loaded the tidyverse second, R will now use the tidyverse functions. This is what “masking” means.</p>
+</div>
+</div>
+<div id="literate-programming-rmarkdown" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> Literate Programming: Rmarkdown<a class="anchor" aria-label="anchor" href="#literate-programming-rmarkdown"><i class="fas fa-link"></i></a>
+</h2>
+<aside><a href="https://rmarkdown.rstudio.com/index.html">
+<img src="images/rmarkdown.png" class="external" width="200"></a>
+</aside><div class="figure">
+<img src="images/rmarkdown_wizards.png" class="external" alt=""><p class="caption"><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst.”&lt;/span&gt;&lt;/p&gt;"><sup>5</sup></a></span></p>
+</div>
+<p>There is another package I would like you to install. It is called <code>Rmarkdown</code>.</p>
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rmarkdown"</span><span class="op">)</span></code></pre></div>
+<p><strong>Rmarkdown</strong> enables us, to combine text with <code>code</code> and then produce a range of output formats like pdf, html, word documents, presentations etc. In fact, this whole website, including the slides, was created with Rmarkdown. Sounds exciting? Let’s dive into it!</p>
+<p>Open up a new Rmarkdown document with the file extension <code>.Rmd</code> from the <em>New File</em> menu in the top left corner of RStudio: <strong>File → New File → R Markdown</strong> and choose <strong>html</strong> as the output format. I particularly like html, because you don’t have to worry about page breaks and it easily works on screens of different sizes, like your phone.</p>
+<p>An Rmarkdown document consists of three things:</p>
+<ol style="list-style-type: decimal">
+<li>
+<strong>Metadata</strong>:<br>
+Information about your document such as the author or the date in a format called <code>YAML</code>. This YAML header starts and ends with three minus signs <code>---</code>.</li>
+<li>
+<strong>Text</strong>:<br>
+Regular text is interpreted as markdown, meaning it supports things like creating headings by prefixing a line with <code>#</code>, or text that will be bold in the output by surrounding it with <code>**</code>.</li>
+<li>
+<strong>Code chunks</strong>:<br>
+Starting with ```{r} and ending with ``` (backticks). They will be interpreted as R code. This is where you write the code like you did in the <code>.R</code> script file. You can insert new chunks with the button on the top right of the editor window or use the shortcut <strong>Ctrl+Alt+i</strong>.</li>
+</ol>
+<p>Use these to document your thoughts alongside your code when you are doing data analysis. Future you (and reviewer number 2) will be happy! To run code inside of chunks, use,the little play button on the chunk, the tried and true <strong>Ctrl+Enter</strong> to run one line, or <strong>Ctrl+Shift+Enter</strong> to run the whole chunk. Your chunks can be as large or small as you want, but try to maintain some sensible structure.</p>
+</div>
+<div id="our-first-dataset-the-palmer-penguins" class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> Our First Dataset: The Palmer Penguins<a class="anchor" aria-label="anchor" href="#our-first-dataset-the-palmer-penguins"><i class="fas fa-link"></i></a>
+</h2>
+<div class="figure">
+<img src="images/lter_penguins.png" class="external" style="width:100.0%" alt=""><p class="caption"><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst.”&lt;/span&gt;&lt;/p&gt;"><sup>6</sup></a></span></p>
+</div>
+<p>So let’s explore our first dataset together in a fresh Rmarkdown document. The <code>setup</code> chunk is special. It gets executed automatically before any other chunk in the document is run. This makes it a good place to load packages. The dataset we are working with today actually comes in its own package, so we need to install this as well (Yes, there is a lot of installing today, but you will have to do this only once):</p>
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"palmerpenguins"</span><span class="op">)</span></code></pre></div>
+<p>And then we populate our <code>setup</code> chunk with</p>
+<div class="sourceCode" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></code></pre></div>
+<p>This gives us the <code>penguins</code> dataset:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Allison Horst, Alison Hill, and Kristen Gorman, &lt;em&gt;Palmerpenguins: &lt;span&gt;Palmer&lt;/span&gt; Archipelago (Antarctica) Penguin Data&lt;/em&gt;, Manual, 2020.&lt;/p&gt;"><sup>7</sup></a></span></p>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">penguins</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
-<caption>
-<span id="tab:nice-tab">Table 1.1: </span>Here is a nice table!</caption>
+<colgroup>
+<col width="8%">
+<col width="11%">
+<col width="16%">
+<col width="15%">
+<col width="20%">
+<col width="13%">
+<col width="7%">
+<col width="5%">
+</colgroup>
 <thead><tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
+<th align="left">species</th>
+<th align="left">island</th>
+<th align="right">bill_length_mm</th>
+<th align="right">bill_depth_mm</th>
+<th align="right">flipper_length_mm</th>
+<th align="right">body_mass_g</th>
+<th align="left">sex</th>
+<th align="right">year</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">39.1</td>
+<td align="right">18.7</td>
+<td align="right">181</td>
+<td align="right">3750</td>
+<td align="left">male</td>
+<td align="right">2007</td>
 </tr>
 <tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">39.5</td>
+<td align="right">17.4</td>
+<td align="right">186</td>
+<td align="right">3800</td>
+<td align="left">female</td>
+<td align="right">2007</td>
 </tr>
 <tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">40.3</td>
+<td align="right">18.0</td>
+<td align="right">195</td>
+<td align="right">3250</td>
+<td align="left">female</td>
+<td align="right">2007</td>
 </tr>
 <tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+<td align="left">NA</td>
+<td align="right">2007</td>
 </tr>
 <tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">36.7</td>
+<td align="right">19.3</td>
+<td align="right">193</td>
+<td align="right">3450</td>
+<td align="left">female</td>
+<td align="right">2007</td>
 </tr>
 <tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.6</td>
-<td align="right">3.4</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.0</td>
-<td align="right">3.4</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.4</td>
-<td align="right">2.9</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.7</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.8</td>
-<td align="right">3.4</td>
-<td align="right">1.6</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.8</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.3</td>
-<td align="right">3.0</td>
-<td align="right">1.1</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.8</td>
-<td align="right">4.0</td>
-<td align="right">1.2</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.7</td>
-<td align="right">4.4</td>
-<td align="right">1.5</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.3</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.7</td>
-<td align="right">3.8</td>
-<td align="right">1.7</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.8</td>
-<td align="right">1.5</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
+<td align="left">Adelie</td>
+<td align="left">Torgersen</td>
+<td align="right">39.3</td>
+<td align="right">20.6</td>
+<td align="right">190</td>
+<td align="right">3650</td>
+<td align="left">male</td>
+<td align="right">2007</td>
 </tr>
 </tbody>
 </table></div>
-<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Yihui Xie, &lt;em&gt;Bookdown: Authoring Books and Technical Documents with r Markdown&lt;/em&gt;, 2021, &lt;a href="https://CRAN.R-project.org/package=bookdown" role="doc-biblioref"&gt;https://CRAN.R-project.org/package=bookdown&lt;/a&gt;.&lt;/p&gt;'><sup>1</sup></a></span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong>.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Yihui Xie, &lt;em&gt;Dynamic Documents with &lt;span&gt;R&lt;/span&gt; and Knitr&lt;/em&gt;, 2nd ed. (Boca Raton, Florida: Chapman; Hall/CRC, 2015), &lt;a href="http://yihui.org/knitr/" role="doc-biblioref"&gt;http://yihui.org/knitr/&lt;/a&gt;.&lt;/p&gt;'><sup>2</sup></a></span></p>
-
+<p>Let’s talk about the shape of the <code>penguins</code> object. The <code>str</code> function reveals the <strong>structure</strong> of an object to us.</p>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></code></pre></div>
+<pre><code>## tibble [344 × 8] (S3: tbl_df/tbl/data.frame)
+##  $ species          : Factor w/ 3 levels "Adelie","Chinstrap",..: 1 1 1 1 1 1 1 1 1 1 ...
+##  $ island           : Factor w/ 3 levels "Biscoe","Dream",..: 3 3 3 3 3 3 3 3 3 3 ...
+##  $ bill_length_mm   : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+##  $ bill_depth_mm    : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+##  $ flipper_length_mm: int [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
+##  $ body_mass_g      : int [1:344] 3750 3800 3250 NA 3450 3650 3625 4675 3475 4250 ...
+##  $ sex              : Factor w/ 2 levels "female","male": 2 1 1 NA 1 2 1 2 NA NA ...
+##  $ year             : int [1:344] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 ...</code></pre>
+<div id="lists-and-dataframes" class="section level3" number="1.7.1">
+<h3>
+<span class="header-section-number">1.7.1</span> Lists and dataframes<a class="anchor" aria-label="anchor" href="#lists-and-dataframes"><i class="fas fa-link"></i></a>
+</h3>
+<p>Previously, we only had atomic vectors, where all elements are of the same type, like a vector of numbers, and the individual elements could not contain other things themselves (hence the name <em>atomic</em>): <code><a href="https://rdrr.io/r/base/c.html">c(1, 2, 3)</a></code>. The next more general thing is a <code>list</code>, which we can create with the function <code><a href="https://rdrr.io/r/base/list.html">list(...)</a></code>. Lists can contain arbitrary elements, even other lists:</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"hello"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fl">42</span>, <span class="st">"text"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">my_list</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] "hello"
+## 
+## [[3]]
+## [1] 1 2 3
+## 
+## [[4]]
+## [[4]][[1]]
+## [1] 42
+## 
+## [[4]][[2]]
+## [1] "text"</code></pre>
+<p>The print output suggests something else: For vectors, we could subset them using <code>[]</code>, but here we will need <strong>double square brackets</strong> <code>[[]]</code>.</p>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_list</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>Using single brackets would just give us a subset of the list, not the actual element of the list (yes, this can be confusing):</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_list</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1 2 3</code></pre>
+<p>The <code>penguins</code> variable contains what is called a <code>data.frame</code>. The reason I talked about lists just now is that dataframes are built on top of lists, where the elements are the columns. Because dataframes form this rectangular data format like a spreadsheet you know from excel, the constraint is that the elements of the list need to have the same length. We can demonstrate this by creating our own dataframe from a list.</p>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">new_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">42</span>, <span class="fl">3</span><span class="op">)</span>, third <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hello"</span>, <span class="st">"from"</span>, <span class="st">"R"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">new_list</span></code></pre></div>
+<pre><code>## $x
+## [1] 1 2 3
+## 
+## $y
+## [1] 10 42  3
+## 
+## $third
+## [1] "hello" "from"  "R"</code></pre>
+<p>Notice that I did another thing: I gave names to the elements of the list. This is nice because of two reasons. Firstly, as the print output already suggests, we can now use the dollar syntax <code><a href="https://rdrr.io/r/base/Extract.html">$</a></code> to refer to the individual elements by name instead of by position and RStudio’s autocomplete helps us out.</p>
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">new_list</span><span class="op">$</span><span class="va">x</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+<p>Secondly, the names will become column names when we turn it into a dataframe:</p>
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_first_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">new_list</span><span class="op">)</span>
+<span class="va">my_first_df</span></code></pre></div>
+<pre><code>##   x  y third
+## 1 1 10 hello
+## 2 2 42  from
+## 3 3  3     R</code></pre>
+<p>There is one last difference for the <code>penguins</code>. They are also a <code>tibble</code>, which is again built on top of dataframes and makes the object look nicer when we print it to the console. Compare the following when executing them in the console:</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">penguins</span>
+<span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></code></pre></div>
+<p>The dataset contains data for 344 penguins. of 3 different species, collected from 3 islands in the Palmer Archipelago, Antarctica<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://allisonhorst.github.io/palmerpenguins/" class="uri"&gt;https://allisonhorst.github.io/palmerpenguins/&lt;/a&gt;&lt;/p&gt;'><sup>8</sup></a>.</p>
+</div>
+</div>
+<div id="translating-data-into-visualizations" class="section level2" number="1.8">
+<h2>
+<span class="header-section-number">1.8</span> Translating Data into Visualizations<a class="anchor" aria-label="anchor" href="#translating-data-into-visualizations"><i class="fas fa-link"></i></a>
+</h2>
+<p>You probably took this course because you want to build some cool visualizations for you data. In order to do that, let us talk about how we can describe visualizations. Just like language has grammar, some smart people came up with a <strong>grammar of graphics</strong>,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Leland Wilkinson et al., &lt;em&gt;The &lt;span&gt;Grammar&lt;/span&gt; of &lt;span&gt;Graphics&lt;/span&gt;&lt;/em&gt;, 2nd edition (&lt;span&gt;New York&lt;/span&gt;: &lt;span&gt;Springer&lt;/span&gt;, 2005).&lt;/p&gt;"><sup>9</sup></a></span> which was then slightly modified and turned into an R package so that we can not only talk about but also create visualizations using this grammar.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Hadley Wickham, &lt;span&gt;“A &lt;span&gt;Layered Grammar&lt;/span&gt; of &lt;span&gt;Graphics&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;Journal of Computational and Graphical Statistics&lt;/em&gt; 19, no. 1 (January 2010): 3–28, &lt;a href="https://doi.org/10.1198/jcgs.2009.07098" role="doc-biblioref"&gt;https://doi.org/10.1198/jcgs.2009.07098&lt;/a&gt;.&lt;/p&gt;'><sup>10</sup></a></span></p>
+<aside><a href="https://ggplot2.tidyverse.org/">
+<img src="images/ggplot2.png"></a>
+</aside><p>The package is called <code>ggplot2</code> and we already have it loaded because it is included in the tidyverse. Before looking at the code, we can describe what we need in order to create this graphic.</p>
+<!-- slides -->
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">flipper_length_mm</span>, <span class="va">bill_length_mm</span>,
+                     color <span class="op">=</span> <span class="va">species</span>,
+                     shape <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Flipper length [mm]"</span>,
+       y <span class="op">=</span> <span class="st">"Bill length [mm]"</span>,
+       title <span class="op">=</span> <span class="st">"Penguins!"</span>,
+       subtitle <span class="op">=</span> <span class="st">"The 3 penguin species can differentiated by their flipper and bill lengths"</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_color_brewer</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"qual"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/final-penguin-plot-1.png" width="100%"></div>
+<p>We can build this plot up step by step. The data is the foundation of our plot, but this just gives us an empty plotting canvas. I am assigning the individual steps we are going through to a variable, so that we can sequentially add elements, but you can do this in one step as shown above.</p>
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span>
+<span class="va">plt</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-60-1.png" width="100%"></div>
+<p>Then, we add and <code>aesthetic mapping</code> to the plot. It creates a relation from the features of our dataset (like the flipper length of each penguin) to a visual property, like position of the x-axis, color or shape.</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>,
+              <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">flipper_length_mm</span>,
+                  y <span class="op">=</span> <span class="va">bill_length_mm</span>,
+                  color <span class="op">=</span> <span class="va">species</span>,
+                  shape <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span>
+<span class="va">plt</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-61-1.png" width="100%"></div>
+<p>Still, the plot is empty, it only has a coordinate system with a certain scale. This is because we have no geometric objects to represent our aesthetics. Elements of the plot are added using the <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> operator and all geometric elements that ggplot knows start with <code>geom_</code>. Let’s add some points:</p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span>
+  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span>
+<span class="va">plt</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-62-1.png" width="100%"></div>
+<p>Look at the help page for <code>geom_point</code> to find out what aesthetics it understands. The exact way that features are mapped to aesthetics is regulated by <strong>scales</strong> starting with <code>scale_</code> and the name of an aesthetic:</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span>
+  <span class="fu">scale_color_brewer</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"qual"</span><span class="op">)</span>
+<span class="va">plt</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-63-1.png" width="100%"></div>
+<p>We can add or change labels (like the x-axis-label) by adding the <code>labs</code> function.</p>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span>
+    <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Flipper length [mm]"</span>,
+         y <span class="op">=</span> <span class="st">"Bill length [mm]"</span>,
+         title <span class="op">=</span> <span class="st">"Penguins!"</span>,
+         subtitle <span class="op">=</span> <span class="st">"The 3 penguin species can differentiated by their flipper and bill lengths"</span><span class="op">)</span></code></pre></div>
+<p>The overall look of the plot is regulated by themes like the premade <code>theme_</code> functions or more finely regulated with the <code>theme()</code> function, which uses <code>element</code> functions to create the look of individual elements. Autocomplete helps us out a lot here (<strong>Ctrl+Space</strong>).</p>
+<div class="sourceCode" id="cb105"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span> 
+  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme</span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span><span class="op">)</span>
+<span class="va">plt</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-65-1.png" width="100%"></div>
+</div>
+<div id="the-community-there-to-catch-you." class="section level2" number="1.9">
+<h2>
+<span class="header-section-number">1.9</span> The Community: There to catch You.<a class="anchor" aria-label="anchor" href="#the-community-there-to-catch-you."><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>Coding can be incredibly rewarding, but also incredibly frustrating.</p>
+</blockquote>
+<p>Luckily, the R community is with you!</p>
+<div class="figure">
+<img src="images/code_hero.jpg" class="external" style="width:50.0%" alt=""><p class="caption"><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst.”&lt;/span&gt;&lt;/p&gt;"><sup>11</sup></a></span></p>
+</div>
+<p>In the video I give a brief overview of the resources linked below. Come back here anytime as a reference.</p>
+</div>
+<div id="exercises" class="section level2" number="1.10">
+<h2>
+<span class="header-section-number">1.10</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
+</h2>
+<p>This course is not graded, but I need some way of confirming that you did indeed take part in this course. In order to get the confirmation, you will send your solutions for a minimum of 5 out of the 8 exercises to me before the Friday following the lecture upload on Monday. For each week I would like you to create a fresh Rmarkdown document with your solutions as code as well as any questions that arose during the lecture. This will help me a lot in improving this course.</p>
+<p>When you are done solving the exercises, hit the <code>knit</code> button (at the top of the editor panel) and send me the resulting html document via discord or email (confirm that it looks the way you expected beforehand).</p>
+<p>Here are today’s tasks:</p>
+<ul>
+<li><p>Write a section of text about your previous experience with data analysis and/or programming (optional, but I can use this information to customize the course).</p></li>
+<li><p>Write the code that loads in the tidyverse and the palmer penguins data set.</p></li>
+<li>
+<p>Produce a scatterplot (meaning a plot with points) of the bill length vs. the bill depth, colorcoded by species.</p>
+<ul>
+<li>Imaginary bonus points if you manage to use the same colors as in the image above (hint: look at the help page for <code>scale_color_manual()</code> to find out how). Even more bonus points if you also look into the <code>theme()</code> function and it’s arguments, or the <code>theme_&lt;...&gt;()</code> functions to make the plot prettier.</li>
+</ul>
+</li>
+<li>
+<p>Create a vector of all odd numbers from 1 to 99 and store it in a variable.</p>
+<ul>
+<li><p>Create a second variable that contains the squares of the first.</p></li>
+<li><p>Store both variables in a named list and then turn this list into a <code>tibble</code> (the enhanced version of a <code>data.frame</code></p></li>
+<li><p>Discover a shortcut for the three steps above using the function <code>tibble</code>. Specifically, have a look at the third bullet point in the description of <code><a href="https://tibble.tidyverse.org/reference/tibble.html">?tibble::tibble</a></code> (The two colons <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> specify the package a function is coming from. You only need <code>tibble(...)</code> in the code because the <code>tibble</code> package is loaded automatically with the tidyverse. Here, I specify it directly to send you to the correct help page).</p></li>
+<li><p>Create a scatterplot of the two variables stored in the tibble using <code>ggplot</code>.</p></li>
+<li><p>What <code>geom_</code> function do you need to add to the plot to add a line that connects your points?</p></li>
+</ul>
+</li>
+<li>
+<p>Check the metadata (YAML) of your Rmarkdown document and make sure it contains your name as the <code>author:</code> .</p>
+<ul>
+<li>
+<a href="https://bookdown.org/yihui/rmarkdown/html-document.html">Here</a> are a couple more YAML options you can try if you feel adventurous.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="solutions" class="section level2" number="1.11">
+<h2>
+<span class="header-section-number">1.11</span> Solutions<a class="anchor" aria-label="anchor" href="#solutions"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <strong>Office Hour</strong> for the solutions and questions is on Friday, Nov 6, 2020 at 10:00. Find the link in the discord.</p>
+</div>
+<div id="learn-more" class="section level2" number="1.12">
+<h2>
+<span class="header-section-number">1.12</span> Learn more:<a class="anchor" aria-label="anchor" href="#learn-more"><i class="fas fa-link"></i></a>
+</h2>
+<p>These (and more) resources can also be found on the dedicated <a href="resources-5.html#resources-5">Resources</a> page.</p>
+</div>
+<div id="tidyverse" class="section level2" number="1.13">
+<h2>
+<span class="header-section-number">1.13</span> Tidyverse<a class="anchor" aria-label="anchor" href="#tidyverse"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="https://r4ds.had.co.nz/">R for Data Science</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Hadley Wickham and Garrett Grolemund, &lt;em&gt;R for &lt;span&gt;Data Science&lt;/span&gt;: &lt;span&gt;Import&lt;/span&gt;, &lt;span&gt;Tidy&lt;/span&gt;, &lt;span&gt;Transform&lt;/span&gt;, &lt;span&gt;Visualize&lt;/span&gt;, and &lt;span&gt;Model Data&lt;/span&gt;&lt;/em&gt;, 1 edition (&lt;span&gt;Sebastopol, CA&lt;/span&gt;: &lt;span&gt;O’Reilly Media&lt;/span&gt;, 2017).&lt;/p&gt;"><sup>12</sup></a></span>
+</li>
+<li><a href="https://www.rfordatasci.com/">R4DS online Community</a></li>
+<li><a href="https://www.rstudio.com/resources/cheatsheets/">RStudio Cheat Sheets!</a></li>
+<li>
+<a href="https://moderndive.com/">The Modern Dive</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Chester Ismay and Albert Y. Kim, &lt;em&gt;Statistical &lt;span&gt;Inference&lt;/span&gt; via &lt;span&gt;Data Science&lt;/span&gt;&lt;/em&gt; (&lt;span&gt;CRC Press&lt;/span&gt;, 2019).&lt;/p&gt;"><sup>13</sup></a></span>
+</li>
+<li><a href="https://education.rstudio.com/">RStudio Education</a></li>
+</ul>
+</div>
+<div id="rmarkdown" class="section level2" number="1.14">
+<h2>
+<span class="header-section-number">1.14</span> Rmarkdown<a class="anchor" aria-label="anchor" href="#rmarkdown"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf" class="uri">https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" class="uri">https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></li>
+<li><a href="https://pandoc.org/MANUAL.html#pandocs-markdown" class="uri">https://pandoc.org/MANUAL.html#pandocs-markdown</a></li>
+<li><a href="https://reproducible-analysis-workshop.readthedocs.io/en/latest/7.RMarkdown-knitr.html" class="uri">https://reproducible-analysis-workshop.readthedocs.io/en/latest/7.RMarkdown-knitr.html</a></li>
+<li><a href="https://rmarkdown.rstudio.com/index.html" class="uri">https://rmarkdown.rstudio.com/index.html</a></li>
+</ul>
+</div>
+<div id="r-in-general" class="section level2" number="1.15">
+<h2>
+<span class="header-section-number">1.15</span> R in general<a class="anchor" aria-label="anchor" href="#r-in-general"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="https://adv-r.hadley.nz/">Advanced R</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Hadley Wickham, &lt;em&gt;Advanced &lt;span&gt;R&lt;/span&gt;, &lt;span&gt;Second Edition&lt;/span&gt;&lt;/em&gt;, 2 edition (&lt;span&gt;Boca Raton&lt;/span&gt;: &lt;span&gt;Chapman and Hall/CRC&lt;/span&gt;, 2019).&lt;/p&gt;"><sup>14</sup></a></span>
+</li>
+<li>
+<a href="https://rstudio-education.github.io/hopr/">Hands on Programming with R</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Garrett Grolemund and Hadley Wickham, &lt;em&gt;Hands-&lt;span&gt;On Programming&lt;/span&gt; with &lt;span&gt;R&lt;/span&gt;: &lt;span&gt;Write Your Own Functions&lt;/span&gt; and &lt;span&gt;Simulations&lt;/span&gt;&lt;/em&gt; (&lt;span&gt;Sebastopol, CA&lt;/span&gt;: &lt;span&gt;O’Reilly Media&lt;/span&gt;, 2014).&lt;/p&gt;"><sup>15</sup></a></span>
+</li>
+<li>
+<a href="http://r-pkgs.had.co.nz/">R Packages</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Hadley Wickham, &lt;em&gt;R &lt;span&gt;Packages&lt;/span&gt;: &lt;span&gt;Organize&lt;/span&gt;, &lt;span&gt;Test&lt;/span&gt;, &lt;span&gt;Document&lt;/span&gt;, and &lt;span&gt;Share Your Code&lt;/span&gt;&lt;/em&gt;, 1 edition (&lt;span&gt;Sebastopol, CA&lt;/span&gt;: &lt;span&gt;O’Reilly Media&lt;/span&gt;, 2015).&lt;/p&gt;"><sup>16</sup></a></span>
+</li>
+<li>
+<a href="https://socviz.co/index.html">Data Visualization: A Practical Introduction</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Kieran Healy, &lt;em&gt;Data &lt;span&gt;Visualization&lt;/span&gt;: &lt;span&gt;A Practical Introduction&lt;/span&gt;&lt;/em&gt;, 1 edition (&lt;span&gt;Princeton, NJ&lt;/span&gt;: &lt;span&gt;Princeton University Press&lt;/span&gt;, 2018).&lt;/p&gt;"><sup>17</sup></a></span>
+</li>
+<li>
+<a href="http://www.cookbook-r.com/Graphs/">Graph Cookbook</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Winston Chang, &lt;em&gt;R &lt;span&gt;Graphics Cookbook&lt;/span&gt;: &lt;span&gt;Practical Recipes&lt;/span&gt; for &lt;span&gt;Visualizing Data&lt;/span&gt;&lt;/em&gt;, 1 edition (&lt;span&gt;Beijing Cambridge Farnham Köln Sebastopol Tokyo&lt;/span&gt;: &lt;span&gt;O’Reilly Media&lt;/span&gt;, 2013).&lt;/p&gt;"><sup>18</sup></a></span>
+</li>
+</ul>
+</div>
+<div id="statistics" class="section level2" number="1.16">
+<h2>
+<span class="header-section-number">1.16</span> Statistics<a class="anchor" aria-label="anchor" href="#statistics"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="http://www.intuitivebiostatistics.com/">Intuitive Biostatistics</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Harvey Motulsky, &lt;em&gt;Intuitive &lt;span&gt;Biostatistics&lt;/span&gt;: &lt;span&gt;A Nonmathematical Guide&lt;/span&gt; to &lt;span&gt;Statistical Thinking&lt;/span&gt;&lt;/em&gt;, 4 edition (&lt;span&gt;New York&lt;/span&gt;: &lt;span&gt;Oxford University Press&lt;/span&gt;, 2017).&lt;/p&gt;"><sup>19</sup></a></span>
+</li>
+<li>
+<a href="https://www.statisticsdonewrong.com/">Statistics Done Wrong</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Alex Reinhart, &lt;em&gt;Statistics &lt;span&gt;Done Wrong&lt;/span&gt;: &lt;span&gt;The Woefully Complete Guide&lt;/span&gt;&lt;/em&gt;, 1 edition (&lt;span&gt;San Francisco&lt;/span&gt;: &lt;span&gt;No Starch Press&lt;/span&gt;, 2015).&lt;/p&gt;"><sup>20</sup></a></span>
+</li>
+</ul>
+</div>
+<div id="talks-podcasts-blogs-videos" class="section level2" number="1.17">
+<h2>
+<span class="header-section-number">1.17</span> Talks, Podcasts, Blogs, Videos<a class="anchor" aria-label="anchor" href="#talks-podcasts-blogs-videos"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<p>David Robinson</p>
+<ul>
+<li><a href="https://www.youtube.com/user/safe4democracy">YouTube</a></li>
+<li><a href="http://varianceexplained.org/">website</a></li>
+</ul>
+</li>
+<li>
+<p>Julia Silge</p>
+<ul>
+<li><p><a href="https://www.youtube.com/c/JuliaSilge/">YouTube</a></p></li>
+<li><p><a href="https://juliasilge.com/">website</a></p></li>
+</ul>
+</li>
+<li>
+<p>Alison Hill</p>
+<ul>
+<li><a href="https://alison.rbind.io/">website</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="misc" class="section level2" number="1.18">
+<h2>
+<span class="header-section-number">1.18</span> Misc<a class="anchor" aria-label="anchor" href="#misc"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="https://github.com/allisonhorst/stats-illustrations">Cute and insightful illustrations</a><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst.”&lt;/span&gt;&lt;/p&gt;"><sup>21</sup></a></span>
+</li>
+<li><a href="https://happygitwithr.com/">Happy Git with R</a></li>
+</ul>
+</div>
 </div>
 
   <div class="chapter-nav">
-<div class="prev"><a href="index.html">Prerequisites</a></div>
-<div class="next"><a href="references.html">References</a></div>
+<div class="prev"><a href="index.html">Hello and welcome!</a></div>
+<div class="next"><a href="data-wrangling.html"><span class="header-section-number">2</span> Data Wrangling</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#intro"><span class="header-section-number">1</span> Introduction</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#intro"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="nav-link" href="#what-you-will-learn"><span class="header-section-number">1.1</span> What You will Learn</a></li>
+<li><a class="nav-link" href="#first-things-first-installing-r"><span class="header-section-number">1.2</span> First Things First: Installing R</a></li>
+<li><a class="nav-link" href="#executing-r-code"><span class="header-section-number">1.3</span> Executing R Code</a></li>
+<li>
+<a class="nav-link" href="#building-blocks-of-r"><span class="header-section-number">1.4</span> Building Blocks of R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#atomic-datatypes"><span class="header-section-number">1.4.1</span> Atomic Datatypes</a></li>
+<li><a class="nav-link" href="#variables"><span class="header-section-number">1.4.2</span> Variables</a></li>
+<li><a class="nav-link" href="#functions"><span class="header-section-number">1.4.3</span> Functions</a></li>
+<li><a class="nav-link" href="#vectors"><span class="header-section-number">1.4.4</span> Vectors</a></li>
+<li><a class="nav-link" href="#vectorization"><span class="header-section-number">1.4.5</span> Vectorization</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#functions-and-packages-making-our-lives-easier"><span class="header-section-number">1.5</span> Functions and Packages – Making our lives easier</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-tidyverse"><span class="header-section-number">1.5.1</span> The Tidyverse</a></li></ul>
+</li>
+<li><a class="nav-link" href="#literate-programming-rmarkdown"><span class="header-section-number">1.6</span> Literate Programming: Rmarkdown</a></li>
+<li>
+<a class="nav-link" href="#our-first-dataset-the-palmer-penguins"><span class="header-section-number">1.7</span> Our First Dataset: The Palmer Penguins</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#lists-and-dataframes"><span class="header-section-number">1.7.1</span> Lists and dataframes</a></li></ul>
+</li>
+<li><a class="nav-link" href="#translating-data-into-visualizations"><span class="header-section-number">1.8</span> Translating Data into Visualizations</a></li>
+<li><a class="nav-link" href="#the-community-there-to-catch-you."><span class="header-section-number">1.9</span> The Community: There to catch You.</a></li>
+<li><a class="nav-link" href="#exercises"><span class="header-section-number">1.10</span> Exercises</a></li>
+<li><a class="nav-link" href="#solutions"><span class="header-section-number">1.11</span> Solutions</a></li>
+<li><a class="nav-link" href="#learn-more"><span class="header-section-number">1.12</span> Learn more:</a></li>
+<li><a class="nav-link" href="#tidyverse"><span class="header-section-number">1.13</span> Tidyverse</a></li>
+<li><a class="nav-link" href="#rmarkdown"><span class="header-section-number">1.14</span> Rmarkdown</a></li>
+<li><a class="nav-link" href="#r-in-general"><span class="header-section-number">1.15</span> R in general</a></li>
+<li><a class="nav-link" href="#statistics"><span class="header-section-number">1.16</span> Statistics</a></li>
+<li><a class="nav-link" href="#talks-podcasts-blogs-videos"><span class="header-section-number">1.17</span> Talks, Podcasts, Blogs, Videos</a></li>
+<li><a class="nav-link" href="#misc"><span class="header-section-number">1.18</span> Misc</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -241,7 +866,7 @@ Figure 1.1: Here is a nice figure!
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-07-17.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -249,6 +874,18 @@ Figure 1.1: Here is a nice figure!
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 </html>

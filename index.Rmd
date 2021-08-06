@@ -6,11 +6,31 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 csl: chicago-fullnote-bibliography.csl
+favicon: "favicon.png"
 link-citations: false
 description: "This is where you will find all the resources for the course Introduction to Data Analysis with R"
 ---
 
-# Prerequisites {-}
+# Hello and welcome! {-}
+
+... to the latest iteration of my introductory R course, where you will learn to analyse your data in style.
+
+::: { .alert .alert-danger}
+**Warning**: This site is still in progress and reflects the state of the lectures in the previous year (WS20).
+Stay tuned for updates on this year's lecture (WS21)!
+:::
+
+## Prerequisites 
 
 This is where you will find all the resources for the course Introduction to Data Analysis with R.
 More information follows.
+
+## Structure
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  cache = TRUE
+)
+```
+

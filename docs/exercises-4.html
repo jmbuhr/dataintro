@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Lesson 15 Exercises | Introduction to Data Analysis with R</title>
+<meta name="author" content="Jannik Buhr">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Introduction to Data Analysis with R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Hello and welcome!</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="exercises.html"><span class="header-section-number">2</span> Exercises</a></li>
+<li><a class="" href="solutions.html"><span class="header-section-number">3</span> Solutions</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">4</span> Resources</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">5</span> Data Wrangling</a></li>
+<li><a class="" href="exercises-1.html"><span class="header-section-number">6</span> Exercises</a></li>
+<li><a class="" href="resources-1.html"><span class="header-section-number">7</span> Resources</a></li>
+<li><a class="" href="tidy-data.html"><span class="header-section-number">8</span> Tidy Data</a></li>
+<li><a class="" href="exercises-2.html"><span class="header-section-number">9</span> Exercises</a></li>
+<li><a class="" href="resources-2.html"><span class="header-section-number">10</span> Resources</a></li>
+<li><a class="" href="functions-1.html"><span class="header-section-number">11</span> Functions</a></li>
+<li><a class="" href="exercises-3.html"><span class="header-section-number">12</span> Exercises</a></li>
+<li><a class="" href="resources-3.html"><span class="header-section-number">13</span> Resources</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">14</span> Hypothesis Testing</a></li>
+<li><a class="active" href="exercises-4.html"><span class="header-section-number">15</span> Exercises</a></li>
+<li><a class="" href="resources-4.html"><span class="header-section-number">16</span> Resources</a></li>
+<li><a class="" href="distributions.html"><span class="header-section-number">17</span> Distributions</a></li>
+<li><a class="" href="exercises-5.html"><span class="header-section-number">18</span> Exercises</a></li>
+<li><a class="" href="resources-5.html"><span class="header-section-number">19</span> Resources</a></li>
+<li><a class="" href="fallacies.html"><span class="header-section-number">20</span> Fallacies</a></li>
+<li><a class="" href="exercises-6.html"><span class="header-section-number">21</span> Exercises</a></li>
+<li><a class="" href="freestyle.html"><span class="header-section-number">22</span> Freestyle</a></li>
+<li><a class="" href="feedback.html"><span class="header-section-number">23</span> Feedback</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jmbuhr/dataintro">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="exercises-4" class="section level1" number="15">
+<h1>
+<span class="header-section-number">Lesson 15</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-4"><i class="fas fa-link"></i></a>
+</h1>
+<p>Just by itself this is quite a bit of material to take in,
+so I try to limit the exercises for today.</p>
+<div id="discovering-a-new-distribution" class="section level2" number="15.1">
+<h2>
+<span class="header-section-number">15.1</span> Discovering a new Distribution<a class="anchor" aria-label="anchor" href="#discovering-a-new-distribution"><i class="fas fa-link"></i></a>
+</h2>
+<p>The binomial distribution was concerned with sampling
+with replacement (you can get head or tails any number
+of times without using up the coin). In this exercise
+you will explore sampling <strong>without</strong> replacement.
+The common model for this is an urn with two
+different colored balls in it.
+The resulting distribution is called the
+<strong>hypergeometric distribution</strong> and the
+corresponding R functions are <code>&lt;r/d/p/q&gt;hyper</code>
+Unfortunately, I couldn’t think of a game that could
+be modeled by sampling without replacement,
+let me know, if you find one!</p>
+<ul>
+<li>Imagine you are a zoo manager.
+<ul>
+<li>Get yourselves in the mood by watching some cute
+animal videos and having a cup of tee or coffee.
+<a href="https://www.youtube.com/watch?v=DSehQsYU9h4">Here</a>
+are two red pandas having fun in the snow.</li>
+<li>We got a gift from another zoo! It consists
+of 8 red pandas and 2 giant pandas.
+What is the probability that they end up
+properly separated, if we randomly take 8 animals,
+put them in one enclosure and put the rest in another?</li>
+<li>Our penguin colony hatched eggs and we have
+a bunch of newcomers. We have have 15 males and
+10 females. If we look at a random subset of
+12 penguins, what does the distribution of the
+number of males look like? Which number is most
+likely? How likely is it, to get at least
+9 males in the sample?</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="hypothesis-testing.html"><span class="header-section-number">14</span> Hypothesis Testing</a></div>
+<div class="next"><a href="resources-4.html"><span class="header-section-number">16</span> Resources</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercises-4"><span class="header-section-number">15</span> Exercises</a></li>
+<li><a class="nav-link" href="#discovering-a-new-distribution"><span class="header-section-number">15.1</span> Discovering a new Distribution</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jmbuhr/dataintro/blob/master/05-lecture.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jmbuhr/dataintro/edit/master/05-lecture.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>

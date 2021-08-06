@@ -7,17 +7,4 @@ bookdown::bs4_book:
   repo: 
     base: https://github.com/jmbuhr/dataintro
     branch: main
-
-bookdown::gitbook:
-  config:
-    search:
-      engine: fuse
-    toc:
-      collapse: section
-      before: |
-        <li><strong><a href="./">Introduction to Data Analysis with R</a></strong></li>
-    edit:
-      link: https://github.com/jmbuhr/dataintro/edit/main/%s
-      text: "Edit"
-    sharing: no
-  # css: 'style.css'
+  css: style.css

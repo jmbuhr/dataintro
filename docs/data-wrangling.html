@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Lesson 2 Data Wrangling | Introduction to Data Analysis with R</title>
+<meta name="author" content="Jannik Buhr">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Introduction to Data Analysis with R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Hello and welcome!</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="active" href="data-wrangling.html"><span class="header-section-number">2</span> Data Wrangling</a></li>
+<li><a class="" href="tidy-data.html"><span class="header-section-number">3</span> Tidy Data</a></li>
+<li><a class="" href="functions-1.html"><span class="header-section-number">4</span> Functions</a></li>
+<li><a class="" href="hypothesis-testing.html"><span class="header-section-number">5</span> Hypothesis Testing</a></li>
+<li><a class="" href="distributions.html"><span class="header-section-number">6</span> Distributions</a></li>
+<li><a class="" href="fallacies.html"><span class="header-section-number">7</span> Fallacies</a></li>
+<li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
+<li><a class="" href="resources-5.html">Resources</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jmbuhr/dataintro">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-wrangling" class="section level1" number="2">
+<h1>
+<span class="header-section-number">Lesson 2</span> Data Wrangling<a class="anchor" aria-label="anchor" href="#data-wrangling"><i class="fas fa-link"></i></a>
+</h1>
+<blockquote>
+<p>… in which we explore the typical data analysis workflow
+with the tidyverse, wrangle different kinds of data and
+learn about factors.</p>
+</blockquote>
+<div class="video-container">
+<iframe class="video" src="https://www.youtube.com/embed/yo6uQYr8U48" allowfullscreen>
+</iframe>
+</div>
+<blockquote>
+<p><strong>Note</strong>:<br>
+I try to be vocal about what the code does in plain English while I type it and learning the “translations” of symbols and keywords can help you, too. After a while, programming can feel a lot more like having a conversation with your digital assistant or a helpful friend. The boundary between human languages and computer languages is more blurry than you might think.</p>
+</blockquote>
+<p>Before we get deeper into R,
+let’s talk a little bit about our Home when working with R:
+RStudio.</p>
+<div id="making-ourselves-at-home-in-rstudio" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Making Ourselves at Home in RStudio<a class="anchor" aria-label="anchor" href="#making-ourselves-at-home-in-rstudio"><i class="fas fa-link"></i></a>
+</h2>
+<div id="important-settings" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> Important Settings<a class="anchor" aria-label="anchor" href="#important-settings"><i class="fas fa-link"></i></a>
+</h3>
+<p>I highlighted 3 settings that I consider important to change from their default values. The first two might seem odd at first glance.</p>
+<p><img src="images/RS_settings.png" width="50%"><img src="images/RS_settings2.png" width="50%"></p>
+<p>The workspace that RStudio would save as <code>.RData</code> contains all objects created in a session, which is, what we can see in the <strong>Environment</strong> pane (by default in the top right panel, bottom right in my setup). Why would we not want to load the objects we created in the last session into our current session automatically? The reason is reproducibility. We want to make sure that everything our analysis needs is in the script. It creates our variables and plots from the raw data and should be the sole source of truth. Given the raw data and the script, everyone should be able to reproduce our results. The third setting (text encoding) is also concerned with collaboration. It makes sure that our text files and special characters in them (like German umlauts) look the same on different operating systems like Windows, iOS and Linux.</p>
+</div>
+<div id="a-project-based-workflow" class="section level3" number="2.1.2">
+<h3>
+<span class="header-section-number">2.1.2</span> A Project-based Workflow<a class="anchor" aria-label="anchor" href="#a-project-based-workflow"><i class="fas fa-link"></i></a>
+</h3>
+<p>Last week we simply went ahead and created a script file and an Rmarkdown file in some folder on our computer. But how does R known, where the script is? How does it know, where to look, when we tell it to read in a file or save a plot? The main folder where R starts is called the <strong>working directory</strong>. To find out, what our current working directory is, we execute the function <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> for get working directory:</p>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "/home/jannik/Documents/projects/teaching/dataintro"</code></pre>
+<p>This will look slightly different depending on you operating system. The next function I want you to know, but <strong>never use</strong>:</p>
+<div class="sourceCode" id="cb108"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"some/file/path"</span><span class="op">)</span></code></pre></div>
+<p>“Why should I not use it?” you might ask. Let’s assume I use the function to set the working directory as seen above:</p>
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">setwd</a></span><span class="op">(</span><span class="st">"/home/jannik/Documents/projects/teaching/dataIntro20/_lectures/lecture2"</span><span class="op">)</span></code></pre></div>
+<p>Now, when I give the file to you to test my analysis, chances are very low that it would work. Because you are likely not called Jannik and even more likely don’t have the same folder structure that I had.</p>
+<p>So what we want instead of these <em>absolute file paths</em>, is a <strong>relative file paths</strong> that start in the folder that our scripts are in. This is what <strong>RStudio Projects</strong> are for. It is basically just a folder with a special file that ends in <code>.Rproj</code>, but as soon as R finds this file in the folder, the working directory will automatically be this folder. So when you share this folder, it will still just work.</p>
+<p>Go ahead and use the blue R button in the top right corner to create a <strong>New Project</strong>. I recommend you do this either as one project for the whole course or with one project per week. Projects are also convenient because they save what files you had open and so forth.</p>
+<p>There is one thing I didn’t tell you about Rmarkdown documents, yet. Their working directory is always the folder they are in, even if they are in some subdirectory of a project. In a way this also means that you don’t necessarily need a project to work with Rmarkdown, but having one anyway makes it easier to keep track of your files and have a consistent structure.</p>
+</div>
+<div id="working-in-style" class="section level3" number="2.1.3">
+<h3>
+<span class="header-section-number">2.1.3</span> Working in Style<a class="anchor" aria-label="anchor" href="#working-in-style"><i class="fas fa-link"></i></a>
+</h3>
+<p>Now that we have a cosy project for today, let’s also make sure we are working in style and are feeling right at home in RStudio. <a href="https://www.pipinghotdata.com/posts/2020-09-07-introducing-the-rstudio-ide-and-r-markdown/">This blogpost</a> provides excellent gifs for the different settings in RStudio and even for Rmarkdown troubleshooting. I am also fond of the <a href="https://github.com/gadenbuie/rsthemes">rsthemes package</a> for additional appearances.</p>
+</div>
+</div>
+<div id="a-data-analysis-workflow" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> A Data Analysis Workflow<a class="anchor" aria-label="anchor" href="#a-data-analysis-workflow"><i class="fas fa-link"></i></a>
+</h2>
+<p>We are getting close to importing our very first dataset from a file into R. Generally, this is the first thing that needs to happen with any data analysis and we will cover it today. The data I provided is already pretty tidy so we will start with that and build some visualizations. The communicate-part is also covered, because we are working in Rmarkdown after all, which is designed to communicate our findings. Later, we will also have a look at some less tidy data, but not before having defined what “tidy data” is.</p>
+
+<div class="figure">
+<span id="fig:workflow"></span>
+<img src="images/workflow-wickham.png" alt="Figure from Wickham and Grolemund.22" width="100%" class="external"><p class="caption">
+Figure 2.1: Figure from <span class="citation">Wickham and Grolemund.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;em&gt;R for &lt;span&gt;Data Science&lt;/span&gt;&lt;/em&gt;.&lt;/p&gt;"><sup>22</sup></a></span>
+</p>
+</div>
+</div>
+<div id="reading-data-with-readr" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Reading Data with <code>readr</code><a class="anchor" aria-label="anchor" href="#reading-data-with-readr"><i class="fas fa-link"></i></a>
+</h2>
+<aside><a href="https://readr.tidyverse.org/">
+<img src="images/readr.png"></a>
+</aside><p>The package responsible for loading data in the tidyverse is called <code>readr</code>, so we start by loading the whole tidyverse.</p>
+<p>Note, that in general, we could also load just the <code>readr</code> package with <code><a href="https://readr.tidyverse.org">library(readr)</a></code>, but we need the rest of the tidyverse later on anyways. There is also the option to not load a package at all but rather only use one function from a package by prefixing the function with the package name and two colons (<code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>) Like so: <code><a href="https://readr.tidyverse.org/reference/read_delim.html">readr::read_csv("...")</a></code>.</p>
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<p>Without further ado, let’s download the data for today. In fact, there are multiple ways to go about this. We could download the whole course folder from GitHub by following the link in the top right corner of this website and then using the download button:</p>
+<div class="inline-figure"><img src="images/download_repo.png" width="100%"></div>
+<p>You will then find the data in the folder <code>./_lectures/lecture2/data/</code>.</p>
+<p>Or we can navigate to the file on GitHub. Follow this link: <a href="https://github.com/jmbuhr/dataIntro20/tree/master/_lectures/lecture2/data">files</a>, click on one of the files and then click on <strong>raw</strong>:</p>
+<div class="inline-figure"><img src="images/github-raw.png" width="100%"></div>
+<p>From there you can copy the link displayed in your browser address field and download the file straight from R:</p>
+<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/_lectures/lecture2/data/gapminder.csv"</span>,
+              <span class="st">"data/gapminder.csv"</span><span class="op">)</span></code></pre></div>
+<p>The folder to download your data to (<code>./data</code>) must be created in advance. This is an example for a relative path (an absolute path would start with <code><a href="https://rdrr.io/r/base/Arithmetic.html">/</a></code> or a drive letter like <code>C:</code>).</p>
+<p>Now we can finally load in the data and store it in a variable. When working with file paths, RStudio’s autocompletion is especially helpful. We can trigger it with <strong>Tab</strong> or <strong>Ctrl+Space</strong>.</p>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/02/gapminder.csv"</span><span class="op">)</span></code></pre></div>
+<p><code>readr</code> will also tell you the datatypes it guessed for the columns. Let’s inspect our dataset:</p>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp      pop gdpPercap
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.
+##  6 Afghanistan Asia       1977    38.4 14880372      786.
+##  7 Afghanistan Asia       1982    39.9 12881816      978.
+##  8 Afghanistan Asia       1987    40.8 13867957      852.
+##  9 Afghanistan Asia       1992    41.7 16317921      649.
+## 10 Afghanistan Asia       1997    41.8 22227415      635.
+## # … with 1,694 more rows</code></pre>
+<p>The gapminder dataset<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Jennifer Bryan, &lt;em&gt;Gapminder: &lt;span&gt;Data&lt;/span&gt; from Gapminder&lt;/em&gt;, Manual, 2017.&lt;/p&gt;"><sup>23</sup></a></span> is an excerpt from the <a href="https://www.gapminder.org/">gapminder project</a> and contains the life expectancy at birth for 142 countries at 5 year intervals between 1952 and 2007. It also contains the population and the Gross Domestic Product (GDP) per Inhabitant. We will built a visualization later on.</p>
+<p><code>read_csv</code> can even read data from a url straight away, without the need for us to download the file ourselves, but we usually want a copy of the data locally. For the curious run this:</p>
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_csv</span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/jmbuhr/dataIntro20/master/_lectures/lecture2/data/gapminder.csv"</span><span class="op">)</span></code></pre></div>
+<p>So, this all went smoothly. But this will not always be the case. We will now look at common hurdles when importing data</p>
+<div id="common-hurdles-when-importing-data" class="section level3" number="2.3.1">
+<h3>
+<span class="header-section-number">2.3.1</span> Common Hurdles when Importing Data<a class="anchor" aria-label="anchor" href="#common-hurdles-when-importing-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>The function we just used was called <code>read_csv</code>, because it reads a file format that consists of <strong>comma separated values</strong>. Look at the raw file in a text editor (not word) like notepad or RStudio to see why. But the file extension <code>.csv</code> can sometimes be lying…</p>
+<p>Because in German, the comma is used to separate decimal numbers (vs. the dot in English), a lot of Software will output a different type of csv-file when configured in German. It will still call it csv, but actually it is separated by semicolons! We have a special function for this:</p>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_csv2</span><span class="op">(</span><span class="st">"data/gapminder_csv2.csv"</span><span class="op">)</span></code></pre></div>
+<p>When looking through the autocompletion options that pop up when you are typing the function name, you might have noticed a similar function <code>read.csv</code> and <code>read.csv2</code>. These are the functions that come with R, without any packages like the tidyverse. You can of course use those as well, but the tidyverse functions provide a more consistent experience and have less surprising quirks. I am teaching the tidyverse first, because it allows you to do more while having to learn less edge cases.</p>
+<p>If we look at yet another file <code>data/gapminder_tsv.txt</code>, we notice that the file extension doesn’t tell us much about the format, only that it is text (as opposed to a binary format only computers can read). If we look into the file:</p>
+<div class="sourceCode" id="cb117"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_lines</span><span class="op">(</span><span class="st">"data/02/gapminder_tsv.txt"</span>, n_max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "country\tcontinent\tyear\tlifeExp\tpop\tgdpPercap"    
+## [2] "Afghanistan\tAsia\t1952\t28.801\t8425333\t779.4453145"
+## [3] "Afghanistan\tAsia\t1957\t30.332\t9240934\t820.8530296"</code></pre>
+<p>We notice that the values are separated by ", a special sequence that stands for the tab character. The <code>read_tsv</code> function will do the job.</p>
+<p>If the separator (also called delimiter) is even more obscure, we can use the general function <code>read_delim</code>. Say a co-worker misunderstood us and thought tsv stands for “Tilde separated values,” we can still read his file.</p>
+<div class="sourceCode" id="cb119"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_lines</span><span class="op">(</span><span class="st">"data/02/obscure_file.tsv"</span>, n_max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "country~continent~year~lifeExp~pop~gdpPercap"    
+## [2] "Afghanistan~Asia~1952~28.801~8425333~779.4453145"
+## [3] "Afghanistan~Asia~1957~30.332~9240934~820.8530296"</code></pre>
+<div class="sourceCode" id="cb121"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_delim</span><span class="op">(</span><span class="st">"data/02/obscure_file.tsv"</span>, delim <span class="op">=</span> <span class="st">"~"</span><span class="op">)</span></code></pre></div>
+<p>There are more ways in which raw data can be messy or hard to read depending on the machine but I can’t show all of them. One common thing you will encounter though is measurement machines writing some additional information in the first couple of lines before the actual data (like the time of the measurement). In this example:</p>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_lines</span><span class="op">(</span><span class="st">"data/02/gapminder_messier.csv"</span>, n_max <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "# Some comment about the data"                   
+## [2] "And maybe a personal note"                       
+## [3] "country,continent,year,lifeExp,pop,gdpPercap"    
+## [4] "Afghanistan,Asia,1952,28.801,8425333,779.4453145"</code></pre>
+<p>The first 2 lines are not part of the data. Reading the file normally as a csv would produce something weird: Because the first line does not contain any commata, it will assume that the file contains only one column and also report a bunch of <strong>parsing failures</strong>. Parsing is the act of turning data represented as raw text into a useful format, like a table of numbers.</p>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/02/gapminder_messier.csv"</span>, n_max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 1
+##   `# Some comment about the data`
+##   &lt;chr&gt;                          
+## 1 And maybe a personal note      
+## 2 country                        
+## 3 Afghanistan</code></pre>
+<p>We can fix this by telling R to skip the first 2 lines entirely:</p>
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/02/gapminder_messier.csv"</span>, skip <span class="op">=</span> <span class="fl">2</span>, n_max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 6
+##   country     continent  year lifeExp      pop gdpPercap
+##   &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Afghanistan Asia       1952    28.8  8425333      779.
+## 2 Afghanistan Asia       1957    30.3  9240934      821.
+## 3 Afghanistan Asia       1962    32.0 10267083      853.</code></pre>
+<p>I was using the <code>n_max</code> argument of the functions above to save space in this lecture script.</p>
+<p>In the video I forgot to mention that I also included an excel file to practice. We can read it using a function from the <code>readxl</code> package. This package is automatically installed with the tidyverse, but it is not loaded along with the other packages via <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>. We can either load it with <code><a href="https://readxl.tidyverse.org">library(readxl)</a></code> or refer to a single function from the package without loading the whole thing using double colons (<code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>):</p>
+<div class="sourceCode" id="cb128"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span><span class="st">"data/02/gapminder.xlsx"</span><span class="op">)</span></code></pre></div>
+<p>Now, that we learned about some of the ways in which raw data can be structured, let us go back to the original data that we read in and saved in the variable <code>gapminder</code>.</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">country</th>
+<th align="left">continent</th>
+<th align="right">year</th>
+<th align="right">lifeExp</th>
+<th align="right">pop</th>
+<th align="right">gdpPercap</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1952</td>
+<td align="right">28.801</td>
+<td align="right">8425333</td>
+<td align="right">779.4453</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1957</td>
+<td align="right">30.332</td>
+<td align="right">9240934</td>
+<td align="right">820.8530</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1962</td>
+<td align="right">31.997</td>
+<td align="right">10267083</td>
+<td align="right">853.1007</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1967</td>
+<td align="right">34.020</td>
+<td align="right">11537966</td>
+<td align="right">836.1971</td>
+</tr>
+<tr class="odd">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1972</td>
+<td align="right">36.088</td>
+<td align="right">13079460</td>
+<td align="right">739.9811</td>
+</tr>
+<tr class="even">
+<td align="left">Afghanistan</td>
+<td align="left">Asia</td>
+<td align="right">1977</td>
+<td align="right">38.438</td>
+<td align="right">14880372</td>
+<td align="right">786.1134</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="wrangling-data-with-dplyr" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Wrangling Data with <code>dplyr</code><a class="anchor" aria-label="anchor" href="#wrangling-data-with-dplyr"><i class="fas fa-link"></i></a>
+</h2>
+<aside><a href="https://dplyr.tidyverse.org/">
+<img src="images/dplyr.png"></a>
+</aside><p>There a are a number of ways in which we can manipulate data. Of course I mean manipulate in it’s original sense, not the malicious one. This is sometimes referred to as <strong>data wrangling</strong> and within the tidyverse, this is a job for the <code>dplyr</code> package (short for data plyer, the tool you see in the logo).</p>
+<p>dplyr provides functions for various operations on our data. Theses functions are sometimes also called <strong>dplyr verbs</strong>. All of them take a <code>tibble</code> or <code>data.frame</code> as input (plus additional parameters) and always return a <code>tibble</code>.</p>
+<div class="figure">
+<span id="fig:dplyr-cute"></span>
+<img src="images/dplyr_wrangling.png" alt="[@ArtworkAllisonHorst]" width="100%" class="external"><p class="caption">
+Figure 2.2: <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst.”&lt;/span&gt;&lt;/p&gt;"><sup>24</sup></a></span>
+</p>
+</div>
+<div id="select" class="section level3" number="2.4.1">
+<h3>
+<span class="header-section-number">2.4.1</span> select<a class="anchor" aria-label="anchor" href="#select"><i class="fas fa-link"></i></a>
+</h3>
+<p>The first verb we introduce is used to select columns. And hence, it is called <code>select</code>. The first argument is always the data, followed by an arbitrary number of column names. We can recognize functions the take an arbitrary number of additional arguments by the <code>...</code> in the autocompletion and help page.</p>
+<div class="sourceCode" id="cb129"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">select</span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">country</span>, <span class="va">year</span>, <span class="va">pop</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 3
+##    country      year      pop
+##    &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Afghanistan  1952  8425333
+##  2 Afghanistan  1957  9240934
+##  3 Afghanistan  1962 10267083
+##  4 Afghanistan  1967 11537966
+##  5 Afghanistan  1972 13079460
+##  6 Afghanistan  1977 14880372
+##  7 Afghanistan  1982 12881816
+##  8 Afghanistan  1987 13867957
+##  9 Afghanistan  1992 16317921
+## 10 Afghanistan  1997 22227415
+## # … with 1,694 more rows</code></pre>
+<p>It might be confusing why we don’t need quotation marks around the column names like we do when we select and element from a vector by name as in:</p>
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>first <span class="op">=</span> <span class="fl">1</span>, second <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">[</span><span class="st">"first"</span><span class="op">]</span></code></pre></div>
+<pre><code>## first 
+##     1</code></pre>
+<p>This concept is known as quasiquotation or data masking. It is quite unique to R, but it allows functions to known about the content of the data that is passed to them and use this as the environment in which they do their computations and search for variable names. So while the variable <code>country</code> doesn’t exist in the global environment, it does exist as a column of the gapminder tibble. <code>dplyr</code> functions always look in the data first when they search for names.</p>
+<p>The help page for <code>select</code> tells us more about the different ways in which we can select columns. Here are a couple of examples without the output, rum them in your R session to confirm that they do what you think they do. (but do have a look at the help pages yourselves, they are quite well written).</p>
+<div class="sourceCode" id="cb133"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">select</span><span class="op">(</span><span class="va">gapminder</span>, <span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">select</span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">country</span><span class="op">:</span><span class="va">lifeExp</span><span class="op">)</span>
+<span class="fu">select</span><span class="op">(</span><span class="va">gapminder</span>, <span class="fu">starts_with</span><span class="op">(</span><span class="st">"c"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu">select</span><span class="op">(</span><span class="va">gapminder</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="filter" class="section level3" number="2.4.2">
+<h3>
+<span class="header-section-number">2.4.2</span> filter<a class="anchor" aria-label="anchor" href="#filter"><i class="fas fa-link"></i></a>
+</h3>
+<div class="figure">
+<span id="fig:dplyr-filter"></span>
+<img src="images/dplyr_filter.jpg" alt="[@ArtworkAllisonHorst]" width="100%" class="external"><p class="caption">
+Figure 2.3: <span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst.”&lt;/span&gt;&lt;/p&gt;"><sup>25</sup></a></span>
+</p>
+</div>
+<p>After selecting columns it is only natural to ask how to select rows. This is achieved with the function <code>filter</code>. For example, we can <strong>filter for</strong> all years smaller than 2000:</p>
+<div class="sourceCode" id="cb134"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">year</span> <span class="op">&lt;</span> <span class="fl">2000</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1,420 x 6
+##    country     continent  year lifeExp      pop gdpPercap
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.
+##  6 Afghanistan Asia       1977    38.4 14880372      786.
+##  7 Afghanistan Asia       1982    39.9 12881816      978.
+##  8 Afghanistan Asia       1987    40.8 13867957      852.
+##  9 Afghanistan Asia       1992    41.7 16317921      649.
+## 10 Afghanistan Asia       1997    41.8 22227415      635.
+## # … with 1,410 more rows</code></pre>
+<p>Or all the rows where the country is “New Zealand”:</p>
+<div class="sourceCode" id="cb136"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">country</span> <span class="op">==</span> <span class="st">"New Zealand"</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 12 x 6
+##    country     continent  year lifeExp     pop gdpPercap
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##  1 New Zealand Oceania    1952    69.4 1994794    10557.
+##  2 New Zealand Oceania    1957    70.3 2229407    12247.
+##  3 New Zealand Oceania    1962    71.2 2488550    13176.
+##  4 New Zealand Oceania    1967    71.5 2728150    14464.
+##  5 New Zealand Oceania    1972    71.9 2929100    16046.
+##  6 New Zealand Oceania    1977    72.2 3164900    16234.
+##  7 New Zealand Oceania    1982    73.8 3210650    17632.
+##  8 New Zealand Oceania    1987    74.3 3317166    19007.
+##  9 New Zealand Oceania    1992    76.3 3437674    18363.
+## 10 New Zealand Oceania    1997    77.6 3676187    21050.
+## 11 New Zealand Oceania    2002    79.1 3908037    23190.
+## 12 New Zealand Oceania    2007    80.2 4115771    25185.</code></pre>
+</div>
+<div id="mutate" class="section level3" number="2.4.3">
+<h3>
+<span class="header-section-number">2.4.3</span> mutate<a class="anchor" aria-label="anchor" href="#mutate"><i class="fas fa-link"></i></a>
+</h3>
+<p>We are back at manipulating columns, this time by creating new ones or changing old ones. The <code>dplyr</code> verb that does that is called <code>muate</code>. For example, we might want to calculate the total GDP from the GDP per Capita and the population:</p>
+<div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">mutate</span><span class="op">(</span><span class="va">gapminder</span>, gdp <span class="op">=</span> <span class="va">pop</span> <span class="op">*</span> <span class="va">gdpPercap</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp      pop gdpPercap          gdp
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.  7585448670.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.  8758855797.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.  9648014150.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.  9678553274.
+##  6 Afghanistan Asia       1977    38.4 14880372      786. 11697659231.
+##  7 Afghanistan Asia       1982    39.9 12881816      978. 12598563401.
+##  8 Afghanistan Asia       1987    40.8 13867957      852. 11820990309.
+##  9 Afghanistan Asia       1992    41.7 16317921      649. 10595901589.
+## 10 Afghanistan Asia       1997    41.8 22227415      635. 14121995875.
+## # … with 1,694 more rows</code></pre>
+<p>Notice, that none of the functions changed the original variable <code>gapminder</code>. They only take an input and return and output, which makes it easier to reason about our code and later chain pieces of code together. How do you change it then? Use the Force! … ahem, I mean, the assignment operator (<code><a href="https://rdrr.io/r/base/assignOps.html">&lt;-</a></code>).</p>
+<div class="sourceCode" id="cb140"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="fu">mutate</span><span class="op">(</span><span class="va">gapminder</span>, gdp <span class="op">=</span> <span class="va">pop</span> <span class="op">*</span> <span class="va">gdpPercap</span><span class="op">)</span></code></pre></div>
+<p>Here, the power of dplyr shines. It knows that <code>pop</code> and <code>gdpPercap</code> are columns of the tibble and that <code>gdp</code> refers to the new name of the freshly created column.</p>
+</div>
+<div id="interlude-begind-the-magic-handling-data-with-base-r" class="section level3" number="2.4.4">
+<h3>
+<span class="header-section-number">2.4.4</span> Interlude: Begind the magic, handling data with base-R<a class="anchor" aria-label="anchor" href="#interlude-begind-the-magic-handling-data-with-base-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>This section is meant to show you what happens behind the scenes. It is not strictly necessary to understand all the details of it in order to work effectively with the tidyverse, but it helps especially when things don’t go as planned.</p>
+<p>So let’s look into handling data with base-R. Last week we briefly covered subsetting of vectors by their indices, their names, or a logical vector:</p>
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">42</span>, <span class="fl">1</span>, <span class="fl">13</span>, <span class="fl">29</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"first"</span>, <span class="st">"second"</span>, <span class="st">"third"</span>, <span class="st">"fourth"</span><span class="op">)</span>
+<span class="va">x</span></code></pre></div>
+<pre><code>##  first second  third fourth 
+##     42      1     13     29</code></pre>
+<div class="sourceCode" id="cb143"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<pre><code>## first third 
+##    42    13</code></pre>
+<div class="sourceCode" id="cb145"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"first"</span>, <span class="st">"second"</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<pre><code>##  first second 
+##     42      1</code></pre>
+<div class="sourceCode" id="cb147"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<pre><code>##  first fourth 
+##     42     29</code></pre>
+<p>This subsetting with a logical vector can be used to filter the vector:</p>
+<div class="sourceCode" id="cb149"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">select_this</span> <span class="op">&lt;-</span> <span class="va">x</span> <span class="op">&lt;</span> <span class="fl">20</span>
+<span class="va">select_this</span></code></pre></div>
+<pre><code>##  first second  third fourth 
+##  FALSE   TRUE   TRUE  FALSE</code></pre>
+<div class="sourceCode" id="cb151"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">x</span><span class="op">[</span><span class="va">select_this</span><span class="op">]</span></code></pre></div>
+<pre><code>## second  third 
+##      1     13</code></pre>
+<p>With data in 2 dimensions, rows and columns, subsetting works similarly. Let’s use the function <code>tibble</code> to create a tibble from vectors:</p>
+<div class="sourceCode" id="cb153"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_data</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="op">(</span>
+  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">42</span>, <span class="fl">1</span>, <span class="fl">13</span>, <span class="fl">29</span><span class="op">)</span>,
+  y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span>,
+  z <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"z1"</span>, <span class="st">"z2"</span>, <span class="st">"z3"</span>, <span class="st">"z4"</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="va">my_data</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##       x     y z    
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1    42     1 z1   
+## 2     1     2 z2   
+## 3    13     3 z3   
+## 4    29     4 z4</code></pre>
+<blockquote>
+<p>Note:<br>
+R is not whitespace sensitive (like python). That means indentation doesn’t change the meaning of the code. We can use this to format our code to look pretty, which is why I started a new line after the opening bracket of <code>tibble(</code>.</p>
+</blockquote>
+<p>Subsetting a tibble like a vector selects columns:</p>
+<div class="sourceCode" id="cb155"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_data</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##       x z    
+##   &lt;dbl&gt; &lt;chr&gt;
+## 1    42 z1   
+## 2     1 z2   
+## 3    13 z3   
+## 4    29 z4</code></pre>
+<p>But if you pass two arguments to the square brackets, separated by commata, we can filter rows and select columns Here, we get the first row in the second and third columns:</p>
+<div class="sourceCode" id="cb157"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_data</span><span class="op">[</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 2
+##       y z    
+##   &lt;dbl&gt; &lt;chr&gt;
+## 1     1 z1</code></pre>
+<p>If we follow the logic above, we can also filter the data. The comma without any argument afterwards selects all columns.</p>
+<div class="sourceCode" id="cb159"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_data</span><span class="op">[</span><span class="va">my_data</span><span class="op">$</span><span class="va">x</span> <span class="op">&lt;</span> <span class="fl">20</span>, <span class="op">]</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##       x     y z    
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1     1     2 z2   
+## 2    13     3 z3</code></pre>
+<p>At first glance, the tidyverse way of doing the same is only a little bit shorter. But apart from the fact that we don’t have to repeat the name of the data object <code>my_data</code> (because <code>filter</code> knows where to look for <code>x</code>, whereas <code>[]</code> doesn’t), there is another advantage.</p>
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">my_data</span>, <span class="va">x</span> <span class="op">&lt;</span> <span class="fl">20</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 3
+##       x     y z    
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+## 1     1     2 z2   
+## 2    13     3 z3</code></pre>
+</div>
+<div id="the-pipe" class="section level3" number="2.4.5">
+<h3>
+<span class="header-section-number">2.4.5</span> The pipe <code>%&gt;%</code><a class="anchor" aria-label="anchor" href="#the-pipe"><i class="fas fa-link"></i></a>
+</h3>
+<p>The tidyverse functions are easier to compose (i.e. chain together). To facilitate this, we introduce another operator, a bit like <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> for numbers or the <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> to add ggplot components, but specially for functions. The pipe, which you can either type or insert in RStudio with <strong>Ctrl+Shift+M</strong>, takes it’s left side and passes it as the first argument to the function on the right side:</p>
+<div class="sourceCode" id="cb163"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">my_data</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">x</span>, <span class="va">z</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 2
+##       x z    
+##   &lt;dbl&gt; &lt;chr&gt;
+## 1    42 z1   
+## 2     1 z2   
+## 3    13 z3   
+## 4    29 z4</code></pre>
+<p>And because all main <code>tidyverse</code> functions take data as their first argument, we can chain them together fluently. Additionally, it enables autocompletion of column names inside of the function that gets the data. So back to the gapminder example:</p>
+<div class="sourceCode" id="cb165"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&gt;</span> <span class="fl">2000</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>gdp <span class="op">=</span> <span class="va">pop</span> <span class="op">*</span> <span class="va">gdpPercap</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">select</span><span class="op">(</span><span class="va">country</span>, <span class="va">year</span>, <span class="va">gdp</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 284 x 3
+##    country      year           gdp
+##    &lt;chr&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Afghanistan  2002  18363410424.
+##  2 Afghanistan  2007  31079291949.
+##  3 Albania      2002  16153932130.
+##  4 Albania      2007  21376411360.
+##  5 Algeria      2002 165447670333.
+##  6 Algeria      2007 207444851958.
+##  7 Angola       2002  30134833901.
+##  8 Angola       2007  59583895818.
+##  9 Argentina    2002 337223430800.
+## 10 Argentina    2007 515033625357.
+## # … with 274 more rows</code></pre>
+<p>It also reads much nicer in your head, which makes reasoning about the code easier. Without telling you what the above code did, you can understand it, because it reads like English. You can often pronounce the pipe as “and then” in your head, or out-loud, I’m not judging.</p>
+<blockquote>
+<p>Note:<br>
+The base-R and the tidyverse way are not mutually exclusive. Sometimes you can mix and match.</p>
+</blockquote>
+</div>
+<div id="arrange" class="section level3" number="2.4.6">
+<h3>
+<span class="header-section-number">2.4.6</span> arrange<a class="anchor" aria-label="anchor" href="#arrange"><i class="fas fa-link"></i></a>
+</h3>
+<p>A simple thing you might want from a table is to sort it based on some column. This is what <code>arrange</code> does:</p>
+<div class="sourceCode" id="cb167"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">arrange</span><span class="op">(</span><span class="va">year</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp      pop gdpPercap           gdp
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.   6567086330.
+##  2 Albania     Europe     1952    55.2  1282697     1601.   2053669902.
+##  3 Algeria     Africa     1952    43.1  9279525     2449.  22725632678.
+##  4 Angola      Africa     1952    30.0  4232095     3521.  14899557133.
+##  5 Argentina   Americas   1952    62.5 17876956     5911. 105676319105.
+##  6 Australia   Oceania    1952    69.1  8691212    10040.  87256254102.
+##  7 Austria     Europe     1952    66.8  6927772     6137.  42516266683.
+##  8 Bahrain     Asia       1952    50.9   120447     9867.   1188460759.
+##  9 Bangladesh  Asia       1952    37.5 46886859      684.  32082059995.
+## 10 Belgium     Europe     1952    68    8730405     8343.  72838686716.
+## # … with 1,694 more rows</code></pre>
+<p>The helper function <code>desc</code> marks a column to be arranged in descending order. We can arrange by multiple columns, where the first will be most important.</p>
+<div class="sourceCode" id="cb169"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">arrange</span><span class="op">(</span><span class="fu">desc</span><span class="op">(</span><span class="va">year</span><span class="op">)</span>, <span class="va">pop</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">select</span><span class="op">(</span><span class="va">country</span>, <span class="va">year</span>, <span class="va">pop</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">rename</span><span class="op">(</span>population <span class="op">=</span> <span class="va">pop</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 3
+##    country                year population
+##    &lt;chr&gt;                 &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Sao Tome and Principe  2007     199579
+##  2 Iceland                2007     301931
+##  3 Djibouti               2007     496374
+##  4 Equatorial Guinea      2007     551201
+##  5 Montenegro             2007     684736
+##  6 Bahrain                2007     708573
+##  7 Comoros                2007     710960
+##  8 Reunion                2007     798094
+##  9 Trinidad and Tobago    2007    1056608
+## 10 Swaziland              2007    1133066
+## # … with 1,694 more rows</code></pre>
+<p>I also introduced the <code>rename</code> verb without warning. It does what it says it does, only the order of the names might be confusing. The new name comes first (like when you are creating a new column with <code>mutate</code>). You can also rename within <code>select</code>:</p>
+<div class="sourceCode" id="cb171"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> <span class="fu">select</span><span class="op">(</span><span class="va">country</span>, <span class="va">year</span>, population <span class="op">=</span> <span class="va">pop</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 3
+##    country      year population
+##    &lt;chr&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Afghanistan  1952    8425333
+##  2 Afghanistan  1957    9240934
+##  3 Afghanistan  1962   10267083
+##  4 Afghanistan  1967   11537966
+##  5 Afghanistan  1972   13079460
+##  6 Afghanistan  1977   14880372
+##  7 Afghanistan  1982   12881816
+##  8 Afghanistan  1987   13867957
+##  9 Afghanistan  1992   16317921
+## 10 Afghanistan  1997   22227415
+## # … with 1,694 more rows</code></pre>
+</div>
+<div id="summarise" class="section level3" number="2.4.7">
+<h3>
+<span class="header-section-number">2.4.7</span> summarise<a class="anchor" aria-label="anchor" href="#summarise"><i class="fas fa-link"></i></a>
+</h3>
+<p>To condense one or multiple columns into summary values, we use <code>summarise</code>: Like with mutate, we can calculate multiple things in one step.</p>
+<div class="sourceCode" id="cb173"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">summarise</span><span class="op">(</span>
+    last_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>,
+    average_pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span>,
+    minimal_gdp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">gdp</span><span class="op">)</span>
+  <span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 3
+##   last_year average_pop minimal_gdp
+##       &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+## 1      2007   29601212.   52784691.</code></pre>
+<p>But condensing whole columns into one value, flattening the tibble in the style of Super Mario jumping on mushrooms, is often not what we need. We would rather know the summaries within certain groups. For example the maximal gdp <strong>per country</strong>. This is what <code>group_by</code> is for.</p>
+</div>
+<div id="group_by" class="section level3" number="2.4.8">
+<h3>
+<span class="header-section-number">2.4.8</span> group_by<a class="anchor" aria-label="anchor" href="#group_by"><i class="fas fa-link"></i></a>
+</h3>
+<p><code>group_by</code> is considered an adverb, because it doesn’t change the data itself but it changes how subsequent functions handle the data. For example, if a tibble has groups, all summaries are calculated within these groups:</p>
+<div class="sourceCode" id="cb175"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">country</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 7
+## # Groups:   country [142]
+##    country     continent  year lifeExp      pop gdpPercap          gdp
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.  7585448670.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.  8758855797.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.  9648014150.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.  9678553274.
+##  6 Afghanistan Asia       1977    38.4 14880372      786. 11697659231.
+##  7 Afghanistan Asia       1982    39.9 12881816      978. 12598563401.
+##  8 Afghanistan Asia       1987    40.8 13867957      852. 11820990309.
+##  9 Afghanistan Asia       1992    41.7 16317921      649. 10595901589.
+## 10 Afghanistan Asia       1997    41.8 22227415      635. 14121995875.
+## # … with 1,694 more rows</code></pre>
+<p>For example, let’s look at the range of the life expectancy for each country:</p>
+<div class="sourceCode" id="cb177"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">summarise</span><span class="op">(</span>lower_life_exp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">lifeExp</span><span class="op">)</span>,
+            upper_life_exp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">lifeExp</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 142 x 3
+##    country     lower_life_exp upper_life_exp
+##    &lt;chr&gt;                &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Afghanistan           28.8           43.8
+##  2 Albania               55.2           76.4
+##  3 Algeria               43.1           72.3
+##  4 Angola                30.0           42.7
+##  5 Argentina             62.5           75.3
+##  6 Australia             69.1           81.2
+##  7 Austria               66.8           79.8
+##  8 Bahrain               50.9           75.6
+##  9 Bangladesh            37.5           64.1
+## 10 Belgium               68             79.4
+## # … with 132 more rows</code></pre>
+<p><code>summarize</code> removes one level of grouping. If the data was grouped by multiple features, this means that some groups remain. We can make sure that the data is no longer grouped with <code>ungroup</code>.</p>
+<div class="sourceCode" id="cb179"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">continent</span>, <span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">summarise</span><span class="op">(</span>mean_gdpPercap <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">gdpPercap</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 60 x 3
+##    continent  year mean_gdpPercap
+##    &lt;chr&gt;     &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Africa     1952          1253.
+##  2 Africa     1957          1385.
+##  3 Africa     1962          1598.
+##  4 Africa     1967          2050.
+##  5 Africa     1972          2340.
+##  6 Africa     1977          2586.
+##  7 Africa     1982          2482.
+##  8 Africa     1987          2283.
+##  9 Africa     1992          2282.
+## 10 Africa     1997          2379.
+## # … with 50 more rows</code></pre>
+<p>Groups also work within <code>mutate</code> and <code>filter</code>. For example, we can get all rows where the gdp per Person was highest per country:</p>
+<div class="sourceCode" id="cb181"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span>
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">gdpPercap</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">gdpPercap</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 142 x 7
+## # Groups:   country [142]
+##    country     continent  year lifeExp       pop gdpPercap           gdp
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Afghanistan Asia       1982    39.9  12881816      978.  12598563401.
+##  2 Albania     Europe     2007    76.4   3600523     5937.  21376411360.
+##  3 Algeria     Africa     2007    72.3  33333216     6223. 207444851958.
+##  4 Angola      Africa     1967    36.0   5247469     5523.  28980597822.
+##  5 Argentina   Americas   2007    75.3  40301927    12779. 515033625357.
+##  6 Australia   Oceania    2007    81.2  20434176    34435. 703658358894.
+##  7 Austria     Europe     2007    79.8   8199783    36126. 296229400691.
+##  8 Bahrain     Asia       2007    75.6    708573    29796.  21112675360.
+##  9 Bangladesh  Asia       2007    64.1 150448339     1391. 209311822134.
+## 10 Belgium     Europe     2007    79.4  10392226    33693. 350141166520.
+## # … with 132 more rows</code></pre>
+<p>Or we can use groups in <code>mutate</code> to find out, what percentage of it’s continent a country’s population makes up per year:</p>
+<div class="sourceCode" id="cb183"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">continent</span>, <span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>pctPop <span class="op">=</span> <span class="va">pop</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 1,704 x 8
+## # Groups:   continent, year [60]
+##    country     continent  year lifeExp      pop gdpPercap          gdp pctPop
+##    &lt;chr&gt;       &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.  6567086330.  0.604
+##  2 Afghanistan Asia       1957    30.3  9240934      821.  7585448670.  0.591
+##  3 Afghanistan Asia       1962    32.0 10267083      853.  8758855797.  0.605
+##  4 Afghanistan Asia       1967    34.0 11537966      836.  9648014150.  0.605
+##  5 Afghanistan Asia       1972    36.1 13079460      740.  9678553274.  0.608
+##  6 Afghanistan Asia       1977    38.4 14880372      786. 11697659231.  0.624
+##  7 Afghanistan Asia       1982    39.9 12881816      978. 12598563401.  0.494
+##  8 Afghanistan Asia       1987    40.8 13867957      852. 11820990309.  0.483
+##  9 Afghanistan Asia       1992    41.7 16317921      649. 10595901589.  0.521
+## 10 Afghanistan Asia       1997    41.8 22227415      635. 14121995875.  0.657
+## # … with 1,694 more rows</code></pre>
+<p>Sometimes you want to refer to the size of the current group inside of <code>mutate</code> or <code>summarise</code>. The function to to just that is called <code>n()</code>. For example, I wonder how many rows of data we have per year.</p>
+<div class="sourceCode" id="cb185"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">group_by</span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">summarise</span><span class="op">(</span>n <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 12 x 2
+##     year     n
+##    &lt;dbl&gt; &lt;int&gt;
+##  1  1952   142
+##  2  1957   142
+##  3  1962   142
+##  4  1967   142
+##  5  1972   142
+##  6  1977   142
+##  7  1982   142
+##  8  1987   142
+##  9  1992   142
+## 10  1997   142
+## 11  2002   142
+## 12  2007   142</code></pre>
+<p>A shortcut for <code>group_by</code> and <code>summarise</code> with <code>n()</code> is the <code>count</code> function:</p>
+<div class="sourceCode" id="cb187"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">count</span><span class="op">(</span><span class="va">year</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 12 x 2
+##     year     n
+##    &lt;dbl&gt; &lt;int&gt;
+##  1  1952   142
+##  2  1957   142
+##  3  1962   142
+##  4  1967   142
+##  5  1972   142
+##  6  1977   142
+##  7  1982   142
+##  8  1987   142
+##  9  1992   142
+## 10  1997   142
+## 11  2002   142
+## 12  2007   142</code></pre>
+<p>In general, you might find after solving a particular problem in a couple of steps that there is a more elegant solution. Do not be discouraged by that! It simply means that there is always more to learn, but the tools you already know by now will get you a very long way and set you on the right track.</p>
+<p>I think we learned enough dplyr verbs for now. We can treat ourselves to a little ggplot visualization.</p>
+</div>
+</div>
+<div id="visualization-and-our-first-encounter-with-factors" class="section level2" number="2.5">
+<h2>
+<span class="header-section-number">2.5</span> Visualization and our First Encounter with <code>factor</code>s<a class="anchor" aria-label="anchor" href="#visualization-and-our-first-encounter-with-factors"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb189"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">continent</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-110-1.png" width="100%"></div>
+<p>The <code>facet_wrap</code> function slices our plot into theses subplots, a style of plot sometimes referred to as <em>small multiples</em>. At this point you might wonder: “How do I control the order of these facets?” The answer is: With a <code>factor</code>! Any time we have a vector that can be thought of as representing discrete categories (ordered or unordered), we can express this by turning the vector into a factor with the <code>factor</code> function. This enables R’s functions to handle them appropriately. Let’s create a little example. We start out with a character vector.</p>
+<div class="sourceCode" id="cb190"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"parrot"</span>, <span class="st">"whale shark"</span>, <span class="st">"bear"</span><span class="op">)</span>
+<span class="va">animals</span></code></pre></div>
+<pre><code>## [1] "cat"         "dog"         "parrot"      "whale shark" "bear"</code></pre>
+<div class="sourceCode" id="cb192"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span>
+<span class="va">animals</span></code></pre></div>
+<pre><code>## [1] cat         dog         parrot      whale shark bear       
+## Levels: bear cat dog parrot whale shark</code></pre>
+<p>Note the new information R gives us, the <strong>Levels</strong>, which is all possible values we can put into the factor. They are automatically ordered alphabetically on creation. We can also pass a vector of levels on creation.</p>
+<div class="sourceCode" id="cb194"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"parrot"</span>, <span class="st">"whale shark"</span>, <span class="st">"bear"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">animals</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"parrot"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"bear"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] cat    dog    parrot &lt;NA&gt;   bear  
+## Levels: parrot cat dog bear</code></pre>
+<p>A factor can only contain elements that are in the levels, so because I omitted the whale shark, it will be turned into <code>NA</code>. The tidyverse contains the <code>forcats</code> package to help with factors. Most functions from this package start with <code>fct_</code>.</p>
+<aside><a href="https://forcats.tidyverse.org/">
+<img src="images/forcats.png"></a>
+</aside><p>For example, the <code>fct_relevel</code> function, which keeps all levels but let’s us change the order:</p>
+<div class="sourceCode" id="cb196"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span>
+<span class="fu">fct_relevel</span><span class="op">(</span><span class="va">animals</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"parrot"</span>, <span class="st">"dog"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] cat         dog         parrot      whale shark bear       
+## Levels: parrot dog bear cat whale shark</code></pre>
+<p>Using this in action, we get:</p>
+<div class="sourceCode" id="cb198"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>continent <span class="op">=</span> <span class="fu">fct_relevel</span><span class="op">(</span><span class="va">continent</span>, <span class="st">"Europe"</span>, <span class="st">"Oceania"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">geom_line</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">continent</span><span class="op">)</span>
+
+<span class="va">plt</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-115-1.png" width="100%"></div>
+<p>I saved the plot to a variable called <code>plt</code> because we need it later. Let’s make this plot a bit prettier by adding color! The <code>gapminder</code> package that provided this dataset also included a nice color palette. I included it as a <code>.csv</code> file in the <code>data/</code> folder so that we can practice importing data once more. But you could also take the shortcut of getting it straight from the package (<code><a href="https://rdrr.io/pkg/gapminder/man/country_colors.html">gapminder::country_colors</a></code>). Here, we are using the <code>head</code> function to look at the first couple of rows of the tibble and to look at the first couple of elements of the named vector from the package.</p>
+<div class="sourceCode" id="cb199"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">country_colors</span> <span class="op">&lt;-</span> <span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/02/country_colors.csv"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">country_colors</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   country          color  
+##   &lt;chr&gt;            &lt;chr&gt;  
+## 1 Nigeria          #7F3B08
+## 2 Egypt            #833D07
+## 3 Ethiopia         #873F07
+## 4 Congo, Dem. Rep. #8B4107
+## 5 South Africa     #8F4407
+## 6 Sudan            #934607</code></pre>
+<div class="sourceCode" id="cb201"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu">gapminder</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/gapminder/man/country_colors.html">country_colors</a></span><span class="op">)</span></code></pre></div>
+<pre><code>##          Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
+##        "#7F3B08"        "#833D07"        "#873F07"        "#8B4107" 
+##     South Africa            Sudan 
+##        "#8F4407"        "#934607"</code></pre>
+<p>Notice, that the csv that we read in translates to a tibble with two columns, namely <code>country</code> and <code>color</code>. But what we need for ggplot to assign colors to the countries is what the gapminder package provides: a names vector. The names are the countries and the values so called hexadecimal (short Hex) color codes (<a href="https://www.w3schools.com/colors/colors_hexadecimal.asp" class="uri">https://www.w3schools.com/colors/colors_hexadecimal.asp</a>). So what we want to do is translate the tibble into a named vector:</p>
+<div class="sourceCode" id="cb203"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">country_colors</span> <span class="op">&lt;-</span> <span class="va">country_colors</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span><span class="op">(</span>color <span class="op">=</span> <span class="fu">set_names</span><span class="op">(</span><span class="va">color</span>, <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu">pull</span><span class="op">(</span><span class="va">color</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">country_colors</span><span class="op">)</span></code></pre></div>
+<pre><code>##          Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
+##        "#7F3B08"        "#833D07"        "#873F07"        "#8B4107" 
+##     South Africa            Sudan 
+##        "#8F4407"        "#934607"</code></pre>
+<p>Two things happened here that are sort of new. <code>set_names</code> is a handy way to take a vector and return a vector with names. It fits better into the tidyverse syntax than the “old” way of assigning to <code>names(x) &lt;- c("new", "names", "vector")</code>. And secondly <code>pull</code> can be though of as a <em>pipeable dollar</em>. It pulls out the column of a tibble or the element of a named list.</p>
+<div class="sourceCode" id="cb205"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span><span class="op">$</span><span class="va">year</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 1952 1957 1962 1967 1972 1977</code></pre>
+<div class="sourceCode" id="cb207"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">gapminder</span> <span class="op">%&gt;%</span> <span class="fu">pull</span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] 1952 1957 1962 1967 1972 1977</code></pre>
+<p>Now, with our color vector ready to go, we can make the plot pretty. Remember the variable we saved our plot to? We can add more ggplot functions to it just like to a regular ggplot. A <code>guide</code> is the generalization of a legend, so we are setting it to <em>none</em> because adding a legend for 142 different colors (/countries) would fill the whole plot.</p>
+<div class="sourceCode" id="cb209"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">plt</span> <span class="op">+</span>
+  <span class="fu">aes</span><span class="op">(</span>color <span class="op">=</span> <span class="va">country</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="va">country_colors</span>, guide <span class="op">=</span> <span class="fu">guide_none</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
+  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">""</span>,
+       y <span class="op">=</span> <span class="st">"Life Expectancy at Birth"</span>,
+       title <span class="op">=</span> <span class="st">"Life Expectancy over Time"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="dataintro_files/figure-html/prev-plt-1.png" width="100%"></div>
+<p>We also added a theme and modified the axis titles. You might have already notice a number of very pronounced dips in some of the lines. We will investigate this rather bleak reality when we talk about modeling and iteration next week.</p>
+</div>
+<div id="exercises-1" class="section level2" number="2.6">
+<h2>
+<span class="header-section-number">2.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Drink a cup of coffee or tea, relax, because you
+just worked through quite a long video.</li>
+<li>Familiarize yourself with the folders on your computer.
+Make sure you understand, where your directories and files live.</li>
+<li>From RStudio, create a new RStudio project for this course.
+<ul>
+<li>Inside the project folder, create a folder
+for the data.</li>
+<li>Create a new Rmarkdown document at the top level of
+your project folder for today’s exercises, again including
+questions that came up during the course.</li>
+<li>Download the data for today in one of the ways taught.
+You can refer to the script anytime.</li>
+<li>Make sure you have all the important settings set
+and are feeling right at home in RStudio.</li>
+</ul>
+</li>
+<li>The file <code>./data/exercise1.txt</code> is in an unfamiliar format.
+<ul>
+<li>Find out how it is structured and read it as a tibble.</li>
+<li>Create a scatterplot of the x and y column with ggplot2.</li>
+<li>Look at the help page for <code>geom_point</code>.
+What is the difference between <code>geom_point(aes(color = &lt;something&gt;))</code> and <code>geom_point(color = &lt;something&gt;)</code>?
+A relevant hint is in the section about the <code>...</code>-argument.</li>
+<li>Make the plot pretty by coloring the points,
+keeping in mind the above distinction.</li>
+</ul>
+</li>
+<li>Read in the <code>gapminder</code> dataset with <code>readr</code>
+<ul>
+<li>Using a combination of <code>dplyr</code> verbs and / or
+visualizations with <code>ggplot2</code>,
+answer the following questions:</li>
+<li>Which continent had the highest life expectancy on average
+in the most current year? There are two options here.
+First, calculate a simple mean for the countries
+in each continent. Then, remember that the countries
+have different population sizes, so we really need
+a <em>weighted mean</em> using R’s function <code><a href="https://rdrr.io/r/stats/weighted.mean.html">weighted.mean()</a></code>.</li>
+<li>Is there a relationship between the GDP per capita and
+the life expectancy? A visualization might be helpful.</li>
+<li>How did the population of the countries change over time?
+Make the plot more informative by adding color,
+facets and labels (with <code>geom_text</code>). Can you find out,
+how to add the country name label only to the last year?
+Hint: Have a look at the <code>data</code> argument that all <code>geom_</code>-functions
+have.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="resources" class="section level2" number="2.7">
+<h2>
+<span class="header-section-number">2.7</span> Resources<a class="anchor" aria-label="anchor" href="#resources"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="package-documentation" class="section level2" number="2.8">
+<h2>
+<span class="header-section-number">2.8</span> Package Documentation<a class="anchor" aria-label="anchor" href="#package-documentation"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://www.tidyverse.org/">The tidyverse website</a></li>
+<li><a href="https://readr.tidyverse.org/">The readr package website with cheatsheet</a></li>
+<li><a href="https://dplyr.tidyverse.org/">The dplyr package website with cheatsheet</a></li>
+</ul>
+</div>
+<div id="getting-help" class="section level2" number="2.9">
+<h2>
+<span class="header-section-number">2.9</span> Getting Help<a class="anchor" aria-label="anchor" href="#getting-help"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://www.tidyverse.org/help/#reprex">How to find help</a></li>
+<li><a href="https://www.rfordatasci.com/">R4DS online learning community</a></li>
+</ul>
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="intro.html"><span class="header-section-number">1</span> Introduction</a></div>
+<div class="next"><a href="tidy-data.html"><span class="header-section-number">3</span> Tidy Data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#data-wrangling"><span class="header-section-number">2</span> Data Wrangling</a></li>
+<li>
+<a class="nav-link" href="#making-ourselves-at-home-in-rstudio"><span class="header-section-number">2.1</span> Making Ourselves at Home in RStudio</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#important-settings"><span class="header-section-number">2.1.1</span> Important Settings</a></li>
+<li><a class="nav-link" href="#a-project-based-workflow"><span class="header-section-number">2.1.2</span> A Project-based Workflow</a></li>
+<li><a class="nav-link" href="#working-in-style"><span class="header-section-number">2.1.3</span> Working in Style</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#a-data-analysis-workflow"><span class="header-section-number">2.2</span> A Data Analysis Workflow</a></li>
+<li>
+<a class="nav-link" href="#reading-data-with-readr"><span class="header-section-number">2.3</span> Reading Data with readr</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#common-hurdles-when-importing-data"><span class="header-section-number">2.3.1</span> Common Hurdles when Importing Data</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#wrangling-data-with-dplyr"><span class="header-section-number">2.4</span> Wrangling Data with dplyr</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#select"><span class="header-section-number">2.4.1</span> select</a></li>
+<li><a class="nav-link" href="#filter"><span class="header-section-number">2.4.2</span> filter</a></li>
+<li><a class="nav-link" href="#mutate"><span class="header-section-number">2.4.3</span> mutate</a></li>
+<li><a class="nav-link" href="#interlude-begind-the-magic-handling-data-with-base-r"><span class="header-section-number">2.4.4</span> Interlude: Begind the magic, handling data with base-R</a></li>
+<li><a class="nav-link" href="#the-pipe"><span class="header-section-number">2.4.5</span> The pipe %&gt;%</a></li>
+<li><a class="nav-link" href="#arrange"><span class="header-section-number">2.4.6</span> arrange</a></li>
+<li><a class="nav-link" href="#summarise"><span class="header-section-number">2.4.7</span> summarise</a></li>
+<li><a class="nav-link" href="#group_by"><span class="header-section-number">2.4.8</span> group_by</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#visualization-and-our-first-encounter-with-factors"><span class="header-section-number">2.5</span> Visualization and our First Encounter with factors</a></li>
+<li><a class="nav-link" href="#exercises-1"><span class="header-section-number">2.6</span> Exercises</a></li>
+<li><a class="nav-link" href="#resources"><span class="header-section-number">2.7</span> Resources</a></li>
+<li><a class="nav-link" href="#package-documentation"><span class="header-section-number">2.8</span> Package Documentation</a></li>
+<li><a class="nav-link" href="#getting-help"><span class="header-section-number">2.9</span> Getting Help</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jmbuhr/dataintro/blob/master/02-dplyr.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jmbuhr/dataintro/edit/master/02-dplyr.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>
