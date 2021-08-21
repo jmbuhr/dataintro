@@ -4,6 +4,8 @@
   find out about the central limit theorem and related statistical tests
   and become N-dimensional whale sharks.
 
+<!--
+
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/1J2zomeKjFE" allowfullscreen></iframe>
 :::
@@ -1167,3 +1169,5 @@ that come up, so we can talk about them on Friday.
 - [Tidymodels book](https://www.tmwr.org/)
 - [ggplot book](https://ggplot2-book.org/)
 - [ragg graphics device](https://ragg.r-lib.org/)
+
+-->

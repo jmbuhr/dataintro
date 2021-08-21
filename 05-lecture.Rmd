@@ -3,6 +3,8 @@
 > ... in which we reason about the nature of randomness and
   discover various statistical tests.
 
+<!--
+
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe>
 :::
@@ -739,3 +741,5 @@ let me know, if you find one!
 - <https://jimgruman.netlify.app/post/education-r/>
 - [P-Value histograms blogpost by David Robinson](http://varianceexplained.org/statistics/interpreting-pvalue-histogram/)
 - ["Statistics done wrong"](https://www.statisticsdonewrong.com/)
+
+-->

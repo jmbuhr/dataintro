@@ -4,6 +4,8 @@
   advanced data wrangling techniques and get a sneak peak at
   iteration.
 
+<!--
+
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/V3AFBd5GbLw" allowfullscreen></iframe>
 :::
@@ -633,3 +635,6 @@ to achieve so much with one key-press!
 - [stringr documentation](https://stringr.tidyverse.org/)
   for working with text and a helpful cheatsheet for
   the **regular expressions** mentioned in the video
+
+-->
+

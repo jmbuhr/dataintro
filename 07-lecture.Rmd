@@ -3,6 +3,9 @@
 > ... in which we hear Stories of Warplanes,
   Correlation and Regression and explore the Datasaurus Dozen.
 
+<!--
+  
+
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/VYLAxbt9Izk" allowfullscreen></iframe>
 :::
@@ -777,5 +780,5 @@ datasauRus::box_plots
   that speaks to you: <https://github.com/rfordatascience/tidytuesday>
 
 
-
+-->
 

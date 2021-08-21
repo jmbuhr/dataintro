@@ -3,6 +3,8 @@
 > ... which is all about functions, bringing the whole tidyverse together and
   exploring advanced dplyr data wrangling techniques.
 
+<!--
+
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe>
 :::
@@ -674,3 +676,4 @@ to highlight it.
 - [stringr documentation](https://stringr.tidyverse.org/)
 - [dplyr documentation](https://dplyr.tidyverse.org/)
 
+-->

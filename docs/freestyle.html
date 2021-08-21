@@ -6,13 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Lesson 8 Freestyle | Introduction to Data Analysis with R</title>
 <meta name="author" content="Jannik Buhr">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="… in which we venture into the unknown to show an example data analysis.">
+<meta name="generator" content="bookdown 0.23.1 with bs4_book()">
+<meta property="og:title" content="Lesson 8 Freestyle | Introduction to Data Analysis with R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://jmbuhr.de/dataintro/freestyle.html">
+<meta property="og:description" content="… in which we venture into the unknown to show an example data analysis.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lesson 8 Freestyle | Introduction to Data Analysis with R">
+<meta name="twitter:description" content="… in which we venture into the unknown to show an example data analysis.">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
 <script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -38,12 +47,12 @@
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
 <li><a class="" href="data-wrangling.html"><span class="header-section-number">2</span> Data Wrangling</a></li>
 <li><a class="" href="tidy-data.html"><span class="header-section-number">3</span> Tidy Data</a></li>
-<li><a class="" href="functions-1.html"><span class="header-section-number">4</span> Functions</a></li>
+<li><a class="" href="functions.html"><span class="header-section-number">4</span> Functions</a></li>
 <li><a class="" href="hypothesis-testing.html"><span class="header-section-number">5</span> Hypothesis Testing</a></li>
 <li><a class="" href="distributions.html"><span class="header-section-number">6</span> Distributions</a></li>
 <li><a class="" href="fallacies.html"><span class="header-section-number">7</span> Fallacies</a></li>
 <li><a class="active" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
-<li><a class="" href="resources-5.html">Resources</a></li>
+<li><a class="" href="resources.html">Resources</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -58,13 +67,15 @@
 </h1>
 <blockquote>
 <p>… in which we venture into the unknown to show an example data
-analysis, gather more data with webscraping and build a small app.</p>
+analysis.</p>
 </blockquote>
-<div class="video-container">
-<iframe class="video" src="https://www.youtube.com/embed/pY4da9WCc" allowfullscreen>
-</iframe>
-</div>
-<p>In today’s lecture, the script is the result of experimenting
+<!--
+
+::: {.video-container}
+<iframe class="video" src="https://www.youtube.com/embed/pY4da9WCc" allowfullscreen></iframe>
+:::
+
+In today's lecture, the script is the result of experimenting
 with unseen data as seen in the video. You can refer back
 to it in order to get the code if the video goes to fast.
 By itself, the script will be less useful than the script
@@ -72,91 +83,59 @@ for regular lectures. I hope you can learn something from
 how I approach a new task and how I handle mistakes and
 errors. The video is largely unedited; I only removed a
 portion where all attempts at webscraping failed for a while
-because my internet connection was gone…</p>
-<div class="sourceCode" id="cb466"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/tidyverse/glue">glue</a></span><span class="op">)</span></code></pre></div>
-<div id="christmas-theme" class="section level2" number="8.1">
-<h2>
-<span class="header-section-number">8.1</span> Christmas Theme!<a class="anchor" aria-label="anchor" href="#christmas-theme"><i class="fas fa-link"></i></a>
-</h2>
-<ul>
-<li>Christmas RStudio theme: <a href="https://github.com/gadenbuie/rsthemes" class="uri">https://github.com/gadenbuie/rsthemes</a>
-</li>
-</ul>
-</div>
-<div id="advanced-rmarkdown" class="section level2" number="8.2">
-<h2>
-<span class="header-section-number">8.2</span> Advanced Rmarkdown<a class="anchor" aria-label="anchor" href="#advanced-rmarkdown"><i class="fas fa-link"></i></a>
-</h2>
-<ul>
-<li>Using the RStudio plugin to insert citations directly from Zotero
-<ul>
-<li>preview of
-<a href="https://blog.rstudio.com/2020/11/09/rstudio-1-4-preview-citations/" class="uri">https://blog.rstudio.com/2020/11/09/rstudio-1-4-preview-citations/</a>
-</li>
-</ul>
-</li>
-<li>Other output formats:
-<ul>
-<li><a href="https://bookdown.org/yihui/rmarkdown/" class="uri">https://bookdown.org/yihui/rmarkdown/</a></li>
-<li>
-<a href="https://github.com/rstudio/rticles" class="uri">https://github.com/rstudio/rticles</a>
-<ul>
-<li>note: tinytex package for pdf outputs</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-<div id="finding-help-easier" class="section level2" number="8.3">
-<h2>
-<span class="header-section-number">8.3</span> Finding Help Easier<a class="anchor" aria-label="anchor" href="#finding-help-easier"><i class="fas fa-link"></i></a>
-</h2>
-<ul>
-<li><a href="https://reprex.tidyverse.org/" class="uri">https://reprex.tidyverse.org/</a></li>
-</ul>
-</div>
-<div id="into-the-unknown-an-example-analysis-of-unseen-data" class="section level2" number="8.4">
-<h2>
-<span class="header-section-number">8.4</span> Into the Unknown: An Example Analysis of Unseen Data<a class="anchor" aria-label="anchor" href="#into-the-unknown-an-example-analysis-of-unseen-data"><i class="fas fa-link"></i></a>
-</h2>
-<div class="figure">
-<img src="https://media0.giphy.com/media/m8WyNwXQUtzuijrtFq/giphy-downsized-medium.gif" class="external" alt=""><p class="caption">Into the Unknown, from the giphy
-api</p>
-</div>
-</div>
-<div id="feedback" class="section level2" number="8.5">
-<h2>
-<span class="header-section-number">8.5</span> Feedback<a class="anchor" aria-label="anchor" href="#feedback"><i class="fas fa-link"></i></a>
-</h2>
-<p>I will send round a link with a feedback form.
-It is anonymous, so I have no way of tracking who
-submitted it. I will just assume you all did and
-count it as a completed exercise.</p>
+because my internet connection was gone...
 
-</div>
+
+```r
+library(tidyverse)
+library(rvest)
+library(glue)
+```
+
+## Christmas Theme!
+
+-   Christmas RStudio theme: <https://github.com/gadenbuie/rsthemes>
+
+## Advanced Rmarkdown
+
+-   Using the RStudio plugin to insert citations directly from Zotero
+    -   preview of
+        <https://blog.rstudio.com/2020/11/09/rstudio-1-4-preview-citations/>
+-   Other output formats:
+    -   <https://bookdown.org/yihui/rmarkdown/>
+    -   <https://github.com/rstudio/rticles>
+        -   note: tinytex package for pdf outputs
+
+## Finding Help Easier
+
+-   <https://reprex.tidyverse.org/>
+
+## Into the Unknown: An Example Analysis of Unseen Data
+
+![Into the Unknown, from the giphy
+api](https://media0.giphy.com/media/m8WyNwXQUtzuijrtFq/giphy-downsized-medium.gif){.external}
+
+## Feedback
+
+I will send round a link with a feedback form.
+It is anonymous, so I have no way of tracking who 
+submitted it. I will just assume you all did and
+count it as a completed exercise.
+
+-->
+
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="fallacies.html"><span class="header-section-number">7</span> Fallacies</a></div>
-<div class="next"><a href="resources-5.html">Resources</a></div>
+<div class="next"><a href="resources.html">Resources</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#freestyle"><span class="header-section-number">8</span> Freestyle</a></li>
-<li><a class="nav-link" href="#christmas-theme"><span class="header-section-number">8.1</span> Christmas Theme!</a></li>
-<li><a class="nav-link" href="#advanced-rmarkdown"><span class="header-section-number">8.2</span> Advanced Rmarkdown</a></li>
-<li><a class="nav-link" href="#finding-help-easier"><span class="header-section-number">8.3</span> Finding Help Easier</a></li>
-<li><a class="nav-link" href="#into-the-unknown-an-example-analysis-of-unseen-data"><span class="header-section-number">8.4</span> Into the Unknown: An Example Analysis of Unseen Data</a></li>
-<li><a class="nav-link" href="#feedback"><span class="header-section-number">8.5</span> Feedback</a></li>
-</ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#freestyle"><span class="header-section-number">8</span> Freestyle</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jmbuhr/dataintro/blob/master/08-freestyle.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jmbuhr/dataintro/edit/master/08-freestyle.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jmbuhr/dataintro/blob/main/08-freestyle.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jmbuhr/dataintro/edit/main/08-freestyle.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -168,7 +147,7 @@ count it as a completed exercise.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-06.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -176,18 +155,6 @@ count it as a completed exercise.</p>
   </div>
 
 </div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
+</footer>
 </body>
 </html>

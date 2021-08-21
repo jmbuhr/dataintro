@@ -35,6 +35,10 @@ Some will help you understand the topics covered, some dive deeper and some will
 - [StatQuest!!! with Josh Starner](https://statquest.org/video-index/#statistics)
 - [Modern Statistics for Modern Biology](https://www.huber.embl.de/msmb/index.html)
 
+## Helpful tools
+
+- [Generate ggplots via graphical user interface with esquisee](https://github.com/dreamRs/esquisse)
+
 ## Talks, Podcasts, Blogs, Videos
 
 Just some of the people with inspiring blogposts, videos and the likes.

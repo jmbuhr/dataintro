@@ -1,7 +1,9 @@
 # Freestyle
 
 >  ... in which we venture into the unknown to show an example data
-  analysis, gather more data with webscraping and build a small app.
+  analysis.
+
+<!--
 
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/pY4da9WCc" allowfullscreen></iframe>
@@ -52,3 +54,5 @@ I will send round a link with a feedback form.
 It is anonymous, so I have no way of tracking who 
 submitted it. I will just assume you all did and
 count it as a completed exercise.
+
+-->

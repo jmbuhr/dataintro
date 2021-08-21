@@ -4,6 +4,8 @@
   with the tidyverse, wrangle different kinds of data and
   learn about factors.
 
+<!--
+
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/yo6uQYr8U48" allowfullscreen></iframe>
 :::
@@ -619,3 +621,5 @@ We also added a theme and modified the axis titles. You might have already notic
 
 - [How to find help](https://www.tidyverse.org/help/#reprex)
 - [R4DS online learning community](https://www.rfordatasci.com/)
+
+-->
