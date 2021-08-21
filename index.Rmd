@@ -65,7 +65,7 @@ penguins %>%
   labs(x = "Flipper length [mm]",
        y = "Bill length [mm]",
        title = "Penguins!",
-       subtitle = "The 3 penguin species can differentiated by their flipper- and bill-lengths.",
+       subtitle = "The 3 penguin species can be differentiated by their flipper- and bill-lengths.",
        caption = "Datasource:\nHorst AM, Hill AP, Gorman KB (2020). palmerpenguins:\nPalmer Archipelago (Antarctica) penguin data.\nR package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/",
        color = "Species",
        shape = "Sex") +
