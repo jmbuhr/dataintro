@@ -2,7 +2,7 @@
 
 ::: { .alert .alert-info}
 Hi there! this is where the material for the first lecture will appear.
-To sign up, check out the [welcome page](/)
+To sign up, check out the [welcome page](https://jmbuhr.de/dataintro/index.html)
 :::
 
 > ... in which we get started with R and RStudio
