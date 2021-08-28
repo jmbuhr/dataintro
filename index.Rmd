@@ -33,7 +33,7 @@ WS21/22\
 21.10.21 – 09.12.21\
 Lecture online in your own time\
 Seminar weekly on Fridays at 9:15 – 10:45\
-Sign-up: see [discord] or click on this invite link: <https://discord.gg/jVZcNPCrp7>
+Sign-up: see [discord](#discord)
 :::
 
 ::: { .alert .alert-dark}
@@ -90,7 +90,7 @@ but the material is open to anyone!
     (plus some more code to generate illustrative graphics) and explanations
   - [Exercises](#exe) to complete and send in
   - A [seminar] to discuss the exercises
-  - A [discord] server to ask questions and share solutions
+  - A [discord](#discord) server to ask questions and share solutions
 
 I do recommend to watch the lecture in your own time, and then use the lecture script afterwards to look up concepts and code you want to revisit.
 Code chunks also have a copy-button, which is helpful for quickly playing around with it, but make sure you actually walk through the lecture and do the typing first,
@@ -115,10 +115,13 @@ Currently it looks like it will be possible to do so in person, in which case we
 Even though these are technically computer rooms, it would be great if you could bring your own laptop so that you can code along and known that you will be able to apply what you learned after the course as well.
 Also, we might not be able to install the necessary software in the computer room.
 
-### Discord
+### Discord and signup {#discord}
 
-Click on this link: <https://discord.gg/jVZcNPCrp7> to join our discord server.
-There, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.
+Click on this link: <https://discord.gg/jVZcNPCrp7> to join our discord server and sign up for the course.
+If the link doesn't work, please send me a message via my [contact form](https://jmbuhr.de/contact)
+
+Once you are there be sure to drop me a message with your name name matriculation number so that we can put the course onto your official transcript of records.
+On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.
 
 Discord is a good choice for this, because messages there support code formatting and we can easily open up a voice call should a question get more complicated.
 
