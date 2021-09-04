@@ -101,7 +101,7 @@ because muscle memory will server you well in the future.
 To complete the course, hand in at least 5 out of 8 exercises.
 The important part here is not that each exercise is a perfect solution,
 but if you encounter questions and struggles during your attempt of the exercise, make sure to include those pain points as well so that we can cover those in the [Seminar].
-Please hand in your solutions **before** the seminar via a direct message on [discord].
+Please hand in your solutions **before** the seminar via a direct message on [discord](#discord).
 The earlier in the week you submit your solutions,
 the more time I have to prepare answers for the seminar.
 
