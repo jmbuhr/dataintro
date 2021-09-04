@@ -33,7 +33,7 @@ WS21/22\
 21.10.21 – 09.12.21\
 Lecture online in your own time\
 Seminar weekly on Fridays at 9:15 – 10:45\
-Sign-up: see [discord](#discord)
+Sign-up (Heidelberg University): see [discord](#discord)
 :::
 
 ::: { .alert .alert-dark}
@@ -117,7 +117,9 @@ Also, we might not be able to install the necessary software in the computer roo
 
 ### Discord and signup {#discord}
 
-Click on this link: <https://discord.gg/jVZcNPCrp7> to join our discord server and sign up for the course.
+If you are a biochemistry student at Heidelberg University,
+click on this link: <https://discord.gg/jVZcNPCrp7> to join our discord server and sign up for the course.
+Once you are there, please send me a message with your full name and matriculation number so that this course can make it's way to your official transcript of records.
 If the link doesn't work, please send me a message via my [contact form](https://jmbuhr.de/contact)
 
 Once you are there be sure to drop me a message with your name name matriculation number so that we can put the course onto your official transcript of records.
