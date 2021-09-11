@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.1.1",
+    "Version": "4.0.4",
     "Repositories": [
       {
         "Name": "CRAN",
@@ -343,13 +343,6 @@
       "Repository": "CRAN",
       "Hash": "28841c5422868bbfd9c7ffd3566c49c3"
     },
-    "fontawesome": {
-      "Package": "fontawesome",
-      "Version": "0.2.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "55624ed409e46c5f358b2c060be87f67"
-    },
     "forcats": {
       "Package": "forcats",
       "Version": "0.5.1",
@@ -497,13 +490,6 @@
       "Repository": "CRAN",
       "Hash": "10bec8a8264f3eb59531e8c4c0303f96"
     },
-    "here": {
-      "Package": "here",
-      "Version": "1.0.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "24b224366f9c2e7534d2344d10d59211"
-    },
     "highr": {
       "Package": "highr",
       "Version": "0.9",
@@ -520,10 +506,10 @@
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.1.1",
+      "Version": "0.5.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "af2c2531e55df5cf230c4b5444fc973c"
+      "Hash": "526c484233f42522278ab06fb185cb26"
     },
     "htmlwidgets": {
       "Package": "htmlwidgets",
@@ -531,13 +517,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "6fdaa86d0700f8b3e92ee3c445a5a10d"
-    },
-    "httpuv": {
-      "Package": "httpuv",
-      "Version": "1.6.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "a42959b003aad9fc351b10250c5a6b77"
     },
     "httr": {
       "Package": "httr",
@@ -959,13 +938,6 @@
       "Repository": "CRAN",
       "Hash": "9787c1fcb680e655d062e7611cadf78e"
     },
-    "rprojroot": {
-      "Package": "rprojroot",
-      "Version": "2.0.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "249d8cd1e74a8f6a26194a91b47f21d1"
-    },
     "rsample": {
       "Package": "rsample",
       "Version": "0.1.0",
@@ -1000,13 +972,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "3838071b66e0c566d55cc26bd6e27bf4"
-    },
-    "servr": {
-      "Package": "servr",
-      "Version": "0.23",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "75a40cd4f8503fe175be6b213009767f"
     },
     "slider": {
       "Package": "slider",
@@ -1182,13 +1147,6 @@
       "Repository": "CRAN",
       "Hash": "2982481615756e24e79fee95bdc95daa"
     },
-    "whisker": {
-      "Package": "whisker",
-      "Version": "0.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "ca970b96d894e90397ed20637a0c1bbe"
-    },
     "withr": {
       "Package": "withr",
       "Version": "2.4.2",
@@ -1209,32 +1167,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "34d9ca8086d92ee78df6747831ce3ec5"
-    },
-    "xaringan": {
-      "Package": "xaringan",
-      "Version": "0.22",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "c0ed5b878f24730ed7f4afbb95af84ae"
-    },
-    "xaringanExtra": {
-      "Package": "xaringanExtra",
-      "Version": "0.5.4",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "gadenbuie",
-      "RemoteRepo": "xaringanExtra",
-      "RemoteRef": "master",
-      "RemoteSha": "5e2d80bd0c53065cf1c3e55c3f21efb28c44ab5d",
-      "Hash": "f1b63f81a9dedddd43929543a847a739"
-    },
-    "xaringanthemer": {
-      "Package": "xaringanthemer",
-      "Version": "0.4.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "b6c551c7ab2791ec57c3d7326b79ff2f"
     },
     "xfun": {
       "Package": "xfun",
