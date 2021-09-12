@@ -1,7 +1,9 @@
 # Data Wrangling
 
->   ... in which we explore the typical data analysis workflow
-  with the tidyverse, wrangle different kinds of data and
+> ... in which we explore the typical
+  data analysis workflow
+  with the tidyverse,
+  wrangle different kinds of data and
   learn about factors.
 
 <!--
