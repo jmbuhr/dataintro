@@ -6,22 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Lesson 4 Functions | Introduction to Data Analysis with R</title>
 <meta name="author" content="Jannik Buhr">
-<meta name="description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.">
+<meta name="description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.  These are just the notes for the lecture that will be filled during...">
 <meta name="generator" content="bookdown 0.23.1 with bs4_book()">
 <meta property="og:title" content="Lesson 4 Functions | Introduction to Data Analysis with R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://jmbuhr.de/dataintro/functions.html">
-<meta property="og:description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.">
+<meta property="og:description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.  These are just the notes for the lecture that will be filled during...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lesson 4 Functions | Introduction to Data Analysis with R">
-<meta name="twitter:description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.">
+<meta name="twitter:description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.  These are just the notes for the lecture that will be filled during...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -52,7 +49,7 @@
 <li><a class="" href="distributions.html"><span class="header-section-number">6</span> Distributions</a></li>
 <li><a class="" href="fallacies.html"><span class="header-section-number">7</span> Fallacies</a></li>
 <li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
-<li><a class="" href="resources.html">Resources</a></li>
+<li><a class="" href="resources-5.html">Resources</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -69,955 +66,121 @@
 <p>… which is all about functions, bringing the whole tidyverse together and
 exploring advanced dplyr data wrangling techniques.</p>
 </blockquote>
-<!--
-
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe>
-:::
-
-## Motivation
-
-My goal today is to bring together everything
-we learned so far and solidify
-our understanding of wrangling data in the tidyverse.
-If all goes according to plan,
-we will then have more mental capacity
-freed up for the statistics starting next week.
-And our understanding of data will hopefully
-enable us to experiment and play with statistical
-concepts without getting stuck too much
-on data wrangling.
-This also means that today's lecture might
-be the most challenging so far, because
-everything learned up until now will -- in
-one way or another -- be relevant.
-
-As you might be able to tell,
-mental models are one of my favorite topics. We
-are starting today with a powerful mental model 
-teased at last week. I am talking about
-**iteration**.
-
-## Iteration
-
-Iteration is the basic idea of doing one thing multiple times. This is an area
-where computers shine, so in this chapter we will learn to fully utilize the
-power at our fingertips.
-
-We had our first encounter with iteration in a very implicit form. When we use
-R's basic math operators, the computer is iterating behind the scenes. Take this
-expression:
-
-
-```r
-1:3 + 1:3
-```
-
-```
-## [1] 2 4 6
-```
-
-This operation is vectorized. Without us having to tell R to do so, R will add
-the first element of the first vector to the first element of the second vector
-and so forth.
-
-Notice, how it looks like the operation happens all at the same time. But in
-reality, this is not what happens. The computer is just really fast at adding
-numbers, one after the other.
-
-The mathematical operations in R call another programming language that does the
-actual addition. This other programming language is closer to the way computers
-*think*, making it less fun to write for us humans, but also faster because the
-instructions are easier to translate into actions for our computer processor.
-
-When we find a task that we want to apply to multiple things, and this task is
-not already vectorized, we need to make our own iteration. There are actually
-two schools of though on how to talk about iteration and consequently, how to
-write it in code.
-
-I will use a realworld example to illustrate this:
-**Reading in Multiple Files**
-
-### Functional Programming
-
-Remember the `gapminder` dataset? Well, we are working with it again, but this
-time, our collaborator sent us one csv-file for each continent. As usual, we
-load the tidyverse first. For the script I also load the rmarkdown package and
-the knitr package to have more control over printing tables.
-
-
-```r
-library(tidyverse)
-library(rmarkdown)
-library(knitr)
-```
-
-We already know how to read in *one* csv-file:
-
-
-```r
-# n_max = 3 is just here for the script
-read_csv("data/04/Africa.csv", n_max = 3)
-```
-
-```
-## # A tibble: 3 × 5
-##   country  year lifeExp      pop gdpPercap
-##   <chr>   <dbl>   <dbl>    <dbl>     <dbl>
-## 1 Algeria  1952    43.1  9279525     2449.
-## 2 Algeria  1957    45.7 10270856     3014.
-## 3 Algeria  1962    48.3 11000948     2551.
-```
-
-We have a function (`read_csv`) that **takes** a file path and **returns**
-(spits out) the data. In this first school of thought, the Functional
-Programming style, the next idea is to have a function, that takes two things: a
-function and a vector (atomic or list). And it feeds the individual elements of
-the vector to the function, one after another. In mathematics, the relation
-between a set of inputs and a set of outputs is called a
-**map**, which is where the name of the following family of functions comes
-from. In the tidyverse, these functional programming concepts live in the
-`purrr` package.
-
-<aside>
-<a href="https://purrr.tidyverse.org/">
-![]images/purrr.png)
-</a>
-</aside>
-
-First, we create the vector of things that we want to iterate over, the things
-that will be fed into our function one after the other:
-
-
-```r
-paths <- dir("data/04/", full.names = TRUE)
-paths
-```
-
-```
-## [1] "data/04//Africa.csv"   "data/04//Americas.csv" "data/04//Asia.csv"    
-## [4] "data/04//Europe.csv"   "data/04//Oceania.csv"
-```
-
-Now we have 5 file paths. We can test our understanding by passing just one of
-them to `read_csv` to make sure our function works:
-
-
-```r
-read_csv(paths[[1]], n_max = 3)
-```
-
-```
-## # A tibble: 3 × 5
-##   country  year lifeExp      pop gdpPercap
-##   <chr>   <dbl>   <dbl>    <dbl>     <dbl>
-## 1 Algeria  1952    43.1  9279525     2449.
-## 2 Algeria  1957    45.7 10270856     3014.
-## 3 Algeria  1962    48.3 11000948     2551.
-```
-
-It is time for the map function!
-
-
-```r
-all_datasets <- map(paths, read_csv)
-```
-
-That's it! We now have a list that contains all five datasets.
-
-But we lost the information about which file the elements of the list came from,
-which is the name if the continent! We can fix this by using a named list
-instead of a regular list to pass to `map`:
-
-
-```r
-names(paths) <- basename(paths) %>%
-  str_remove("\\.csv")
-
-my_data <- map(paths, read_csv)
-```
-
-The function `str_remove` is part of the `stringr` package
-in the tidyverse. It's functions, which handle
-all kinds of operations on text, start with `str_`.
-
-<aside>
-<a href="https://stringr.tidyverse.org/">
-
-<img src="images/stringr.png" width="100%" class=external />
-
-</a>
-</aside>
-
-And now we can combine them into one big dataset
-using `bind_rows`, which stacks tibbles on top of each other.
-The extra argument `.id` determines the name for the column
-in which we store the names of the list
-items.
-
-
-```r
-my_data %>%
-  bind_rows(.id = "continent")
-```
-
-```
-## # A tibble: 1,704 × 6
-##    continent country  year lifeExp      pop gdpPercap
-##    <chr>     <chr>   <dbl>   <dbl>    <dbl>     <dbl>
-##  1 Africa    Algeria  1952    43.1  9279525     2449.
-##  2 Africa    Algeria  1957    45.7 10270856     3014.
-##  3 Africa    Algeria  1962    48.3 11000948     2551.
-##  4 Africa    Algeria  1967    51.4 12760499     3247.
-##  5 Africa    Algeria  1972    54.5 14760787     4183.
-##  6 Africa    Algeria  1977    58.0 17152804     4910.
-##  7 Africa    Algeria  1982    61.4 20033753     5745.
-##  8 Africa    Algeria  1987    65.8 23254956     5681.
-##  9 Africa    Algeria  1992    67.7 26298373     5023.
-## 10 Africa    Algeria  1997    69.2 29072015     4797.
-## # … with 1,694 more rows
-```
-
-There is yet another shortcut we can employ. The `purrr` package contains
-various variants of the `map` function. `map` itself will always return a list,
-whereas variants like `map_chr` always return an atomic character
-vector,`map_dbl` always returns numbers, `map_lgl` always return logical (yes or
-no, TRUE / FALSE) vectors. Combining a list into one dataframe (by rows) is so
-common that there is also a special `map` function for this: `map_dfr`.
-
-
-```r
-gapminder <- map_dfr(paths, read_csv, .id = "continent")
-gapminder
-```
-
-```
-## # A tibble: 1,704 × 6
-##    continent country  year lifeExp      pop gdpPercap
-##    <chr>     <chr>   <dbl>   <dbl>    <dbl>     <dbl>
-##  1 Africa    Algeria  1952    43.1  9279525     2449.
-##  2 Africa    Algeria  1957    45.7 10270856     3014.
-##  3 Africa    Algeria  1962    48.3 11000948     2551.
-##  4 Africa    Algeria  1967    51.4 12760499     3247.
-##  5 Africa    Algeria  1972    54.5 14760787     4183.
-##  6 Africa    Algeria  1977    58.0 17152804     4910.
-##  7 Africa    Algeria  1982    61.4 20033753     5745.
-##  8 Africa    Algeria  1987    65.8 23254956     5681.
-##  9 Africa    Algeria  1992    67.7 26298373     5023.
-## 10 Africa    Algeria  1997    69.2 29072015     4797.
-## # … with 1,694 more rows
-```
-
-Now that was efficient! It only took us a couple of lines.
-We can even do the whole thing in one chain of functions
-using the pipe.
-But keep in mind that this is not the way we came
-up with it.
-No one expects you to come up with the shortest and
-most concise solution on the first go.
-But sometimes it can pay off to revisit your first 
-solution that involves multiple temporary variables
-we don't really need for the rest of the script
-and clean it up a bit.
-This might make it easier to come back to
-your code in the future and be able to read
-what is going on faster (because there are less lines
-to read).
-
-
-```r
-gapminder <-
-  dir("data/04/", full.names = TRUE) %>% 
-  set_names(function(name) basename(name) %>% str_remove("\\.csv")) %>%
-  map_dfr(read_csv, .id = "continent")
-```
-
-I want to take a moment to introduce yet another
-shortcut we can take.
-Notice, how in `set_names` I created a function to process
-the names without giving it a name.
-This is called an anonymous function.
-Sometimes people also call it a lambda function,
-because it originates from something called
-lambda calculus.
-Because the tilde symbol `~` is the
-closest we get to $\lambda$ on an English keyboard,
-this is used to create anonymous functions
-on the fly.
-The don't even have to worry about names
-for our arguments, it automatically
-creates a function where the argument
-is named ".x" (and ".y" if you need multiple
-arguments).
-See the documentation of `map`,
-especially the `.f` argument,
-for more information.
-
-
-```r
-gapminder <-
-  dir("data/04/", full.names = TRUE) %>% 
-  set_names(~ basename(.x) %>% str_remove("\\.csv")) %>%
-  map_dfr(read_csv, .id = "continent")
-```
-
-### The Imperative Programming Approach
-
-There are other ways we could have gone about this.
-A common construct in
-programming languages is the so called **for-loop**.
-For every element of a
-vector, the body of the loop runs.
-For our example, it would look like this:
-
-
-```r
-paths <- dir("data", full.names = TRUE)
-results <- vector("list", length(paths))
-
-for (i in 1:length(paths)) {
-  data <- read_csv(paths[i])
-  results[[i]] <- data
-}
-
-names(results) <- basename(paths) %>% str_remove("\\.csv")
-gapminder <- bind_rows(results, .id = "continent")
-```
-
-The for-loop-version has a lot more code, especially *boilerplate*, code that is
-just there to make the construct work and doesn't convey our intentions with the
-code. Furthermore, the loop focuses the object that is iterated over (the file
-paths), while the `map`-version focuses on what is happening (the function,
-`read_csv`). But the loop still works. If you can't think of a way to solve a
-problem with a `map` function, it is absolutely OK to use for-loops.
-
-The first approach with the `map` function comes from Functional Programming,
-whereas the second approach is considered Imperative Programming. In general, in
-Functional Programming, we **tell the computer what we want**, while in
-Imperative Programming, we **tell the computer what steps to do**. So keep in
-mind:
-
-> »Of course someone has to write for-loops. It doesn't have to be you.«<br>
-> --- Jenny Bryan
-
-And don't miss the amazing `purrr` cheatsheet:
-[link](https://purrr.tidyverse.org/)
-
-## "If you copy and paste the same code more than three times, write a function."
-
-### Noticing a Pattern
-
-Writing our own functions can be very helpful for making our
-code more readable.
-It allows us to separate certain steps of your analysis
-from the rest, look at them in isolation to test and
-validate them, and also allows us to give them reasonable names.
-Let's look at a couple of examples and get you
-writing functions!
-Say we have this idea, where we filter
-the gapminder dataset for one country, check
-how linear the relationship between year and
-life expectancy is and then create a plot.
-
-
-```r
-filterd_data <- gapminder %>% 
-  filter(country == "Norway")
-
-model <- lm(lifeExp ~ year, data = filterd_data)
-```
-
-These three function from the `broom` package
-tell us more about our linear model created with `lm`.
-It is part of the `tidymodels` framework.
-
-
-```r
-broom::tidy(model)
-```
-
-```
-## # A tibble: 2 × 5
-##   term        estimate std.error statistic      p.value
-##   <chr>          <dbl>     <dbl>     <dbl>        <dbl>
-## 1 (Intercept) -185.     16.2         -11.4 0.000000460 
-## 2 year           0.132   0.00819      16.1 0.0000000176
-```
-
-
-```r
-broom::augment(model)
-```
-
-```
-## # A tibble: 12 × 8
-##    lifeExp  year .fitted  .resid   .hat .sigma .cooksd .std.resid
-##      <dbl> <dbl>   <dbl>   <dbl>  <dbl>  <dbl>   <dbl>      <dbl>
-##  1    72.7  1952    72.2  0.455  0.295   0.483 0.256        1.11 
-##  2    73.4  1957    72.9  0.566  0.225   0.470 0.250        1.31 
-##  3    73.5  1962    73.5 -0.0640 0.169   0.516 0.00209     -0.143
-##  4    74.1  1967    74.2 -0.114  0.127   0.515 0.00450     -0.249
-##  5    74.3  1972    74.9 -0.513  0.0991  0.484 0.0671      -1.10 
-##  6    75.4  1977    75.5 -0.143  0.0851  0.514 0.00434     -0.306
-##  7    76.0  1982    76.2 -0.203  0.0851  0.511 0.00872     -0.433
-##  8    75.9  1987    76.8 -0.943  0.0991  0.396 0.226       -2.03 
-##  9    77.3  1992    77.5 -0.172  0.127   0.512 0.0103      -0.377
-## 10    78.3  1997    78.2  0.168  0.169   0.512 0.0144       0.376
-## 11    79.0  2002    78.8  0.238  0.225   0.508 0.0443       0.553
-## 12    80.2  2007    79.5  0.725  0.295   0.429 0.649        1.76
-```
-
-
-```r
-broom::glance(model)
-```
-
-```
-## # A tibble: 1 × 12
-##   r.squared adj.r.squared sigma statistic      p.value    df logLik   AIC   BIC
-##       <dbl>         <dbl> <dbl>     <dbl>        <dbl> <dbl>  <dbl> <dbl> <dbl>
-## 1     0.963         0.959 0.490      260. 0.0000000176     1  -7.37  20.7  22.2
-## # … with 3 more variables: deviance <dbl>, df.residual <int>, nobs <int>
-```
-
-The $R^2$ value tells us, how well a straight
-line fits to our data.
-It can assume values between 0 and 1.
-
-
-```r
-model_glance <- broom::glance(model)
-
-text <- substitute(R^2 == rsq,
-                   list(rsq = round(model_glance$r.squared, 2)))
-
-filterd_data %>% 
-  ggplot(aes(year, lifeExp)) +
-  geom_smooth(method = "lm") +
-  geom_line() +
-  geom_point() +
-  theme_classic() +
-  labs(
-    x = "Year",
-    y = "Life Expectancy",
-    title = "Norway",
-    subtitle = text
-  )
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-109-1.png" width="100%" />
-
-Then we get curious and want to know how this graph
-looks for another country.
-So we copy and paste our code and replace the name
-of the country.
-And yet again, we want to see this plot for another
-country, so we copy and paste our code,
-change the country name and keep going.
-This is when we remember, that there is an easier
-way to deal with this repetition.
-We look at our code again and identify
-the things that stay the same and the
-things that change during each copy and pasting.
-The things that stay the same will
-be the body of our function,
-the things that change will be
-variables in the body that we pass to the
-function as arguments.
-In our example, there is only one thing that changes
-every time: the name of the country.
-So we build the following function:
-
-
-```r
-plot_life_exp_for_country <- function(country_name) {
-  filterd_data <- gapminder %>% 
-    filter(country == country_name)
-  
-  model <- lm(lifeExp ~ year, data = filterd_data)
-  model_glance <- broom::glance(model)
-  text <- substitute(R^2 == rsq,
-                     list(rsq = round(model_glance$r.squared, 2)))
-  
-  filterd_data %>% 
-    ggplot(aes(year, lifeExp)) +
-    geom_smooth(method = "lm") +
-    geom_line() +
-    geom_point() +
-    theme_classic() +
-    labs(
-      x = "Year",
-      y = "Life Expectancy",
-      title = country_name,
-      subtitle = text
-    )
-}
-```
-
-Then we test the function a bunch to make sure
-it works for different cases:
-
-
-```r
-plot_life_exp_for_country("India")
-plot_life_exp_for_country("Mali")
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-111-1.png" width="50%" /><img src="dataintro_files/figure-html/unnamed-chunk-111-2.png" width="50%" />
-
-### Where to put your Functions
-
-At this point you might wonder where to put this function.
-A good starting point is to collect your
-functions near the top of your document or script,
-below where you load all packages.
-Another approach, especially if you have functions
-that you can use for multiple projects,
-is to put them in a `.R` file and load
-this file at the beginning of your document.
-You can do so using the function `source("path/to/file.R")`.
-It runs the R file in your current sessions,
-so any functions and variables defined
-in there are now available to you.
-
-
-```r
-source("R/my_funs.R")
-```
-
-Just like this.
-
-
-```r
-say_hello()
-```
-
-I like to store my regular R files
-(as opposed to Rmd files) in
-a folder of my project called `R`.
-This makes it already look like an R package,
-in case I decide later on that the functions
-could be helpful for others as well
-or I want to share them more easily
-with colleagues.
-You can read more about creating your
-own R packages [here](http://r-pkgs.had.co.nz/)
-[@wickhamPackagesOrganizeTest2015].
-
-## Many Models
-
-Let us use the techniques above to shine
-light on how life expectancies changed over time.
-This time, we will utilize the nested
-data format to store our data
-alongside models for the data.
-
-
-```r
-nested_gapminder <- gapminder %>%
-  nest(-country, -continent) %>% 
-  mutate(
-    model = map(data, ~ lm(lifeExp ~ year, data = .x))
-  )
-
-nested_gapminder
-```
-
-```
-## # A tibble: 142 × 4
-##    continent country                  data              model 
-##    <chr>     <chr>                    <list>            <list>
-##  1 Africa    Algeria                  <tibble [12 × 4]> <lm>  
-##  2 Africa    Angola                   <tibble [12 × 4]> <lm>  
-##  3 Africa    Benin                    <tibble [12 × 4]> <lm>  
-##  4 Africa    Botswana                 <tibble [12 × 4]> <lm>  
-##  5 Africa    Burkina Faso             <tibble [12 × 4]> <lm>  
-##  6 Africa    Burundi                  <tibble [12 × 4]> <lm>  
-##  7 Africa    Cameroon                 <tibble [12 × 4]> <lm>  
-##  8 Africa    Central African Republic <tibble [12 × 4]> <lm>  
-##  9 Africa    Chad                     <tibble [12 × 4]> <lm>  
-## 10 Africa    Comoros                  <tibble [12 × 4]> <lm>  
-## # … with 132 more rows
-```
-
-Then, we extract information about the model
-with some functions form the broom package.
-
-
-```r
-nested_gapminder %>% 
-  mutate(
-    glance = map(model, broom::glance)
-  )
-```
-
-```
-## # A tibble: 142 × 5
-##    continent country                  data              model  glance           
-##    <chr>     <chr>                    <list>            <list> <list>           
-##  1 Africa    Algeria                  <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-##  2 Africa    Angola                   <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-##  3 Africa    Benin                    <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-##  4 Africa    Botswana                 <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-##  5 Africa    Burkina Faso             <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-##  6 Africa    Burundi                  <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-##  7 Africa    Cameroon                 <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-##  8 Africa    Central African Republic <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-##  9 Africa    Chad                     <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-## 10 Africa    Comoros                  <tibble [12 × 4]> <lm>   <tibble [1 × 12]>
-## # … with 132 more rows
-```
-
-Then we go ahead and unnest the information
-about the model.
-We can now see, which countries
-stray the farthest from a straight line
-by arranging by the $R^2$ values.
-
-
-```r
-gapminder_modeled <- nested_gapminder %>% 
-  mutate(
-    glance = map(model, broom::glance)
-  ) %>% 
-  unnest(glance) %>% 
-  arrange(r.squared)
-
-gapminder_modeled
-```
-
-```
-## # A tibble: 142 × 16
-##    continent country data  model r.squared adj.r.squared sigma statistic p.value
-##    <chr>     <chr>   <lis> <lis>     <dbl>         <dbl> <dbl>     <dbl>   <dbl>
-##  1 Africa    Rwanda  <tib… <lm>     0.0172      -0.0811   6.56     0.175  0.685 
-##  2 Africa    Botswa… <tib… <lm>     0.0340      -0.0626   6.11     0.352  0.566 
-##  3 Africa    Zimbab… <tib… <lm>     0.0562      -0.0381   7.21     0.596  0.458 
-##  4 Africa    Zambia  <tib… <lm>     0.0598      -0.0342   4.53     0.636  0.444 
-##  5 Africa    Swazil… <tib… <lm>     0.0682      -0.0250   6.64     0.732  0.412 
-##  6 Africa    Lesotho <tib… <lm>     0.0849      -0.00666  5.93     0.927  0.358 
-##  7 Africa    Cote d… <tib… <lm>     0.283        0.212    3.93     3.95   0.0748
-##  8 Africa    South … <tib… <lm>     0.312        0.244    4.74     4.54   0.0588
-##  9 Africa    Uganda  <tib… <lm>     0.342        0.276    3.19     5.20   0.0457
-## 10 Africa    Congo,… <tib… <lm>     0.348        0.283    2.43     5.34   0.0434
-## # … with 132 more rows, and 7 more variables: df <dbl>, logLik <dbl>,
-## #   AIC <dbl>, BIC <dbl>, deviance <dbl>, df.residual <int>, nobs <int>
-```
-
-For a more detailed walk-trough, check
-out the chapter on "many models" in
-R for Data Science [here](https://r4ds.had.co.nz/many-models.html)
-[@wickhamDataScienceImport2017].
-
-Let's use this information to build a
-visualization.
-
-
-```r
-non_linear_countries <- gapminder_modeled %>% 
-  filter(r.squared < 0.2) %>% 
-  unnest(data)
-
-non_linear_countries
-```
-
-```
-## # A tibble: 72 × 19
-##    continent country  year lifeExp     pop gdpPercap model  r.squared
-##    <chr>     <chr>   <dbl>   <dbl>   <dbl>     <dbl> <list>     <dbl>
-##  1 Africa    Rwanda   1952    40   2534927      493. <lm>      0.0172
-##  2 Africa    Rwanda   1957    41.5 2822082      540. <lm>      0.0172
-##  3 Africa    Rwanda   1962    43   3051242      597. <lm>      0.0172
-##  4 Africa    Rwanda   1967    44.1 3451079      511. <lm>      0.0172
-##  5 Africa    Rwanda   1972    44.6 3992121      591. <lm>      0.0172
-##  6 Africa    Rwanda   1977    45   4657072      670. <lm>      0.0172
-##  7 Africa    Rwanda   1982    46.2 5507565      882. <lm>      0.0172
-##  8 Africa    Rwanda   1987    44.0 6349365      848. <lm>      0.0172
-##  9 Africa    Rwanda   1992    23.6 7290203      737. <lm>      0.0172
-## 10 Africa    Rwanda   1997    36.1 7212583      590. <lm>      0.0172
-## # … with 62 more rows, and 11 more variables: adj.r.squared <dbl>, sigma <dbl>,
-## #   statistic <dbl>, p.value <dbl>, df <dbl>, logLik <dbl>, AIC <dbl>,
-## #   BIC <dbl>, deviance <dbl>, df.residual <int>, nobs <int>
-```
-
-I also like to use this opportunity to
-mention a couple of packages to take your
-visualizations the the next level.
-Today, these are `ggrepel` to produce
-labels that dodge each other,
-and the `fisualize` package, which
-contains color scales of tropical fish.
-
-
-```r
-plt <- gapminder %>% 
-  ggplot(aes(year, lifeExp, group = country)) +
-  geom_line(alpha = 0.2) +
-  geom_line(data = non_linear_countries,
-            mapping = aes(color = country),
-            size = 1.7) +
-  fishualize::scale_color_fish_d() +
-  labs(y = "Life Expectancy at Birth") +
-  ggrepel::geom_text_repel(data = filter(non_linear_countries, year == max(year)),
-            aes(label = country, color = country),
-            hjust = 0, direction = "y") +
-  expand_limits(x = 2015) +
-  theme_minimal() +
-  guides(color = "none")
-
-plt
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-118-1.png" width="100%" />
-
-Sometimes it is also very handy (and probably impressive
-to whoever receives your report) to turn a plot
-into an interactive graphic.
-`plotly` is a library that produces interactive plots,
-but we don't even have to learn about its intricacies
-because it comes with a function to convert a ggplot
-to the interactive format that works quite well for
-a range (but not all) of use-cases:
-
-
-```r
-plotly::ggplotly(plt)
-```
-
-```{=html}
-<div id="htmlwidget-a9ecbe9a3d4203231a59" style="width:100%;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a9ecbe9a3d4203231a59">{"x":{"data":[{"x":[1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007,null,1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"y":[28.801,30.332,31.997,34.02,36.088,38.438,39.854,40.822,41.674,41.763,42.129,43.828,null,55.23,59.28,64.82,66.22,67.69,68.93,70.42,72,71.581,72.95,75.651,76.423,null,43.077,45.685,48.303,51.407,54.518,58.014,61.368,65.799,67.744,69.152,70.994,72.301,null,30.015,31.999,34,35.985,37.928,39.483,39.942,39.906,40.647,40.963,41.003,42.731,null,62.485,64.399,65.142,65.634,67.065,68.481,69.942,70.774,71.868,73.275,74.34,75.32,null,69.12,70.33,70.93,71.1,71.93,73.49,74.74,76.32,77.56,78.83,80.37,81.235,null,66.8,67.48,69.54,70.14,70.63,72.17,73.18,74.94,76.04,77.51,78.98,79.829,null,50.939,53.832,56.923,59.923,63.3,65.593,69.052,70.75,72.601,73.925,74.795,75.635,null,37.484,39.348,41.216,43.453,45.252,46.923,50.009,52.819,56.018,59.412,62.013,64.062,null,68,69.24,70.25,70.94,71.44,72.8,73.93,75.35,76.46,77.53,78.32,79.441,null,38.223,40.358,42.618,44.885,47.014,49.19,50.904,52.337,53.919,54.777,54.406,56.728,null,40.414,41.89,43.428,45.032,46.714,50.023,53.859,57.251,59.957,62.05,63.883,65.554,null,53.82,58.45,61.93,64.79,67.45,69.86,70.69,71.14,72.178,73.244,74.09,74.852,null,47.622,49.618,51.52,53.298,56.024,59.319,61.484,63.622,62.745,52.556,46.634,50.728,null,50.917,53.285,55.665,57.632,59.504,61.489,63.336,65.205,67.057,69.388,71.006,72.39,null,59.6,66.61,69.51,70.42,70.9,70.81,71.08,71.34,71.19,70.32,72.14,73.005,null,31.975,34.906,37.814,40.697,43.591,46.137,48.122,49.557,50.26,50.324,50.65,52.295,null,39.031,40.533,42.045,43.548,44.057,45.91,47.471,48.211,44.736,45.326,47.36,49.58,null,39.417,41.366,43.415,45.415,40.317,31.22,50.957,53.914,55.803,56.534,56.752,59.723,null,38.523,40.428,42.643,44.799,47.049,49.355,52.961,54.985,54.314,52.199,49.856,50.43,null,68.75,69.96,71.3,72.13,72.88,74.21,75.76,76.86,77.95,78.61,79.77,80.653,null,35.463,37.464,39.475,41.478,43.457,46.775,48.295,50.485,49.396,46.066,43.308,44.741,null,38.092,39.881,41.716,43.601,45.569,47.383,49.517,51.051,51.724,51.573,50.525,50.651,null,54.745,56.074,57.924,60.523,63.441,67.052,70.565,72.492,74.126,75.816,77.86,78.553,null,44,50.54896,44.50136,58.38112,63.11888,63.96736,65.525,67.274,68.69,70.426,72.028,72.961,null,50.643,55.118,57.863,59.963,61.623,63.837,66.653,67.768,68.421,70.313,71.682,72.889,null,40.715,42.46,44.467,46.472,48.944,50.939,52.933,54.926,57.939,60.66,62.974,65.152,null,39.143,40.652,42.122,44.056,45.989,47.804,47.784,47.412,45.548,42.587,44.966,46.462,null,42.111,45.053,48.435,52.04,54.907,55.625,56.695,57.47,56.433,52.962,52.97,55.322,null,57.206,60.026,62.842,65.424,67.849,70.75,73.45,74.752,75.713,77.26,78.123,78.782,null,40.477,42.469,44.93,47.35,49.801,52.374,53.983,54.655,52.044,47.991,46.832,48.328,null,61.21,64.77,67.13,68.5,69.61,70.64,70.46,71.52,72.527,73.68,74.876,75.748,null,59.421,62.325,65.246,68.29,70.723,72.649,73.717,74.174,74.414,76.151,77.158,78.273,null,66.87,69.03,69.9,70.38,70.29,70.71,70.96,71.58,72.4,74.01,75.51,76.486,null,70.78,71.81,72.35,72.96,73.47,74.69,74.63,74.8,75.33,76.11,77.18,78.332,null,34.812,37.328,39.693,42.074,44.366,46.519,48.812,50.04,51.604,53.157,53.373,54.791,null,45.928,49.828,53.459,56.751,59.631,61.788,63.727,66.046,68.457,69.957,70.847,72.235,null,48.357,51.356,54.64,56.678,58.796,61.31,64.342,67.231,69.613,72.312,74.173,74.994,null,41.893,44.444,46.992,49.293,51.137,53.319,56.006,59.797,63.674,67.217,69.806,71.338,null,45.262,48.57,52.307,55.855,58.207,56.696,56.604,63.154,66.798,69.535,70.734,71.878,null,34.482,35.983,37.485,38.987,40.516,42.024,43.662,45.664,47.545,48.245,49.348,51.579,null,35.928,38.047,40.158,42.189,44.142,44.535,43.89,46.453,49.991,53.378,55.24,58.04,null,34.078,36.667,40.059,42.115,43.515,44.51,44.916,46.684,48.091,49.402,50.725,52.947,null,66.55,67.49,68.75,69.83,70.87,72.52,74.55,74.83,75.7,77.13,78.37,79.313,null,67.41,68.93,70.51,71.55,72.38,73.83,74.89,76.34,77.46,78.64,79.59,80.657,null,37.003,38.999,40.489,44.598,48.69,52.79,56.564,60.19,61.366,60.461,56.761,56.735,null,30,32.065,33.896,35.857,38.308,41.842,45.58,49.265,52.644,55.861,58.041,59.448,null,67.5,69.1,70.3,70.8,71,72.5,73.8,74.847,76.07,77.34,78.67,79.406,null,43.149,44.779,46.452,48.072,49.875,51.756,53.744,55.729,57.501,58.556,58.453,60.022,null,65.86,67.86,69.51,71,72.34,73.68,75.24,76.67,77.03,77.869,78.256,79.483,null,42.023,44.142,46.954,50.016,53.738,56.029,58.137,60.782,63.373,66.322,68.978,70.259,null,33.609,34.558,35.753,37.197,38.842,40.762,42.891,45.552,48.576,51.455,53.676,56.007,null,32.5,33.489,34.488,35.492,36.486,37.465,39.327,41.245,43.266,44.873,45.504,46.388,null,37.579,40.696,43.59,46.243,48.042,49.923,51.461,53.636,55.089,56.671,58.137,60.916,null,41.912,44.665,48.041,50.924,53.884,57.402,60.909,64.492,66.399,67.659,68.565,70.198,null,60.96,64.75,67.65,70,72,73.6,75.45,76.2,77.601,80,81.495,82.208,null,64.03,66.41,67.96,69.5,69.76,69.95,69.39,69.58,69.17,71.04,72.59,73.338,null,72.49,73.47,73.68,73.73,74.46,76.11,76.99,77.23,78.77,78.95,80.5,81.757,null,37.373,40.249,43.605,47.193,50.651,54.208,56.596,58.553,60.223,61.765,62.879,64.698,null,37.468,39.918,42.518,45.964,49.203,52.702,56.159,60.137,62.681,66.041,68.588,70.65,null,44.869,47.181,49.325,52.469,55.234,57.702,59.62,63.04,65.742,68.042,69.451,70.964,null,45.32,48.437,51.457,54.459,56.95,60.413,62.038,65.044,59.461,58.811,57.046,59.545,null,66.91,68.9,70.29,71.08,71.28,72.03,73.1,74.36,75.467,76.122,77.783,78.885,null,65.39,67.84,69.39,70.75,71.63,73.06,74.45,75.6,76.93,78.269,79.696,80.745,null,65.94,67.81,69.24,71.06,72.19,73.48,74.98,76.42,77.44,78.82,80.24,80.546,null,58.53,62.61,65.61,67.51,69,70.11,71.21,71.77,71.766,72.262,72.047,72.567,null,63.03,65.5,68.73,71.43,73.42,75.38,77.11,78.67,79.36,80.69,82,82.603,null,43.158,45.669,48.126,51.629,56.528,61.134,63.739,65.869,68.015,69.772,71.263,72.535,null,42.27,44.686,47.949,50.654,53.559,56.155,58.766,59.339,59.285,54.407,50.992,54.11,null,50.056,54.081,56.656,59.942,63.983,67.159,69.1,70.647,69.978,67.727,66.662,67.297,null,47.453,52.681,55.292,57.716,62.612,64.766,67.123,69.81,72.244,74.647,77.045,78.623,null,55.565,58.033,60.47,64.624,67.712,69.343,71.309,74.174,75.19,76.156,76.904,77.588,null,55.928,59.489,62.094,63.87,65.421,66.099,66.983,67.926,69.292,70.265,71.028,71.993,null,42.138,45.047,47.747,48.492,49.767,52.208,55.078,57.18,59.685,55.558,44.593,42.592,null,38.48,39.486,40.502,41.536,42.614,43.764,44.852,46.027,40.802,42.221,43.753,45.678,null,42.723,45.289,47.808,50.227,52.773,57.442,62.155,66.234,68.755,71.555,72.737,73.952,null,36.681,38.865,40.848,42.881,44.851,46.881,48.969,49.35,52.214,54.978,57.286,59.443,null,36.256,37.207,38.41,39.487,41.766,43.767,45.642,47.457,49.42,47.495,45.009,48.303,null,48.463,52.102,55.737,59.371,63.01,65.256,68,69.5,70.693,71.938,73.044,74.241,null,33.685,35.307,36.936,38.487,39.977,41.714,43.916,46.364,48.388,49.903,51.818,54.467,null,40.543,42.338,44.248,46.289,48.437,50.852,53.599,56.145,58.333,60.43,62.247,64.164,null,50.986,58.089,60.246,61.557,62.944,64.93,66.711,68.74,69.745,70.736,71.954,72.801,null,50.789,55.19,58.299,60.11,62.361,65.032,67.405,69.498,71.455,73.67,74.902,76.195,null,42.244,45.248,48.251,51.253,53.754,55.491,57.489,60.222,61.271,63.625,65.033,66.803,null,59.164,61.448,63.728,67.178,70.636,73.066,74.101,74.865,75.435,75.445,73.981,74.543,null,42.873,45.423,47.924,50.335,52.862,55.73,59.65,62.677,65.393,67.66,69.615,71.164,null,31.286,33.779,36.161,38.113,40.328,42.495,42.795,42.861,44.284,46.344,44.026,42.082,null,36.319,41.905,45.108,49.379,53.07,56.059,58.056,58.339,59.32,60.328,59.908,62.069,null,41.725,45.226,48.386,51.159,53.867,56.437,58.968,60.835,61.999,58.909,51.479,52.906,null,36.157,37.686,39.393,41.472,43.971,46.748,49.594,52.537,55.727,59.426,61.34,63.785,null,72.13,72.99,73.23,73.82,73.75,75.24,76.05,76.83,77.42,78.03,78.53,79.762,null,69.39,70.26,71.24,71.52,71.89,72.22,73.84,74.32,76.33,77.55,79.11,80.204,null,42.314,45.432,48.632,51.884,55.151,57.47,59.298,62.008,65.843,68.426,70.836,72.899,null,37.444,38.598,39.487,40.118,40.546,41.291,42.598,44.555,47.391,51.313,54.496,56.867,null,36.324,37.802,39.36,41.04,42.821,44.514,45.826,46.886,47.472,47.464,46.608,46.859,null,72.67,73.44,73.47,74.08,74.34,75.37,75.97,75.89,77.32,78.32,79.05,80.196,null,37.578,40.08,43.165,46.988,52.143,57.367,62.728,67.734,71.197,72.499,74.193,75.64,null,43.436,45.557,47.67,49.8,51.929,54.043,56.158,58.245,60.838,61.818,63.61,65.483,null,55.191,59.201,61.817,64.071,66.216,68.681,70.472,71.523,72.462,73.738,74.712,75.537,null,62.649,63.196,64.361,64.951,65.815,66.353,66.874,67.378,68.225,69.4,70.755,71.752,null,43.902,46.263,49.096,51.445,55.448,58.447,61.406,64.134,66.458,68.386,69.906,71.421,null,47.752,51.334,54.757,56.393,58.065,60.06,62.082,64.151,66.458,68.564,70.303,71.688,null,61.31,65.77,67.64,69.61,70.85,70.67,71.32,70.98,70.99,72.75,74.67,75.563,null,59.82,61.51,64.39,66.6,69.26,70.41,72.77,74.06,74.86,75.97,77.29,78.098,null,64.28,68.54,69.62,71.1,72.16,73.44,73.75,74.63,73.911,74.917,77.778,78.746,null,52.724,55.09,57.666,60.542,64.274,67.064,69.885,71.913,73.615,74.772,75.744,76.442,null,61.05,64.1,66.8,66.8,69.21,69.46,69.66,69.53,69.36,69.72,71.322,72.476,null,40,41.5,43,44.1,44.6,45,46.218,44.02,23.599,36.087,43.413,46.242,null,46.471,48.945,51.893,54.425,56.48,58.55,60.351,61.728,62.742,63.306,64.337,65.528,null,39.875,42.868,45.914,49.901,53.886,58.69,63.012,66.295,68.768,70.533,71.626,72.777,null,37.278,39.329,41.454,43.563,45.815,48.879,52.379,55.769,58.196,60.187,61.6,63.062,null,57.996,61.685,64.531,66.914,68.7,70.3,70.162,71.218,71.659,72.232,73.213,74.002,null,30.331,31.57,32.767,34.113,35.4,36.788,38.445,40.006,38.333,39.897,41.012,42.568,null,60.396,63.179,65.798,67.946,69.521,70.795,71.76,73.56,75.788,77.158,78.77,79.972,null,64.36,67.45,70.33,70.98,70.35,70.45,70.8,71.08,71.38,72.71,73.8,74.663,null,65.57,67.85,69.15,69.18,69.82,70.97,71.063,72.25,73.64,75.13,76.66,77.926,null,32.978,34.977,36.981,38.977,40.973,41.974,42.955,44.501,39.658,43.795,45.936,48.159,null,45.009,47.985,49.951,51.927,53.696,55.527,58.161,60.834,61.888,60.236,53.365,49.339,null,64.94,66.66,69.69,71.44,73.06,74.39,76.3,76.9,77.57,78.77,79.78,80.941,null,57.593,61.456,62.192,64.266,65.042,65.949,68.757,69.011,70.379,70.457,70.815,72.396,null,38.635,39.624,40.87,42.858,45.083,47.8,50.338,51.744,53.556,55.373,56.369,58.556,null,41.407,43.424,44.992,46.633,49.552,52.537,55.561,57.678,58.474,54.289,43.869,39.613,null,71.86,72.49,73.37,74.16,74.72,75.44,76.42,77.19,78.16,79.39,80.04,80.884,null,69.62,70.56,71.32,72.77,73.78,75.39,76.21,77.41,78.03,79.37,80.62,81.701,null,45.883,48.284,50.305,53.655,57.296,61.195,64.59,66.974,69.249,71.527,73.053,74.143,null,58.5,62.4,65.2,67.5,69.39,70.59,72.16,73.4,74.26,75.25,76.99,78.4,null,41.215,42.974,44.246,45.757,47.62,49.919,50.608,51.535,50.44,48.466,49.651,52.517,null,50.848,53.63,56.061,58.285,60.405,62.494,64.597,66.084,67.298,67.521,68.564,70.616,null,38.596,41.208,43.922,46.769,49.759,52.887,55.471,56.941,58.061,58.39,57.561,58.42,null,59.1,61.8,64.9,65.4,65.9,68.3,68.832,69.582,69.862,69.465,68.976,69.819,null,44.6,47.1,49.579,52.053,55.602,59.837,64.048,66.894,70.001,71.973,73.042,73.923,null,43.585,48.079,52.098,54.336,57.005,59.507,61.036,63.108,66.146,68.835,70.845,71.777,null,39.978,42.571,45.344,48.051,51.016,50.35,49.849,51.509,48.825,44.578,47.813,51.542,null,69.18,70.42,70.76,71.36,72.01,72.76,74.04,75.007,76.42,77.218,78.471,79.425,null,68.44,69.49,70.21,70.76,71.34,73.38,74.65,75.02,76.09,76.81,77.31,78.242,null,66.071,67.044,68.253,68.468,68.673,69.481,70.805,71.918,72.752,74.223,75.307,76.384,null,55.088,57.907,60.77,63.479,65.712,67.456,68.557,70.19,71.15,72.146,72.766,73.747,null,40.412,42.887,45.363,47.838,50.254,55.764,58.816,62.82,67.662,70.672,73.017,74.249,null,43.16,45.671,48.127,51.631,56.532,60.765,64.406,67.046,69.718,71.096,72.37,73.422,null,32.548,33.97,35.18,36.984,39.848,44.175,49.113,52.922,55.599,58.02,60.308,62.698,null,42.038,44.077,46.023,47.768,50.107,51.386,51.821,50.821,46.1,40.238,39.193,42.384,null,48.451,50.469,52.358,53.995,55.635,57.674,60.363,62.351,60.377,46.809,39.989,43.487],"text":["year: 1952<br />lifeExp: 28.80100<br />country: Afghanistan","year: 1957<br />lifeExp: 30.33200<br />country: Afghanistan","year: 1962<br />lifeExp: 31.99700<br />country: Afghanistan","year: 1967<br />lifeExp: 34.02000<br />country: Afghanistan","year: 1972<br />lifeExp: 36.08800<br />country: Afghanistan","year: 1977<br />lifeExp: 38.43800<br />country: Afghanistan","year: 1982<br />lifeExp: 39.85400<br />country: Afghanistan","year: 1987<br />lifeExp: 40.82200<br />country: Afghanistan","year: 1992<br />lifeExp: 41.67400<br />country: Afghanistan","year: 1997<br />lifeExp: 41.76300<br />country: Afghanistan","year: 2002<br />lifeExp: 42.12900<br />country: Afghanistan","year: 2007<br />lifeExp: 43.82800<br />country: Afghanistan",null,"year: 1952<br />lifeExp: 55.23000<br />country: Albania","year: 1957<br />lifeExp: 59.28000<br />country: Albania","year: 1962<br />lifeExp: 64.82000<br />country: Albania","year: 1967<br />lifeExp: 66.22000<br />country: Albania","year: 1972<br />lifeExp: 67.69000<br />country: Albania","year: 1977<br />lifeExp: 68.93000<br />country: Albania","year: 1982<br />lifeExp: 70.42000<br />country: Albania","year: 1987<br />lifeExp: 72.00000<br />country: Albania","year: 1992<br />lifeExp: 71.58100<br />country: Albania","year: 1997<br />lifeExp: 72.95000<br />country: Albania","year: 2002<br />lifeExp: 75.65100<br />country: Albania","year: 2007<br />lifeExp: 76.42300<br />country: Albania",null,"year: 1952<br />lifeExp: 43.07700<br />country: Algeria","year: 1957<br />lifeExp: 45.68500<br />country: Algeria","year: 1962<br />lifeExp: 48.30300<br />country: Algeria","year: 1967<br />lifeExp: 51.40700<br />country: Algeria","year: 1972<br />lifeExp: 54.51800<br />country: Algeria","year: 1977<br />lifeExp: 58.01400<br />country: Algeria","year: 1982<br />lifeExp: 61.36800<br />country: Algeria","year: 1987<br />lifeExp: 65.79900<br />country: Algeria","year: 1992<br />lifeExp: 67.74400<br />country: Algeria","year: 1997<br />lifeExp: 69.15200<br />country: Algeria","year: 2002<br />lifeExp: 70.99400<br />country: Algeria","year: 2007<br />lifeExp: 72.30100<br />country: Algeria",null,"year: 1952<br />lifeExp: 30.01500<br />country: Angola","year: 1957<br />lifeExp: 31.99900<br />country: Angola","year: 1962<br />lifeExp: 34.00000<br />country: Angola","year: 1967<br />lifeExp: 35.98500<br />country: Angola","year: 1972<br />lifeExp: 37.92800<br />country: Angola","year: 1977<br />lifeExp: 39.48300<br />country: Angola","year: 1982<br />lifeExp: 39.94200<br />country: Angola","year: 1987<br />lifeExp: 39.90600<br />country: Angola","year: 1992<br />lifeExp: 40.64700<br />country: Angola","year: 1997<br />lifeExp: 40.96300<br />country: Angola","year: 2002<br />lifeExp: 41.00300<br />country: Angola","year: 2007<br />lifeExp: 42.73100<br />country: Angola",null,"year: 1952<br />lifeExp: 62.48500<br />country: Argentina","year: 1957<br />lifeExp: 64.39900<br />country: Argentina","year: 1962<br />lifeExp: 65.14200<br />country: Argentina","year: 1967<br />lifeExp: 65.63400<br />country: Argentina","year: 1972<br />lifeExp: 67.06500<br />country: Argentina","year: 1977<br />lifeExp: 68.48100<br />country: Argentina","year: 1982<br />lifeExp: 69.94200<br />country: Argentina","year: 1987<br />lifeExp: 70.77400<br />country: Argentina","year: 1992<br />lifeExp: 71.86800<br />country: Argentina","year: 1997<br />lifeExp: 73.27500<br />country: Argentina","year: 2002<br />lifeExp: 74.34000<br />country: Argentina","year: 2007<br />lifeExp: 75.32000<br />country: Argentina",null,"year: 1952<br />lifeExp: 69.12000<br />country: Australia","year: 1957<br />lifeExp: 70.33000<br />country: Australia","year: 1962<br />lifeExp: 70.93000<br />country: Australia","year: 1967<br />lifeExp: 71.10000<br />country: Australia","year: 1972<br />lifeExp: 71.93000<br />country: Australia","year: 1977<br />lifeExp: 73.49000<br />country: Australia","year: 1982<br />lifeExp: 74.74000<br />country: Australia","year: 1987<br />lifeExp: 76.32000<br />country: Australia","year: 1992<br />lifeExp: 77.56000<br />country: Australia","year: 1997<br />lifeExp: 78.83000<br />country: Australia","year: 2002<br />lifeExp: 80.37000<br />country: Australia","year: 2007<br />lifeExp: 81.23500<br />country: Australia",null,"year: 1952<br />lifeExp: 66.80000<br />country: Austria","year: 1957<br />lifeExp: 67.48000<br />country: Austria","year: 1962<br />lifeExp: 69.54000<br />country: Austria","year: 1967<br />lifeExp: 70.14000<br />country: Austria","year: 1972<br />lifeExp: 70.63000<br />country: Austria","year: 1977<br />lifeExp: 72.17000<br />country: Austria","year: 1982<br />lifeExp: 73.18000<br />country: Austria","year: 1987<br />lifeExp: 74.94000<br />country: Austria","year: 1992<br />lifeExp: 76.04000<br />country: Austria","year: 1997<br />lifeExp: 77.51000<br />country: Austria","year: 2002<br />lifeExp: 78.98000<br />country: Austria","year: 2007<br />lifeExp: 79.82900<br />country: Austria",null,"year: 1952<br />lifeExp: 50.93900<br />country: Bahrain","year: 1957<br />lifeExp: 53.83200<br />country: Bahrain","year: 1962<br />lifeExp: 56.92300<br />country: Bahrain","year: 1967<br />lifeExp: 59.92300<br />country: Bahrain","year: 1972<br />lifeExp: 63.30000<br />country: Bahrain","year: 1977<br />lifeExp: 65.59300<br />country: Bahrain","year: 1982<br />lifeExp: 69.05200<br />country: Bahrain","year: 1987<br />lifeExp: 70.75000<br />country: Bahrain","year: 1992<br />lifeExp: 72.60100<br />country: Bahrain","year: 1997<br />lifeExp: 73.92500<br />country: Bahrain","year: 2002<br />lifeExp: 74.79500<br />country: Bahrain","year: 2007<br />lifeExp: 75.63500<br />country: Bahrain",null,"year: 1952<br />lifeExp: 37.48400<br />country: Bangladesh","year: 1957<br />lifeExp: 39.34800<br />country: Bangladesh","year: 1962<br />lifeExp: 41.21600<br />country: Bangladesh","year: 1967<br />lifeExp: 43.45300<br />country: Bangladesh","year: 1972<br />lifeExp: 45.25200<br />country: Bangladesh","year: 1977<br />lifeExp: 46.92300<br />country: Bangladesh","year: 1982<br />lifeExp: 50.00900<br />country: Bangladesh","year: 1987<br />lifeExp: 52.81900<br />country: Bangladesh","year: 1992<br />lifeExp: 56.01800<br />country: Bangladesh","year: 1997<br />lifeExp: 59.41200<br />country: Bangladesh","year: 2002<br />lifeExp: 62.01300<br />country: Bangladesh","year: 2007<br />lifeExp: 64.06200<br />country: Bangladesh",null,"year: 1952<br />lifeExp: 68.00000<br />country: Belgium","year: 1957<br />lifeExp: 69.24000<br />country: Belgium","year: 1962<br />lifeExp: 70.25000<br />country: Belgium","year: 1967<br />lifeExp: 70.94000<br />country: Belgium","year: 1972<br />lifeExp: 71.44000<br />country: Belgium","year: 1977<br />lifeExp: 72.80000<br />country: Belgium","year: 1982<br />lifeExp: 73.93000<br />country: Belgium","year: 1987<br />lifeExp: 75.35000<br />country: Belgium","year: 1992<br />lifeExp: 76.46000<br />country: Belgium","year: 1997<br />lifeExp: 77.53000<br />country: Belgium","year: 2002<br />lifeExp: 78.32000<br />country: Belgium","year: 2007<br />lifeExp: 79.44100<br />country: Belgium",null,"year: 1952<br />lifeExp: 38.22300<br />country: Benin","year: 1957<br />lifeExp: 40.35800<br />country: Benin","year: 1962<br />lifeExp: 42.61800<br />country: Benin","year: 1967<br />lifeExp: 44.88500<br />country: Benin","year: 1972<br />lifeExp: 47.01400<br />country: Benin","year: 1977<br />lifeExp: 49.19000<br />country: Benin","year: 1982<br />lifeExp: 50.90400<br />country: Benin","year: 1987<br />lifeExp: 52.33700<br />country: Benin","year: 1992<br />lifeExp: 53.91900<br />country: Benin","year: 1997<br />lifeExp: 54.77700<br />country: Benin","year: 2002<br />lifeExp: 54.40600<br />country: Benin","year: 2007<br />lifeExp: 56.72800<br />country: Benin",null,"year: 1952<br />lifeExp: 40.41400<br />country: Bolivia","year: 1957<br />lifeExp: 41.89000<br />country: Bolivia","year: 1962<br />lifeExp: 43.42800<br />country: Bolivia","year: 1967<br />lifeExp: 45.03200<br />country: Bolivia","year: 1972<br />lifeExp: 46.71400<br />country: Bolivia","year: 1977<br />lifeExp: 50.02300<br />country: Bolivia","year: 1982<br />lifeExp: 53.85900<br />country: Bolivia","year: 1987<br />lifeExp: 57.25100<br />country: Bolivia","year: 1992<br />lifeExp: 59.95700<br />country: Bolivia","year: 1997<br />lifeExp: 62.05000<br />country: Bolivia","year: 2002<br />lifeExp: 63.88300<br />country: Bolivia","year: 2007<br />lifeExp: 65.55400<br />country: Bolivia",null,"year: 1952<br />lifeExp: 53.82000<br />country: Bosnia and Herzegovina","year: 1957<br />lifeExp: 58.45000<br />country: Bosnia and Herzegovina","year: 1962<br />lifeExp: 61.93000<br />country: Bosnia and Herzegovina","year: 1967<br />lifeExp: 64.79000<br />country: Bosnia and Herzegovina","year: 1972<br />lifeExp: 67.45000<br />country: Bosnia and Herzegovina","year: 1977<br />lifeExp: 69.86000<br />country: Bosnia and Herzegovina","year: 1982<br />lifeExp: 70.69000<br />country: Bosnia and Herzegovina","year: 1987<br />lifeExp: 71.14000<br />country: Bosnia and Herzegovina","year: 1992<br />lifeExp: 72.17800<br />country: Bosnia and Herzegovina","year: 1997<br />lifeExp: 73.24400<br />country: Bosnia and Herzegovina","year: 2002<br />lifeExp: 74.09000<br />country: Bosnia and Herzegovina","year: 2007<br />lifeExp: 74.85200<br />country: Bosnia and Herzegovina",null,"year: 1952<br />lifeExp: 47.62200<br />country: Botswana","year: 1957<br />lifeExp: 49.61800<br />country: Botswana","year: 1962<br />lifeExp: 51.52000<br />country: Botswana","year: 1967<br />lifeExp: 53.29800<br />country: Botswana","year: 1972<br />lifeExp: 56.02400<br />country: Botswana","year: 1977<br />lifeExp: 59.31900<br />country: Botswana","year: 1982<br />lifeExp: 61.48400<br />country: Botswana","year: 1987<br />lifeExp: 63.62200<br />country: Botswana","year: 1992<br />lifeExp: 62.74500<br />country: Botswana","year: 1997<br />lifeExp: 52.55600<br />country: Botswana","year: 2002<br />lifeExp: 46.63400<br />country: Botswana","year: 2007<br />lifeExp: 50.72800<br />country: Botswana",null,"year: 1952<br />lifeExp: 50.91700<br />country: Brazil","year: 1957<br />lifeExp: 53.28500<br />country: Brazil","year: 1962<br />lifeExp: 55.66500<br />country: Brazil","year: 1967<br />lifeExp: 57.63200<br />country: Brazil","year: 1972<br />lifeExp: 59.50400<br />country: Brazil","year: 1977<br />lifeExp: 61.48900<br />country: Brazil","year: 1982<br />lifeExp: 63.33600<br />country: Brazil","year: 1987<br />lifeExp: 65.20500<br />country: Brazil","year: 1992<br />lifeExp: 67.05700<br />country: Brazil","year: 1997<br />lifeExp: 69.38800<br />country: Brazil","year: 2002<br />lifeExp: 71.00600<br />country: Brazil","year: 2007<br />lifeExp: 72.39000<br />country: Brazil",null,"year: 1952<br />lifeExp: 59.60000<br />country: Bulgaria","year: 1957<br />lifeExp: 66.61000<br />country: Bulgaria","year: 1962<br />lifeExp: 69.51000<br />country: Bulgaria","year: 1967<br />lifeExp: 70.42000<br />country: Bulgaria","year: 1972<br />lifeExp: 70.90000<br />country: Bulgaria","year: 1977<br />lifeExp: 70.81000<br />country: Bulgaria","year: 1982<br />lifeExp: 71.08000<br />country: Bulgaria","year: 1987<br />lifeExp: 71.34000<br />country: Bulgaria","year: 1992<br />lifeExp: 71.19000<br />country: Bulgaria","year: 1997<br />lifeExp: 70.32000<br />country: Bulgaria","year: 2002<br />lifeExp: 72.14000<br />country: Bulgaria","year: 2007<br />lifeExp: 73.00500<br />country: Bulgaria",null,"year: 1952<br />lifeExp: 31.97500<br />country: Burkina Faso","year: 1957<br />lifeExp: 34.90600<br />country: Burkina Faso","year: 1962<br />lifeExp: 37.81400<br />country: Burkina Faso","year: 1967<br />lifeExp: 40.69700<br />country: Burkina Faso","year: 1972<br />lifeExp: 43.59100<br />country: Burkina Faso","year: 1977<br />lifeExp: 46.13700<br />country: Burkina Faso","year: 1982<br />lifeExp: 48.12200<br />country: Burkina Faso","year: 1987<br />lifeExp: 49.55700<br />country: Burkina Faso","year: 1992<br />lifeExp: 50.26000<br />country: Burkina Faso","year: 1997<br />lifeExp: 50.32400<br />country: Burkina Faso","year: 2002<br />lifeExp: 50.65000<br />country: Burkina Faso","year: 2007<br />lifeExp: 52.29500<br />country: Burkina Faso",null,"year: 1952<br />lifeExp: 39.03100<br />country: Burundi","year: 1957<br />lifeExp: 40.53300<br />country: Burundi","year: 1962<br />lifeExp: 42.04500<br />country: Burundi","year: 1967<br />lifeExp: 43.54800<br />country: Burundi","year: 1972<br />lifeExp: 44.05700<br />country: Burundi","year: 1977<br />lifeExp: 45.91000<br />country: Burundi","year: 1982<br />lifeExp: 47.47100<br />country: Burundi","year: 1987<br />lifeExp: 48.21100<br />country: Burundi","year: 1992<br />lifeExp: 44.73600<br />country: Burundi","year: 1997<br />lifeExp: 45.32600<br />country: Burundi","year: 2002<br />lifeExp: 47.36000<br />country: Burundi","year: 2007<br />lifeExp: 49.58000<br />country: Burundi",null,"year: 1952<br />lifeExp: 39.41700<br />country: Cambodia","year: 1957<br />lifeExp: 41.36600<br />country: Cambodia","year: 1962<br />lifeExp: 43.41500<br />country: Cambodia","year: 1967<br />lifeExp: 45.41500<br />country: Cambodia","year: 1972<br />lifeExp: 40.31700<br />country: Cambodia","year: 1977<br />lifeExp: 31.22000<br />country: Cambodia","year: 1982<br />lifeExp: 50.95700<br />country: Cambodia","year: 1987<br />lifeExp: 53.91400<br />country: Cambodia","year: 1992<br />lifeExp: 55.80300<br />country: Cambodia","year: 1997<br />lifeExp: 56.53400<br />country: Cambodia","year: 2002<br />lifeExp: 56.75200<br />country: Cambodia","year: 2007<br />lifeExp: 59.72300<br />country: Cambodia",null,"year: 1952<br />lifeExp: 38.52300<br />country: Cameroon","year: 1957<br />lifeExp: 40.42800<br />country: Cameroon","year: 1962<br />lifeExp: 42.64300<br />country: Cameroon","year: 1967<br />lifeExp: 44.79900<br />country: Cameroon","year: 1972<br />lifeExp: 47.04900<br />country: Cameroon","year: 1977<br />lifeExp: 49.35500<br />country: Cameroon","year: 1982<br />lifeExp: 52.96100<br />country: Cameroon","year: 1987<br />lifeExp: 54.98500<br />country: Cameroon","year: 1992<br />lifeExp: 54.31400<br />country: Cameroon","year: 1997<br />lifeExp: 52.19900<br />country: Cameroon","year: 2002<br />lifeExp: 49.85600<br />country: Cameroon","year: 2007<br />lifeExp: 50.43000<br />country: Cameroon",null,"year: 1952<br />lifeExp: 68.75000<br />country: Canada","year: 1957<br />lifeExp: 69.96000<br />country: Canada","year: 1962<br />lifeExp: 71.30000<br />country: Canada","year: 1967<br />lifeExp: 72.13000<br />country: Canada","year: 1972<br />lifeExp: 72.88000<br />country: Canada","year: 1977<br />lifeExp: 74.21000<br />country: Canada","year: 1982<br />lifeExp: 75.76000<br />country: Canada","year: 1987<br />lifeExp: 76.86000<br />country: Canada","year: 1992<br />lifeExp: 77.95000<br />country: Canada","year: 1997<br />lifeExp: 78.61000<br />country: Canada","year: 2002<br />lifeExp: 79.77000<br />country: Canada","year: 2007<br />lifeExp: 80.65300<br />country: Canada",null,"year: 1952<br />lifeExp: 35.46300<br />country: Central African Republic","year: 1957<br />lifeExp: 37.46400<br />country: Central African Republic","year: 1962<br />lifeExp: 39.47500<br />country: Central African Republic","year: 1967<br />lifeExp: 41.47800<br />country: Central African Republic","year: 1972<br />lifeExp: 43.45700<br />country: Central African Republic","year: 1977<br />lifeExp: 46.77500<br />country: Central African Republic","year: 1982<br />lifeExp: 48.29500<br />country: Central African Republic","year: 1987<br />lifeExp: 50.48500<br />country: Central African Republic","year: 1992<br />lifeExp: 49.39600<br />country: Central African Republic","year: 1997<br />lifeExp: 46.06600<br />country: Central African Republic","year: 2002<br />lifeExp: 43.30800<br />country: Central African Republic","year: 2007<br />lifeExp: 44.74100<br />country: Central African Republic",null,"year: 1952<br />lifeExp: 38.09200<br />country: Chad","year: 1957<br />lifeExp: 39.88100<br />country: Chad","year: 1962<br />lifeExp: 41.71600<br />country: Chad","year: 1967<br />lifeExp: 43.60100<br />country: Chad","year: 1972<br />lifeExp: 45.56900<br />country: Chad","year: 1977<br />lifeExp: 47.38300<br />country: Chad","year: 1982<br />lifeExp: 49.51700<br />country: Chad","year: 1987<br />lifeExp: 51.05100<br />country: Chad","year: 1992<br />lifeExp: 51.72400<br />country: Chad","year: 1997<br />lifeExp: 51.57300<br />country: Chad","year: 2002<br />lifeExp: 50.52500<br />country: Chad","year: 2007<br />lifeExp: 50.65100<br />country: Chad",null,"year: 1952<br />lifeExp: 54.74500<br />country: Chile","year: 1957<br />lifeExp: 56.07400<br />country: Chile","year: 1962<br />lifeExp: 57.92400<br />country: Chile","year: 1967<br />lifeExp: 60.52300<br />country: Chile","year: 1972<br />lifeExp: 63.44100<br />country: Chile","year: 1977<br />lifeExp: 67.05200<br />country: Chile","year: 1982<br />lifeExp: 70.56500<br />country: Chile","year: 1987<br />lifeExp: 72.49200<br />country: Chile","year: 1992<br />lifeExp: 74.12600<br />country: Chile","year: 1997<br />lifeExp: 75.81600<br />country: Chile","year: 2002<br />lifeExp: 77.86000<br />country: Chile","year: 2007<br />lifeExp: 78.55300<br />country: Chile",null,"year: 1952<br />lifeExp: 44.00000<br />country: China","year: 1957<br />lifeExp: 50.54896<br />country: China","year: 1962<br />lifeExp: 44.50136<br />country: China","year: 1967<br />lifeExp: 58.38112<br />country: China","year: 1972<br />lifeExp: 63.11888<br />country: China","year: 1977<br />lifeExp: 63.96736<br />country: China","year: 1982<br />lifeExp: 65.52500<br />country: China","year: 1987<br />lifeExp: 67.27400<br />country: China","year: 1992<br />lifeExp: 68.69000<br />country: China","year: 1997<br />lifeExp: 70.42600<br />country: China","year: 2002<br />lifeExp: 72.02800<br />country: China","year: 2007<br />lifeExp: 72.96100<br />country: China",null,"year: 1952<br />lifeExp: 50.64300<br />country: Colombia","year: 1957<br />lifeExp: 55.11800<br />country: Colombia","year: 1962<br />lifeExp: 57.86300<br />country: Colombia","year: 1967<br />lifeExp: 59.96300<br />country: Colombia","year: 1972<br />lifeExp: 61.62300<br />country: Colombia","year: 1977<br />lifeExp: 63.83700<br />country: Colombia","year: 1982<br />lifeExp: 66.65300<br />country: Colombia","year: 1987<br />lifeExp: 67.76800<br />country: Colombia","year: 1992<br />lifeExp: 68.42100<br />country: Colombia","year: 1997<br />lifeExp: 70.31300<br />country: Colombia","year: 2002<br />lifeExp: 71.68200<br />country: Colombia","year: 2007<br />lifeExp: 72.88900<br />country: Colombia",null,"year: 1952<br />lifeExp: 40.71500<br />country: Comoros","year: 1957<br />lifeExp: 42.46000<br />country: Comoros","year: 1962<br />lifeExp: 44.46700<br />country: Comoros","year: 1967<br />lifeExp: 46.47200<br />country: Comoros","year: 1972<br />lifeExp: 48.94400<br />country: Comoros","year: 1977<br />lifeExp: 50.93900<br />country: Comoros","year: 1982<br />lifeExp: 52.93300<br />country: Comoros","year: 1987<br />lifeExp: 54.92600<br />country: Comoros","year: 1992<br />lifeExp: 57.93900<br />country: Comoros","year: 1997<br />lifeExp: 60.66000<br />country: Comoros","year: 2002<br />lifeExp: 62.97400<br />country: Comoros","year: 2007<br />lifeExp: 65.15200<br />country: Comoros",null,"year: 1952<br />lifeExp: 39.14300<br />country: Congo, Dem. Rep.","year: 1957<br />lifeExp: 40.65200<br />country: Congo, Dem. Rep.","year: 1962<br />lifeExp: 42.12200<br />country: Congo, Dem. Rep.","year: 1967<br />lifeExp: 44.05600<br />country: Congo, Dem. Rep.","year: 1972<br />lifeExp: 45.98900<br />country: Congo, Dem. Rep.","year: 1977<br />lifeExp: 47.80400<br />country: Congo, Dem. Rep.","year: 1982<br />lifeExp: 47.78400<br />country: Congo, Dem. Rep.","year: 1987<br />lifeExp: 47.41200<br />country: Congo, Dem. Rep.","year: 1992<br />lifeExp: 45.54800<br />country: Congo, Dem. Rep.","year: 1997<br />lifeExp: 42.58700<br />country: Congo, Dem. Rep.","year: 2002<br />lifeExp: 44.96600<br />country: Congo, Dem. Rep.","year: 2007<br />lifeExp: 46.46200<br />country: Congo, Dem. Rep.",null,"year: 1952<br />lifeExp: 42.11100<br />country: Congo, Rep.","year: 1957<br />lifeExp: 45.05300<br />country: Congo, Rep.","year: 1962<br />lifeExp: 48.43500<br />country: Congo, Rep.","year: 1967<br />lifeExp: 52.04000<br />country: Congo, Rep.","year: 1972<br />lifeExp: 54.90700<br />country: Congo, Rep.","year: 1977<br />lifeExp: 55.62500<br />country: Congo, Rep.","year: 1982<br />lifeExp: 56.69500<br />country: Congo, Rep.","year: 1987<br />lifeExp: 57.47000<br />country: Congo, Rep.","year: 1992<br />lifeExp: 56.43300<br />country: Congo, Rep.","year: 1997<br />lifeExp: 52.96200<br />country: Congo, Rep.","year: 2002<br />lifeExp: 52.97000<br />country: Congo, Rep.","year: 2007<br />lifeExp: 55.32200<br />country: Congo, Rep.",null,"year: 1952<br />lifeExp: 57.20600<br />country: Costa Rica","year: 1957<br />lifeExp: 60.02600<br />country: Costa Rica","year: 1962<br />lifeExp: 62.84200<br />country: Costa Rica","year: 1967<br />lifeExp: 65.42400<br />country: Costa Rica","year: 1972<br />lifeExp: 67.84900<br />country: Costa Rica","year: 1977<br />lifeExp: 70.75000<br />country: Costa Rica","year: 1982<br />lifeExp: 73.45000<br />country: Costa Rica","year: 1987<br />lifeExp: 74.75200<br />country: Costa Rica","year: 1992<br />lifeExp: 75.71300<br />country: Costa Rica","year: 1997<br />lifeExp: 77.26000<br />country: Costa Rica","year: 2002<br />lifeExp: 78.12300<br />country: Costa Rica","year: 2007<br />lifeExp: 78.78200<br />country: Costa Rica",null,"year: 1952<br />lifeExp: 40.47700<br />country: Cote d'Ivoire","year: 1957<br />lifeExp: 42.46900<br />country: Cote d'Ivoire","year: 1962<br />lifeExp: 44.93000<br />country: Cote d'Ivoire","year: 1967<br />lifeExp: 47.35000<br />country: Cote d'Ivoire","year: 1972<br />lifeExp: 49.80100<br />country: Cote d'Ivoire","year: 1977<br />lifeExp: 52.37400<br />country: Cote d'Ivoire","year: 1982<br />lifeExp: 53.98300<br />country: Cote d'Ivoire","year: 1987<br />lifeExp: 54.65500<br />country: Cote d'Ivoire","year: 1992<br />lifeExp: 52.04400<br />country: Cote d'Ivoire","year: 1997<br />lifeExp: 47.99100<br />country: Cote d'Ivoire","year: 2002<br />lifeExp: 46.83200<br />country: Cote d'Ivoire","year: 2007<br />lifeExp: 48.32800<br />country: Cote d'Ivoire",null,"year: 1952<br />lifeExp: 61.21000<br />country: Croatia","year: 1957<br />lifeExp: 64.77000<br />country: Croatia","year: 1962<br />lifeExp: 67.13000<br />country: Croatia","year: 1967<br />lifeExp: 68.50000<br />country: Croatia","year: 1972<br />lifeExp: 69.61000<br />country: Croatia","year: 1977<br />lifeExp: 70.64000<br />country: Croatia","year: 1982<br />lifeExp: 70.46000<br />country: Croatia","year: 1987<br />lifeExp: 71.52000<br />country: Croatia","year: 1992<br />lifeExp: 72.52700<br />country: Croatia","year: 1997<br />lifeExp: 73.68000<br />country: Croatia","year: 2002<br />lifeExp: 74.87600<br />country: Croatia","year: 2007<br />lifeExp: 75.74800<br />country: Croatia",null,"year: 1952<br />lifeExp: 59.42100<br />country: Cuba","year: 1957<br />lifeExp: 62.32500<br />country: Cuba","year: 1962<br />lifeExp: 65.24600<br />country: Cuba","year: 1967<br />lifeExp: 68.29000<br />country: Cuba","year: 1972<br />lifeExp: 70.72300<br />country: Cuba","year: 1977<br />lifeExp: 72.64900<br />country: Cuba","year: 1982<br />lifeExp: 73.71700<br />country: Cuba","year: 1987<br />lifeExp: 74.17400<br />country: Cuba","year: 1992<br />lifeExp: 74.41400<br />country: Cuba","year: 1997<br />lifeExp: 76.15100<br />country: Cuba","year: 2002<br />lifeExp: 77.15800<br />country: Cuba","year: 2007<br />lifeExp: 78.27300<br />country: Cuba",null,"year: 1952<br />lifeExp: 66.87000<br />country: Czech Republic","year: 1957<br />lifeExp: 69.03000<br />country: Czech Republic","year: 1962<br />lifeExp: 69.90000<br />country: Czech Republic","year: 1967<br />lifeExp: 70.38000<br />country: Czech Republic","year: 1972<br />lifeExp: 70.29000<br />country: Czech Republic","year: 1977<br />lifeExp: 70.71000<br />country: Czech Republic","year: 1982<br />lifeExp: 70.96000<br />country: Czech Republic","year: 1987<br />lifeExp: 71.58000<br />country: Czech Republic","year: 1992<br />lifeExp: 72.40000<br />country: Czech Republic","year: 1997<br />lifeExp: 74.01000<br />country: Czech Republic","year: 2002<br />lifeExp: 75.51000<br />country: Czech Republic","year: 2007<br />lifeExp: 76.48600<br />country: Czech Republic",null,"year: 1952<br />lifeExp: 70.78000<br />country: Denmark","year: 1957<br />lifeExp: 71.81000<br />country: Denmark","year: 1962<br />lifeExp: 72.35000<br />country: Denmark","year: 1967<br />lifeExp: 72.96000<br />country: Denmark","year: 1972<br />lifeExp: 73.47000<br />country: Denmark","year: 1977<br />lifeExp: 74.69000<br />country: Denmark","year: 1982<br />lifeExp: 74.63000<br />country: Denmark","year: 1987<br />lifeExp: 74.80000<br />country: Denmark","year: 1992<br />lifeExp: 75.33000<br />country: Denmark","year: 1997<br />lifeExp: 76.11000<br />country: Denmark","year: 2002<br />lifeExp: 77.18000<br />country: Denmark","year: 2007<br />lifeExp: 78.33200<br />country: Denmark",null,"year: 1952<br />lifeExp: 34.81200<br />country: Djibouti","year: 1957<br />lifeExp: 37.32800<br />country: Djibouti","year: 1962<br />lifeExp: 39.69300<br />country: Djibouti","year: 1967<br />lifeExp: 42.07400<br />country: Djibouti","year: 1972<br />lifeExp: 44.36600<br />country: Djibouti","year: 1977<br />lifeExp: 46.51900<br />country: Djibouti","year: 1982<br />lifeExp: 48.81200<br />country: Djibouti","year: 1987<br />lifeExp: 50.04000<br />country: Djibouti","year: 1992<br />lifeExp: 51.60400<br />country: Djibouti","year: 1997<br />lifeExp: 53.15700<br />country: Djibouti","year: 2002<br />lifeExp: 53.37300<br />country: Djibouti","year: 2007<br />lifeExp: 54.79100<br />country: Djibouti",null,"year: 1952<br />lifeExp: 45.92800<br />country: Dominican Republic","year: 1957<br />lifeExp: 49.82800<br />country: Dominican Republic","year: 1962<br />lifeExp: 53.45900<br />country: Dominican Republic","year: 1967<br />lifeExp: 56.75100<br />country: Dominican Republic","year: 1972<br />lifeExp: 59.63100<br />country: Dominican Republic","year: 1977<br />lifeExp: 61.78800<br />country: Dominican Republic","year: 1982<br />lifeExp: 63.72700<br />country: Dominican Republic","year: 1987<br />lifeExp: 66.04600<br />country: Dominican Republic","year: 1992<br />lifeExp: 68.45700<br />country: Dominican Republic","year: 1997<br />lifeExp: 69.95700<br />country: Dominican Republic","year: 2002<br />lifeExp: 70.84700<br />country: Dominican Republic","year: 2007<br />lifeExp: 72.23500<br />country: Dominican Republic",null,"year: 1952<br />lifeExp: 48.35700<br />country: Ecuador","year: 1957<br />lifeExp: 51.35600<br />country: Ecuador","year: 1962<br />lifeExp: 54.64000<br />country: Ecuador","year: 1967<br />lifeExp: 56.67800<br />country: Ecuador","year: 1972<br />lifeExp: 58.79600<br />country: Ecuador","year: 1977<br />lifeExp: 61.31000<br />country: Ecuador","year: 1982<br />lifeExp: 64.34200<br />country: Ecuador","year: 1987<br />lifeExp: 67.23100<br />country: Ecuador","year: 1992<br />lifeExp: 69.61300<br />country: Ecuador","year: 1997<br />lifeExp: 72.31200<br />country: Ecuador","year: 2002<br />lifeExp: 74.17300<br />country: Ecuador","year: 2007<br />lifeExp: 74.99400<br />country: Ecuador",null,"year: 1952<br />lifeExp: 41.89300<br />country: Egypt","year: 1957<br />lifeExp: 44.44400<br />country: Egypt","year: 1962<br />lifeExp: 46.99200<br />country: Egypt","year: 1967<br />lifeExp: 49.29300<br />country: Egypt","year: 1972<br />lifeExp: 51.13700<br />country: Egypt","year: 1977<br />lifeExp: 53.31900<br />country: Egypt","year: 1982<br />lifeExp: 56.00600<br />country: Egypt","year: 1987<br />lifeExp: 59.79700<br />country: Egypt","year: 1992<br />lifeExp: 63.67400<br />country: Egypt","year: 1997<br />lifeExp: 67.21700<br />country: Egypt","year: 2002<br />lifeExp: 69.80600<br />country: Egypt","year: 2007<br />lifeExp: 71.33800<br />country: Egypt",null,"year: 1952<br />lifeExp: 45.26200<br />country: El Salvador","year: 1957<br />lifeExp: 48.57000<br />country: El Salvador","year: 1962<br />lifeExp: 52.30700<br />country: El Salvador","year: 1967<br />lifeExp: 55.85500<br />country: El Salvador","year: 1972<br />lifeExp: 58.20700<br />country: El Salvador","year: 1977<br />lifeExp: 56.69600<br />country: El Salvador","year: 1982<br />lifeExp: 56.60400<br />country: El Salvador","year: 1987<br />lifeExp: 63.15400<br />country: El Salvador","year: 1992<br />lifeExp: 66.79800<br />country: El Salvador","year: 1997<br />lifeExp: 69.53500<br />country: El Salvador","year: 2002<br />lifeExp: 70.73400<br />country: El Salvador","year: 2007<br />lifeExp: 71.87800<br />country: El Salvador",null,"year: 1952<br />lifeExp: 34.48200<br />country: Equatorial Guinea","year: 1957<br />lifeExp: 35.98300<br />country: Equatorial Guinea","year: 1962<br />lifeExp: 37.48500<br />country: Equatorial Guinea","year: 1967<br />lifeExp: 38.98700<br />country: Equatorial Guinea","year: 1972<br />lifeExp: 40.51600<br />country: Equatorial Guinea","year: 1977<br />lifeExp: 42.02400<br />country: Equatorial Guinea","year: 1982<br />lifeExp: 43.66200<br />country: Equatorial Guinea","year: 1987<br />lifeExp: 45.66400<br />country: Equatorial Guinea","year: 1992<br />lifeExp: 47.54500<br />country: Equatorial Guinea","year: 1997<br />lifeExp: 48.24500<br />country: Equatorial Guinea","year: 2002<br />lifeExp: 49.34800<br />country: Equatorial Guinea","year: 2007<br />lifeExp: 51.57900<br />country: Equatorial Guinea",null,"year: 1952<br />lifeExp: 35.92800<br />country: Eritrea","year: 1957<br />lifeExp: 38.04700<br />country: Eritrea","year: 1962<br />lifeExp: 40.15800<br />country: Eritrea","year: 1967<br />lifeExp: 42.18900<br />country: Eritrea","year: 1972<br />lifeExp: 44.14200<br />country: Eritrea","year: 1977<br />lifeExp: 44.53500<br />country: Eritrea","year: 1982<br />lifeExp: 43.89000<br />country: Eritrea","year: 1987<br />lifeExp: 46.45300<br />country: Eritrea","year: 1992<br />lifeExp: 49.99100<br />country: Eritrea","year: 1997<br />lifeExp: 53.37800<br />country: Eritrea","year: 2002<br />lifeExp: 55.24000<br />country: Eritrea","year: 2007<br />lifeExp: 58.04000<br />country: Eritrea",null,"year: 1952<br />lifeExp: 34.07800<br />country: Ethiopia","year: 1957<br />lifeExp: 36.66700<br />country: Ethiopia","year: 1962<br />lifeExp: 40.05900<br />country: Ethiopia","year: 1967<br />lifeExp: 42.11500<br />country: Ethiopia","year: 1972<br />lifeExp: 43.51500<br />country: Ethiopia","year: 1977<br />lifeExp: 44.51000<br />country: Ethiopia","year: 1982<br />lifeExp: 44.91600<br />country: Ethiopia","year: 1987<br />lifeExp: 46.68400<br />country: Ethiopia","year: 1992<br />lifeExp: 48.09100<br />country: Ethiopia","year: 1997<br />lifeExp: 49.40200<br />country: Ethiopia","year: 2002<br />lifeExp: 50.72500<br />country: Ethiopia","year: 2007<br />lifeExp: 52.94700<br />country: Ethiopia",null,"year: 1952<br />lifeExp: 66.55000<br />country: Finland","year: 1957<br />lifeExp: 67.49000<br />country: Finland","year: 1962<br />lifeExp: 68.75000<br />country: Finland","year: 1967<br />lifeExp: 69.83000<br />country: Finland","year: 1972<br />lifeExp: 70.87000<br />country: Finland","year: 1977<br />lifeExp: 72.52000<br />country: Finland","year: 1982<br />lifeExp: 74.55000<br />country: Finland","year: 1987<br />lifeExp: 74.83000<br />country: Finland","year: 1992<br />lifeExp: 75.70000<br />country: Finland","year: 1997<br />lifeExp: 77.13000<br />country: Finland","year: 2002<br />lifeExp: 78.37000<br />country: Finland","year: 2007<br />lifeExp: 79.31300<br />country: Finland",null,"year: 1952<br />lifeExp: 67.41000<br />country: France","year: 1957<br />lifeExp: 68.93000<br />country: France","year: 1962<br />lifeExp: 70.51000<br />country: France","year: 1967<br />lifeExp: 71.55000<br />country: France","year: 1972<br />lifeExp: 72.38000<br />country: France","year: 1977<br />lifeExp: 73.83000<br />country: France","year: 1982<br />lifeExp: 74.89000<br />country: France","year: 1987<br />lifeExp: 76.34000<br />country: France","year: 1992<br />lifeExp: 77.46000<br />country: France","year: 1997<br />lifeExp: 78.64000<br />country: France","year: 2002<br />lifeExp: 79.59000<br />country: France","year: 2007<br />lifeExp: 80.65700<br />country: France",null,"year: 1952<br />lifeExp: 37.00300<br />country: Gabon","year: 1957<br />lifeExp: 38.99900<br />country: Gabon","year: 1962<br />lifeExp: 40.48900<br />country: Gabon","year: 1967<br />lifeExp: 44.59800<br />country: Gabon","year: 1972<br />lifeExp: 48.69000<br />country: Gabon","year: 1977<br />lifeExp: 52.79000<br />country: Gabon","year: 1982<br />lifeExp: 56.56400<br />country: Gabon","year: 1987<br />lifeExp: 60.19000<br />country: Gabon","year: 1992<br />lifeExp: 61.36600<br />country: Gabon","year: 1997<br />lifeExp: 60.46100<br />country: Gabon","year: 2002<br />lifeExp: 56.76100<br />country: Gabon","year: 2007<br />lifeExp: 56.73500<br />country: Gabon",null,"year: 1952<br />lifeExp: 30.00000<br />country: Gambia","year: 1957<br />lifeExp: 32.06500<br />country: Gambia","year: 1962<br />lifeExp: 33.89600<br />country: Gambia","year: 1967<br />lifeExp: 35.85700<br />country: Gambia","year: 1972<br />lifeExp: 38.30800<br />country: Gambia","year: 1977<br />lifeExp: 41.84200<br />country: Gambia","year: 1982<br />lifeExp: 45.58000<br />country: Gambia","year: 1987<br />lifeExp: 49.26500<br />country: Gambia","year: 1992<br />lifeExp: 52.64400<br />country: Gambia","year: 1997<br />lifeExp: 55.86100<br />country: Gambia","year: 2002<br />lifeExp: 58.04100<br />country: Gambia","year: 2007<br />lifeExp: 59.44800<br />country: Gambia",null,"year: 1952<br />lifeExp: 67.50000<br />country: Germany","year: 1957<br />lifeExp: 69.10000<br />country: Germany","year: 1962<br />lifeExp: 70.30000<br />country: Germany","year: 1967<br />lifeExp: 70.80000<br />country: Germany","year: 1972<br />lifeExp: 71.00000<br />country: Germany","year: 1977<br />lifeExp: 72.50000<br />country: Germany","year: 1982<br />lifeExp: 73.80000<br />country: Germany","year: 1987<br />lifeExp: 74.84700<br />country: Germany","year: 1992<br />lifeExp: 76.07000<br />country: Germany","year: 1997<br />lifeExp: 77.34000<br />country: Germany","year: 2002<br />lifeExp: 78.67000<br />country: Germany","year: 2007<br />lifeExp: 79.40600<br />country: Germany",null,"year: 1952<br />lifeExp: 43.14900<br />country: Ghana","year: 1957<br />lifeExp: 44.77900<br />country: Ghana","year: 1962<br />lifeExp: 46.45200<br />country: Ghana","year: 1967<br />lifeExp: 48.07200<br />country: Ghana","year: 1972<br />lifeExp: 49.87500<br />country: Ghana","year: 1977<br />lifeExp: 51.75600<br />country: Ghana","year: 1982<br />lifeExp: 53.74400<br />country: Ghana","year: 1987<br />lifeExp: 55.72900<br />country: Ghana","year: 1992<br />lifeExp: 57.50100<br />country: Ghana","year: 1997<br />lifeExp: 58.55600<br />country: Ghana","year: 2002<br />lifeExp: 58.45300<br />country: Ghana","year: 2007<br />lifeExp: 60.02200<br />country: Ghana",null,"year: 1952<br />lifeExp: 65.86000<br />country: Greece","year: 1957<br />lifeExp: 67.86000<br />country: Greece","year: 1962<br />lifeExp: 69.51000<br />country: Greece","year: 1967<br />lifeExp: 71.00000<br />country: Greece","year: 1972<br />lifeExp: 72.34000<br />country: Greece","year: 1977<br />lifeExp: 73.68000<br />country: Greece","year: 1982<br />lifeExp: 75.24000<br />country: Greece","year: 1987<br />lifeExp: 76.67000<br />country: Greece","year: 1992<br />lifeExp: 77.03000<br />country: Greece","year: 1997<br />lifeExp: 77.86900<br />country: Greece","year: 2002<br />lifeExp: 78.25600<br />country: Greece","year: 2007<br />lifeExp: 79.48300<br />country: Greece",null,"year: 1952<br />lifeExp: 42.02300<br />country: Guatemala","year: 1957<br />lifeExp: 44.14200<br />country: Guatemala","year: 1962<br />lifeExp: 46.95400<br />country: Guatemala","year: 1967<br />lifeExp: 50.01600<br />country: Guatemala","year: 1972<br />lifeExp: 53.73800<br />country: Guatemala","year: 1977<br />lifeExp: 56.02900<br />country: Guatemala","year: 1982<br />lifeExp: 58.13700<br />country: Guatemala","year: 1987<br />lifeExp: 60.78200<br />country: Guatemala","year: 1992<br />lifeExp: 63.37300<br />country: Guatemala","year: 1997<br />lifeExp: 66.32200<br />country: Guatemala","year: 2002<br />lifeExp: 68.97800<br />country: Guatemala","year: 2007<br />lifeExp: 70.25900<br />country: Guatemala",null,"year: 1952<br />lifeExp: 33.60900<br />country: Guinea","year: 1957<br />lifeExp: 34.55800<br />country: Guinea","year: 1962<br />lifeExp: 35.75300<br />country: Guinea","year: 1967<br />lifeExp: 37.19700<br />country: Guinea","year: 1972<br />lifeExp: 38.84200<br />country: Guinea","year: 1977<br />lifeExp: 40.76200<br />country: Guinea","year: 1982<br />lifeExp: 42.89100<br />country: Guinea","year: 1987<br />lifeExp: 45.55200<br />country: Guinea","year: 1992<br />lifeExp: 48.57600<br />country: Guinea","year: 1997<br />lifeExp: 51.45500<br />country: Guinea","year: 2002<br />lifeExp: 53.67600<br />country: Guinea","year: 2007<br />lifeExp: 56.00700<br />country: Guinea",null,"year: 1952<br />lifeExp: 32.50000<br />country: Guinea-Bissau","year: 1957<br />lifeExp: 33.48900<br />country: Guinea-Bissau","year: 1962<br />lifeExp: 34.48800<br />country: Guinea-Bissau","year: 1967<br />lifeExp: 35.49200<br />country: Guinea-Bissau","year: 1972<br />lifeExp: 36.48600<br />country: Guinea-Bissau","year: 1977<br />lifeExp: 37.46500<br />country: Guinea-Bissau","year: 1982<br />lifeExp: 39.32700<br />country: Guinea-Bissau","year: 1987<br />lifeExp: 41.24500<br />country: Guinea-Bissau","year: 1992<br />lifeExp: 43.26600<br />country: Guinea-Bissau","year: 1997<br />lifeExp: 44.87300<br />country: Guinea-Bissau","year: 2002<br />lifeExp: 45.50400<br />country: Guinea-Bissau","year: 2007<br />lifeExp: 46.38800<br />country: Guinea-Bissau",null,"year: 1952<br />lifeExp: 37.57900<br />country: Haiti","year: 1957<br />lifeExp: 40.69600<br />country: Haiti","year: 1962<br />lifeExp: 43.59000<br />country: Haiti","year: 1967<br />lifeExp: 46.24300<br />country: Haiti","year: 1972<br />lifeExp: 48.04200<br />country: Haiti","year: 1977<br />lifeExp: 49.92300<br />country: Haiti","year: 1982<br />lifeExp: 51.46100<br />country: Haiti","year: 1987<br />lifeExp: 53.63600<br />country: Haiti","year: 1992<br />lifeExp: 55.08900<br />country: Haiti","year: 1997<br />lifeExp: 56.67100<br />country: Haiti","year: 2002<br />lifeExp: 58.13700<br />country: Haiti","year: 2007<br />lifeExp: 60.91600<br />country: Haiti",null,"year: 1952<br />lifeExp: 41.91200<br />country: Honduras","year: 1957<br />lifeExp: 44.66500<br />country: Honduras","year: 1962<br />lifeExp: 48.04100<br />country: Honduras","year: 1967<br />lifeExp: 50.92400<br />country: Honduras","year: 1972<br />lifeExp: 53.88400<br />country: Honduras","year: 1977<br />lifeExp: 57.40200<br />country: Honduras","year: 1982<br />lifeExp: 60.90900<br />country: Honduras","year: 1987<br />lifeExp: 64.49200<br />country: Honduras","year: 1992<br />lifeExp: 66.39900<br />country: Honduras","year: 1997<br />lifeExp: 67.65900<br />country: Honduras","year: 2002<br />lifeExp: 68.56500<br />country: Honduras","year: 2007<br />lifeExp: 70.19800<br />country: Honduras",null,"year: 1952<br />lifeExp: 60.96000<br />country: Hong Kong, China","year: 1957<br />lifeExp: 64.75000<br />country: Hong Kong, China","year: 1962<br />lifeExp: 67.65000<br />country: Hong Kong, China","year: 1967<br />lifeExp: 70.00000<br />country: Hong Kong, China","year: 1972<br />lifeExp: 72.00000<br />country: Hong Kong, China","year: 1977<br />lifeExp: 73.60000<br />country: Hong Kong, China","year: 1982<br />lifeExp: 75.45000<br />country: Hong Kong, China","year: 1987<br />lifeExp: 76.20000<br />country: Hong Kong, China","year: 1992<br />lifeExp: 77.60100<br />country: Hong Kong, China","year: 1997<br />lifeExp: 80.00000<br />country: Hong Kong, China","year: 2002<br />lifeExp: 81.49500<br />country: Hong Kong, China","year: 2007<br />lifeExp: 82.20800<br />country: Hong Kong, China",null,"year: 1952<br />lifeExp: 64.03000<br />country: Hungary","year: 1957<br />lifeExp: 66.41000<br />country: Hungary","year: 1962<br />lifeExp: 67.96000<br />country: Hungary","year: 1967<br />lifeExp: 69.50000<br />country: Hungary","year: 1972<br />lifeExp: 69.76000<br />country: Hungary","year: 1977<br />lifeExp: 69.95000<br />country: Hungary","year: 1982<br />lifeExp: 69.39000<br />country: Hungary","year: 1987<br />lifeExp: 69.58000<br />country: Hungary","year: 1992<br />lifeExp: 69.17000<br />country: Hungary","year: 1997<br />lifeExp: 71.04000<br />country: Hungary","year: 2002<br />lifeExp: 72.59000<br />country: Hungary","year: 2007<br />lifeExp: 73.33800<br />country: Hungary",null,"year: 1952<br />lifeExp: 72.49000<br />country: Iceland","year: 1957<br />lifeExp: 73.47000<br />country: Iceland","year: 1962<br />lifeExp: 73.68000<br />country: Iceland","year: 1967<br />lifeExp: 73.73000<br />country: Iceland","year: 1972<br />lifeExp: 74.46000<br />country: Iceland","year: 1977<br />lifeExp: 76.11000<br />country: Iceland","year: 1982<br />lifeExp: 76.99000<br />country: Iceland","year: 1987<br />lifeExp: 77.23000<br />country: Iceland","year: 1992<br />lifeExp: 78.77000<br />country: Iceland","year: 1997<br />lifeExp: 78.95000<br />country: Iceland","year: 2002<br />lifeExp: 80.50000<br />country: Iceland","year: 2007<br />lifeExp: 81.75700<br />country: Iceland",null,"year: 1952<br />lifeExp: 37.37300<br />country: India","year: 1957<br />lifeExp: 40.24900<br />country: India","year: 1962<br />lifeExp: 43.60500<br />country: India","year: 1967<br />lifeExp: 47.19300<br />country: India","year: 1972<br />lifeExp: 50.65100<br />country: India","year: 1977<br />lifeExp: 54.20800<br />country: India","year: 1982<br />lifeExp: 56.59600<br />country: India","year: 1987<br />lifeExp: 58.55300<br />country: India","year: 1992<br />lifeExp: 60.22300<br />country: India","year: 1997<br />lifeExp: 61.76500<br />country: India","year: 2002<br />lifeExp: 62.87900<br />country: India","year: 2007<br />lifeExp: 64.69800<br />country: India",null,"year: 1952<br />lifeExp: 37.46800<br />country: Indonesia","year: 1957<br />lifeExp: 39.91800<br />country: Indonesia","year: 1962<br />lifeExp: 42.51800<br />country: Indonesia","year: 1967<br />lifeExp: 45.96400<br />country: Indonesia","year: 1972<br />lifeExp: 49.20300<br />country: Indonesia","year: 1977<br />lifeExp: 52.70200<br />country: Indonesia","year: 1982<br />lifeExp: 56.15900<br />country: Indonesia","year: 1987<br />lifeExp: 60.13700<br />country: Indonesia","year: 1992<br />lifeExp: 62.68100<br />country: Indonesia","year: 1997<br />lifeExp: 66.04100<br />country: Indonesia","year: 2002<br />lifeExp: 68.58800<br />country: Indonesia","year: 2007<br />lifeExp: 70.65000<br />country: Indonesia",null,"year: 1952<br />lifeExp: 44.86900<br />country: Iran","year: 1957<br />lifeExp: 47.18100<br />country: Iran","year: 1962<br />lifeExp: 49.32500<br />country: Iran","year: 1967<br />lifeExp: 52.46900<br />country: Iran","year: 1972<br />lifeExp: 55.23400<br />country: Iran","year: 1977<br />lifeExp: 57.70200<br />country: Iran","year: 1982<br />lifeExp: 59.62000<br />country: Iran","year: 1987<br />lifeExp: 63.04000<br />country: Iran","year: 1992<br />lifeExp: 65.74200<br />country: Iran","year: 1997<br />lifeExp: 68.04200<br />country: Iran","year: 2002<br />lifeExp: 69.45100<br />country: Iran","year: 2007<br />lifeExp: 70.96400<br />country: Iran",null,"year: 1952<br />lifeExp: 45.32000<br />country: Iraq","year: 1957<br />lifeExp: 48.43700<br />country: Iraq","year: 1962<br />lifeExp: 51.45700<br />country: Iraq","year: 1967<br />lifeExp: 54.45900<br />country: Iraq","year: 1972<br />lifeExp: 56.95000<br />country: Iraq","year: 1977<br />lifeExp: 60.41300<br />country: Iraq","year: 1982<br />lifeExp: 62.03800<br />country: Iraq","year: 1987<br />lifeExp: 65.04400<br />country: Iraq","year: 1992<br />lifeExp: 59.46100<br />country: Iraq","year: 1997<br />lifeExp: 58.81100<br />country: Iraq","year: 2002<br />lifeExp: 57.04600<br />country: Iraq","year: 2007<br />lifeExp: 59.54500<br />country: Iraq",null,"year: 1952<br />lifeExp: 66.91000<br />country: Ireland","year: 1957<br />lifeExp: 68.90000<br />country: Ireland","year: 1962<br />lifeExp: 70.29000<br />country: Ireland","year: 1967<br />lifeExp: 71.08000<br />country: Ireland","year: 1972<br />lifeExp: 71.28000<br />country: Ireland","year: 1977<br />lifeExp: 72.03000<br />country: Ireland","year: 1982<br />lifeExp: 73.10000<br />country: Ireland","year: 1987<br />lifeExp: 74.36000<br />country: Ireland","year: 1992<br />lifeExp: 75.46700<br />country: Ireland","year: 1997<br />lifeExp: 76.12200<br />country: Ireland","year: 2002<br />lifeExp: 77.78300<br />country: Ireland","year: 2007<br />lifeExp: 78.88500<br />country: Ireland",null,"year: 1952<br />lifeExp: 65.39000<br />country: Israel","year: 1957<br />lifeExp: 67.84000<br />country: Israel","year: 1962<br />lifeExp: 69.39000<br />country: Israel","year: 1967<br />lifeExp: 70.75000<br />country: Israel","year: 1972<br />lifeExp: 71.63000<br />country: Israel","year: 1977<br />lifeExp: 73.06000<br />country: Israel","year: 1982<br />lifeExp: 74.45000<br />country: Israel","year: 1987<br />lifeExp: 75.60000<br />country: Israel","year: 1992<br />lifeExp: 76.93000<br />country: Israel","year: 1997<br />lifeExp: 78.26900<br />country: Israel","year: 2002<br />lifeExp: 79.69600<br />country: Israel","year: 2007<br />lifeExp: 80.74500<br />country: Israel",null,"year: 1952<br />lifeExp: 65.94000<br />country: Italy","year: 1957<br />lifeExp: 67.81000<br />country: Italy","year: 1962<br />lifeExp: 69.24000<br />country: Italy","year: 1967<br />lifeExp: 71.06000<br />country: Italy","year: 1972<br />lifeExp: 72.19000<br />country: Italy","year: 1977<br />lifeExp: 73.48000<br />country: Italy","year: 1982<br />lifeExp: 74.98000<br />country: Italy","year: 1987<br />lifeExp: 76.42000<br />country: Italy","year: 1992<br />lifeExp: 77.44000<br />country: Italy","year: 1997<br />lifeExp: 78.82000<br />country: Italy","year: 2002<br />lifeExp: 80.24000<br />country: Italy","year: 2007<br />lifeExp: 80.54600<br />country: Italy",null,"year: 1952<br />lifeExp: 58.53000<br />country: Jamaica","year: 1957<br />lifeExp: 62.61000<br />country: Jamaica","year: 1962<br />lifeExp: 65.61000<br />country: Jamaica","year: 1967<br />lifeExp: 67.51000<br />country: Jamaica","year: 1972<br />lifeExp: 69.00000<br />country: Jamaica","year: 1977<br />lifeExp: 70.11000<br />country: Jamaica","year: 1982<br />lifeExp: 71.21000<br />country: Jamaica","year: 1987<br />lifeExp: 71.77000<br />country: Jamaica","year: 1992<br />lifeExp: 71.76600<br />country: Jamaica","year: 1997<br />lifeExp: 72.26200<br />country: Jamaica","year: 2002<br />lifeExp: 72.04700<br />country: Jamaica","year: 2007<br />lifeExp: 72.56700<br />country: Jamaica",null,"year: 1952<br />lifeExp: 63.03000<br />country: Japan","year: 1957<br />lifeExp: 65.50000<br />country: Japan","year: 1962<br />lifeExp: 68.73000<br />country: Japan","year: 1967<br />lifeExp: 71.43000<br />country: Japan","year: 1972<br />lifeExp: 73.42000<br />country: Japan","year: 1977<br />lifeExp: 75.38000<br />country: Japan","year: 1982<br />lifeExp: 77.11000<br />country: Japan","year: 1987<br />lifeExp: 78.67000<br />country: Japan","year: 1992<br />lifeExp: 79.36000<br />country: Japan","year: 1997<br />lifeExp: 80.69000<br />country: Japan","year: 2002<br />lifeExp: 82.00000<br />country: Japan","year: 2007<br />lifeExp: 82.60300<br />country: Japan",null,"year: 1952<br />lifeExp: 43.15800<br />country: Jordan","year: 1957<br />lifeExp: 45.66900<br />country: Jordan","year: 1962<br />lifeExp: 48.12600<br />country: Jordan","year: 1967<br />lifeExp: 51.62900<br />country: Jordan","year: 1972<br />lifeExp: 56.52800<br />country: Jordan","year: 1977<br />lifeExp: 61.13400<br />country: Jordan","year: 1982<br />lifeExp: 63.73900<br />country: Jordan","year: 1987<br />lifeExp: 65.86900<br />country: Jordan","year: 1992<br />lifeExp: 68.01500<br />country: Jordan","year: 1997<br />lifeExp: 69.77200<br />country: Jordan","year: 2002<br />lifeExp: 71.26300<br />country: Jordan","year: 2007<br />lifeExp: 72.53500<br />country: Jordan",null,"year: 1952<br />lifeExp: 42.27000<br />country: Kenya","year: 1957<br />lifeExp: 44.68600<br />country: Kenya","year: 1962<br />lifeExp: 47.94900<br />country: Kenya","year: 1967<br />lifeExp: 50.65400<br />country: Kenya","year: 1972<br />lifeExp: 53.55900<br />country: Kenya","year: 1977<br />lifeExp: 56.15500<br />country: Kenya","year: 1982<br />lifeExp: 58.76600<br />country: Kenya","year: 1987<br />lifeExp: 59.33900<br />country: Kenya","year: 1992<br />lifeExp: 59.28500<br />country: Kenya","year: 1997<br />lifeExp: 54.40700<br />country: Kenya","year: 2002<br />lifeExp: 50.99200<br />country: Kenya","year: 2007<br />lifeExp: 54.11000<br />country: Kenya",null,"year: 1952<br />lifeExp: 50.05600<br />country: Korea, Dem. Rep.","year: 1957<br />lifeExp: 54.08100<br />country: Korea, Dem. Rep.","year: 1962<br />lifeExp: 56.65600<br />country: Korea, Dem. Rep.","year: 1967<br />lifeExp: 59.94200<br />country: Korea, Dem. Rep.","year: 1972<br />lifeExp: 63.98300<br />country: Korea, Dem. Rep.","year: 1977<br />lifeExp: 67.15900<br />country: Korea, Dem. Rep.","year: 1982<br />lifeExp: 69.10000<br />country: Korea, Dem. Rep.","year: 1987<br />lifeExp: 70.64700<br />country: Korea, Dem. Rep.","year: 1992<br />lifeExp: 69.97800<br />country: Korea, Dem. Rep.","year: 1997<br />lifeExp: 67.72700<br />country: Korea, Dem. Rep.","year: 2002<br />lifeExp: 66.66200<br />country: Korea, Dem. Rep.","year: 2007<br />lifeExp: 67.29700<br />country: Korea, Dem. Rep.",null,"year: 1952<br />lifeExp: 47.45300<br />country: Korea, Rep.","year: 1957<br />lifeExp: 52.68100<br />country: Korea, Rep.","year: 1962<br />lifeExp: 55.29200<br />country: Korea, Rep.","year: 1967<br />lifeExp: 57.71600<br />country: Korea, Rep.","year: 1972<br />lifeExp: 62.61200<br />country: Korea, Rep.","year: 1977<br />lifeExp: 64.76600<br />country: Korea, Rep.","year: 1982<br />lifeExp: 67.12300<br />country: Korea, Rep.","year: 1987<br />lifeExp: 69.81000<br />country: Korea, Rep.","year: 1992<br />lifeExp: 72.24400<br />country: Korea, Rep.","year: 1997<br />lifeExp: 74.64700<br />country: Korea, Rep.","year: 2002<br />lifeExp: 77.04500<br />country: Korea, Rep.","year: 2007<br />lifeExp: 78.62300<br />country: Korea, Rep.",null,"year: 1952<br />lifeExp: 55.56500<br />country: Kuwait","year: 1957<br />lifeExp: 58.03300<br />country: Kuwait","year: 1962<br />lifeExp: 60.47000<br />country: Kuwait","year: 1967<br />lifeExp: 64.62400<br />country: Kuwait","year: 1972<br />lifeExp: 67.71200<br />country: Kuwait","year: 1977<br />lifeExp: 69.34300<br />country: Kuwait","year: 1982<br />lifeExp: 71.30900<br />country: Kuwait","year: 1987<br />lifeExp: 74.17400<br />country: Kuwait","year: 1992<br />lifeExp: 75.19000<br />country: Kuwait","year: 1997<br />lifeExp: 76.15600<br />country: Kuwait","year: 2002<br />lifeExp: 76.90400<br />country: Kuwait","year: 2007<br />lifeExp: 77.58800<br />country: Kuwait",null,"year: 1952<br />lifeExp: 55.92800<br />country: Lebanon","year: 1957<br />lifeExp: 59.48900<br />country: Lebanon","year: 1962<br />lifeExp: 62.09400<br />country: Lebanon","year: 1967<br />lifeExp: 63.87000<br />country: Lebanon","year: 1972<br />lifeExp: 65.42100<br />country: Lebanon","year: 1977<br />lifeExp: 66.09900<br />country: Lebanon","year: 1982<br />lifeExp: 66.98300<br />country: Lebanon","year: 1987<br />lifeExp: 67.92600<br />country: Lebanon","year: 1992<br />lifeExp: 69.29200<br />country: Lebanon","year: 1997<br />lifeExp: 70.26500<br />country: Lebanon","year: 2002<br />lifeExp: 71.02800<br />country: Lebanon","year: 2007<br />lifeExp: 71.99300<br />country: Lebanon",null,"year: 1952<br />lifeExp: 42.13800<br />country: Lesotho","year: 1957<br />lifeExp: 45.04700<br />country: Lesotho","year: 1962<br />lifeExp: 47.74700<br />country: Lesotho","year: 1967<br />lifeExp: 48.49200<br />country: Lesotho","year: 1972<br />lifeExp: 49.76700<br />country: Lesotho","year: 1977<br />lifeExp: 52.20800<br />country: Lesotho","year: 1982<br />lifeExp: 55.07800<br />country: Lesotho","year: 1987<br />lifeExp: 57.18000<br />country: Lesotho","year: 1992<br />lifeExp: 59.68500<br />country: Lesotho","year: 1997<br />lifeExp: 55.55800<br />country: Lesotho","year: 2002<br />lifeExp: 44.59300<br />country: Lesotho","year: 2007<br />lifeExp: 42.59200<br />country: Lesotho",null,"year: 1952<br />lifeExp: 38.48000<br />country: Liberia","year: 1957<br />lifeExp: 39.48600<br />country: Liberia","year: 1962<br />lifeExp: 40.50200<br />country: Liberia","year: 1967<br />lifeExp: 41.53600<br />country: Liberia","year: 1972<br />lifeExp: 42.61400<br />country: Liberia","year: 1977<br />lifeExp: 43.76400<br />country: Liberia","year: 1982<br />lifeExp: 44.85200<br />country: Liberia","year: 1987<br />lifeExp: 46.02700<br />country: Liberia","year: 1992<br />lifeExp: 40.80200<br />country: Liberia","year: 1997<br />lifeExp: 42.22100<br />country: Liberia","year: 2002<br />lifeExp: 43.75300<br />country: Liberia","year: 2007<br />lifeExp: 45.67800<br />country: Liberia",null,"year: 1952<br />lifeExp: 42.72300<br />country: Libya","year: 1957<br />lifeExp: 45.28900<br />country: Libya","year: 1962<br />lifeExp: 47.80800<br />country: Libya","year: 1967<br />lifeExp: 50.22700<br />country: Libya","year: 1972<br />lifeExp: 52.77300<br />country: Libya","year: 1977<br />lifeExp: 57.44200<br />country: Libya","year: 1982<br />lifeExp: 62.15500<br />country: Libya","year: 1987<br />lifeExp: 66.23400<br />country: Libya","year: 1992<br />lifeExp: 68.75500<br />country: Libya","year: 1997<br />lifeExp: 71.55500<br />country: Libya","year: 2002<br />lifeExp: 72.73700<br />country: Libya","year: 2007<br />lifeExp: 73.95200<br />country: Libya",null,"year: 1952<br />lifeExp: 36.68100<br />country: Madagascar","year: 1957<br />lifeExp: 38.86500<br />country: Madagascar","year: 1962<br />lifeExp: 40.84800<br />country: Madagascar","year: 1967<br />lifeExp: 42.88100<br />country: Madagascar","year: 1972<br />lifeExp: 44.85100<br />country: Madagascar","year: 1977<br />lifeExp: 46.88100<br />country: Madagascar","year: 1982<br />lifeExp: 48.96900<br />country: Madagascar","year: 1987<br />lifeExp: 49.35000<br />country: Madagascar","year: 1992<br />lifeExp: 52.21400<br />country: Madagascar","year: 1997<br />lifeExp: 54.97800<br />country: Madagascar","year: 2002<br />lifeExp: 57.28600<br />country: Madagascar","year: 2007<br />lifeExp: 59.44300<br />country: Madagascar",null,"year: 1952<br />lifeExp: 36.25600<br />country: Malawi","year: 1957<br />lifeExp: 37.20700<br />country: Malawi","year: 1962<br />lifeExp: 38.41000<br />country: Malawi","year: 1967<br />lifeExp: 39.48700<br />country: Malawi","year: 1972<br />lifeExp: 41.76600<br />country: Malawi","year: 1977<br />lifeExp: 43.76700<br />country: Malawi","year: 1982<br />lifeExp: 45.64200<br />country: Malawi","year: 1987<br />lifeExp: 47.45700<br />country: Malawi","year: 1992<br />lifeExp: 49.42000<br />country: Malawi","year: 1997<br />lifeExp: 47.49500<br />country: Malawi","year: 2002<br />lifeExp: 45.00900<br />country: Malawi","year: 2007<br />lifeExp: 48.30300<br />country: Malawi",null,"year: 1952<br />lifeExp: 48.46300<br />country: Malaysia","year: 1957<br />lifeExp: 52.10200<br />country: Malaysia","year: 1962<br />lifeExp: 55.73700<br />country: Malaysia","year: 1967<br />lifeExp: 59.37100<br />country: Malaysia","year: 1972<br />lifeExp: 63.01000<br />country: Malaysia","year: 1977<br />lifeExp: 65.25600<br />country: Malaysia","year: 1982<br />lifeExp: 68.00000<br />country: Malaysia","year: 1987<br />lifeExp: 69.50000<br />country: Malaysia","year: 1992<br />lifeExp: 70.69300<br />country: Malaysia","year: 1997<br />lifeExp: 71.93800<br />country: Malaysia","year: 2002<br />lifeExp: 73.04400<br />country: Malaysia","year: 2007<br />lifeExp: 74.24100<br />country: Malaysia",null,"year: 1952<br />lifeExp: 33.68500<br />country: Mali","year: 1957<br />lifeExp: 35.30700<br />country: Mali","year: 1962<br />lifeExp: 36.93600<br />country: Mali","year: 1967<br />lifeExp: 38.48700<br />country: Mali","year: 1972<br />lifeExp: 39.97700<br />country: Mali","year: 1977<br />lifeExp: 41.71400<br />country: Mali","year: 1982<br />lifeExp: 43.91600<br />country: Mali","year: 1987<br />lifeExp: 46.36400<br />country: Mali","year: 1992<br />lifeExp: 48.38800<br />country: Mali","year: 1997<br />lifeExp: 49.90300<br />country: Mali","year: 2002<br />lifeExp: 51.81800<br />country: Mali","year: 2007<br />lifeExp: 54.46700<br />country: Mali",null,"year: 1952<br />lifeExp: 40.54300<br />country: Mauritania","year: 1957<br />lifeExp: 42.33800<br />country: Mauritania","year: 1962<br />lifeExp: 44.24800<br />country: Mauritania","year: 1967<br />lifeExp: 46.28900<br />country: Mauritania","year: 1972<br />lifeExp: 48.43700<br />country: Mauritania","year: 1977<br />lifeExp: 50.85200<br />country: Mauritania","year: 1982<br />lifeExp: 53.59900<br />country: Mauritania","year: 1987<br />lifeExp: 56.14500<br />country: Mauritania","year: 1992<br />lifeExp: 58.33300<br />country: Mauritania","year: 1997<br />lifeExp: 60.43000<br />country: Mauritania","year: 2002<br />lifeExp: 62.24700<br />country: Mauritania","year: 2007<br />lifeExp: 64.16400<br />country: Mauritania",null,"year: 1952<br />lifeExp: 50.98600<br />country: Mauritius","year: 1957<br />lifeExp: 58.08900<br />country: Mauritius","year: 1962<br />lifeExp: 60.24600<br />country: Mauritius","year: 1967<br />lifeExp: 61.55700<br />country: Mauritius","year: 1972<br />lifeExp: 62.94400<br />country: Mauritius","year: 1977<br />lifeExp: 64.93000<br />country: Mauritius","year: 1982<br />lifeExp: 66.71100<br />country: Mauritius","year: 1987<br />lifeExp: 68.74000<br />country: Mauritius","year: 1992<br />lifeExp: 69.74500<br />country: Mauritius","year: 1997<br />lifeExp: 70.73600<br />country: Mauritius","year: 2002<br />lifeExp: 71.95400<br />country: Mauritius","year: 2007<br />lifeExp: 72.80100<br />country: Mauritius",null,"year: 1952<br />lifeExp: 50.78900<br />country: Mexico","year: 1957<br />lifeExp: 55.19000<br />country: Mexico","year: 1962<br />lifeExp: 58.29900<br />country: Mexico","year: 1967<br />lifeExp: 60.11000<br />country: Mexico","year: 1972<br />lifeExp: 62.36100<br />country: Mexico","year: 1977<br />lifeExp: 65.03200<br />country: Mexico","year: 1982<br />lifeExp: 67.40500<br />country: Mexico","year: 1987<br />lifeExp: 69.49800<br />country: Mexico","year: 1992<br />lifeExp: 71.45500<br />country: Mexico","year: 1997<br />lifeExp: 73.67000<br />country: Mexico","year: 2002<br />lifeExp: 74.90200<br />country: Mexico","year: 2007<br />lifeExp: 76.19500<br />country: Mexico",null,"year: 1952<br />lifeExp: 42.24400<br />country: Mongolia","year: 1957<br />lifeExp: 45.24800<br />country: Mongolia","year: 1962<br />lifeExp: 48.25100<br />country: Mongolia","year: 1967<br />lifeExp: 51.25300<br />country: Mongolia","year: 1972<br />lifeExp: 53.75400<br />country: Mongolia","year: 1977<br />lifeExp: 55.49100<br />country: Mongolia","year: 1982<br />lifeExp: 57.48900<br />country: Mongolia","year: 1987<br />lifeExp: 60.22200<br />country: Mongolia","year: 1992<br />lifeExp: 61.27100<br />country: Mongolia","year: 1997<br />lifeExp: 63.62500<br />country: Mongolia","year: 2002<br />lifeExp: 65.03300<br />country: Mongolia","year: 2007<br />lifeExp: 66.80300<br />country: Mongolia",null,"year: 1952<br />lifeExp: 59.16400<br />country: Montenegro","year: 1957<br />lifeExp: 61.44800<br />country: Montenegro","year: 1962<br />lifeExp: 63.72800<br />country: Montenegro","year: 1967<br />lifeExp: 67.17800<br />country: Montenegro","year: 1972<br />lifeExp: 70.63600<br />country: Montenegro","year: 1977<br />lifeExp: 73.06600<br />country: Montenegro","year: 1982<br />lifeExp: 74.10100<br />country: Montenegro","year: 1987<br />lifeExp: 74.86500<br />country: Montenegro","year: 1992<br />lifeExp: 75.43500<br />country: Montenegro","year: 1997<br />lifeExp: 75.44500<br />country: Montenegro","year: 2002<br />lifeExp: 73.98100<br />country: Montenegro","year: 2007<br />lifeExp: 74.54300<br />country: Montenegro",null,"year: 1952<br />lifeExp: 42.87300<br />country: Morocco","year: 1957<br />lifeExp: 45.42300<br />country: Morocco","year: 1962<br />lifeExp: 47.92400<br />country: Morocco","year: 1967<br />lifeExp: 50.33500<br />country: Morocco","year: 1972<br />lifeExp: 52.86200<br />country: Morocco","year: 1977<br />lifeExp: 55.73000<br />country: Morocco","year: 1982<br />lifeExp: 59.65000<br />country: Morocco","year: 1987<br />lifeExp: 62.67700<br />country: Morocco","year: 1992<br />lifeExp: 65.39300<br />country: Morocco","year: 1997<br />lifeExp: 67.66000<br />country: Morocco","year: 2002<br />lifeExp: 69.61500<br />country: Morocco","year: 2007<br />lifeExp: 71.16400<br />country: Morocco",null,"year: 1952<br />lifeExp: 31.28600<br />country: Mozambique","year: 1957<br />lifeExp: 33.77900<br />country: Mozambique","year: 1962<br />lifeExp: 36.16100<br />country: Mozambique","year: 1967<br />lifeExp: 38.11300<br />country: Mozambique","year: 1972<br />lifeExp: 40.32800<br />country: Mozambique","year: 1977<br />lifeExp: 42.49500<br />country: Mozambique","year: 1982<br />lifeExp: 42.79500<br />country: Mozambique","year: 1987<br />lifeExp: 42.86100<br />country: Mozambique","year: 1992<br />lifeExp: 44.28400<br />country: Mozambique","year: 1997<br />lifeExp: 46.34400<br />country: Mozambique","year: 2002<br />lifeExp: 44.02600<br />country: Mozambique","year: 2007<br />lifeExp: 42.08200<br />country: Mozambique",null,"year: 1952<br />lifeExp: 36.31900<br />country: Myanmar","year: 1957<br />lifeExp: 41.90500<br />country: Myanmar","year: 1962<br />lifeExp: 45.10800<br />country: Myanmar","year: 1967<br />lifeExp: 49.37900<br />country: Myanmar","year: 1972<br />lifeExp: 53.07000<br />country: Myanmar","year: 1977<br />lifeExp: 56.05900<br />country: Myanmar","year: 1982<br />lifeExp: 58.05600<br />country: Myanmar","year: 1987<br />lifeExp: 58.33900<br />country: Myanmar","year: 1992<br />lifeExp: 59.32000<br />country: Myanmar","year: 1997<br />lifeExp: 60.32800<br />country: Myanmar","year: 2002<br />lifeExp: 59.90800<br />country: Myanmar","year: 2007<br />lifeExp: 62.06900<br />country: Myanmar",null,"year: 1952<br />lifeExp: 41.72500<br />country: Namibia","year: 1957<br />lifeExp: 45.22600<br />country: Namibia","year: 1962<br />lifeExp: 48.38600<br />country: Namibia","year: 1967<br />lifeExp: 51.15900<br />country: Namibia","year: 1972<br />lifeExp: 53.86700<br />country: Namibia","year: 1977<br />lifeExp: 56.43700<br />country: Namibia","year: 1982<br />lifeExp: 58.96800<br />country: Namibia","year: 1987<br />lifeExp: 60.83500<br />country: Namibia","year: 1992<br />lifeExp: 61.99900<br />country: Namibia","year: 1997<br />lifeExp: 58.90900<br />country: Namibia","year: 2002<br />lifeExp: 51.47900<br />country: Namibia","year: 2007<br />lifeExp: 52.90600<br />country: Namibia",null,"year: 1952<br />lifeExp: 36.15700<br />country: Nepal","year: 1957<br />lifeExp: 37.68600<br />country: Nepal","year: 1962<br />lifeExp: 39.39300<br />country: Nepal","year: 1967<br />lifeExp: 41.47200<br />country: Nepal","year: 1972<br />lifeExp: 43.97100<br />country: Nepal","year: 1977<br />lifeExp: 46.74800<br />country: Nepal","year: 1982<br />lifeExp: 49.59400<br />country: Nepal","year: 1987<br />lifeExp: 52.53700<br />country: Nepal","year: 1992<br />lifeExp: 55.72700<br />country: Nepal","year: 1997<br />lifeExp: 59.42600<br />country: Nepal","year: 2002<br />lifeExp: 61.34000<br />country: Nepal","year: 2007<br />lifeExp: 63.78500<br />country: Nepal",null,"year: 1952<br />lifeExp: 72.13000<br />country: Netherlands","year: 1957<br />lifeExp: 72.99000<br />country: Netherlands","year: 1962<br />lifeExp: 73.23000<br />country: Netherlands","year: 1967<br />lifeExp: 73.82000<br />country: Netherlands","year: 1972<br />lifeExp: 73.75000<br />country: Netherlands","year: 1977<br />lifeExp: 75.24000<br />country: Netherlands","year: 1982<br />lifeExp: 76.05000<br />country: Netherlands","year: 1987<br />lifeExp: 76.83000<br />country: Netherlands","year: 1992<br />lifeExp: 77.42000<br />country: Netherlands","year: 1997<br />lifeExp: 78.03000<br />country: Netherlands","year: 2002<br />lifeExp: 78.53000<br />country: Netherlands","year: 2007<br />lifeExp: 79.76200<br />country: Netherlands",null,"year: 1952<br />lifeExp: 69.39000<br />country: New Zealand","year: 1957<br />lifeExp: 70.26000<br />country: New Zealand","year: 1962<br />lifeExp: 71.24000<br />country: New Zealand","year: 1967<br />lifeExp: 71.52000<br />country: New Zealand","year: 1972<br />lifeExp: 71.89000<br />country: New Zealand","year: 1977<br />lifeExp: 72.22000<br />country: New Zealand","year: 1982<br />lifeExp: 73.84000<br />country: New Zealand","year: 1987<br />lifeExp: 74.32000<br />country: New Zealand","year: 1992<br />lifeExp: 76.33000<br />country: New Zealand","year: 1997<br />lifeExp: 77.55000<br />country: New Zealand","year: 2002<br />lifeExp: 79.11000<br />country: New Zealand","year: 2007<br />lifeExp: 80.20400<br />country: New Zealand",null,"year: 1952<br />lifeExp: 42.31400<br />country: Nicaragua","year: 1957<br />lifeExp: 45.43200<br />country: Nicaragua","year: 1962<br />lifeExp: 48.63200<br />country: Nicaragua","year: 1967<br />lifeExp: 51.88400<br />country: Nicaragua","year: 1972<br />lifeExp: 55.15100<br />country: Nicaragua","year: 1977<br />lifeExp: 57.47000<br />country: Nicaragua","year: 1982<br />lifeExp: 59.29800<br />country: Nicaragua","year: 1987<br />lifeExp: 62.00800<br />country: Nicaragua","year: 1992<br />lifeExp: 65.84300<br />country: Nicaragua","year: 1997<br />lifeExp: 68.42600<br />country: Nicaragua","year: 2002<br />lifeExp: 70.83600<br />country: Nicaragua","year: 2007<br />lifeExp: 72.89900<br />country: Nicaragua",null,"year: 1952<br />lifeExp: 37.44400<br />country: Niger","year: 1957<br />lifeExp: 38.59800<br />country: Niger","year: 1962<br />lifeExp: 39.48700<br />country: Niger","year: 1967<br />lifeExp: 40.11800<br />country: Niger","year: 1972<br />lifeExp: 40.54600<br />country: Niger","year: 1977<br />lifeExp: 41.29100<br />country: Niger","year: 1982<br />lifeExp: 42.59800<br />country: Niger","year: 1987<br />lifeExp: 44.55500<br />country: Niger","year: 1992<br />lifeExp: 47.39100<br />country: Niger","year: 1997<br />lifeExp: 51.31300<br />country: Niger","year: 2002<br />lifeExp: 54.49600<br />country: Niger","year: 2007<br />lifeExp: 56.86700<br />country: Niger",null,"year: 1952<br />lifeExp: 36.32400<br />country: Nigeria","year: 1957<br />lifeExp: 37.80200<br />country: Nigeria","year: 1962<br />lifeExp: 39.36000<br />country: Nigeria","year: 1967<br />lifeExp: 41.04000<br />country: Nigeria","year: 1972<br />lifeExp: 42.82100<br />country: Nigeria","year: 1977<br />lifeExp: 44.51400<br />country: Nigeria","year: 1982<br />lifeExp: 45.82600<br />country: Nigeria","year: 1987<br />lifeExp: 46.88600<br />country: Nigeria","year: 1992<br />lifeExp: 47.47200<br />country: Nigeria","year: 1997<br />lifeExp: 47.46400<br />country: Nigeria","year: 2002<br />lifeExp: 46.60800<br />country: Nigeria","year: 2007<br />lifeExp: 46.85900<br />country: Nigeria",null,"year: 1952<br />lifeExp: 72.67000<br />country: Norway","year: 1957<br />lifeExp: 73.44000<br />country: Norway","year: 1962<br />lifeExp: 73.47000<br />country: Norway","year: 1967<br />lifeExp: 74.08000<br />country: Norway","year: 1972<br />lifeExp: 74.34000<br />country: Norway","year: 1977<br />lifeExp: 75.37000<br />country: Norway","year: 1982<br />lifeExp: 75.97000<br />country: Norway","year: 1987<br />lifeExp: 75.89000<br />country: Norway","year: 1992<br />lifeExp: 77.32000<br />country: Norway","year: 1997<br />lifeExp: 78.32000<br />country: Norway","year: 2002<br />lifeExp: 79.05000<br />country: Norway","year: 2007<br />lifeExp: 80.19600<br />country: Norway",null,"year: 1952<br />lifeExp: 37.57800<br />country: Oman","year: 1957<br />lifeExp: 40.08000<br />country: Oman","year: 1962<br />lifeExp: 43.16500<br />country: Oman","year: 1967<br />lifeExp: 46.98800<br />country: Oman","year: 1972<br />lifeExp: 52.14300<br />country: Oman","year: 1977<br />lifeExp: 57.36700<br />country: Oman","year: 1982<br />lifeExp: 62.72800<br />country: Oman","year: 1987<br />lifeExp: 67.73400<br />country: Oman","year: 1992<br />lifeExp: 71.19700<br />country: Oman","year: 1997<br />lifeExp: 72.49900<br />country: Oman","year: 2002<br />lifeExp: 74.19300<br />country: Oman","year: 2007<br />lifeExp: 75.64000<br />country: Oman",null,"year: 1952<br />lifeExp: 43.43600<br />country: Pakistan","year: 1957<br />lifeExp: 45.55700<br />country: Pakistan","year: 1962<br />lifeExp: 47.67000<br />country: Pakistan","year: 1967<br />lifeExp: 49.80000<br />country: Pakistan","year: 1972<br />lifeExp: 51.92900<br />country: Pakistan","year: 1977<br />lifeExp: 54.04300<br />country: Pakistan","year: 1982<br />lifeExp: 56.15800<br />country: Pakistan","year: 1987<br />lifeExp: 58.24500<br />country: Pakistan","year: 1992<br />lifeExp: 60.83800<br />country: Pakistan","year: 1997<br />lifeExp: 61.81800<br />country: Pakistan","year: 2002<br />lifeExp: 63.61000<br />country: Pakistan","year: 2007<br />lifeExp: 65.48300<br />country: Pakistan",null,"year: 1952<br />lifeExp: 55.19100<br />country: Panama","year: 1957<br />lifeExp: 59.20100<br />country: Panama","year: 1962<br />lifeExp: 61.81700<br />country: Panama","year: 1967<br />lifeExp: 64.07100<br />country: Panama","year: 1972<br />lifeExp: 66.21600<br />country: Panama","year: 1977<br />lifeExp: 68.68100<br />country: Panama","year: 1982<br />lifeExp: 70.47200<br />country: Panama","year: 1987<br />lifeExp: 71.52300<br />country: Panama","year: 1992<br />lifeExp: 72.46200<br />country: Panama","year: 1997<br />lifeExp: 73.73800<br />country: Panama","year: 2002<br />lifeExp: 74.71200<br />country: Panama","year: 2007<br />lifeExp: 75.53700<br />country: Panama",null,"year: 1952<br />lifeExp: 62.64900<br />country: Paraguay","year: 1957<br />lifeExp: 63.19600<br />country: Paraguay","year: 1962<br />lifeExp: 64.36100<br />country: Paraguay","year: 1967<br />lifeExp: 64.95100<br />country: Paraguay","year: 1972<br />lifeExp: 65.81500<br />country: Paraguay","year: 1977<br />lifeExp: 66.35300<br />country: Paraguay","year: 1982<br />lifeExp: 66.87400<br />country: Paraguay","year: 1987<br />lifeExp: 67.37800<br />country: Paraguay","year: 1992<br />lifeExp: 68.22500<br />country: Paraguay","year: 1997<br />lifeExp: 69.40000<br />country: Paraguay","year: 2002<br />lifeExp: 70.75500<br />country: Paraguay","year: 2007<br />lifeExp: 71.75200<br />country: Paraguay",null,"year: 1952<br />lifeExp: 43.90200<br />country: Peru","year: 1957<br />lifeExp: 46.26300<br />country: Peru","year: 1962<br />lifeExp: 49.09600<br />country: Peru","year: 1967<br />lifeExp: 51.44500<br />country: Peru","year: 1972<br />lifeExp: 55.44800<br />country: Peru","year: 1977<br />lifeExp: 58.44700<br />country: Peru","year: 1982<br />lifeExp: 61.40600<br />country: Peru","year: 1987<br />lifeExp: 64.13400<br />country: Peru","year: 1992<br />lifeExp: 66.45800<br />country: Peru","year: 1997<br />lifeExp: 68.38600<br />country: Peru","year: 2002<br />lifeExp: 69.90600<br />country: Peru","year: 2007<br />lifeExp: 71.42100<br />country: Peru",null,"year: 1952<br />lifeExp: 47.75200<br />country: Philippines","year: 1957<br />lifeExp: 51.33400<br />country: Philippines","year: 1962<br />lifeExp: 54.75700<br />country: Philippines","year: 1967<br />lifeExp: 56.39300<br />country: Philippines","year: 1972<br />lifeExp: 58.06500<br />country: Philippines","year: 1977<br />lifeExp: 60.06000<br />country: Philippines","year: 1982<br />lifeExp: 62.08200<br />country: Philippines","year: 1987<br />lifeExp: 64.15100<br />country: Philippines","year: 1992<br />lifeExp: 66.45800<br />country: Philippines","year: 1997<br />lifeExp: 68.56400<br />country: Philippines","year: 2002<br />lifeExp: 70.30300<br />country: Philippines","year: 2007<br />lifeExp: 71.68800<br />country: Philippines",null,"year: 1952<br />lifeExp: 61.31000<br />country: Poland","year: 1957<br />lifeExp: 65.77000<br />country: Poland","year: 1962<br />lifeExp: 67.64000<br />country: Poland","year: 1967<br />lifeExp: 69.61000<br />country: Poland","year: 1972<br />lifeExp: 70.85000<br />country: Poland","year: 1977<br />lifeExp: 70.67000<br />country: Poland","year: 1982<br />lifeExp: 71.32000<br />country: Poland","year: 1987<br />lifeExp: 70.98000<br />country: Poland","year: 1992<br />lifeExp: 70.99000<br />country: Poland","year: 1997<br />lifeExp: 72.75000<br />country: Poland","year: 2002<br />lifeExp: 74.67000<br />country: Poland","year: 2007<br />lifeExp: 75.56300<br />country: Poland",null,"year: 1952<br />lifeExp: 59.82000<br />country: Portugal","year: 1957<br />lifeExp: 61.51000<br />country: Portugal","year: 1962<br />lifeExp: 64.39000<br />country: Portugal","year: 1967<br />lifeExp: 66.60000<br />country: Portugal","year: 1972<br />lifeExp: 69.26000<br />country: Portugal","year: 1977<br />lifeExp: 70.41000<br />country: Portugal","year: 1982<br />lifeExp: 72.77000<br />country: Portugal","year: 1987<br />lifeExp: 74.06000<br />country: Portugal","year: 1992<br />lifeExp: 74.86000<br />country: Portugal","year: 1997<br />lifeExp: 75.97000<br />country: Portugal","year: 2002<br />lifeExp: 77.29000<br />country: Portugal","year: 2007<br />lifeExp: 78.09800<br />country: Portugal",null,"year: 1952<br />lifeExp: 64.28000<br />country: Puerto Rico","year: 1957<br />lifeExp: 68.54000<br />country: Puerto Rico","year: 1962<br />lifeExp: 69.62000<br />country: Puerto Rico","year: 1967<br />lifeExp: 71.10000<br />country: Puerto Rico","year: 1972<br />lifeExp: 72.16000<br />country: Puerto Rico","year: 1977<br />lifeExp: 73.44000<br />country: Puerto Rico","year: 1982<br />lifeExp: 73.75000<br />country: Puerto Rico","year: 1987<br />lifeExp: 74.63000<br />country: Puerto Rico","year: 1992<br />lifeExp: 73.91100<br />country: Puerto Rico","year: 1997<br />lifeExp: 74.91700<br />country: Puerto Rico","year: 2002<br />lifeExp: 77.77800<br />country: Puerto Rico","year: 2007<br />lifeExp: 78.74600<br />country: Puerto Rico",null,"year: 1952<br />lifeExp: 52.72400<br />country: Reunion","year: 1957<br />lifeExp: 55.09000<br />country: Reunion","year: 1962<br />lifeExp: 57.66600<br />country: Reunion","year: 1967<br />lifeExp: 60.54200<br />country: Reunion","year: 1972<br />lifeExp: 64.27400<br />country: Reunion","year: 1977<br />lifeExp: 67.06400<br />country: Reunion","year: 1982<br />lifeExp: 69.88500<br />country: Reunion","year: 1987<br />lifeExp: 71.91300<br />country: Reunion","year: 1992<br />lifeExp: 73.61500<br />country: Reunion","year: 1997<br />lifeExp: 74.77200<br />country: Reunion","year: 2002<br />lifeExp: 75.74400<br />country: Reunion","year: 2007<br />lifeExp: 76.44200<br />country: Reunion",null,"year: 1952<br />lifeExp: 61.05000<br />country: Romania","year: 1957<br />lifeExp: 64.10000<br />country: Romania","year: 1962<br />lifeExp: 66.80000<br />country: Romania","year: 1967<br />lifeExp: 66.80000<br />country: Romania","year: 1972<br />lifeExp: 69.21000<br />country: Romania","year: 1977<br />lifeExp: 69.46000<br />country: Romania","year: 1982<br />lifeExp: 69.66000<br />country: Romania","year: 1987<br />lifeExp: 69.53000<br />country: Romania","year: 1992<br />lifeExp: 69.36000<br />country: Romania","year: 1997<br />lifeExp: 69.72000<br />country: Romania","year: 2002<br />lifeExp: 71.32200<br />country: Romania","year: 2007<br />lifeExp: 72.47600<br />country: Romania",null,"year: 1952<br />lifeExp: 40.00000<br />country: Rwanda","year: 1957<br />lifeExp: 41.50000<br />country: Rwanda","year: 1962<br />lifeExp: 43.00000<br />country: Rwanda","year: 1967<br />lifeExp: 44.10000<br />country: Rwanda","year: 1972<br />lifeExp: 44.60000<br />country: Rwanda","year: 1977<br />lifeExp: 45.00000<br />country: Rwanda","year: 1982<br />lifeExp: 46.21800<br />country: Rwanda","year: 1987<br />lifeExp: 44.02000<br />country: Rwanda","year: 1992<br />lifeExp: 23.59900<br />country: Rwanda","year: 1997<br />lifeExp: 36.08700<br />country: Rwanda","year: 2002<br />lifeExp: 43.41300<br />country: Rwanda","year: 2007<br />lifeExp: 46.24200<br />country: Rwanda",null,"year: 1952<br />lifeExp: 46.47100<br />country: Sao Tome and Principe","year: 1957<br />lifeExp: 48.94500<br />country: Sao Tome and Principe","year: 1962<br />lifeExp: 51.89300<br />country: Sao Tome and Principe","year: 1967<br />lifeExp: 54.42500<br />country: Sao Tome and Principe","year: 1972<br />lifeExp: 56.48000<br />country: Sao Tome and Principe","year: 1977<br />lifeExp: 58.55000<br />country: Sao Tome and Principe","year: 1982<br />lifeExp: 60.35100<br />country: Sao Tome and Principe","year: 1987<br />lifeExp: 61.72800<br />country: Sao Tome and Principe","year: 1992<br />lifeExp: 62.74200<br />country: Sao Tome and Principe","year: 1997<br />lifeExp: 63.30600<br />country: Sao Tome and Principe","year: 2002<br />lifeExp: 64.33700<br />country: Sao Tome and Principe","year: 2007<br />lifeExp: 65.52800<br />country: Sao Tome and Principe",null,"year: 1952<br />lifeExp: 39.87500<br />country: Saudi Arabia","year: 1957<br />lifeExp: 42.86800<br />country: Saudi Arabia","year: 1962<br />lifeExp: 45.91400<br />country: Saudi Arabia","year: 1967<br />lifeExp: 49.90100<br />country: Saudi Arabia","year: 1972<br />lifeExp: 53.88600<br />country: Saudi Arabia","year: 1977<br />lifeExp: 58.69000<br />country: Saudi Arabia","year: 1982<br />lifeExp: 63.01200<br />country: Saudi Arabia","year: 1987<br />lifeExp: 66.29500<br />country: Saudi Arabia","year: 1992<br />lifeExp: 68.76800<br />country: Saudi Arabia","year: 1997<br />lifeExp: 70.53300<br />country: Saudi Arabia","year: 2002<br />lifeExp: 71.62600<br />country: Saudi Arabia","year: 2007<br />lifeExp: 72.77700<br />country: Saudi Arabia",null,"year: 1952<br />lifeExp: 37.27800<br />country: Senegal","year: 1957<br />lifeExp: 39.32900<br />country: Senegal","year: 1962<br />lifeExp: 41.45400<br />country: Senegal","year: 1967<br />lifeExp: 43.56300<br />country: Senegal","year: 1972<br />lifeExp: 45.81500<br />country: Senegal","year: 1977<br />lifeExp: 48.87900<br />country: Senegal","year: 1982<br />lifeExp: 52.37900<br />country: Senegal","year: 1987<br />lifeExp: 55.76900<br />country: Senegal","year: 1992<br />lifeExp: 58.19600<br />country: Senegal","year: 1997<br />lifeExp: 60.18700<br />country: Senegal","year: 2002<br />lifeExp: 61.60000<br />country: Senegal","year: 2007<br />lifeExp: 63.06200<br />country: Senegal",null,"year: 1952<br />lifeExp: 57.99600<br />country: Serbia","year: 1957<br />lifeExp: 61.68500<br />country: Serbia","year: 1962<br />lifeExp: 64.53100<br />country: Serbia","year: 1967<br />lifeExp: 66.91400<br />country: Serbia","year: 1972<br />lifeExp: 68.70000<br />country: Serbia","year: 1977<br />lifeExp: 70.30000<br />country: Serbia","year: 1982<br />lifeExp: 70.16200<br />country: Serbia","year: 1987<br />lifeExp: 71.21800<br />country: Serbia","year: 1992<br />lifeExp: 71.65900<br />country: Serbia","year: 1997<br />lifeExp: 72.23200<br />country: Serbia","year: 2002<br />lifeExp: 73.21300<br />country: Serbia","year: 2007<br />lifeExp: 74.00200<br />country: Serbia",null,"year: 1952<br />lifeExp: 30.33100<br />country: Sierra Leone","year: 1957<br />lifeExp: 31.57000<br />country: Sierra Leone","year: 1962<br />lifeExp: 32.76700<br />country: Sierra Leone","year: 1967<br />lifeExp: 34.11300<br />country: Sierra Leone","year: 1972<br />lifeExp: 35.40000<br />country: Sierra Leone","year: 1977<br />lifeExp: 36.78800<br />country: Sierra Leone","year: 1982<br />lifeExp: 38.44500<br />country: Sierra Leone","year: 1987<br />lifeExp: 40.00600<br />country: Sierra Leone","year: 1992<br />lifeExp: 38.33300<br />country: Sierra Leone","year: 1997<br />lifeExp: 39.89700<br />country: Sierra Leone","year: 2002<br />lifeExp: 41.01200<br />country: Sierra Leone","year: 2007<br />lifeExp: 42.56800<br />country: Sierra Leone",null,"year: 1952<br />lifeExp: 60.39600<br />country: Singapore","year: 1957<br />lifeExp: 63.17900<br />country: Singapore","year: 1962<br />lifeExp: 65.79800<br />country: Singapore","year: 1967<br />lifeExp: 67.94600<br />country: Singapore","year: 1972<br />lifeExp: 69.52100<br />country: Singapore","year: 1977<br />lifeExp: 70.79500<br />country: Singapore","year: 1982<br />lifeExp: 71.76000<br />country: Singapore","year: 1987<br />lifeExp: 73.56000<br />country: Singapore","year: 1992<br />lifeExp: 75.78800<br />country: Singapore","year: 1997<br />lifeExp: 77.15800<br />country: Singapore","year: 2002<br />lifeExp: 78.77000<br />country: Singapore","year: 2007<br />lifeExp: 79.97200<br />country: Singapore",null,"year: 1952<br />lifeExp: 64.36000<br />country: Slovak Republic","year: 1957<br />lifeExp: 67.45000<br />country: Slovak Republic","year: 1962<br />lifeExp: 70.33000<br />country: Slovak Republic","year: 1967<br />lifeExp: 70.98000<br />country: Slovak Republic","year: 1972<br />lifeExp: 70.35000<br />country: Slovak Republic","year: 1977<br />lifeExp: 70.45000<br />country: Slovak Republic","year: 1982<br />lifeExp: 70.80000<br />country: Slovak Republic","year: 1987<br />lifeExp: 71.08000<br />country: Slovak Republic","year: 1992<br />lifeExp: 71.38000<br />country: Slovak Republic","year: 1997<br />lifeExp: 72.71000<br />country: Slovak Republic","year: 2002<br />lifeExp: 73.80000<br />country: Slovak Republic","year: 2007<br />lifeExp: 74.66300<br />country: Slovak Republic",null,"year: 1952<br />lifeExp: 65.57000<br />country: Slovenia","year: 1957<br />lifeExp: 67.85000<br />country: Slovenia","year: 1962<br />lifeExp: 69.15000<br />country: Slovenia","year: 1967<br />lifeExp: 69.18000<br />country: Slovenia","year: 1972<br />lifeExp: 69.82000<br />country: Slovenia","year: 1977<br />lifeExp: 70.97000<br />country: Slovenia","year: 1982<br />lifeExp: 71.06300<br />country: Slovenia","year: 1987<br />lifeExp: 72.25000<br />country: Slovenia","year: 1992<br />lifeExp: 73.64000<br />country: Slovenia","year: 1997<br />lifeExp: 75.13000<br />country: Slovenia","year: 2002<br />lifeExp: 76.66000<br />country: Slovenia","year: 2007<br />lifeExp: 77.92600<br />country: Slovenia",null,"year: 1952<br />lifeExp: 32.97800<br />country: Somalia","year: 1957<br />lifeExp: 34.97700<br />country: Somalia","year: 1962<br />lifeExp: 36.98100<br />country: Somalia","year: 1967<br />lifeExp: 38.97700<br />country: Somalia","year: 1972<br />lifeExp: 40.97300<br />country: Somalia","year: 1977<br />lifeExp: 41.97400<br />country: Somalia","year: 1982<br />lifeExp: 42.95500<br />country: Somalia","year: 1987<br />lifeExp: 44.50100<br />country: Somalia","year: 1992<br />lifeExp: 39.65800<br />country: Somalia","year: 1997<br />lifeExp: 43.79500<br />country: Somalia","year: 2002<br />lifeExp: 45.93600<br />country: Somalia","year: 2007<br />lifeExp: 48.15900<br />country: Somalia",null,"year: 1952<br />lifeExp: 45.00900<br />country: South Africa","year: 1957<br />lifeExp: 47.98500<br />country: South Africa","year: 1962<br />lifeExp: 49.95100<br />country: South Africa","year: 1967<br />lifeExp: 51.92700<br />country: South Africa","year: 1972<br />lifeExp: 53.69600<br />country: South Africa","year: 1977<br />lifeExp: 55.52700<br />country: South Africa","year: 1982<br />lifeExp: 58.16100<br />country: South Africa","year: 1987<br />lifeExp: 60.83400<br />country: South Africa","year: 1992<br />lifeExp: 61.88800<br />country: South Africa","year: 1997<br />lifeExp: 60.23600<br />country: South Africa","year: 2002<br />lifeExp: 53.36500<br />country: South Africa","year: 2007<br />lifeExp: 49.33900<br />country: South Africa",null,"year: 1952<br />lifeExp: 64.94000<br />country: Spain","year: 1957<br />lifeExp: 66.66000<br />country: Spain","year: 1962<br />lifeExp: 69.69000<br />country: Spain","year: 1967<br />lifeExp: 71.44000<br />country: Spain","year: 1972<br />lifeExp: 73.06000<br />country: Spain","year: 1977<br />lifeExp: 74.39000<br />country: Spain","year: 1982<br />lifeExp: 76.30000<br />country: Spain","year: 1987<br />lifeExp: 76.90000<br />country: Spain","year: 1992<br />lifeExp: 77.57000<br />country: Spain","year: 1997<br />lifeExp: 78.77000<br />country: Spain","year: 2002<br />lifeExp: 79.78000<br />country: Spain","year: 2007<br />lifeExp: 80.94100<br />country: Spain",null,"year: 1952<br />lifeExp: 57.59300<br />country: Sri Lanka","year: 1957<br />lifeExp: 61.45600<br />country: Sri Lanka","year: 1962<br />lifeExp: 62.19200<br />country: Sri Lanka","year: 1967<br />lifeExp: 64.26600<br />country: Sri Lanka","year: 1972<br />lifeExp: 65.04200<br />country: Sri Lanka","year: 1977<br />lifeExp: 65.94900<br />country: Sri Lanka","year: 1982<br />lifeExp: 68.75700<br />country: Sri Lanka","year: 1987<br />lifeExp: 69.01100<br />country: Sri Lanka","year: 1992<br />lifeExp: 70.37900<br />country: Sri Lanka","year: 1997<br />lifeExp: 70.45700<br />country: Sri Lanka","year: 2002<br />lifeExp: 70.81500<br />country: Sri Lanka","year: 2007<br />lifeExp: 72.39600<br />country: Sri Lanka",null,"year: 1952<br />lifeExp: 38.63500<br />country: Sudan","year: 1957<br />lifeExp: 39.62400<br />country: Sudan","year: 1962<br />lifeExp: 40.87000<br />country: Sudan","year: 1967<br />lifeExp: 42.85800<br />country: Sudan","year: 1972<br />lifeExp: 45.08300<br />country: Sudan","year: 1977<br />lifeExp: 47.80000<br />country: Sudan","year: 1982<br />lifeExp: 50.33800<br />country: Sudan","year: 1987<br />lifeExp: 51.74400<br />country: Sudan","year: 1992<br />lifeExp: 53.55600<br />country: Sudan","year: 1997<br />lifeExp: 55.37300<br />country: Sudan","year: 2002<br />lifeExp: 56.36900<br />country: Sudan","year: 2007<br />lifeExp: 58.55600<br />country: Sudan",null,"year: 1952<br />lifeExp: 41.40700<br />country: Swaziland","year: 1957<br />lifeExp: 43.42400<br />country: Swaziland","year: 1962<br />lifeExp: 44.99200<br />country: Swaziland","year: 1967<br />lifeExp: 46.63300<br />country: Swaziland","year: 1972<br />lifeExp: 49.55200<br />country: Swaziland","year: 1977<br />lifeExp: 52.53700<br />country: Swaziland","year: 1982<br />lifeExp: 55.56100<br />country: Swaziland","year: 1987<br />lifeExp: 57.67800<br />country: Swaziland","year: 1992<br />lifeExp: 58.47400<br />country: Swaziland","year: 1997<br />lifeExp: 54.28900<br />country: Swaziland","year: 2002<br />lifeExp: 43.86900<br />country: Swaziland","year: 2007<br />lifeExp: 39.61300<br />country: Swaziland",null,"year: 1952<br />lifeExp: 71.86000<br />country: Sweden","year: 1957<br />lifeExp: 72.49000<br />country: Sweden","year: 1962<br />lifeExp: 73.37000<br />country: Sweden","year: 1967<br />lifeExp: 74.16000<br />country: Sweden","year: 1972<br />lifeExp: 74.72000<br />country: Sweden","year: 1977<br />lifeExp: 75.44000<br />country: Sweden","year: 1982<br />lifeExp: 76.42000<br />country: Sweden","year: 1987<br />lifeExp: 77.19000<br />country: Sweden","year: 1992<br />lifeExp: 78.16000<br />country: Sweden","year: 1997<br />lifeExp: 79.39000<br />country: Sweden","year: 2002<br />lifeExp: 80.04000<br />country: Sweden","year: 2007<br />lifeExp: 80.88400<br />country: Sweden",null,"year: 1952<br />lifeExp: 69.62000<br />country: Switzerland","year: 1957<br />lifeExp: 70.56000<br />country: Switzerland","year: 1962<br />lifeExp: 71.32000<br />country: Switzerland","year: 1967<br />lifeExp: 72.77000<br />country: Switzerland","year: 1972<br />lifeExp: 73.78000<br />country: Switzerland","year: 1977<br />lifeExp: 75.39000<br />country: Switzerland","year: 1982<br />lifeExp: 76.21000<br />country: Switzerland","year: 1987<br />lifeExp: 77.41000<br />country: Switzerland","year: 1992<br />lifeExp: 78.03000<br />country: Switzerland","year: 1997<br />lifeExp: 79.37000<br />country: Switzerland","year: 2002<br />lifeExp: 80.62000<br />country: Switzerland","year: 2007<br />lifeExp: 81.70100<br />country: Switzerland",null,"year: 1952<br />lifeExp: 45.88300<br />country: Syria","year: 1957<br />lifeExp: 48.28400<br />country: Syria","year: 1962<br />lifeExp: 50.30500<br />country: Syria","year: 1967<br />lifeExp: 53.65500<br />country: Syria","year: 1972<br />lifeExp: 57.29600<br />country: Syria","year: 1977<br />lifeExp: 61.19500<br />country: Syria","year: 1982<br />lifeExp: 64.59000<br />country: Syria","year: 1987<br />lifeExp: 66.97400<br />country: Syria","year: 1992<br />lifeExp: 69.24900<br />country: Syria","year: 1997<br />lifeExp: 71.52700<br />country: Syria","year: 2002<br />lifeExp: 73.05300<br />country: Syria","year: 2007<br />lifeExp: 74.14300<br />country: Syria",null,"year: 1952<br />lifeExp: 58.50000<br />country: Taiwan","year: 1957<br />lifeExp: 62.40000<br />country: Taiwan","year: 1962<br />lifeExp: 65.20000<br />country: Taiwan","year: 1967<br />lifeExp: 67.50000<br />country: Taiwan","year: 1972<br />lifeExp: 69.39000<br />country: Taiwan","year: 1977<br />lifeExp: 70.59000<br />country: Taiwan","year: 1982<br />lifeExp: 72.16000<br />country: Taiwan","year: 1987<br />lifeExp: 73.40000<br />country: Taiwan","year: 1992<br />lifeExp: 74.26000<br />country: Taiwan","year: 1997<br />lifeExp: 75.25000<br />country: Taiwan","year: 2002<br />lifeExp: 76.99000<br />country: Taiwan","year: 2007<br />lifeExp: 78.40000<br />country: Taiwan",null,"year: 1952<br />lifeExp: 41.21500<br />country: Tanzania","year: 1957<br />lifeExp: 42.97400<br />country: Tanzania","year: 1962<br />lifeExp: 44.24600<br />country: Tanzania","year: 1967<br />lifeExp: 45.75700<br />country: Tanzania","year: 1972<br />lifeExp: 47.62000<br />country: Tanzania","year: 1977<br />lifeExp: 49.91900<br />country: Tanzania","year: 1982<br />lifeExp: 50.60800<br />country: Tanzania","year: 1987<br />lifeExp: 51.53500<br />country: Tanzania","year: 1992<br />lifeExp: 50.44000<br />country: Tanzania","year: 1997<br />lifeExp: 48.46600<br />country: Tanzania","year: 2002<br />lifeExp: 49.65100<br />country: Tanzania","year: 2007<br />lifeExp: 52.51700<br />country: Tanzania",null,"year: 1952<br />lifeExp: 50.84800<br />country: Thailand","year: 1957<br />lifeExp: 53.63000<br />country: Thailand","year: 1962<br />lifeExp: 56.06100<br />country: Thailand","year: 1967<br />lifeExp: 58.28500<br />country: Thailand","year: 1972<br />lifeExp: 60.40500<br />country: Thailand","year: 1977<br />lifeExp: 62.49400<br />country: Thailand","year: 1982<br />lifeExp: 64.59700<br />country: Thailand","year: 1987<br />lifeExp: 66.08400<br />country: Thailand","year: 1992<br />lifeExp: 67.29800<br />country: Thailand","year: 1997<br />lifeExp: 67.52100<br />country: Thailand","year: 2002<br />lifeExp: 68.56400<br />country: Thailand","year: 2007<br />lifeExp: 70.61600<br />country: Thailand",null,"year: 1952<br />lifeExp: 38.59600<br />country: Togo","year: 1957<br />lifeExp: 41.20800<br />country: Togo","year: 1962<br />lifeExp: 43.92200<br />country: Togo","year: 1967<br />lifeExp: 46.76900<br />country: Togo","year: 1972<br />lifeExp: 49.75900<br />country: Togo","year: 1977<br />lifeExp: 52.88700<br />country: Togo","year: 1982<br />lifeExp: 55.47100<br />country: Togo","year: 1987<br />lifeExp: 56.94100<br />country: Togo","year: 1992<br />lifeExp: 58.06100<br />country: Togo","year: 1997<br />lifeExp: 58.39000<br />country: Togo","year: 2002<br />lifeExp: 57.56100<br />country: Togo","year: 2007<br />lifeExp: 58.42000<br />country: Togo",null,"year: 1952<br />lifeExp: 59.10000<br />country: Trinidad and Tobago","year: 1957<br />lifeExp: 61.80000<br />country: Trinidad and Tobago","year: 1962<br />lifeExp: 64.90000<br />country: Trinidad and Tobago","year: 1967<br />lifeExp: 65.40000<br />country: Trinidad and Tobago","year: 1972<br />lifeExp: 65.90000<br />country: Trinidad and Tobago","year: 1977<br />lifeExp: 68.30000<br />country: Trinidad and Tobago","year: 1982<br />lifeExp: 68.83200<br />country: Trinidad and Tobago","year: 1987<br />lifeExp: 69.58200<br />country: Trinidad and Tobago","year: 1992<br />lifeExp: 69.86200<br />country: Trinidad and Tobago","year: 1997<br />lifeExp: 69.46500<br />country: Trinidad and Tobago","year: 2002<br />lifeExp: 68.97600<br />country: Trinidad and Tobago","year: 2007<br />lifeExp: 69.81900<br />country: Trinidad and Tobago",null,"year: 1952<br />lifeExp: 44.60000<br />country: Tunisia","year: 1957<br />lifeExp: 47.10000<br />country: Tunisia","year: 1962<br />lifeExp: 49.57900<br />country: Tunisia","year: 1967<br />lifeExp: 52.05300<br />country: Tunisia","year: 1972<br />lifeExp: 55.60200<br />country: Tunisia","year: 1977<br />lifeExp: 59.83700<br />country: Tunisia","year: 1982<br />lifeExp: 64.04800<br />country: Tunisia","year: 1987<br />lifeExp: 66.89400<br />country: Tunisia","year: 1992<br />lifeExp: 70.00100<br />country: Tunisia","year: 1997<br />lifeExp: 71.97300<br />country: Tunisia","year: 2002<br />lifeExp: 73.04200<br />country: Tunisia","year: 2007<br />lifeExp: 73.92300<br />country: Tunisia",null,"year: 1952<br />lifeExp: 43.58500<br />country: Turkey","year: 1957<br />lifeExp: 48.07900<br />country: Turkey","year: 1962<br />lifeExp: 52.09800<br />country: Turkey","year: 1967<br />lifeExp: 54.33600<br />country: Turkey","year: 1972<br />lifeExp: 57.00500<br />country: Turkey","year: 1977<br />lifeExp: 59.50700<br />country: Turkey","year: 1982<br />lifeExp: 61.03600<br />country: Turkey","year: 1987<br />lifeExp: 63.10800<br />country: Turkey","year: 1992<br />lifeExp: 66.14600<br />country: Turkey","year: 1997<br />lifeExp: 68.83500<br />country: Turkey","year: 2002<br />lifeExp: 70.84500<br />country: Turkey","year: 2007<br />lifeExp: 71.77700<br />country: Turkey",null,"year: 1952<br />lifeExp: 39.97800<br />country: Uganda","year: 1957<br />lifeExp: 42.57100<br />country: Uganda","year: 1962<br />lifeExp: 45.34400<br />country: Uganda","year: 1967<br />lifeExp: 48.05100<br />country: Uganda","year: 1972<br />lifeExp: 51.01600<br />country: Uganda","year: 1977<br />lifeExp: 50.35000<br />country: Uganda","year: 1982<br />lifeExp: 49.84900<br />country: Uganda","year: 1987<br />lifeExp: 51.50900<br />country: Uganda","year: 1992<br />lifeExp: 48.82500<br />country: Uganda","year: 1997<br />lifeExp: 44.57800<br />country: Uganda","year: 2002<br />lifeExp: 47.81300<br />country: Uganda","year: 2007<br />lifeExp: 51.54200<br />country: Uganda",null,"year: 1952<br />lifeExp: 69.18000<br />country: United Kingdom","year: 1957<br />lifeExp: 70.42000<br />country: United Kingdom","year: 1962<br />lifeExp: 70.76000<br />country: United Kingdom","year: 1967<br />lifeExp: 71.36000<br />country: United Kingdom","year: 1972<br />lifeExp: 72.01000<br />country: United Kingdom","year: 1977<br />lifeExp: 72.76000<br />country: United Kingdom","year: 1982<br />lifeExp: 74.04000<br />country: United Kingdom","year: 1987<br />lifeExp: 75.00700<br />country: United Kingdom","year: 1992<br />lifeExp: 76.42000<br />country: United Kingdom","year: 1997<br />lifeExp: 77.21800<br />country: United Kingdom","year: 2002<br />lifeExp: 78.47100<br />country: United Kingdom","year: 2007<br />lifeExp: 79.42500<br />country: United Kingdom",null,"year: 1952<br />lifeExp: 68.44000<br />country: United States","year: 1957<br />lifeExp: 69.49000<br />country: United States","year: 1962<br />lifeExp: 70.21000<br />country: United States","year: 1967<br />lifeExp: 70.76000<br />country: United States","year: 1972<br />lifeExp: 71.34000<br />country: United States","year: 1977<br />lifeExp: 73.38000<br />country: United States","year: 1982<br />lifeExp: 74.65000<br />country: United States","year: 1987<br />lifeExp: 75.02000<br />country: United States","year: 1992<br />lifeExp: 76.09000<br />country: United States","year: 1997<br />lifeExp: 76.81000<br />country: United States","year: 2002<br />lifeExp: 77.31000<br />country: United States","year: 2007<br />lifeExp: 78.24200<br />country: United States",null,"year: 1952<br />lifeExp: 66.07100<br />country: Uruguay","year: 1957<br />lifeExp: 67.04400<br />country: Uruguay","year: 1962<br />lifeExp: 68.25300<br />country: Uruguay","year: 1967<br />lifeExp: 68.46800<br />country: Uruguay","year: 1972<br />lifeExp: 68.67300<br />country: Uruguay","year: 1977<br />lifeExp: 69.48100<br />country: Uruguay","year: 1982<br />lifeExp: 70.80500<br />country: Uruguay","year: 1987<br />lifeExp: 71.91800<br />country: Uruguay","year: 1992<br />lifeExp: 72.75200<br />country: Uruguay","year: 1997<br />lifeExp: 74.22300<br />country: Uruguay","year: 2002<br />lifeExp: 75.30700<br />country: Uruguay","year: 2007<br />lifeExp: 76.38400<br />country: Uruguay",null,"year: 1952<br />lifeExp: 55.08800<br />country: Venezuela","year: 1957<br />lifeExp: 57.90700<br />country: Venezuela","year: 1962<br />lifeExp: 60.77000<br />country: Venezuela","year: 1967<br />lifeExp: 63.47900<br />country: Venezuela","year: 1972<br />lifeExp: 65.71200<br />country: Venezuela","year: 1977<br />lifeExp: 67.45600<br />country: Venezuela","year: 1982<br />lifeExp: 68.55700<br />country: Venezuela","year: 1987<br />lifeExp: 70.19000<br />country: Venezuela","year: 1992<br />lifeExp: 71.15000<br />country: Venezuela","year: 1997<br />lifeExp: 72.14600<br />country: Venezuela","year: 2002<br />lifeExp: 72.76600<br />country: Venezuela","year: 2007<br />lifeExp: 73.74700<br />country: Venezuela",null,"year: 1952<br />lifeExp: 40.41200<br />country: Vietnam","year: 1957<br />lifeExp: 42.88700<br />country: Vietnam","year: 1962<br />lifeExp: 45.36300<br />country: Vietnam","year: 1967<br />lifeExp: 47.83800<br />country: Vietnam","year: 1972<br />lifeExp: 50.25400<br />country: Vietnam","year: 1977<br />lifeExp: 55.76400<br />country: Vietnam","year: 1982<br />lifeExp: 58.81600<br />country: Vietnam","year: 1987<br />lifeExp: 62.82000<br />country: Vietnam","year: 1992<br />lifeExp: 67.66200<br />country: Vietnam","year: 1997<br />lifeExp: 70.67200<br />country: Vietnam","year: 2002<br />lifeExp: 73.01700<br />country: Vietnam","year: 2007<br />lifeExp: 74.24900<br />country: Vietnam",null,"year: 1952<br />lifeExp: 43.16000<br />country: West Bank and Gaza","year: 1957<br />lifeExp: 45.67100<br />country: West Bank and Gaza","year: 1962<br />lifeExp: 48.12700<br />country: West Bank and Gaza","year: 1967<br />lifeExp: 51.63100<br />country: West Bank and Gaza","year: 1972<br />lifeExp: 56.53200<br />country: West Bank and Gaza","year: 1977<br />lifeExp: 60.76500<br />country: West Bank and Gaza","year: 1982<br />lifeExp: 64.40600<br />country: West Bank and Gaza","year: 1987<br />lifeExp: 67.04600<br />country: West Bank and Gaza","year: 1992<br />lifeExp: 69.71800<br />country: West Bank and Gaza","year: 1997<br />lifeExp: 71.09600<br />country: West Bank and Gaza","year: 2002<br />lifeExp: 72.37000<br />country: West Bank and Gaza","year: 2007<br />lifeExp: 73.42200<br />country: West Bank and Gaza",null,"year: 1952<br />lifeExp: 32.54800<br />country: Yemen, Rep.","year: 1957<br />lifeExp: 33.97000<br />country: Yemen, Rep.","year: 1962<br />lifeExp: 35.18000<br />country: Yemen, Rep.","year: 1967<br />lifeExp: 36.98400<br />country: Yemen, Rep.","year: 1972<br />lifeExp: 39.84800<br />country: Yemen, Rep.","year: 1977<br />lifeExp: 44.17500<br />country: Yemen, Rep.","year: 1982<br />lifeExp: 49.11300<br />country: Yemen, Rep.","year: 1987<br />lifeExp: 52.92200<br />country: Yemen, Rep.","year: 1992<br />lifeExp: 55.59900<br />country: Yemen, Rep.","year: 1997<br />lifeExp: 58.02000<br />country: Yemen, Rep.","year: 2002<br />lifeExp: 60.30800<br />country: Yemen, Rep.","year: 2007<br />lifeExp: 62.69800<br />country: Yemen, Rep.",null,"year: 1952<br />lifeExp: 42.03800<br />country: Zambia","year: 1957<br />lifeExp: 44.07700<br />country: Zambia","year: 1962<br />lifeExp: 46.02300<br />country: Zambia","year: 1967<br />lifeExp: 47.76800<br />country: Zambia","year: 1972<br />lifeExp: 50.10700<br />country: Zambia","year: 1977<br />lifeExp: 51.38600<br />country: Zambia","year: 1982<br />lifeExp: 51.82100<br />country: Zambia","year: 1987<br />lifeExp: 50.82100<br />country: Zambia","year: 1992<br />lifeExp: 46.10000<br />country: Zambia","year: 1997<br />lifeExp: 40.23800<br />country: Zambia","year: 2002<br />lifeExp: 39.19300<br />country: Zambia","year: 2007<br />lifeExp: 42.38400<br />country: Zambia",null,"year: 1952<br />lifeExp: 48.45100<br />country: Zimbabwe","year: 1957<br />lifeExp: 50.46900<br />country: Zimbabwe","year: 1962<br />lifeExp: 52.35800<br />country: Zimbabwe","year: 1967<br />lifeExp: 53.99500<br />country: Zimbabwe","year: 1972<br />lifeExp: 55.63500<br />country: Zimbabwe","year: 1977<br />lifeExp: 57.67400<br />country: Zimbabwe","year: 1982<br />lifeExp: 60.36300<br />country: Zimbabwe","year: 1987<br />lifeExp: 62.35100<br />country: Zimbabwe","year: 1992<br />lifeExp: 60.37700<br />country: Zimbabwe","year: 1997<br />lifeExp: 46.80900<br />country: Zimbabwe","year: 2002<br />lifeExp: 39.98900<br />country: Zimbabwe","year: 2007<br />lifeExp: 43.48700<br />country: Zimbabwe"],"type":"scatter","mode":"lines","line":{"width":1.88976377952756,"color":"rgba(0,0,0,0.2)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"y":[47.622,49.618,51.52,53.298,56.024,59.319,61.484,63.622,62.745,52.556,46.634,50.728],"text":["year: 1952<br />lifeExp: 47.622<br />country: Botswana<br />country: Botswana","year: 1957<br />lifeExp: 49.618<br />country: Botswana<br />country: Botswana","year: 1962<br />lifeExp: 51.520<br />country: Botswana<br />country: Botswana","year: 1967<br />lifeExp: 53.298<br />country: Botswana<br />country: Botswana","year: 1972<br />lifeExp: 56.024<br />country: Botswana<br />country: Botswana","year: 1977<br />lifeExp: 59.319<br />country: Botswana<br />country: Botswana","year: 1982<br />lifeExp: 61.484<br />country: Botswana<br />country: Botswana","year: 1987<br />lifeExp: 63.622<br />country: Botswana<br />country: Botswana","year: 1992<br />lifeExp: 62.745<br />country: Botswana<br />country: Botswana","year: 1997<br />lifeExp: 52.556<br />country: Botswana<br />country: Botswana","year: 2002<br />lifeExp: 46.634<br />country: Botswana<br />country: Botswana","year: 2007<br />lifeExp: 50.728<br />country: Botswana<br />country: Botswana"],"type":"scatter","mode":"lines","line":{"width":6.4251968503937,"color":"rgba(143,29,30,1)","dash":"solid"},"hoveron":"points","name":"Botswana","legendgroup":"Botswana","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"y":[42.138,45.047,47.747,48.492,49.767,52.208,55.078,57.18,59.685,55.558,44.593,42.592],"text":["year: 1952<br />lifeExp: 42.138<br />country: Lesotho<br />country: Lesotho","year: 1957<br />lifeExp: 45.047<br />country: Lesotho<br />country: Lesotho","year: 1962<br />lifeExp: 47.747<br />country: Lesotho<br />country: Lesotho","year: 1967<br />lifeExp: 48.492<br />country: Lesotho<br />country: Lesotho","year: 1972<br />lifeExp: 49.767<br />country: Lesotho<br />country: Lesotho","year: 1977<br />lifeExp: 52.208<br />country: Lesotho<br />country: Lesotho","year: 1982<br />lifeExp: 55.078<br />country: Lesotho<br />country: Lesotho","year: 1987<br />lifeExp: 57.180<br />country: Lesotho<br />country: Lesotho","year: 1992<br />lifeExp: 59.685<br />country: Lesotho<br />country: Lesotho","year: 1997<br />lifeExp: 55.558<br />country: Lesotho<br />country: Lesotho","year: 2002<br />lifeExp: 44.593<br />country: Lesotho<br />country: Lesotho","year: 2007<br />lifeExp: 42.592<br />country: Lesotho<br />country: Lesotho"],"type":"scatter","mode":"lines","line":{"width":6.4251968503937,"color":"rgba(214,0,43,1)","dash":"solid"},"hoveron":"points","name":"Lesotho","legendgroup":"Lesotho","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"y":[40,41.5,43,44.1,44.6,45,46.218,44.02,23.599,36.087,43.413,46.242],"text":["year: 1952<br />lifeExp: 40.000<br />country: Rwanda<br />country: Rwanda","year: 1957<br />lifeExp: 41.500<br />country: Rwanda<br />country: Rwanda","year: 1962<br />lifeExp: 43.000<br />country: Rwanda<br />country: Rwanda","year: 1967<br />lifeExp: 44.100<br />country: Rwanda<br />country: Rwanda","year: 1972<br />lifeExp: 44.600<br />country: Rwanda<br />country: Rwanda","year: 1977<br />lifeExp: 45.000<br />country: Rwanda<br />country: Rwanda","year: 1982<br />lifeExp: 46.218<br />country: Rwanda<br />country: Rwanda","year: 1987<br />lifeExp: 44.020<br />country: Rwanda<br />country: Rwanda","year: 1992<br />lifeExp: 23.599<br />country: Rwanda<br />country: Rwanda","year: 1997<br />lifeExp: 36.087<br />country: Rwanda<br />country: Rwanda","year: 2002<br />lifeExp: 43.413<br />country: Rwanda<br />country: Rwanda","year: 2007<br />lifeExp: 46.242<br />country: Rwanda<br />country: Rwanda"],"type":"scatter","mode":"lines","line":{"width":6.4251968503937,"color":"rgba(255,169,11,1)","dash":"solid"},"hoveron":"points","name":"Rwanda","legendgroup":"Rwanda","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"y":[41.407,43.424,44.992,46.633,49.552,52.537,55.561,57.678,58.474,54.289,43.869,39.613],"text":["year: 1952<br />lifeExp: 41.407<br />country: Swaziland<br />country: Swaziland","year: 1957<br />lifeExp: 43.424<br />country: Swaziland<br />country: Swaziland","year: 1962<br />lifeExp: 44.992<br />country: Swaziland<br />country: Swaziland","year: 1967<br />lifeExp: 46.633<br />country: Swaziland<br />country: Swaziland","year: 1972<br />lifeExp: 49.552<br />country: Swaziland<br />country: Swaziland","year: 1977<br />lifeExp: 52.537<br />country: Swaziland<br />country: Swaziland","year: 1982<br />lifeExp: 55.561<br />country: Swaziland<br />country: Swaziland","year: 1987<br />lifeExp: 57.678<br />country: Swaziland<br />country: Swaziland","year: 1992<br />lifeExp: 58.474<br />country: Swaziland<br />country: Swaziland","year: 1997<br />lifeExp: 54.289<br />country: Swaziland<br />country: Swaziland","year: 2002<br />lifeExp: 43.869<br />country: Swaziland<br />country: Swaziland","year: 2007<br />lifeExp: 39.613<br />country: Swaziland<br />country: Swaziland"],"type":"scatter","mode":"lines","line":{"width":6.4251968503937,"color":"rgba(204,171,116,1)","dash":"solid"},"hoveron":"points","name":"Swaziland","legendgroup":"Swaziland","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"y":[42.038,44.077,46.023,47.768,50.107,51.386,51.821,50.821,46.1,40.238,39.193,42.384],"text":["year: 1952<br />lifeExp: 42.038<br />country: Zambia<br />country: Zambia","year: 1957<br />lifeExp: 44.077<br />country: Zambia<br />country: Zambia","year: 1962<br />lifeExp: 46.023<br />country: Zambia<br />country: Zambia","year: 1967<br />lifeExp: 47.768<br />country: Zambia<br />country: Zambia","year: 1972<br />lifeExp: 50.107<br />country: Zambia<br />country: Zambia","year: 1977<br />lifeExp: 51.386<br />country: Zambia<br />country: Zambia","year: 1982<br />lifeExp: 51.821<br />country: Zambia<br />country: Zambia","year: 1987<br />lifeExp: 50.821<br />country: Zambia<br />country: Zambia","year: 1992<br />lifeExp: 46.100<br />country: Zambia<br />country: Zambia","year: 1997<br />lifeExp: 40.238<br />country: Zambia<br />country: Zambia","year: 2002<br />lifeExp: 39.193<br />country: Zambia<br />country: Zambia","year: 2007<br />lifeExp: 42.384<br />country: Zambia<br />country: Zambia"],"type":"scatter","mode":"lines","line":{"width":6.4251968503937,"color":"rgba(0,57,156,1)","dash":"solid"},"hoveron":"points","name":"Zambia","legendgroup":"Zambia","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1952,1957,1962,1967,1972,1977,1982,1987,1992,1997,2002,2007],"y":[48.451,50.469,52.358,53.995,55.635,57.674,60.363,62.351,60.377,46.809,39.989,43.487],"text":["year: 1952<br />lifeExp: 48.451<br />country: Zimbabwe<br />country: Zimbabwe","year: 1957<br />lifeExp: 50.469<br />country: Zimbabwe<br />country: Zimbabwe","year: 1962<br />lifeExp: 52.358<br />country: Zimbabwe<br />country: Zimbabwe","year: 1967<br />lifeExp: 53.995<br />country: Zimbabwe<br />country: Zimbabwe","year: 1972<br />lifeExp: 55.635<br />country: Zimbabwe<br />country: Zimbabwe","year: 1977<br />lifeExp: 57.674<br />country: Zimbabwe<br />country: Zimbabwe","year: 1982<br />lifeExp: 60.363<br />country: Zimbabwe<br />country: Zimbabwe","year: 1987<br />lifeExp: 62.351<br />country: Zimbabwe<br />country: Zimbabwe","year: 1992<br />lifeExp: 60.377<br />country: Zimbabwe<br />country: Zimbabwe","year: 1997<br />lifeExp: 46.809<br />country: Zimbabwe<br />country: Zimbabwe","year: 2002<br />lifeExp: 39.989<br />country: Zimbabwe<br />country: Zimbabwe","year: 2007<br />lifeExp: 43.487<br />country: Zimbabwe<br />country: Zimbabwe"],"type":"scatter","mode":"lines","line":{"width":6.4251968503937,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","name":"Zimbabwe","legendgroup":"Zimbabwe","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"name":"Botswana","legendgroup":"Botswana","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"name":"Lesotho","legendgroup":"Lesotho","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"name":"Rwanda","legendgroup":"Rwanda","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"name":"Swaziland","legendgroup":"Swaziland","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"name":"Zambia","legendgroup":"Zambia","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"name":"Zimbabwe","legendgroup":"Zimbabwe","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"visible":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":26.2283105022831,"r":7.30593607305936,"b":40.1826484018265,"l":37.2602739726027},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[1948.85,2018.15],"tickmode":"array","ticktext":["1960","1980","2000"],"tickvals":[1960,1980,2000],"categoryorder":"array","categoryarray":["1960","1980","2000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"year","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[20.6488,85.5532],"tickmode":"array","ticktext":["40","60","80"],"tickvals":[40,60,80],"categoryorder":"array","categoryarray":["40","60","80"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.65296803652968,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"Life Expectancy at Birth","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"y":1},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","showSendToCloud":false},"source":"A","attrs":{"84694f53c4fe":{"x":{},"y":{},"type":"scatter"},"84691ba2bade":{"x":{},"y":{},"colour":{}},"84691c7fdb64":{"x":{},"y":{},"label":{},"colour":{}},"84697023e042":{"x":{}}},"cur_data":"84694f53c4fe","visdat":{"84694f53c4fe":["function (y) ","x"],"84691ba2bade":["function (y) ","x"],"84691c7fdb64":["function (y) ","x"],"84697023e042":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
-```
-
-The downward slope of our highlighted countries
-starting in the 1990s is a result of the ravaging
-AIDS pandemic.
-The prominent dips in two of the curves, orange for
-Rwanda and Cambodia in gray, are the direct
-consequences of genocides.
-These dire realities can in no way be summarized
-in just a couple of colorful lines.
-I am also in no way qualified to lecture
-on these topics.
-A good friend of mine, [Timothy Williams](http://timothywilliams.de/),
-however is a researcher and teacher in the field of conflict and violence
-with a focus on genocides.
-He did field work in Cambodia and Rwanda
-and his book "The Complexity of Evil. Perpetration and Genocide"
-will be
-[published here](https://www.rutgersuniversitypress.org/the-complexity-of-evil/9781978814295) on December 18 [@williamsComplexityEvil].
-
-## Advanced `dplyr`
-
-Last but not least, I want to mention a powerful advanced
-function in dplyr to make your data transformations even
-more efficient.
-It is the `across` function, which we can use
-inside of dplyr verbs such as `mutate` and
-`summarise` to use one or multiple functions on
-multiple columns.
-Let's look at an example, again with the gapminder
-dataset.
-Now, this is sort of a silly example,
-but let's say we want the continents
-and countries in UPPERCASE.
-We could do:
-
-
-```r
-gapminder %>% 
-  mutate(
-    continent = str_to_upper(continent),
-    country = str_to_upper(country)
-  )
-```
-
-```
-## # A tibble: 1,704 × 6
-##    continent country  year lifeExp      pop gdpPercap
-##    <chr>     <chr>   <dbl>   <dbl>    <dbl>     <dbl>
-##  1 AFRICA    ALGERIA  1952    43.1  9279525     2449.
-##  2 AFRICA    ALGERIA  1957    45.7 10270856     3014.
-##  3 AFRICA    ALGERIA  1962    48.3 11000948     2551.
-##  4 AFRICA    ALGERIA  1967    51.4 12760499     3247.
-##  5 AFRICA    ALGERIA  1972    54.5 14760787     4183.
-##  6 AFRICA    ALGERIA  1977    58.0 17152804     4910.
-##  7 AFRICA    ALGERIA  1982    61.4 20033753     5745.
-##  8 AFRICA    ALGERIA  1987    65.8 23254956     5681.
-##  9 AFRICA    ALGERIA  1992    67.7 26298373     5023.
-## 10 AFRICA    ALGERIA  1997    69.2 29072015     4797.
-## # … with 1,694 more rows
-```
-
-And now everyone is really shouty.
-But we had some repetition in
-our code. Wouldn't it be cool,
-to just say: "Apply the function `str_to_upper`
-to these columns."?
-
-
-```r
-gapminder %>% 
-  mutate(
-    across(c(continent, country), str_to_upper)
-  )
-```
-
-```
-## # A tibble: 1,704 × 6
-##    continent country  year lifeExp      pop gdpPercap
-##    <chr>     <chr>   <dbl>   <dbl>    <dbl>     <dbl>
-##  1 AFRICA    ALGERIA  1952    43.1  9279525     2449.
-##  2 AFRICA    ALGERIA  1957    45.7 10270856     3014.
-##  3 AFRICA    ALGERIA  1962    48.3 11000948     2551.
-##  4 AFRICA    ALGERIA  1967    51.4 12760499     3247.
-##  5 AFRICA    ALGERIA  1972    54.5 14760787     4183.
-##  6 AFRICA    ALGERIA  1977    58.0 17152804     4910.
-##  7 AFRICA    ALGERIA  1982    61.4 20033753     5745.
-##  8 AFRICA    ALGERIA  1987    65.8 23254956     5681.
-##  9 AFRICA    ALGERIA  1992    67.7 26298373     5023.
-## 10 AFRICA    ALGERIA  1997    69.2 29072015     4797.
-## # … with 1,694 more rows
-```
-
-Not that is raw power!
-We can be even more general and ask R to
-apply the function to all columns that contain text:
-
-
-```r
-gapminder %>% 
-  mutate(
-    across(where(is.character), str_to_upper)
-  )
-```
-
-```
-## # A tibble: 1,704 × 6
-##    continent country  year lifeExp      pop gdpPercap
-##    <chr>     <chr>   <dbl>   <dbl>    <dbl>     <dbl>
-##  1 AFRICA    ALGERIA  1952    43.1  9279525     2449.
-##  2 AFRICA    ALGERIA  1957    45.7 10270856     3014.
-##  3 AFRICA    ALGERIA  1962    48.3 11000948     2551.
-##  4 AFRICA    ALGERIA  1967    51.4 12760499     3247.
-##  5 AFRICA    ALGERIA  1972    54.5 14760787     4183.
-##  6 AFRICA    ALGERIA  1977    58.0 17152804     4910.
-##  7 AFRICA    ALGERIA  1982    61.4 20033753     5745.
-##  8 AFRICA    ALGERIA  1987    65.8 23254956     5681.
-##  9 AFRICA    ALGERIA  1992    67.7 26298373     5023.
-## 10 AFRICA    ALGERIA  1997    69.2 29072015     4797.
-## # … with 1,694 more rows
-```
-
-It also works with `summarise`, for example
-to create summaries across a range of columns.
-And we can supply more than one function to calculate
-using a named list:
-
-
-```r
-gapminder %>% 
-  summarise(
-    across(year:gdpPercap, list(mean = mean, total = sum))
-  )
-```
-
-```
-## # A tibble: 1 × 8
-##   year_mean year_total lifeExp_mean lifeExp_total  pop_mean   pop_total
-##       <dbl>      <dbl>        <dbl>         <dbl>     <dbl>       <dbl>
-## 1     1980.    3373068         59.5       101344. 29601212. 50440465801
-## # … with 2 more variables: gdpPercap_mean <dbl>, gdpPercap_total <dbl>
-```
-You are on you way to becoming a true data wizard!
-After today, you should be familiar with:
-
-- importing data into R
-- the concept of tidy data
-- the grammar of graphics
-- the basic dplyr verbs for data wrangling
-- a project-based workflow
-- writing and using functions
-
-We will then use these foundations to experience
-statistical concepts ourselves in the next lectures.
-
-## Exercises
-
-## The whole Deal
-
-I want to get you playing around with data,
-so keep in mind that the solutions for this exercise 
-are not set in stone.
-There is often more than one viable way of graphing
-the same dataset and we will use the
-Office Hour to talk about the advantages
-and disadvantages of approaches that you
-came up with.
-
-### Roman emperors
-
-The first exercise uses a dataset about roman emperors
-from the tidytuesday project
-([link](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-08-13)).
-You can import it with:
-
-
-```r
-emperors <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv")
-```
-
-Here are a couple of questions to answer. Decide
-for yourselves if a particular question is best
-answered using a visualization, a table
-or a simple sentence.
-
-- What was the most popular way to rise to power?
-- I what are the most common causes of death among roman
-  emperors, what (or who) killed them?
-- Which dynasty was the most successful?
-  - Firstly, how often did each dynasty reign?
-  - Secondly, how long where the reigns?
-  - Which dynasty would you rather be a part of,
-    if your goal is to live the longest?
-
-### Dairy Products in the US
-
-Another dataset ([link](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-29#milk_products_facts))
-concerns dairy product consumption per person in the US
-across a number of years.
-Load it with
-
-
-```r
-dairy <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-29/milk_products_facts.csv")
-```
-
-- All masses are given in lbs (pounds),
-  can you convert them to kg?
-- Which products lost their customer base over time,
-  which ones won?
-
-Above all, have some fun! If you make interesting
-findings along the way, go ahead and produce plots
-to highlight it.
-
-
-## Resources
-
-- [purrr documentation](https://purrr.tidyverse.org/)
-- [stringr documentation](https://stringr.tidyverse.org/)
-- [dplyr documentation](https://dplyr.tidyverse.org/)
-
--->
-
+<div class="alert alert-info">
+<p>These are just the notes for the lecture that
+will be filled during the recording.
+Check back later to the the completed script.</p>
+</div>
+<!-- ::: {.video-container} -->
+<!-- <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe> -->
+<!-- ::: -->
+<div id="motivation" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="iteration" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Iteration<a class="anchor" aria-label="anchor" href="#iteration"><i class="fas fa-link"></i></a>
+</h2>
+<div id="functional-programming" class="section level3" number="4.2.1">
+<h3>
+<span class="header-section-number">4.2.1</span> Functional Programming<a class="anchor" aria-label="anchor" href="#functional-programming"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="the-imperative-programming-approach" class="section level3" number="4.2.2">
+<h3>
+<span class="header-section-number">4.2.2</span> The Imperative Programming Approach<a class="anchor" aria-label="anchor" href="#the-imperative-programming-approach"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> “If you copy and paste the same code more than three times, write a function.”<a class="anchor" aria-label="anchor" href="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function."><i class="fas fa-link"></i></a>
+</h2>
+<div id="noticing-a-pattern" class="section level3" number="4.3.1">
+<h3>
+<span class="header-section-number">4.3.1</span> Noticing a Pattern<a class="anchor" aria-label="anchor" href="#noticing-a-pattern"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="where-to-put-your-functions" class="section level3" number="4.3.2">
+<h3>
+<span class="header-section-number">4.3.2</span> Where to put your Functions<a class="anchor" aria-label="anchor" href="#where-to-put-your-functions"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="many-models" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Many Models<a class="anchor" aria-label="anchor" href="#many-models"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="advanced-dplyr" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Advanced <code>dplyr</code><a class="anchor" aria-label="anchor" href="#advanced-dplyr"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="exercises-3" class="section level2" number="4.6">
+<h2>
+<span class="header-section-number">4.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-3"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="the-whole-deal" class="section level2" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> The whole Deal<a class="anchor" aria-label="anchor" href="#the-whole-deal"><i class="fas fa-link"></i></a>
+</h2>
+<div id="roman-emperors" class="section level3" number="4.7.1">
+<h3>
+<span class="header-section-number">4.7.1</span> Roman emperors<a class="anchor" aria-label="anchor" href="#roman-emperors"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="dairy-products-in-the-us" class="section level3" number="4.7.2">
+<h3>
+<span class="header-section-number">4.7.2</span> Dairy Products in the US<a class="anchor" aria-label="anchor" href="#dairy-products-in-the-us"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="resources-2" class="section level2" number="4.8">
+<h2>
+<span class="header-section-number">4.8</span> Resources<a class="anchor" aria-label="anchor" href="#resources-2"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://purrr.tidyverse.org/">purrr documentation</a></li>
+<li><a href="https://stringr.tidyverse.org/">stringr documentation</a></li>
+<li><a href="https://dplyr.tidyverse.org/">dplyr documentation</a></li>
+</ul>
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="tidy-data.html"><span class="header-section-number">3</span> Tidy Data</a></div>
 <div class="next"><a href="hypothesis-testing.html"><span class="header-section-number">5</span> Hypothesis Testing</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#functions"><span class="header-section-number">4</span> Functions</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#functions"><span class="header-section-number">4</span> Functions</a></li>
+<li><a class="nav-link" href="#motivation"><span class="header-section-number">4.1</span> Motivation</a></li>
+<li>
+<a class="nav-link" href="#iteration"><span class="header-section-number">4.2</span> Iteration</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#functional-programming"><span class="header-section-number">4.2.1</span> Functional Programming</a></li>
+<li><a class="nav-link" href="#the-imperative-programming-approach"><span class="header-section-number">4.2.2</span> The Imperative Programming Approach</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function."><span class="header-section-number">4.3</span> “If you copy and paste the same code more than three times, write a function.”</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#noticing-a-pattern"><span class="header-section-number">4.3.1</span> Noticing a Pattern</a></li>
+<li><a class="nav-link" href="#where-to-put-your-functions"><span class="header-section-number">4.3.2</span> Where to put your Functions</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#many-models"><span class="header-section-number">4.4</span> Many Models</a></li>
+<li><a class="nav-link" href="#advanced-dplyr"><span class="header-section-number">4.5</span> Advanced dplyr</a></li>
+<li><a class="nav-link" href="#exercises-3"><span class="header-section-number">4.6</span> Exercises</a></li>
+<li>
+<a class="nav-link" href="#the-whole-deal"><span class="header-section-number">4.7</span> The whole Deal</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#roman-emperors"><span class="header-section-number">4.7.1</span> Roman emperors</a></li>
+<li><a class="nav-link" href="#dairy-products-in-the-us"><span class="header-section-number">4.7.2</span> Dairy Products in the US</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#resources-2"><span class="header-section-number">4.8</span> Resources</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -1034,7 +197,7 @@ to highlight it.
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-21.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-09-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

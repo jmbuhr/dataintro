@@ -6,22 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Lesson 7 Fallacies | Introduction to Data Analysis with R</title>
 <meta name="author" content="Jannik Buhr">
-<meta name="description" content="… in which we hear Stories of Warplanes, Correlation and Regression and explore the Datasaurus Dozen.">
+<meta name="description" content="… in which we hear Stories of Warplanes, Correlation and Regression and explore the Datasaurus Dozen.  These are just the notes for the lecture that will be filled during the recording. Check back...">
 <meta name="generator" content="bookdown 0.23.1 with bs4_book()">
 <meta property="og:title" content="Lesson 7 Fallacies | Introduction to Data Analysis with R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://jmbuhr.de/dataintro/fallacies.html">
-<meta property="og:description" content="… in which we hear Stories of Warplanes, Correlation and Regression and explore the Datasaurus Dozen.">
+<meta property="og:description" content="… in which we hear Stories of Warplanes, Correlation and Regression and explore the Datasaurus Dozen.  These are just the notes for the lecture that will be filled during the recording. Check back...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lesson 7 Fallacies | Introduction to Data Analysis with R">
-<meta name="twitter:description" content="… in which we hear Stories of Warplanes, Correlation and Regression and explore the Datasaurus Dozen.">
+<meta name="twitter:description" content="… in which we hear Stories of Warplanes, Correlation and Regression and explore the Datasaurus Dozen.  These are just the notes for the lecture that will be filled during the recording. Check back...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -52,7 +49,7 @@
 <li><a class="" href="distributions.html"><span class="header-section-number">6</span> Distributions</a></li>
 <li><a class="active" href="fallacies.html"><span class="header-section-number">7</span> Fallacies</a></li>
 <li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
-<li><a class="" href="resources.html">Resources</a></li>
+<li><a class="" href="resources-5.html">Resources</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -69,1023 +66,124 @@
 <p>… in which we hear Stories of Warplanes,
 Correlation and Regression and explore the Datasaurus Dozen.</p>
 </blockquote>
-<!--
-  
-
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/VYLAxbt9Izk" allowfullscreen></iframe>
-:::
-
-
-
-```r
-library(tidyverse)
-```
-
-## Data Considerations
-
-### 1943
-
-1943\. The second World War is well underway, ravaging large parts of Europe.
-Military aircraft that had first entered the stage in World War I are now
-reaching their peak importance as they rain fire from the skies. But the Allied
-forces are facing a problem. As warplanes get better, so do anti-aircraft
-systems. In an effort to improve the survival of their fleet, the US military
-starts examining the planes returning from skirmishes with the opposing forces.
-They characterize the pattern of bullet holes in the metal hull, meticulously
-noting down each hit that the plane sustained. The resulting picture is better
-summarized in the modern, redrawn version in figure \@ref(fig:surv). We will
-look at it in just a second, but before we do, let me preface this one by
-stressing the reach of what we will find.
-
-The effect in question has an invisible hand in the laboratory results you
-create, in the advice people give and is the reason why you don't get rich after
-reading books by people telling you how to get rich. It is the pervasive
-mechanism that powerful people often don't want to admit exists.
-
-(ref:surv) Figure from Wikipedia [@SurvivorshipBias2020].
-
-<div class="figure">
-<img src="images/survivorship-bias.png" alt="(ref:surv)" width="100%" />
-<p class="caption">(\#fig:surv)(ref:surv)</p>
+<div class="alert alert-info">
+<p>These are just the notes for the lecture that
+will be filled during the recording.
+Check back later to the the completed script.</p>
 </div>
-
-After taking a look at the data they gathered, the military is ready to rush
-into action. To improve the endurance of their aircraft, the plan is to
-reinforce the parts of the plane that were most often hit by bullets. With
-stronger wings and a sturdier body of the plane, they think, surely more pilots
-will come back from their missions safely. They were wrong.
-
-### The Story of Abraham Wald
-
-But the pilots where in luck. The military also consulted with the Statistics
-Research Group at Columbia University. A man named Abraham Wald worked there. In
-his now unclassified report "A method of estimating plane vulnerability based on
-damage of survivors", he argued against the generals
-[@waldReprintMethodEstimating1980]. Instead of the most-hit parts of the planes,
-the least-hit parts are to be reinforced.
-
-![Cover of "A method of estimating plane vulnerability based on damage of
-survivors" [@waldReprintMethodEstimating1980]](images/paste-57122EF0.png)
-
-> Instead of the most-hit parts, the least-hit parts are to be reinforced.
-
-The reason for this seemingly counterintuitive result is what is now known as
-*survivorship bias*. The data that was collected contained only survivors, those
-planes that sustained damage not severe enough to hinder them from coming back
-after their mission. The aircraft that where hit in other places simply didn't
-make it back. Consequently, Wald advised to reinforce the engines and the fuel
-tanks.
-
-### Thinking further
-
-This is but one of a multitude of biases, specifically a selection bias, that
-will influence the quality of the inferences you can draw from available data.
-Keep in mind, data is not objective and never exists in a vacuum. There is
-always context to consider. The way the data was collected is just one of them.
-A lot of these ideas seem obvious in hindsight, which incidentally is another
-bias that social psychologists call *hindsight bias*, but they can sometimes be
-hard to spot.
-
-A common saying is that music was better back in the days, or that all the old
-music still holds up while the new stuff on the radio just sounds the same.
-Well, not quite. This is also survivorship bias at work. All the bad and
-forgettable songs from the past just faded into oblivion, never to be mentioned
-again, while the songs people generally agreed to be good survived the ravages
-of time unscathed. A similar happens with success in general, not just songs. If
-you ask any CEO high up the corporate ladder, a millionaire or the author of a
-book that reads "How to get rich", they are sure to have a witty anecdote about
-how their persistence or their brilliance or charisma got them to where they are
-now. What we are not seeing is all the people just as witty, just as charismatic
-or even just as persistent that where simply not as lucky. Very few people will
-tell you this. Because it takes a whole lot of courage to admit that ones
-success is based on luck and privilege.
-
-And to take it back to the scientific context: When you are planning an
-experiment for the lab, always ask whether your data collection process can in
-some way be biased towards what you are trying to show.
-
-I leave you with this:
-
-
-```{=html}
-<blockquote class="twitter-tweet" data-width="550" data-lang="en" data-dnt="true" data-theme="light"><p lang="en" dir="ltr">weird how every time you see this image on twitter it has a ton of retweets <a href="https://t.co/VALAKdeheP">pic.twitter.com/VALAKdeheP</a></p>&mdash; Jake VanderPlas (@jakevdp) <a href="https://twitter.com/jakevdp/status/1336343740235935744?ref_src=twsrc%5Etfw">December 8, 2020</a></blockquote>
-
-```
-
-And from this cautionary tale we jump straight back into RStudio.
-
-## Miscelaneous
-
-To ease back into R programming, let's look at some small but helpful things
-that might otherwise be missed on the sidelines.
-
-### Glue
-
-First up is the `glue` package. Using `paste` to create a text in which the
-values of variables are inserted can be painful. The `glue` package makes it a
-breeze. Everything inside of curly braces in the text inside of the `glue`
-function will be evaluated as regular R code, enabling us to write text quite
-naturally:
-
-
-```r
-library(glue)
-glue("1 + 1 is {1 + 1}")
-```
-
-```
-## 1 + 1 is 2
-```
-
-I hope you are not too confused by the package and it's main function having the
-same name.
-
-
-```r
-value <- 0.04
-glue("With a p-value of {value}!")
-```
-
-```
-## With a p-value of 0.04!
-```
-
-Another thing I want to briefly mention was already hinted at, when I talked
-about graphics devices.
-
-### SVGs
-
-Generally, there are those devices that produce pixel graphics where the
-information is stored as color values of the pixels.
-These are called raster devices. `ragg`, which I showed you
-last week, provides some of them. When you zoom into raster images,
-you can see the texts and shapes getting pixely or blurry. Another way to store
-information about graphs is to write a mathematical description of the lines and
-other shapes in the plot, which will then be interpreted by the program with
-which you open the vector graphic. Let me show you the most popular one called
-**Scalable Vector Graphics** (svg).
-
-
-```r
-example <- ggplot(mtcars, aes(disp, mpg)) +
-  geom_point() +
-  labs(title = "Placeholder Title")
-
-ggsave("results/plots/example.svg", example)
-```
-
-If you get `Error in loadNamespace(name) : there is no package called ‘svglite’`
-you will have to install the mentioned package first.
-
-You can now open the svg file with e.g. your browser to preview it. Some image
-display software will also preview it. Notice, how you can zoom in without
-loosing clarity. However, the more points and shapes your plot has, the more you
-computer will have to work to preview it and the file gets bigger than a
-comparable pixel graphics like png.
-
-I am showing you svgs specifically, because it takes time to master all the
-intricacies of ggplot, for example to create annotation. And I don't want to
-leave the impression that everything **has** to be done with pure R. Sure, from
-a reproducibility standpoint, being able to replicate all your plots and even
-the complete research report via Rmarkdown at the press of a button is great and
-should be the ultimate goal. But no one ever started out as an expert. And
-connecting with tools you already know is an important step.
-
-So, for example, we could open up the svg file with the vector editor
-**inkscape**, which is also open source software, to add a different title and
-annotate some points.
-
-![](images/paste-A056063C.png)
-
-But a word of **Warning**: When you do this, there is nothing from preventing
-you to also modify, move or scale the actual datapoints and other important
-parts that are vital to convey the correct information. So be extra careful when
-you do this.
-
-### Best Practices
-
-Speaking of being careful. There is one rule I can give you
-to make your data analysis more secure:
-
-> **Your raw data is sacred!** Do not ever modify it or
-  save over it.
-
-This is even more important when,
-for example, using excel to preview a csv file.
-Under no circumstances should you hit the save button
-in excel when you are looking at the raw data.
-With approximately one-fifth of genomic research papers containing
-errors in the gene lists, because excel converted genes
-such as _SEPT2_ (Septin 2) into dates, you can see why [@ziemannGeneNameErrors2016].
-Biologists have since given up and renamed the genes that
-where commonly converted into dates... but the point still stands.
-This caution is of course also necessary when analyzing data
-with R, not just excel. When we read in the raw data and
-save a processed version, we create a new file, or even
-better, a new folder for it. A good convention for example
-would be do divide your data into a `raw` and `derived` folder.
-
-## Covariance, Correlation and Regression
-
-![Source: https://xkcd.com/552/](images/correlation.png)
-
-Last week, we talked about a measure of the spread of a
-random variable called the **variance**.
-
-$$var(X) = \frac{\sum_{i=0}^{n}{(x_i-\bar x)^2}}{(n-1)}$$
-
-Today, we are extending this idea to 2 random variables.
-Because the normal distribution is so common, we are using
-two normally distributed variables.
-For the fun of it, they will have different means and
-standard deviations (remember: SD is the square-root of the variance).
-
-
-```r
-N <- 50
-df <- tibble(
-  x = rnorm(N, 1, 0.8),
-  y = rnorm(N, 3, 1.2)
-)
-
-m_x <- mean(df$x)
-m_y <- mean(df$y)
-
-ggplot(df, aes(x, y)) +
-  geom_vline(xintercept = m_x, alpha = 0.8, color = "darkviolet") +
-  geom_hline(yintercept = m_y, alpha = 0.8, color = "darkviolet") +
-  geom_point() 
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-196-1.png" width="100%" />
-
-We also added lines for the
-means of the two random
-variables. Maybe I should have mentioned
-this more clearly earlier on,
-but the general convention in statistics is that random variables
-are uppercase and concrete values from the distribution have the
-same letter but lowercase.
-
-We now get the **covariance** of X and Y as:
-
-$$cov(X,Y)=\text{E}\left[(X-\text{E}\left[X\right])(Y-\text{E}\left[Y\right])\right]$$
-
-The expected value $E[X]$ is just a fancy way of saying
-the mean of X.
-If we asses the contribution of individual points towards the
-covariance, we can understand it quite intuitively.
-A point that has a higher x than the mean of X and a higher
-y than the mean of Y (top right quadrant) will push the covariance towards
-positive values. Likewise, a point in the bottom left quadrant
-will have negative differences with the X and Y mean, which cancel
-each other out to result in a positive covariance.
-The bottom right and top left quadrants push towards a negative
-covariance. A mix of positive and negative contributions will
-result in a covariance with a small absolute value.
-
-The covariance has one problem: It will have weird units
-(X times Y) and the scale is different depending on the random
-variables.
-So what we do is standardize it by dividing by both standard
-deviations and get the **correlation coefficient**:
-
-$$corr(X,Y)=\frac{cov(X,Y)}{\sigma_{X}\sigma_{Y}}$$
-
-It can assume values between -1 and 1. It's full name is
-_Pearson product-moment correlation coefficient_, or
-_pearsons R_. We can square it to get $R^2$ (obviously),
-which indicates the strength of the correlation with
-values between 0 and 1 independent of the direction.
-We will meet it again later.
-
-Let us apply our knowledge to a new dataset.
-
-### Introducing the Dataset
-
-The `dplyr` package includes and example dataset of Star Wars
-characters. Unfortunately, it was created a while ago,
-so the is no baby yoda, but 87 other characters are present.
-
-![I guess it is the baby yoda show now.](images/baby_yoda.gif)
-
-
-
-```r
-starwars
-```
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["name"],"name":[1],"type":["chr"],"align":["left"]},{"label":["height"],"name":[2],"type":["int"],"align":["right"]},{"label":["mass"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hair_color"],"name":[4],"type":["chr"],"align":["left"]},{"label":["skin_color"],"name":[5],"type":["chr"],"align":["left"]},{"label":["eye_color"],"name":[6],"type":["chr"],"align":["left"]},{"label":["birth_year"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["sex"],"name":[8],"type":["chr"],"align":["left"]},{"label":["gender"],"name":[9],"type":["chr"],"align":["left"]},{"label":["homeworld"],"name":[10],"type":["chr"],"align":["left"]},{"label":["species"],"name":[11],"type":["chr"],"align":["left"]},{"label":["films"],"name":[12],"type":["list"],"align":["right"]},{"label":["vehicles"],"name":[13],"type":["list"],"align":["right"]},{"label":["starships"],"name":[14],"type":["list"],"align":["right"]}],"data":[{"1":"Luke Skywalker","2":"172","3":"77.0","4":"blond","5":"fair","6":"blue","7":"19.0","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [5]>","13":"<chr [2]>","14":"<chr [2]>"},{"1":"C-3PO","2":"167","3":"75.0","4":"NA","5":"gold","6":"yellow","7":"112.0","8":"none","9":"masculine","10":"Tatooine","11":"Droid","12":"<chr [6]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"R2-D2","2":"96","3":"32.0","4":"NA","5":"white, blue","6":"red","7":"33.0","8":"none","9":"masculine","10":"Naboo","11":"Droid","12":"<chr [7]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Darth Vader","2":"202","3":"136.0","4":"none","5":"white","6":"yellow","7":"41.9","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [4]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Leia Organa","2":"150","3":"49.0","4":"brown","5":"light","6":"brown","7":"19.0","8":"female","9":"feminine","10":"Alderaan","11":"Human","12":"<chr [5]>","13":"<chr [1]>","14":"<chr [0]>"},{"1":"Owen Lars","2":"178","3":"120.0","4":"brown, grey","5":"light","6":"blue","7":"52.0","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Beru Whitesun lars","2":"165","3":"75.0","4":"brown","5":"light","6":"blue","7":"47.0","8":"female","9":"feminine","10":"Tatooine","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"R5-D4","2":"97","3":"32.0","4":"NA","5":"white, red","6":"red","7":"NA","8":"none","9":"masculine","10":"Tatooine","11":"Droid","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Biggs Darklighter","2":"183","3":"84.0","4":"black","5":"light","6":"brown","7":"24.0","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Obi-Wan Kenobi","2":"182","3":"77.0","4":"auburn, white","5":"fair","6":"blue-gray","7":"57.0","8":"male","9":"masculine","10":"Stewjon","11":"Human","12":"<chr [6]>","13":"<chr [1]>","14":"<chr [5]>"},{"1":"Anakin Skywalker","2":"188","3":"84.0","4":"blond","5":"fair","6":"blue","7":"41.9","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [3]>","13":"<chr [2]>","14":"<chr [3]>"},{"1":"Wilhuff Tarkin","2":"180","3":"NA","4":"auburn, grey","5":"fair","6":"blue","7":"64.0","8":"male","9":"masculine","10":"Eriadu","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Chewbacca","2":"228","3":"112.0","4":"brown","5":"unknown","6":"blue","7":"200.0","8":"male","9":"masculine","10":"Kashyyyk","11":"Wookiee","12":"<chr [5]>","13":"<chr [1]>","14":"<chr [2]>"},{"1":"Han Solo","2":"180","3":"80.0","4":"brown","5":"fair","6":"brown","7":"29.0","8":"male","9":"masculine","10":"Corellia","11":"Human","12":"<chr [4]>","13":"<chr [0]>","14":"<chr [2]>"},{"1":"Greedo","2":"173","3":"74.0","4":"NA","5":"green","6":"black","7":"44.0","8":"male","9":"masculine","10":"Rodia","11":"Rodian","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Jabba Desilijic Tiure","2":"175","3":"1358.0","4":"NA","5":"green-tan, brown","6":"orange","7":"600.0","8":"hermaphroditic","9":"masculine","10":"Nal Hutta","11":"Hutt","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Wedge Antilles","2":"170","3":"77.0","4":"brown","5":"fair","6":"hazel","7":"21.0","8":"male","9":"masculine","10":"Corellia","11":"Human","12":"<chr [3]>","13":"<chr [1]>","14":"<chr [1]>"},{"1":"Jek Tono Porkins","2":"180","3":"110.0","4":"brown","5":"fair","6":"blue","7":"NA","8":"male","9":"masculine","10":"Bestine IV","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Yoda","2":"66","3":"17.0","4":"white","5":"green","6":"brown","7":"896.0","8":"male","9":"masculine","10":"NA","11":"Yoda's species","12":"<chr [5]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Palpatine","2":"170","3":"75.0","4":"grey","5":"pale","6":"yellow","7":"82.0","8":"male","9":"masculine","10":"Naboo","11":"Human","12":"<chr [5]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Boba Fett","2":"183","3":"78.2","4":"black","5":"fair","6":"brown","7":"31.5","8":"male","9":"masculine","10":"Kamino","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"IG-88","2":"200","3":"140.0","4":"none","5":"metal","6":"red","7":"15.0","8":"none","9":"masculine","10":"NA","11":"Droid","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Bossk","2":"190","3":"113.0","4":"none","5":"green","6":"red","7":"53.0","8":"male","9":"masculine","10":"Trandosha","11":"Trandoshan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Lando Calrissian","2":"177","3":"79.0","4":"black","5":"dark","6":"brown","7":"31.0","8":"male","9":"masculine","10":"Socorro","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Lobot","2":"175","3":"79.0","4":"none","5":"light","6":"blue","7":"37.0","8":"male","9":"masculine","10":"Bespin","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ackbar","2":"180","3":"83.0","4":"none","5":"brown mottle","6":"orange","7":"41.0","8":"male","9":"masculine","10":"Mon Cala","11":"Mon Calamari","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Mon Mothma","2":"150","3":"NA","4":"auburn","5":"fair","6":"blue","7":"48.0","8":"female","9":"feminine","10":"Chandrila","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Arvel Crynyd","2":"NA","3":"NA","4":"brown","5":"fair","6":"brown","7":"NA","8":"male","9":"masculine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Wicket Systri Warrick","2":"88","3":"20.0","4":"brown","5":"brown","6":"brown","7":"8.0","8":"male","9":"masculine","10":"Endor","11":"Ewok","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Nien Nunb","2":"160","3":"68.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"masculine","10":"Sullust","11":"Sullustan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Qui-Gon Jinn","2":"193","3":"89.0","4":"brown","5":"fair","6":"blue","7":"92.0","8":"male","9":"masculine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [1]>","14":"<chr [0]>"},{"1":"Nute Gunray","2":"191","3":"90.0","4":"none","5":"mottled green","6":"red","7":"NA","8":"male","9":"masculine","10":"Cato Neimoidia","11":"Neimodian","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Finis Valorum","2":"170","3":"NA","4":"blond","5":"fair","6":"blue","7":"91.0","8":"male","9":"masculine","10":"Coruscant","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Jar Jar Binks","2":"196","3":"66.0","4":"none","5":"orange","6":"orange","7":"52.0","8":"male","9":"masculine","10":"Naboo","11":"Gungan","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Roos Tarpals","2":"224","3":"82.0","4":"none","5":"grey","6":"orange","7":"NA","8":"male","9":"masculine","10":"Naboo","11":"Gungan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Rugor Nass","2":"206","3":"NA","4":"none","5":"green","6":"orange","7":"NA","8":"male","9":"masculine","10":"Naboo","11":"Gungan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ric Olié","2":"183","3":"NA","4":"brown","5":"fair","6":"blue","7":"NA","8":"NA","9":"NA","10":"Naboo","11":"NA","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Watto","2":"137","3":"NA","4":"black","5":"blue, grey","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Toydaria","11":"Toydarian","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Sebulba","2":"112","3":"40.0","4":"none","5":"grey, red","6":"orange","7":"NA","8":"male","9":"masculine","10":"Malastare","11":"Dug","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Quarsh Panaka","2":"183","3":"NA","4":"black","5":"dark","6":"brown","7":"62.0","8":"NA","9":"NA","10":"Naboo","11":"NA","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Shmi Skywalker","2":"163","3":"NA","4":"black","5":"fair","6":"brown","7":"72.0","8":"female","9":"feminine","10":"Tatooine","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Darth Maul","2":"175","3":"80.0","4":"none","5":"red","6":"yellow","7":"54.0","8":"male","9":"masculine","10":"Dathomir","11":"Zabrak","12":"<chr [1]>","13":"<chr [1]>","14":"<chr [1]>"},{"1":"Bib Fortuna","2":"180","3":"NA","4":"none","5":"pale","6":"pink","7":"NA","8":"male","9":"masculine","10":"Ryloth","11":"Twi'lek","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ayla Secura","2":"178","3":"55.0","4":"none","5":"blue","6":"hazel","7":"48.0","8":"female","9":"feminine","10":"Ryloth","11":"Twi'lek","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Dud Bolt","2":"94","3":"45.0","4":"none","5":"blue, grey","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Vulpter","11":"Vulptereen","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Gasgano","2":"122","3":"NA","4":"none","5":"white, blue","6":"black","7":"NA","8":"male","9":"masculine","10":"Troiken","11":"Xexto","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ben Quadinaros","2":"163","3":"65.0","4":"none","5":"grey, green, yellow","6":"orange","7":"NA","8":"male","9":"masculine","10":"Tund","11":"Toong","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Mace Windu","2":"188","3":"84.0","4":"none","5":"dark","6":"brown","7":"72.0","8":"male","9":"masculine","10":"Haruun Kal","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ki-Adi-Mundi","2":"198","3":"82.0","4":"white","5":"pale","6":"yellow","7":"92.0","8":"male","9":"masculine","10":"Cerea","11":"Cerean","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Kit Fisto","2":"196","3":"87.0","4":"none","5":"green","6":"black","7":"NA","8":"male","9":"masculine","10":"Glee Anselm","11":"Nautolan","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Eeth Koth","2":"171","3":"NA","4":"black","5":"brown","6":"brown","7":"NA","8":"male","9":"masculine","10":"Iridonia","11":"Zabrak","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Adi Gallia","2":"184","3":"50.0","4":"none","5":"dark","6":"blue","7":"NA","8":"female","9":"feminine","10":"Coruscant","11":"Tholothian","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Saesee Tiin","2":"188","3":"NA","4":"none","5":"pale","6":"orange","7":"NA","8":"male","9":"masculine","10":"Iktotch","11":"Iktotchi","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Yarael Poof","2":"264","3":"NA","4":"none","5":"white","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Quermia","11":"Quermian","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Plo Koon","2":"188","3":"80.0","4":"none","5":"orange","6":"black","7":"22.0","8":"male","9":"masculine","10":"Dorin","11":"Kel Dor","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Mas Amedda","2":"196","3":"NA","4":"none","5":"blue","6":"blue","7":"NA","8":"male","9":"masculine","10":"Champala","11":"Chagrian","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Gregar Typho","2":"185","3":"85.0","4":"black","5":"dark","6":"brown","7":"NA","8":"male","9":"masculine","10":"Naboo","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"Cordé","2":"157","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"female","9":"feminine","10":"Naboo","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Cliegg Lars","2":"183","3":"NA","4":"brown","5":"fair","6":"blue","7":"82.0","8":"male","9":"masculine","10":"Tatooine","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Poggle the Lesser","2":"183","3":"80.0","4":"none","5":"green","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Geonosis","11":"Geonosian","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Luminara Unduli","2":"170","3":"56.2","4":"black","5":"yellow","6":"blue","7":"58.0","8":"female","9":"feminine","10":"Mirial","11":"Mirialan","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Barriss Offee","2":"166","3":"50.0","4":"black","5":"yellow","6":"blue","7":"40.0","8":"female","9":"feminine","10":"Mirial","11":"Mirialan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Dormé","2":"165","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"female","9":"feminine","10":"Naboo","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Dooku","2":"193","3":"80.0","4":"white","5":"fair","6":"brown","7":"102.0","8":"male","9":"masculine","10":"Serenno","11":"Human","12":"<chr [2]>","13":"<chr [1]>","14":"<chr [0]>"},{"1":"Bail Prestor Organa","2":"191","3":"NA","4":"black","5":"tan","6":"brown","7":"67.0","8":"male","9":"masculine","10":"Alderaan","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Jango Fett","2":"183","3":"79.0","4":"black","5":"tan","6":"brown","7":"66.0","8":"male","9":"masculine","10":"Concord Dawn","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Zam Wesell","2":"168","3":"55.0","4":"blonde","5":"fair, green, yellow","6":"yellow","7":"NA","8":"female","9":"feminine","10":"Zolan","11":"Clawdite","12":"<chr [1]>","13":"<chr [1]>","14":"<chr [0]>"},{"1":"Dexter Jettster","2":"198","3":"102.0","4":"none","5":"brown","6":"yellow","7":"NA","8":"male","9":"masculine","10":"Ojom","11":"Besalisk","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Lama Su","2":"229","3":"88.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"masculine","10":"Kamino","11":"Kaminoan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Taun We","2":"213","3":"NA","4":"none","5":"grey","6":"black","7":"NA","8":"female","9":"feminine","10":"Kamino","11":"Kaminoan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Jocasta Nu","2":"167","3":"NA","4":"white","5":"fair","6":"blue","7":"NA","8":"female","9":"feminine","10":"Coruscant","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Ratts Tyerell","2":"79","3":"15.0","4":"none","5":"grey, blue","6":"unknown","7":"NA","8":"male","9":"masculine","10":"Aleen Minor","11":"Aleena","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"R4-P17","2":"96","3":"NA","4":"none","5":"silver, red","6":"red, blue","7":"NA","8":"none","9":"feminine","10":"NA","11":"Droid","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Wat Tambor","2":"193","3":"48.0","4":"none","5":"green, grey","6":"unknown","7":"NA","8":"male","9":"masculine","10":"Skako","11":"Skakoan","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"San Hill","2":"191","3":"NA","4":"none","5":"grey","6":"gold","7":"NA","8":"male","9":"masculine","10":"Muunilinst","11":"Muun","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Shaak Ti","2":"178","3":"57.0","4":"none","5":"red, blue, white","6":"black","7":"NA","8":"female","9":"feminine","10":"Shili","11":"Togruta","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Grievous","2":"216","3":"159.0","4":"none","5":"brown, white","6":"green, yellow","7":"NA","8":"male","9":"masculine","10":"Kalee","11":"Kaleesh","12":"<chr [1]>","13":"<chr [1]>","14":"<chr [1]>"},{"1":"Tarfful","2":"234","3":"136.0","4":"brown","5":"brown","6":"blue","7":"NA","8":"male","9":"masculine","10":"Kashyyyk","11":"Wookiee","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Raymus Antilles","2":"188","3":"79.0","4":"brown","5":"light","6":"brown","7":"NA","8":"male","9":"masculine","10":"Alderaan","11":"Human","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Sly Moore","2":"178","3":"48.0","4":"none","5":"pale","6":"white","7":"NA","8":"NA","9":"NA","10":"Umbara","11":"NA","12":"<chr [2]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Tion Medon","2":"206","3":"80.0","4":"none","5":"grey","6":"black","7":"NA","8":"male","9":"masculine","10":"Utapau","11":"Pau'an","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Finn","2":"NA","3":"NA","4":"black","5":"dark","6":"dark","7":"NA","8":"male","9":"masculine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Rey","2":"NA","3":"NA","4":"brown","5":"light","6":"hazel","7":"NA","8":"female","9":"feminine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Poe Dameron","2":"NA","3":"NA","4":"brown","5":"light","6":"brown","7":"NA","8":"male","9":"masculine","10":"NA","11":"Human","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [1]>"},{"1":"BB8","2":"NA","3":"NA","4":"none","5":"none","6":"black","7":"NA","8":"none","9":"masculine","10":"NA","11":"Droid","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Captain Phasma","2":"NA","3":"NA","4":"unknown","5":"unknown","6":"unknown","7":"NA","8":"NA","9":"NA","10":"NA","11":"NA","12":"<chr [1]>","13":"<chr [0]>","14":"<chr [0]>"},{"1":"Padmé Amidala","2":"165","3":"45.0","4":"brown","5":"light","6":"brown","7":"46.0","8":"female","9":"feminine","10":"Naboo","11":"Human","12":"<chr [3]>","13":"<chr [0]>","14":"<chr [3]>"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<!-- ::: {.video-container} -->
+<!-- <iframe class="video" src="https://www.youtube.com/embed/VYLAxbt9Izk" allowfullscreen></iframe> -->
+<!-- ::: -->
+<div id="data-considerations" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> Data Considerations<a class="anchor" aria-label="anchor" href="#data-considerations"><i class="fas fa-link"></i></a>
+</h2>
+<div id="section" class="section level3" number="7.1.1">
+<h3>
+<span class="header-section-number">7.1.1</span> 1943<a class="anchor" aria-label="anchor" href="#section"><i class="fas fa-link"></i></a>
+</h3>
 </div>
-
-Let's look at some correlations:
-
-### Pearson vs. Spearman (not a Boxing Match)
-
-To compute pearsons correlation, we use the `cor` function in R.
-Instead of filtering out `NA` values beforehand,
-which would result in a correlation of `NA`, we can use
-`use = "complete.obs"` to ignore the `NA` is in the computation.
-
-
-```r
-pearson <- cor(starwars$mass, starwars$height, use = "complete.obs")
-pearson
-```
-
-```
-## [1] 0.1338842
-```
-
-There is another way we can specify which features to correlate.
-`corr` also takes a matrix or data frame as it's x argument instead
-of x and y:
-
-
-```r
-corr_matrix <- cor(starwars[c("mass", "height")], use = "complete.obs")
-corr_matrix
-```
-
-```
-##             mass    height
-## mass   1.0000000 0.1338842
-## height 0.1338842 1.0000000
-```
-
-This is known as a correlation matrix, and we can create it for
-more than two features, as long as all features are numeric
-(after all, what is the correlation between 1,4 and "cat" "dog"?).
-If you need this for your analysis, it will be handy to know
-how to convert this  matrix to a tibble:
-
-
-```r
-as_tibble(corr_matrix)
-```
-
-```
-## # A tibble: 2 × 2
-##    mass height
-##   <dbl>  <dbl>
-## 1 1      0.134
-## 2 0.134  1
-```
-
-Looses the information about the rownames, because tibbles
-have no rownames. However, we can tell `as_tibble` to create
-a new column out of what previously where rownames.
-
-
-```r
-as_tibble(corr_matrix, rownames = "feature1")
-```
-
-```
-## # A tibble: 2 × 3
-##   feature1  mass height
-##   <chr>    <dbl>  <dbl>
-## 1 mass     1      0.134
-## 2 height   0.134  1
-```
-
-Now we could even turn it into a tidy format to make a heatmap:
-
-
-```r
-as_tibble(corr_matrix, rownames = "feature1") %>% 
-  pivot_longer(-feature1, names_to = "feature2", values_to = "corr") %>% 
-  ggplot(aes(feature1, feature2, fill = corr, label = corr)) +
-  geom_raster() +
-  geom_text(color = "white")
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-203-1.png" width="100%" />
-
-If you are working a log with correlations, it is certainly
-worth checking out the `corrr` package from the tidymodels framework:
-<https://corrr.tidymodels.org/>
-
-Apart from `cor`, there is also `cor.test`, which gives more information. 
-
-
-```r
-cor_test <- cor.test(starwars$mass, starwars$height, use = "complete.obs")
-cor_test
-```
-
-```
-## 
-##  Pearson's product-moment correlation
-## 
-## data:  starwars$mass and starwars$height
-## t = 1.02, df = 57, p-value = 0.312
-## alternative hypothesis: true correlation is not equal to 0
-## 95 percent confidence interval:
-##  -0.1265364  0.3770395
-## sample estimates:
-##       cor 
-## 0.1338842
-```
-
-If we so fancy, we can use `broom` to turn the test output into
-a tidy format as well:
-
-
-```r
-broom::tidy(cor_test)
-```
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["estimate"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["statistic"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["p.value"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["parameter"],"name":[4],"type":["int"],"align":["right"]},{"label":["conf.low"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["conf.high"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["method"],"name":[7],"type":["chr"],"align":["left"]},{"label":["alternative"],"name":[8],"type":["chr"],"align":["left"]}],"data":[{"1":"0.1338842","2":"1.019986","3":"0.3120447","4":"57","5":"-0.1265364","6":"0.3770395","7":"Pearson's product-moment correlation","8":"two.sided","_row":"cor"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div id="the-story-of-abraham-wald" class="section level3" number="7.1.2">
+<h3>
+<span class="header-section-number">7.1.2</span> The Story of Abraham Wald<a class="anchor" aria-label="anchor" href="#the-story-of-abraham-wald"><i class="fas fa-link"></i></a>
+</h3>
 </div>
-
-When I first did this I was surprised that the correlation was so
-low. We are after all talking about height and mass, which
-I assumed to be highly correlated.
-Let us look at the data to see what is going on.
-
-
-```r
-label_text <- glue("Pearson correlation: {round(pearson, 2)}")
-
-jabba <- filter(starwars, str_detect(name, "Jabba"))
-jabba_text <- list(x = 1100, y = 120)
-
-starwars %>% 
-  ggplot(aes(mass, height)) +
-  geom_point() +
-  annotate(geom = "text", x = 500, y = 75, label = label_text,
-           hjust = 0) +
-  annotate(geom = "curve",
-           x = jabba_text$x, y = jabba_text$y,
-           xend = jabba$mass, yend = jabba$height,
-           curvature = .3,
-           arrow = arrow(length = unit(2, "mm"))) +
-  annotate(geom = "text",
-           x = jabba_text$x,
-           y = jabba_text$y, label = "Jabba the Hutt",
-           hjust = 1.1) +
-  xlim(0, 1500) +
-  labs(x = "mass [kg]",
-       y = "height [cm]")
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-207-1.png" width="100%" />
-
-This is the culprit! We have a massive outlier,
-in all senses of the word "massive". At this point
-it is fair to say, Jabba the Hutt could use some workout
-to loose weight.
-Luckily, there is another method to asses correlation.
-Spearman's method is more resistant to outliers,
-because the data is transformed into ranks first,
-which negates the massive effect of outliers.
-Visually, this is what the points look like
-after rank transformation:
-
-
-```r
-spearman <- cor(starwars$mass, starwars$height,
-                method = "spearman",
-                use = "complete.obs")
-
-label_text <- glue("Spearman rank correlation: {round(spearman, 2)}")
-
-starwars %>% 
-  mutate(mass = rank(mass),
-         height = rank(height)) %>% 
-  ggplot(aes(mass, height)) +
-  geom_point() +
-  annotate(geom = "text", x = 0, y = 75, label = label_text,
-           hjust = 0) +
-  labs(x = "rank(mass)",
-       y = "rank(height)")
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-208-1.png" width="100%" />
-
-### Linear Regression
-
-Finally, linear regression is
-a related concept, because both correlation and
-linear regression quantify the strength of a linear
-relationship. However, there are key differences.
-When we fit a linear model like `y ~ a + b * x`,
-there is no error in x. We assume x is something that
-is fixed, like the temperature we set for an experiment
-or the dosage we used. Y on the other hand is a random
-variable. In `cov(X,Y)` and `cor(X,Y)`, X and Y are both random variables,
-usually things we observed, not set ourselves.
-
-While the correlation coefficient is symmetrical and translation-scale-invariant,
-meaning $corr(X,Y)=corr(Y,X)$ and $corr(X,Y)=corr(X * a +b,Y * c + d)$,
-linear models are not!
-
-In the `data` folder we find the IMDB ratings for 10
-Star Wars movies (plus more features). 
-
-
-```r
-starwars_movies <- read_rds("data/07/starwars_movies.rds")
-starwars_movies
-```
-
-```
-## # A tibble: 10 × 25
-##    Title  Rated Released   Runtime Genre  Director  Writer Actors Plot  Language
-##    <chr>  <chr> <date>     <chr>   <chr>  <chr>     <chr>  <chr>  <chr> <chr>   
-##  1 Star … PG    1977-05-25 121 min Actio… George L… Georg… Mark … Luke… English 
-##  2 Star … PG    1980-06-20 124 min Actio… Irvin Ke… Leigh… Mark … Afte… English 
-##  3 Star … PG    1983-05-25 131 min Actio… Richard … Lawre… Mark … Afte… English 
-##  4 Star … PG-13 2015-12-18 138 min Actio… J.J. Abr… Lawre… Harri… As a… English 
-##  5 Star … PG    1999-05-19 136 min Actio… George L… Georg… Liam … Two … English 
-##  6 Star … PG-13 2005-05-19 140 min Actio… George L… Georg… Ewan … Thre… English 
-##  7 Star … PG    2002-05-16 142 min Actio… George L… Georg… Ewan … Ten … English 
-##  8 Star … PG-13 2017-12-15 152 min Actio… Rian Joh… Rian … Mark … Rey … English 
-##  9 Rogue… PG-13 2016-12-16 133 min Actio… Gareth E… Chris… Felic… The … English 
-## 10 Star … PG-13 2019-12-20 141 min Actio… J.J. Abr… Chris… Carri… The … English 
-## # … with 15 more variables: Country <chr>, Awards <chr>, Poster <chr>,
-## #   Ratings <list>, Metascore <chr>, imdbRating <dbl>, imdbVotes <dbl>,
-## #   imdbID <chr>, Type <chr>, DVD <date>, BoxOffice <chr>, Production <chr>,
-## #   Website <chr>, Response <chr>, year <dbl>
-```
-
-We can fit a linear model to see if the production year
-has an effect on the rating.
-
-
-```r
-model <- lm(imdbRating ~ year, data = starwars_movies)
-
-broom::augment(model) %>%
-  ggplot(aes(year, imdbRating)) +
-  geom_smooth(method = "lm", alpha = 0.3, color = "darkviolet") +
-  geom_point() +
-  geom_segment(aes(x = year, y = .fitted,
-                   xend = year, yend = imdbRating),
-               alpha = 0.4)
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-210-1.png" width="100%" />
-
-What I added here as gray segments are the so called **residuals**.
-They are what makes linear regression work.
-It's full name is **Ordinary Least Squares** and the squares in
-question are the squares of these residuals, the word _least_
-indicates that these squares are minimized in order to find the
-best fit line.
-
-> I am yet to encounter _Extraordinary_ Least Squares
-  but I am sure someone in machine learning will soon
-  need more words to fuel the hype and it will become a thing.
-
-
-```r
-broom::tidy(model)
-```
-
-```
-## # A tibble: 2 × 5
-##   term        estimate std.error statistic p.value
-##   <chr>          <dbl>     <dbl>     <dbl>   <dbl>
-## 1 (Intercept)  74.7      28.9         2.59  0.0322
-## 2 year         -0.0335    0.0144     -2.33  0.0484
-```
-
-Looks like every year decreases the estimated rating by 0.03.
-
-One thing however is the same between correlation and
-linear regression, and that is the $R^2$ value we get
-from both calculations:
-
-
-```r
-summary(model)
-```
-
-```
-## 
-## Call:
-## lm(formula = imdbRating ~ year, data = starwars_movies)
-## 
-## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -1.1171 -0.2631  0.1152  0.3955  0.8195 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)  
-## (Intercept) 74.65951   28.85148   2.588   0.0322 *
-## year        -0.03354    0.01442  -2.326   0.0484 *
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.7006 on 8 degrees of freedom
-## Multiple R-squared:  0.4035, Adjusted R-squared:  0.329 
-## F-statistic: 5.412 on 1 and 8 DF,  p-value: 0.04843
-```
-
-We can interpret $R^2$ as the fraction of the variance of
-the response variable y that can be explained by the
-predictor x.
-
-## Non-linear Least Squares
-
-So far, we only properly dealt with linear relationships
-and now it is time to get non-linear.
-We will be creating a mechanistically driven
-predictive model, so we have a formula of which
-we want to adjust the parameters so that it fits our data.
-
-Let's take classical Michaelis-Menten-Kinetics
-There is a dataset for enzyme reaction rates included in R.
-But we convert it from a 
-dataframe to a tibble so that it prints
-nicer:
-
-
-```r
-as_tibble(Puromycin)
-```
-
-```
-## # A tibble: 23 × 3
-##     conc  rate state  
-##    <dbl> <dbl> <fct>  
-##  1  0.02    76 treated
-##  2  0.02    47 treated
-##  3  0.06    97 treated
-##  4  0.06   107 treated
-##  5  0.11   123 treated
-##  6  0.11   139 treated
-##  7  0.22   159 treated
-##  8  0.22   152 treated
-##  9  0.56   191 treated
-## 10  0.56   201 treated
-## # … with 13 more rows
-```
-
-The initial rate $v_0$ of the an
-enzymatic reaction was measured
-for a control and a sample treated
-with puromycin at different substrate
-concentrations.
-For every concentration we
-have two replicates except for
-one missing replicate.
-We can make this explicit so
-that we can keep track of the replicates:
-
-
-```r
-puro <- as_tibble(Puromycin) %>% 
-  group_by(conc, state) %>% 
-  mutate(rep = 1:n()) %>% 
-  ungroup()
-```
-
-Now we can plot the individual curves.
-
-
-```r
-puro %>% 
-  ggplot(aes(conc, rate,
-             group = paste(rep, state),
-             color = state)) +
-  geom_line() +
-  geom_point()
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-215-1.png" width="100%" />
-
-From our Biochemistry studies, we know
-that we can express the rate depending
-on the concentration with the following
-formula:
-
-$$rate=\frac{(Vm * conc)}{(K + conc)}$$
-
-To make it easier to work with, let's
-turn it into a function:
-
-
-```r
-rate <- function(conc, Vm, K) {
-  (Vm * conc) / (K + conc)
-}
-```
-
-Let's pick some arbitrary starting values.
-For example, we see that the maximal velocity
-could be around 200.
-We also know that K is the concentration at which the half-maximal
-velocity is reached.
-
-
-```r
-puro %>% 
-  ggplot(aes(conc, rate,
-             color = state)) +
-  geom_line(aes(group = paste(rep, state))) +
-  geom_point() +
-  geom_function(fun = ~ rate(conc = .x, Vm = 200, K = 0.2),
-                color = "black")
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-217-1.png" width="100%" />
-
-`geom_function` expects a function of x or an anonymous function
-where the first argument is the values on the x-axis,
-so this is what we did.
-Well, I bet we can do better than guessing the function!
-What R can do for us is the same it did for linear least squares
-and that is minimizing the distance of our curve to the
-datapoints.
-This is the job of the `nls` function, which stands for
-**Nonlinear Least Squares**.
-
-
-```r
-model <- nls(rate ~ rate(conc, Vm, K),
-    data = puro,
-    subset = state == "treated",
-    start = list(K = 0.1, Vm = 200))
-
-model
-```
-
-```
-## Nonlinear regression model
-##   model: rate ~ rate(conc, Vm, K)
-##    data: puro
-##         K        Vm 
-##   0.06412 212.68363 
-##  residual sum-of-squares: 1195
-## 
-## Number of iterations to convergence: 6 
-## Achieved convergence tolerance: 6.108e-06
-```
-
-NlS needs starting values, so we use any guess that isn't too far off.
-If it is completely wrong, the model doesn't know in which direction it
-should move the parameters to improve the fit and we get an error like this:
-`Error in nls(rate ~ rate(conc, Vm, K), data = puro, subset = state ==  : singular gradient`
-
-> For this special case, R also has a self-starting model. I won't go
-  into it because it is not as useful as the general concept of fitting
-  arbitry functions, but you can check out `SSmicmen` for a model that
-  estimes the starting values automatically.
-
-Additionally, `nls` takes an argument `subset`, which works
-just like the `dplyr` verb `filter` so that we can fit
-the model on a subset of the data without having to create it beforehand.
-
-There are now multiple ways of displaying our model.
-With `broom::augments` we can add the predictions to
-the original data (which is just the treated state):
-
-
-```r
-broom::augment(model) %>% 
-  ggplot(aes(conc, rate)) +
-  geom_point() + 
-  geom_line(aes(y = .fitted))
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-219-1.png" width="100%" />
-
-But this has the obvious disadvantage of only adding
-a point (or a nick in the line) where we previously
-had datapoints. We have the parameters and the complete
-function, so we can calculate an arbitrary amount of values
-in between to make a smooth function.
-
-
-```r
-broom::tidy(model)
-```
-
-```
-## # A tibble: 2 × 5
-##   term  estimate std.error statistic  p.value
-##   <chr>    <dbl>     <dbl>     <dbl>    <dbl>
-## 1 K       0.0641   0.00828      7.74 1.57e- 5
-## 2 Vm    213.       6.95        30.6  3.24e-11
-```
-
-So  we could pull the estimates of K and Vm out with broom and
-then use them in our function.
-Or, we make use of the `predict` function.
-It takes a model and some new data and generates the predicions.
-If we don't give it new data, we just get predictions for the 
-data that we used to fit the model.
-
-
-```r
-predict(model)
-```
-
-```
-##  [1]  50.56606  50.56606 102.81102 102.81102 134.36165 134.36165 164.68470
-##  [8] 164.68470 190.83289 190.83289 200.96878 200.96878
-```
-
-
-```r
-predictions <- tibble(
-  conc = seq(0, 1, by = 0.01),
-  rate = predict(model, newdata = list(conc =  conc))
-)
-
-puro %>% 
-  filter(state == "treated") %>% 
-  ggplot(aes(conc, rate)) +
-  geom_point() +
-  geom_line(data = predictions, color = "darkviolet")
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-222-1.png" width="100%" />
-
-We can also use a combination of this and `geom_function`,
-which I think feel pretty natural once you are comfortable
-with writing functions on the fly.
-
-
-```r
-puro %>% 
-  filter(state == "treated") %>% 
-  ggplot(aes(conc, rate)) +
-  geom_point() +
-  geom_function(fun = ~ predict(model,
-                                newdata = list(conc = .x)),
-                color = "darkviolet")
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-223-1.png" width="100%" />
-
-Now, what if we want to fit the model for both states?
-We can resort back to our trusty `purrr` package like
-we did in an earlier lecture.
-
-
-```r
-puro_models <- puro %>% 
-  nest(data = c(-state)) %>% # updated to reflect new `nest` syntax
-  mutate(
-    model = map(data, ~ nls(rate ~ rate(conc, Vm, K), data = .x,
-                            start = list(Vm = 200, K = 0.1))),
-    tidy = map(model, broom::tidy),
-    glance = map(model, broom::glance)
-  )
-
-puro_models
-```
-
-```
-## # A tibble: 2 × 5
-##   state     data              model  tidy             glance          
-##   <fct>     <list>            <list> <list>           <list>          
-## 1 treated   <tibble [12 × 3]> <nls>  <tibble [2 × 5]> <tibble [1 × 9]>
-## 2 untreated <tibble [11 × 3]> <nls>  <tibble [2 × 5]> <tibble [1 × 9]>
-```
-
-Now we can inspect the estimated parameters with ease:
-
-
-```r
-puro_models %>% 
-  unnest(tidy)
-```
-
-```
-## # A tibble: 4 × 9
-##   state     data      model term  estimate std.error statistic  p.value glance  
-##   <fct>     <list>    <lis> <chr>    <dbl>     <dbl>     <dbl>    <dbl> <list>  
-## 1 treated   <tibble … <nls> Vm    213.       6.95        30.6  3.24e-11 <tibble…
-## 2 treated   <tibble … <nls> K       0.0641   0.00828      7.74 1.57e- 5 <tibble…
-## 3 untreated <tibble … <nls> Vm    160.       6.48        24.7  1.38e- 9 <tibble…
-## 4 untreated <tibble … <nls> K       0.0477   0.00778      6.13 1.73e- 4 <tibble…
-```
-
-And check how the models performed. Unfortunately, I can't
-get into these performance metrics because time is short.
-
-
-```r
-puro_models %>% 
-  unnest(glance)
-```
-
-```
-## # A tibble: 2 × 13
-##   state     data   model  tidy  sigma isConv  finTol logLik   AIC   BIC deviance
-##   <fct>     <list> <list> <lis> <dbl> <lgl>    <dbl>  <dbl> <dbl> <dbl>    <dbl>
-## 1 treated   <tibb… <nls>  <tib… 10.9  TRUE   6.09e-6  -44.6  95.3  96.7    1195.
-## 2 untreated <tibb… <nls>  <tib…  9.77 TRUE   2.31e-6  -39.6  85.2  86.4     860.
-## # … with 2 more variables: df.residual <int>, nobs <int>
-```
-
-Now, we could use the estimated parameters to or the
-models with `predict` to plot all (well, both) model
-fit lines over the original data, but there is an easier way.
-`geom_smooth` can take "nls" as a method as well, we
-just need to make sure to pass the correct arguments.
-And it can be confusing, because when we are specifying
-the formula in `geom_smooth`, it always needs to be 
-a formula of `y ~ x`, whereas in the normal `nls` we did
-earlier, we specified the variables in terms of their
-actual names (`rate` and `conc`).
-
-
-```r
-puro %>% 
-  ggplot(aes(conc, rate, color = state)) +
-  geom_point() +
-  geom_smooth(
-    method       = "nls",
-    formula      = y ~ rate(conc = x, Vm = Vm, K = K),
-    method.args  = list(start = list(Vm = 200, K = 0.1)),
-    se           = FALSE
-  )
-```
-
-<img src="dataintro_files/figure-html/unnamed-chunk-227-1.png" width="100%" />
-
-We also need `se = FALSE`, because by default R would
-try to plot a confidence interval around the fit-line
-like it did for the linear model, but `nls` doesn't return one,
-so we would get an error.
-
-The unfortunate thing about this method is that we end up
-fitting the model twice, once to get the estimated parameters
-and the likes for ourselves and a second time in ggplot
-to display the fitted lines. But in most cases this is not
-a problem, because the model is not very computationally expensive.
-
-## Exercises
-
-## The Datasaurus Dozen
-
-The Datasaurus Dozen [@matejka2017] is a dataset
-crafted to illustrate certain concepts.
-It can be accessed from R via the `datasauRus` package.
-
-
-```r
-datasauRus::datasaurus_dozen
-```
-
-- Explore the dataset before looking at the publication
-  above (it contains spoilers...):
-  - It actually contains 13 different datasets,
-    denoted by the column `dataset`, in one tibble.
-    What are the means for x and y for the different datasets?
-    What are the standard deviations for x and y for the different datasets?
-    What are the correlations coefficients for the different datasets?
-    I bet you notice a pattern by now.
-  - Now create one (or multiple) scatterplots of the data.
-    What do you notice? what conclusions do you draw from this observation?
-    
-There is another dataset in the package to illustrate a different
-point:
-
-
-```r
-datasauRus::box_plots
-```
-
-- First, turn it into a tidy format, much like the `datasaurus_dozen`
-  tibble.
-- Now, visualize the distributions of the values for the
-  5 different groups. Try out different versions of your plot
-  until you are satisfied, but be sure to also include a boxplot
-  and compare it to your approaches.
-
-## Preparing for the Christmas Special
-
-- What datasets would you find interesting? Maybe you
-  already have some data you collected or maybe just an
-  idea (in the second case I might also do an episode
-  on getting data from the internet via webscarping),
-  or maybe there is a dataset in the tidytuesday repository
-  that speaks to you: <https://github.com/rfordatascience/tidytuesday>
-
-
--->
-
+<div id="thinking-further" class="section level3" number="7.1.3">
+<h3>
+<span class="header-section-number">7.1.3</span> Thinking further<a class="anchor" aria-label="anchor" href="#thinking-further"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="miscelaneous" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Miscelaneous<a class="anchor" aria-label="anchor" href="#miscelaneous"><i class="fas fa-link"></i></a>
+</h2>
+<div id="glue" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> Glue<a class="anchor" aria-label="anchor" href="#glue"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="svgs" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> SVGs<a class="anchor" aria-label="anchor" href="#svgs"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="best-practices" class="section level3" number="7.2.3">
+<h3>
+<span class="header-section-number">7.2.3</span> Best Practices<a class="anchor" aria-label="anchor" href="#best-practices"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="covariance-correlation-and-regression" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Covariance, Correlation and Regression<a class="anchor" aria-label="anchor" href="#covariance-correlation-and-regression"><i class="fas fa-link"></i></a>
+</h2>
+<div id="introducing-the-dataset" class="section level3" number="7.3.1">
+<h3>
+<span class="header-section-number">7.3.1</span> Introducing the Dataset<a class="anchor" aria-label="anchor" href="#introducing-the-dataset"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="pearson-vs.-spearman-not-a-boxing-match" class="section level3" number="7.3.2">
+<h3>
+<span class="header-section-number">7.3.2</span> Pearson vs. Spearman (not a Boxing Match)<a class="anchor" aria-label="anchor" href="#pearson-vs.-spearman-not-a-boxing-match"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="linear-regression" class="section level3" number="7.3.3">
+<h3>
+<span class="header-section-number">7.3.3</span> Linear Regression<a class="anchor" aria-label="anchor" href="#linear-regression"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="non-linear-least-squares" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Non-linear Least Squares<a class="anchor" aria-label="anchor" href="#non-linear-least-squares"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="exercises-6" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-6"><i class="fas fa-link"></i></a>
+</h2>
+<div id="the-datasaurus-dozen" class="section level3" number="7.5.1">
+<h3>
+<span class="header-section-number">7.5.1</span> The Datasaurus Dozen<a class="anchor" aria-label="anchor" href="#the-datasaurus-dozen"><i class="fas fa-link"></i></a>
+</h3>
+
+</div>
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="distributions.html"><span class="header-section-number">6</span> Distributions</a></div>
 <div class="next"><a href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#fallacies"><span class="header-section-number">7</span> Fallacies</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#fallacies"><span class="header-section-number">7</span> Fallacies</a></li>
+<li>
+<a class="nav-link" href="#data-considerations"><span class="header-section-number">7.1</span> Data Considerations</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#section"><span class="header-section-number">7.1.1</span> 1943</a></li>
+<li><a class="nav-link" href="#the-story-of-abraham-wald"><span class="header-section-number">7.1.2</span> The Story of Abraham Wald</a></li>
+<li><a class="nav-link" href="#thinking-further"><span class="header-section-number">7.1.3</span> Thinking further</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#miscelaneous"><span class="header-section-number">7.2</span> Miscelaneous</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#glue"><span class="header-section-number">7.2.1</span> Glue</a></li>
+<li><a class="nav-link" href="#svgs"><span class="header-section-number">7.2.2</span> SVGs</a></li>
+<li><a class="nav-link" href="#best-practices"><span class="header-section-number">7.2.3</span> Best Practices</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#covariance-correlation-and-regression"><span class="header-section-number">7.3</span> Covariance, Correlation and Regression</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introducing-the-dataset"><span class="header-section-number">7.3.1</span> Introducing the Dataset</a></li>
+<li><a class="nav-link" href="#pearson-vs.-spearman-not-a-boxing-match"><span class="header-section-number">7.3.2</span> Pearson vs. Spearman (not a Boxing Match)</a></li>
+<li><a class="nav-link" href="#linear-regression"><span class="header-section-number">7.3.3</span> Linear Regression</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#non-linear-least-squares"><span class="header-section-number">7.4</span> Non-linear Least Squares</a></li>
+<li>
+<a class="nav-link" href="#exercises-6"><span class="header-section-number">7.5</span> Exercises</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#the-datasaurus-dozen"><span class="header-section-number">7.5.1</span> The Datasaurus Dozen</a></li></ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -1102,7 +200,7 @@ datasauRus::box_plots
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-21.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-09-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

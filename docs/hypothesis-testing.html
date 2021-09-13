@@ -6,22 +6,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Lesson 5 Hypothesis Testing | Introduction to Data Analysis with R</title>
 <meta name="author" content="Jannik Buhr">
-<meta name="description" content="… in which we reason about the nature of randomness and discover various statistical tests.">
+<meta name="description" content="… in which we reason about the nature of randomness and discover various statistical tests.  These are just the notes for the lecture that will be filled during the recording. Check back later to...">
 <meta name="generator" content="bookdown 0.23.1 with bs4_book()">
 <meta property="og:title" content="Lesson 5 Hypothesis Testing | Introduction to Data Analysis with R">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://jmbuhr.de/dataintro/hypothesis-testing.html">
-<meta property="og:description" content="… in which we reason about the nature of randomness and discover various statistical tests.">
+<meta property="og:description" content="… in which we reason about the nature of randomness and discover various statistical tests.  These are just the notes for the lecture that will be filled during the recording. Check back later to...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lesson 5 Hypothesis Testing | Introduction to Data Analysis with R">
-<meta name="twitter:description" content="… in which we reason about the nature of randomness and discover various statistical tests.">
+<meta name="twitter:description" content="… in which we reason about the nature of randomness and discover various statistical tests.  These are just the notes for the lecture that will be filled during the recording. Check back later to...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
-<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -52,7 +49,7 @@
 <li><a class="" href="distributions.html"><span class="header-section-number">6</span> Distributions</a></li>
 <li><a class="" href="fallacies.html"><span class="header-section-number">7</span> Fallacies</a></li>
 <li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
-<li><a class="" href="resources.html">Resources</a></li>
+<li><a class="" href="resources-5.html">Resources</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
 
@@ -69,828 +66,126 @@
 <p>… in which we reason about the nature of randomness and
 discover various statistical tests.</p>
 </blockquote>
-<!--
-
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe>
-:::
-
-## Motivation
-
-In the first four lectures we covered the fundamentals of handling data with R.
-Now, we will shift our focus away from the **how** and towards the **why** of
-data analysis. We will talk about different statistical tests, common mistakes,
-how to avoid them and how to spot them in other research. But of course, we will
-do so using R. So you will still learn one or the other useful function or
-technique along the way. In most instances it should be clear when I use R
-solely to demonstrate an idea from statistics and the code is just included for
-the curious, or whether the code is something you will likely also use for your
-own analysis. I am open for questions if things are unclear in any of the two
-cases. For purely aesthetic code I might also speed up the typing in the edit.
-
-> To understand statistics means understanding the nature of randomness first.
-
-You might not be shocked that we will be using the `tidyverse` today as well,
-simply because it makes the data wrangling for various demonstrations easier. So
-if you are following along, don't forget:
-
-
-```r
-library(tidyverse)
-```
-
-## Statistically Significant...
-
-> ...you keep using that word. I don't think it means what you think it means.
-
-<div class="figure">
-<img src="images/statistically-significant.jpg" alt="A Meme where a person says: &quot;Statistically significant. You keep using that word. I don't think it means what you think it means.&quot;" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-128)A Meme where a person says: "Statistically significant. You keep using that word. I don't think it means what you think it means."</p>
+<div class="alert alert-info">
+<p>These are just the notes for the lecture that
+will be filled during the recording.
+Check back later to the the completed script.</p>
 </div>
-
-You will hear the phrases "statistically significant", "significant" or even
-"very significant" thrown around quite a bit in academic literature . And while
-they are often used carelessly, they have a clearly defined meaning. A meaning
-we will uncover today. This meaning is related to the concept of so called
-p-values, which have an equally bad reputation for frequently being misused. The
-p in p-value stands for **probability**, so in order to understand p-values, we
-need to understand probability and learn how to deal with randomness, chance, or
-luck if you will. So...
-
-## Getting our Hands dirty with Probability
-
-<div class="figure">
-<img src="dataintro_files/figure-html/chess-board-1.png" alt="A ggplot chessboard" width="100%" />
-<p class="caption">(\#fig:chess-board)A ggplot chessboard</p>
+<!-- ::: {.video-container} -->
+<!-- <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe> -->
+<!-- ::: -->
+<div id="motivation-1" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Motivation<a class="anchor" aria-label="anchor" href="#motivation-1"><i class="fas fa-link"></i></a>
+</h2>
 </div>
-
-Say you and you friend are playing a game of chess, when your friend proudly
-proclaims:\
-"I am definitely the better player!".\
-"Proof it!", you reply.\
-"That's easy", she says: "I won 7 out of the 8 rounds we played to today."\
-"Pah! That's just luck." is your less witty and slightly stubborn response.
-
-As expected, we shall be using R to resolve this vital conflict.
-
-(ref:rainbow) @ArtworkAllisonHorst
-
-<div class="figure">
-<img src="images/paste-5E31A2FF.png" alt="(ref:rainbow)" width="100%" class=.external />
-<p class="caption">(\#fig:significant)(ref:rainbow)</p>
+<div id="statistically-significant" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Statistically Significant…<a class="anchor" aria-label="anchor" href="#statistically-significant"><i class="fas fa-link"></i></a>
+</h2>
 </div>
-
-### Definitions: Hypothesis
-
-Both of you involuntarily uttered an hypothesis, a testable assumption. And we
-want to test these hypothesis using statistics. The first hypothesis ("I am the
-better player.") is what we call the **alternative hypothesis** ($H_1$). The
-name can be a bit confusing, because most often, this is your actual scientific
-hypothesis, the thing you are interested in. So, alternative to what? It is
-alternative to the so called **null hypothesis** ($H_0$), which is the second
-statement ("This is just luck"). The null hypothesis provides a sort of baseline
-for all our findings. It usually goes along the lines of "What if our
-observations are just based on chance alone?", where "chance" can be any source
-of random variation in our system.
-
-The tricky part is that there is no way to directly test the alternative
-Hypothesis, all we can test is the null hypothesis. Because for any null
-hypothesis we discard, there are always multiple alternative hypothesis that
-could explain our data. In our example, even if we end up discarding the idea of
-our friend's chess success being only down to luck, this does not prove the
-alternative hypothesis that she is the better player (she could still be
-cheating for example). Do keep this in mind when we transfer this to a more
-scientific setting. Just because we show that something is unlikely to have
-arisen by chance does not mean that your favorite alternative hypothesis is
-automatically true.
-
-So, after these words of warning, let's test some null hypothesis!
-
-### Testing the Null Hypothesis with a Simulation
-
-We will start off by building a little simulation. Before testing any
-hypothesis, it is important to have defined $H_0$ and $H_1$ properly, which we did in
-the previous section. But we need to be a little more specific. Winning by
-chance would entail a completely random process, which we can model with a coin
-flip. R has the lovely function `sample` to take any number of things from a
-vector, with or without replacement after taking each thing:
-
-
-```r
-coin <- c("heads", "tails")
-sample(coin)
-```
-
-```
-## [1] "tails" "heads"
-```
-
-Not giving it a number of things to draw just shuffles the vector, which is
-fairly boring in the case of just two tings. We can't sample 10 things from a
-vector of only two elements
-
-
-```r
-sample(coin, size = 10)
-```
-
-```
-## Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when 'replace = FALSE'
-```
-
-But we can, if we put the thing back every time:
-
-
-```r
-sample(coin, size = 10, replace = TRUE)
-```
-
-```
-##  [1] "heads" "heads" "tails" "heads" "tails" "tails" "heads" "tails" "heads"
-## [10] "heads"
-```
-
-So, let's make this a little more specific to our question:
-
-
-```r
-winner <- c("you", "friend")
-random_winners <- sample(winner, size = 8, replace = TRUE)
-random_winners
-```
-
-```
-## [1] "friend" "friend" "friend" "friend" "friend" "you"    "friend" "you"
-```
-
-This script will look different every time I run this, so I won't be to specific
-on the outcome of this. This time, you won:
-
-
-```r
-sum(random_winners == "you")
-```
-
-```
-## [1] 2
-```
-
-times, and your friend won:
-
-
-```r
-sum(random_winners == "friend")
-```
-
-```
-## [1] 6
-```
-
-times. If we were to run this script a million times, the resulting proportion
-of random wins for both of you would be very, very close to 50-50 because we
-used a fair coin. However, we don't have the time to play this much Chess and we
-sure don't have the money to run a million replicates for each experiment in the
-lab. But here, in our little simulated world, we have near infinite
-resources (our simulation is not to computationally costly).
-
-> One trick used above: When we calculate e.g. a sum or mean,
-  R automatically converts TRUE to 1 and FALSE to 0.
-
-
-```r
-get_n_wins <- function(N) {
-  winner <- c("you", "friend")
-  random_winners <- sample(winner, size = N, replace = TRUE)
-  sum(random_winners == "friend")
-}
-```
-
-I created a function that returns a random number of wins your friend would have
-gotten by pure chance for a number of rounds `N`.
-
-
-```r
-get_n_wins(10)
-```
-
-```
-## [1] 4
-```
-
-This number is different every time, so how does it change?
-
-
-```r
-set.seed(42) # setting a random seed for the script
-             # this give me the same random numbers
-             # every time
-number_of_wins <- map_dbl(rep(8, 1000), get_n_wins)
-```
-
-A histogram is a type of plot that shows how often each value occurs in a
-vector. Usually, the values are put into bins first, grouping close values
-together for continuous values, but in this case it makes sense to just have one
-value per bin because we are dealing with discrete values (e.g. no half-wins).
-Histograms can either display the raw counts or the frequency e.g. as a
-percentage. In ggplot, we use `geom_bar` when we don't need any binning, just
-counting occurrences, and `geom_histogram` when we need to bin continuous
-values.
-
-
-```r
-tibble(number_of_wins) %>% 
-  ggplot(aes(number_of_wins)) +
-  geom_bar() +
-  scale_x_continuous(breaks = 0:8) +
-  labs(title = "Throwing a coin 8 times")
-```
-
-<img src="dataintro_files/figure-html/coin-8-times-1.png" width="100%" />
-
-As expected, the most common number of wins out of 8 is 4 (unless I got really
-unlucky when compiling this script). Let us see, how this **distribution**
-changes for different values of `N`. First, we set up a grid of numbers (all
-possible combinations) so that we can run a bunch of simulations:
-
-
-```r
-simulation <-
-  crossing(N   = 1:15,
-           rep = 1:1000) %>% 
-  mutate(
-    wins = map_dbl(N, get_n_wins)
-  )
-
-head(simulation) %>% rmarkdown::paged_table()
-```
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["N"],"name":[1],"type":["int"],"align":["right"]},{"label":["rep"],"name":[2],"type":["int"],"align":["right"]},{"label":["wins"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"1","3":"0"},{"1":"1","2":"2","3":"0"},{"1":"1","2":"3","3":"1"},{"1":"1","2":"4","3":"1"},{"1":"1","2":"5","3":"0"},{"1":"1","2":"6","3":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div id="getting-our-hands-dirty-with-probability" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Getting our Hands dirty with Probability<a class="anchor" aria-label="anchor" href="#getting-our-hands-dirty-with-probability"><i class="fas fa-link"></i></a>
+</h2>
+<div id="definitions-hypothesis" class="section level3" number="5.3.1">
+<h3>
+<span class="header-section-number">5.3.1</span> Definitions: Hypothesis<a class="anchor" aria-label="anchor" href="#definitions-hypothesis"><i class="fas fa-link"></i></a>
+</h3>
 </div>
-
-And then we use our trusty ggplot to visualize all the distributions:
-
-
-```r
-simulation %>% 
-  ggplot(aes(wins)) +
-  geom_bar() +
-  facet_wrap(~ N) +
-  labs(title = "Throwing a coin N times")
-```
-
-<img src="dataintro_files/figure-html/coin-n-times-1.png" width="100%" />
-
-With a fair coin, the most common number of wins should be half of the number of
-coin flips. Note, how it is still possible to flip a coin 15 times and and not
-win a single time. It is just very unlikely and the bars are so small that we
-can't see them.
-
-Let us go back to the original debate. The first statement: "I am better." is
-something that can never be definitively proven. Because there is always the
-possibility, no matter how small, that the same result could have arisen by pure
-chance alone. Even if she wins 100 times and we don't take a single game from
-her, this sort of outcome is still not *impossible* to appear just by flipping a
-coin. But what we can do, is calculate, how likely a certain event is under the
-assumption of the null hypothesis (only chance). And we can also decide on some
-threshold $\alpha$ at which we reject the null hypothesis. This is called the
-**significance threshold**. When we make an observation and then calculate that
-the probability for an observation like this or more extreme is smaller than the
-threshold, we deem the result **statistically significant**. And the probability
-thus created is called the **p-value**.
-
-From our simulation, we find the that probability to win 7 out of 8 rounds under
-the null hypothesis is:
-
-
-```r
-mean(number_of_wins >= 7)
-```
-
-```
-## [1] 0.025
-```
-
-Which is smaller than the commonly used significance threshold of $\alpha=0.05$
-(i.e. $5\%$). So with 7 out of 8 wins, we would **reject the null hypothesis**.
-Do note that this threshold, no matter how commonly and thoughtlessly it is used
-throughout academic research, is completely arbitrary.
-
-### Getting precise with the Binomial Distribution
-
-Now, this was just from a simulation with 1000 trials, so the number can't be
-arbitrarily precise, but there is a mathematical formula for this probability.
-What we created by counting the number of successes in a series of yes-no-trials
-is a **binomial distribution**. For the most common distributions, R provides a
-set of functions. the functions starting with `d` give us the probability
-density function. In the case of discrete values like counting wins, this is
-equivalent to the actual probability, but for continuous values we obtain the
-probability by taking the integral. We get these integrals with the
-corresponding functions starting with `p` (for probability).
-
-
-```r
-dbinom(x = 7, size = 8, prob = 0.5)
-```
-
-```
-## [1] 0.03125
-```
-
-This is the probability to win **exactly 7 out of 8** games. But what we wanted
-was the probability for **7 or more out of 8**! So we move to the integral. This
-part can get a bit confusing, because the default for `pbinom` is
-`lower.tail = TRUE`, which according to the help page means that probabilities
-are $P[X \le x]$.
-
-
-```r
-pbinom(q = 7, size = 8, prob = 0.5)
-```
-
-```
-## [1] 0.9960938
-```
-
-If we set `lower.tail` to `FALSE` , we get $P[X > x]$, so the probability for a
-random variable X being bigger than a number x. So to get the probability that
-we are interested in, we need to replace the 7 with a 6 as well:
-
-
-```r
-pbinom(q = 6, size = 8, prob = 0.5, lower.tail = FALSE)
-```
-
-```
-## [1] 0.03515625
-```
-
-Our simulation was pretty close! So the exact values agrees and we reject the
-null hypothesis of both opponents being equally good.
-
-> **Sidenote**: For quick visualizations of function curves I sometimes use
-> plotting functions from base-R rather than ggplot. They are not as powerful
-> and versatile, but efficient at their own small tasks. Just make sure to note
-> that this is not ggplot, so we can't use our regular repertoire of themes and
-> the likes with it.
-
-Here is the full graph for the probability density function of the binomial
-distribution
-
-
-```r
-curve(dbinom(x = x, 8, prob = 0.5),
-      type = "s", from = 0,
-      to = 8,
-      n = 9, main = "dbinom")
-```
-
-<img src="dataintro_files/figure-html/dbinom-1.png" width="100%" />
-
-And the integral, the probability $P[X \le x]$
-
-
-```r
-curve(pbinom(q = x, 8, prob = 0.5),
-      type = "s",
-      from = 0,
-      to = 8,
-      n = 9, main = "pbinom")
-```
-
-<img src="dataintro_files/figure-html/pbinom-1.png" width="100%" />
-
-There is two more function I want to showcase from this family. The third is the
-so called **quantile function**. Quantiles divide a probability distribution
-into pieces of equal probability. One example for a quantile is the 50th
-percentile, also known as the median, which divides the values such that half of
-the values are above and half are below. And we can keep dividing the two halves
-as well, so that we end up with more quantiles. Eventually, we arrive at the
-quantile function. It is the inverse of the probability function, so you obtain
-it by swapping the axis.
-
-
-```r
-curve(qbinom(p = x, size = 8, prob = 0.5),
-      type = "s",
-      from = 0,
-      to = 1,
-      n = 9, main = "qbinom"
-      )
-```
-
-<img src="dataintro_files/figure-html/qbinom-1.png" width="100%" />
-
-Quantiles will also be useful for
-deciding if a random sample follows a certain distribution
-with quantile-quantile plots.
-
-Lastly, there is always also an `r` variant of the function, which gives us any
-number of random numbers from the distribution.
-
-
-```r
-rbinom(n = 10, size = 8, prob = 0.5)
-```
-
-```
-##  [1] 4 5 5 5 5 2 3 4 6 3
-```
-
-### But how much better? Understanding Effect Size and Power, False Positives and False Negatives
-
-We decided to abandon the null hypothesis that both players are equally good,
-which equates to a 50% win-chance for each player. But we have not determined
-**how much better** she is. And how much better does she need to be for us to
-reliably discard the null hypothesis after just 8 games? The generalization of
-the **how much better** part, the **true difference**, is called the **effect
-size**.
-
-Our ability to decide that something is statistically significant when there is
-in fact a true difference is called the statistical **power**. It depends on the
-effect size, our significance threshold $\alpha$ and the sample size $n$ (the
-number of games). We can explore the concept with another simulation.
-
-
-```r
-set.seed(2020)
-trials <- 10000
-simulation <- crossing(
-  N = c(8, 100, 1000, 10000),
-  true_prob = c(0.5, 0.8, 0.9)
-) %>%
-  rowwise() %>%
-  mutate(
-    wins = list(rbinom(size = N,
-                       prob = true_prob,
-                       n = trials)),
-    p = list(pbinom(q = wins - 1,
-                    size = N,
-                    prob = 0.5, lower.tail = FALSE))
-    ) %>% 
-  ungroup()
-
-simulation
-```
-
-```
-## # A tibble: 12 × 4
-##        N true_prob wins           p             
-##    <dbl>     <dbl> <list>         <list>        
-##  1     8       0.5 <int [10,000]> <dbl [10,000]>
-##  2     8       0.8 <int [10,000]> <dbl [10,000]>
-##  3     8       0.9 <int [10,000]> <dbl [10,000]>
-##  4   100       0.5 <int [10,000]> <dbl [10,000]>
-##  5   100       0.8 <int [10,000]> <dbl [10,000]>
-##  6   100       0.9 <int [10,000]> <dbl [10,000]>
-##  7  1000       0.5 <int [10,000]> <dbl [10,000]>
-##  8  1000       0.8 <int [10,000]> <dbl [10,000]>
-##  9  1000       0.9 <int [10,000]> <dbl [10,000]>
-## 10 10000       0.5 <int [10,000]> <dbl [10,000]>
-## 11 10000       0.8 <int [10,000]> <dbl [10,000]>
-## 12 10000       0.9 <int [10,000]> <dbl [10,000]>
-```
-
-I also introduced a new piece of advanced dplyr syntax. `rowwise` is similar to
-`group_by` and essentially puts each row into its own group. This can be useful
-when working with list columns or running a function with varying arguments and
-allows us to treat the inside of `mutate` a bit like as if we where using one of
-the `map` functions. For more information, see [the documentation
-article](https://dplyr.tidyverse.org/articles/rowwise.html).
-
-It leaves us with 10000 simulated numbers of wins at N games for different
-true probabilities of her winning (i.e. how much better our friend is). We then
-calculate the probability to have this or a greater number of wins under the
-null hypothesis (equal probability for win and loss), in other words: the
-p-value.
-
-
-```r
-simulation %>%
-  unnest(c(wins, p)) %>% 
-  ggplot(aes(p)) +
-  geom_histogram() +
-  facet_wrap(~ true_prob + N,
-             labeller = label_both,
-             scales = "free_y",
-             ncol = 4) +
-  geom_vline(xintercept = 0.05, color = "red") +
-  labs(x = "p-value",
-       y = "frequency") +
-  scale_y_continuous(breaks = NULL)
-```
-
-<img src="dataintro_files/figure-html/p-value-hist-1.png" width="100%" />
-
-We notice a couple of things in this plot. As the number of games
-played approaches very high numbers, the p-values for the
-case where the null hypothesis is in fact true (both players have
-the same chance of winning), start following a uniform distribution,
-meaning for a true null hypothesis, all p-values are equally likely.
-This seems counterintuitive at first, but is a direct consequence
-of the definition of the p-value.
-The consequence of this is, that if we apply our regular significance
-threshold of 5%, by definition we will say that there is a true
-difference, even though there is none (i.e. the null hypothesis is true
-but we falsely reject it and favor of our alternative hypothesis).
-This is called a **false positive**. By definition, we will get at
-least $\alpha$ false positives in all of our experiments.
-Later, we will learn, why the real number of false positives is
-even higher.
-Another name for false positives is **Type I errors**.
-
-On the other side of the coin, there are also cases
-where there is a true difference (we used winning probabilities
-of 0.8 and 0.9), but we don't reject the null hypothesis because
-we get a p-values larger than $alpha$.
-These are all **false negatives** and their rate is sometimes
-referred to as $\beta$.
-Another name for false negatives is **Type II errors**.
-People don't particularly like talking about negative things like errors,
-so instead you will often see the inverse of $\beta$, the
-**Statistical Power** $1-\beta$.
-The proportion of correctly identified positives out of
-the actual positives is also shown on the plot below.
-For example, say her true win probability is 90%
-and we play 8 games. If this experiment runs in an infinite
-number of parallel universes, we will conclude that she is
-better than chance in 80% of those.
-We could set our significance threshold higher to detect
-more of the true positives, but this would
-also increase our false positives.
-
-
-```r
-simulation %>%
-  unnest(c(wins, p)) %>%
-  group_by(true_prob, N) %>%
-  summarise(signif = mean(p <= 0.05)) %>% 
-  ggplot(aes(true_prob, signif, fill = true_prob == 0.5)) +
-  geom_col(color = "black") +
-  geom_text(aes(label = signif), vjust = -0.2) +
-  facet_wrap(~N,
-             labeller = label_both) +
-  scale_y_continuous(expand = expansion(c(0, 0.1))) +
-  scale_fill_viridis_d() +
-  labs(y = "Proportion of significant results")
-```
-
-<img src="dataintro_files/figure-html/power-plot-1.png" width="100%" />
-
-> Unfortunately, there is no free lunch in statistics.
-
-There are also packages out there, which have a function
-to compute the power for the binomial test, but I think
-the simulation was way more approachable.
-The cool thing about simulations is also, that they work
-even when there is no analytical solution, so you
-can use them to play around when planning an experiment.
-
-## P-Value Pitfalls
-
-Let us look into some of the pitfalls of p-values.
-Remember from the definition of p-values, that we will get
-a significant result even if there is no true difference in
-5% of cases (assuming we use this as our alpha)?
-Well, what if we test a bunch of things?
-This is called **Multiple Testing** and there is a problem
-associated with it:
-
-If you test 20 different things, and your statistical
-test will produce a significant result by chance alone
-in 5% of cases, the expected number of significant results is 1.
-So we are not very surprised.
-Speaking of surprised: In his book, available for free online,
-["Statistics done wrong"](https://www.statisticsdonewrong.com/), Alex Reinhart
-describes p-values as a "measure of surprise":
-
-> »A p value is not a measure of how right you are,
-  or how significant the difference is;
-  it’s a measure of how surprised you should be if there is no actual difference
-  between the groups, but you got data suggesting there is.
-  A bigger difference, or one backed up by more data,
-  suggests more surprise and a smaller p value.«
-> --- Alex Reinhart [@reinhartStatisticsDoneWrong2015]
-
-So, we are not very surprised, but if you focus to hard on
-the one significant result, trouble ensues.
-In a "publish or perish" mentality, this can easily happen,
-and negative findings are not published nearly enough,
-so most published findings are likely exaggerated.
-John Bohannon showcased this beautifully by
-running a study on chocolate consumption and
-getting it published:
-[I Fooled Millions Into Thinking Chocolate Helps Weight Loss. Here's How.](https://io9.gizmodo.com/i-fooled-millions-into-thinking-chocolate-helps-weight-1707251800)
-
-What can we do about this?
-
-### Multiple Testing Correction
-
-The simplest approach is to take all p-values calculate
-when running a large number of comparisons and
-dividing them by the number of tests performed.
-This is called the **Bonferroni correction**
-
-
-```r
-p_values <- c(0.5, 0.05, 0.3, 0.001, 0.003)
-p.adjust(p_values, method = "bonferroni")
-```
-
-```
-## [1] 1.000 0.250 1.000 0.005 0.015
-```
-
-Of course, this looses some statistical power
-(remember, no free lunch).
-A slightly more sophisticated approach to
-controlling the false discovery rate (FDR)
-is the Benjamini-Hochberg procedure. It retains
-a bit more power. Here is what happens:
-
-- Sort all p-values in ascending order.
-- Choose a FDR $q$ you are willing to accept
-  and call the number of tests done $m$.
-- Find the largest p-value with:
-  $p \leq iq/m$ with its index $i$.
-- This is your new threshold for significance
-- Scale the p-values accordingly
-
-And this is how you do it in R:
-
-
-```r
-p.adjust(p_values, method = "BH")
-```
-
-```
-## [1] 0.50000000 0.08333333 0.37500000 0.00500000 0.00750000
-```
-
-### Other forms of p-hacking
-
-This sort of multiple testing is fairly obvious.
-You will notice it, when you end up with a large
-number of p-values, for example when doing a genetic
-screening and testing thousands of genes.
-Other related problems are harder to spot.
-For a single research question there are often different
-statistical tests that you could run, but trying
-them all out and then choosing the one that best
-agrees with your hypothesis is not an option!
-Likewise, simply looking at your data is a form of
-comparison if it influences your choice of statistical test.
-Ideally, you first run some exploratory experiments
-that are not meant to test your hypothesis, then
-decide on the tests you need, the sample size you
-want for a particular power and then run the actual
-experiments designed to test your hypothesis.
-
-At this point, here is another shout-out to
-Alex Reinharts book [@reinhartStatisticsDoneWrong2015].
-It is a very pleasant read
-and also shines more light on some of the other
-forms of **p-hacking**.
-
-## Bayesian Statistics and the Base Rate Fallacy
-
-There is another more subtle problem called the
-base rate fallacy. As an example, we assume
-a medical test, testing for a certain condition.
-In medical testing, different words are used
-for the same concepts we defined above^[This is a slightly annoying trend
-in statistics; as it enters different fields, people come
-up with new names for old things
-(perhaps the most notorious field for this is
-machine learning).].
-
-Here, we have:
-
-- Sensitivity = Power = true positive rate = $1-\beta$
-- Specificity = true negative rate = $1-\alpha$
-
-Let us assume a test with a
-sensitivity of 90% and a specificity
-of 92%. When we visit the doctor to
-get a test, and get a positive result,
-what is the probability, that we are in
-fact positive (i.e. a true positive)?
-Well, the test has a specificity of 92%,
-so if we where negative, it would have detected
-that in 92% of cases, does this mean, that we can
-be 92% certain, that we are actually positive?
-
-Well, **no**. What we are ignoring here
-is **base rate**, which for diseases is called
-the **prevalence**. It is the proportion at
-which a disease exists in the general population.
-
-So, let us say, we are picking 1000 people
-at random from the population and testing
-them. We are dealing with a hypothetical
-condition that affects 1% of people,
-so we assume 10 people in our sample to be positive.
-Of those 10 people, 9 will be tested positive
-(due to our sensitivity),
-those will be our true positives.
-The remaining 1 will be a false negative.
-However, we are of course also testing
-the negatives (if we knew ahead of time
-there would be no point in testing) and of
-those due to our specificity, 8% will also be
-tested positive, which is 0.08 * 990, so
-we get 79 false positives.
-Because there are so many negatives in our
-sample, even a relatively high specificity
-will produce a lot of false positives.
-So that actual probability of being
-positive with a positive test result is
-
-$$\frac{true~positives}{true~positives + false~positives}=10\%$$
-
-<img src="dataintro_files/figure-html/unnamed-chunk-147-1.png" width="100%" />
-
-
-Formally, this is described by Bayes's Formula
-
-$$P(A|B)=\frac{P(B|A)*P(A)}{P(B)}$$
-
-Read: The probability of A given B is the probability
-of B given A times the probability of A divided by
-the probability of B.
-
-In bayesian statistics, the prevalences are known
-as **priors**.
-
-## Concepts discussed today
-
-After today you should be familiar with the following concepts:
-
-- Null and alternative hypothesis
-- P-values and statistical significance
-- Binomial distribution
-- Probability density, probability and quantile functions
-- Effect size and statistical power
-- False positives, false negatives
-- Multiple testing and p-hacking
-- Bayes's Theorem
-
-## Exercises
-
-Just by itself this is quite a bit of material to take in,
-so I try to limit the exercises for today.
-
-## Discovering a new Distribution
-
-The binomial distribution was concerned with sampling
-with replacement (you can get head or tails any number
-of times without using up the coin). In this exercise
-you will explore sampling **without** replacement.
-The common model for this is an urn with two
-different colored balls in it.
-The resulting distribution is called the
-**hypergeometric distribution** and the
-corresponding R functions are `<r/d/p/q>hyper`
-Unfortunately, I couldn't think of a game that could
-be modeled by sampling without replacement,
-let me know, if you find one!
-
-- Imagine you are a zoo manager.
-  - Get yourselves in the mood by watching some cute
-    animal videos and having a cup of tee or coffee.
-    [Here](https://www.youtube.com/watch?v=DSehQsYU9h4)
-    are two red pandas having fun in the snow.
-  - We got a gift from another zoo! It consists
-    of 8 red pandas and 2 giant pandas.
-    What is the probability that they end up
-    properly separated, if we randomly take 8 animals,
-    put them in one enclosure and put the rest in another?
-  - Our penguin colony hatched eggs and we have
-    a bunch of newcomers. We have have 15 males and
-    10 females. If we look at a random subset of
-    12 penguins, what does the distribution of the
-    number of males look like? Which number is most
-    likely? How likely is it, to get at least
-    9 males in the sample?
-
-## Resources
-
-- <https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108>
-- <https://jimgruman.netlify.app/post/education-r/>
-- [P-Value histograms blogpost by David Robinson](http://varianceexplained.org/statistics/interpreting-pvalue-histogram/)
-- ["Statistics done wrong"](https://www.statisticsdonewrong.com/)
-
--->
-
+<div id="testing-the-null-hypothesis-with-a-simulation" class="section level3" number="5.3.2">
+<h3>
+<span class="header-section-number">5.3.2</span> Testing the Null Hypothesis with a Simulation<a class="anchor" aria-label="anchor" href="#testing-the-null-hypothesis-with-a-simulation"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="getting-precise-with-the-binomial-distribution" class="section level3" number="5.3.3">
+<h3>
+<span class="header-section-number">5.3.3</span> Getting precise with the Binomial Distribution<a class="anchor" aria-label="anchor" href="#getting-precise-with-the-binomial-distribution"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives" class="section level3" number="5.3.4">
+<h3>
+<span class="header-section-number">5.3.4</span> But how much better? Understanding Effect Size and Power, False Positives and False Negatives<a class="anchor" aria-label="anchor" href="#but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="p-value-pitfalls" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> P-Value Pitfalls<a class="anchor" aria-label="anchor" href="#p-value-pitfalls"><i class="fas fa-link"></i></a>
+</h2>
+<div id="multiple-testing-correction" class="section level3" number="5.4.1">
+<h3>
+<span class="header-section-number">5.4.1</span> Multiple Testing Correction<a class="anchor" aria-label="anchor" href="#multiple-testing-correction"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="other-forms-of-p-hacking" class="section level3" number="5.4.2">
+<h3>
+<span class="header-section-number">5.4.2</span> Other forms of p-hacking<a class="anchor" aria-label="anchor" href="#other-forms-of-p-hacking"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="bayesian-statistics-and-the-base-rate-fallacy" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> Bayesian Statistics and the Base Rate Fallacy<a class="anchor" aria-label="anchor" href="#bayesian-statistics-and-the-base-rate-fallacy"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="concepts-discussed-today" class="section level2" number="5.6">
+<h2>
+<span class="header-section-number">5.6</span> Concepts discussed today<a class="anchor" aria-label="anchor" href="#concepts-discussed-today"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="exercises-4" class="section level2" number="5.7">
+<h2>
+<span class="header-section-number">5.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-4"><i class="fas fa-link"></i></a>
+</h2>
+<div id="discovering-a-new-distribution" class="section level3" number="5.7.1">
+<h3>
+<span class="header-section-number">5.7.1</span> Discovering a new Distribution<a class="anchor" aria-label="anchor" href="#discovering-a-new-distribution"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="resources-3" class="section level2" number="5.8">
+<h2>
+<span class="header-section-number">5.8</span> Resources<a class="anchor" aria-label="anchor" href="#resources-3"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108" class="uri">https://www.tandfonline.com/doi/full/10.1080/00031305.2016.1154108</a></li>
+<li><a href="https://jimgruman.netlify.app/post/education-r/" class="uri">https://jimgruman.netlify.app/post/education-r/</a></li>
+<li><a href="http://varianceexplained.org/statistics/interpreting-pvalue-histogram/">P-Value histograms blogpost by David Robinson</a></li>
+<li><a href="https://www.statisticsdonewrong.com/">“Statistics done wrong”</a></li>
+</ul>
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="functions.html"><span class="header-section-number">4</span> Functions</a></div>
 <div class="next"><a href="distributions.html"><span class="header-section-number">6</span> Distributions</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#hypothesis-testing"><span class="header-section-number">5</span> Hypothesis Testing</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#hypothesis-testing"><span class="header-section-number">5</span> Hypothesis Testing</a></li>
+<li><a class="nav-link" href="#motivation-1"><span class="header-section-number">5.1</span> Motivation</a></li>
+<li><a class="nav-link" href="#statistically-significant"><span class="header-section-number">5.2</span> Statistically Significant…</a></li>
+<li>
+<a class="nav-link" href="#getting-our-hands-dirty-with-probability"><span class="header-section-number">5.3</span> Getting our Hands dirty with Probability</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#definitions-hypothesis"><span class="header-section-number">5.3.1</span> Definitions: Hypothesis</a></li>
+<li><a class="nav-link" href="#testing-the-null-hypothesis-with-a-simulation"><span class="header-section-number">5.3.2</span> Testing the Null Hypothesis with a Simulation</a></li>
+<li><a class="nav-link" href="#getting-precise-with-the-binomial-distribution"><span class="header-section-number">5.3.3</span> Getting precise with the Binomial Distribution</a></li>
+<li><a class="nav-link" href="#but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives"><span class="header-section-number">5.3.4</span> But how much better? Understanding Effect Size and Power, False Positives and False Negatives</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#p-value-pitfalls"><span class="header-section-number">5.4</span> P-Value Pitfalls</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#multiple-testing-correction"><span class="header-section-number">5.4.1</span> Multiple Testing Correction</a></li>
+<li><a class="nav-link" href="#other-forms-of-p-hacking"><span class="header-section-number">5.4.2</span> Other forms of p-hacking</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#bayesian-statistics-and-the-base-rate-fallacy"><span class="header-section-number">5.5</span> Bayesian Statistics and the Base Rate Fallacy</a></li>
+<li><a class="nav-link" href="#concepts-discussed-today"><span class="header-section-number">5.6</span> Concepts discussed today</a></li>
+<li>
+<a class="nav-link" href="#exercises-4"><span class="header-section-number">5.7</span> Exercises</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#discovering-a-new-distribution"><span class="header-section-number">5.7.1</span> Discovering a new Distribution</a></li></ul>
+</li>
+<li><a class="nav-link" href="#resources-3"><span class="header-section-number">5.8</span> Resources</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -907,7 +202,7 @@ let me know, if you find one!
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-08-21.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-09-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -3,56 +3,13 @@
 >  ... in which we venture into the unknown to show an example data
   analysis.
 
-<!--
-
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/pY4da9WCc" allowfullscreen></iframe>
+::: { .alert .alert-info}
+These are just the notes for the lecture that
+will be filled during the recording.
+Check back later to the the completed script.
 :::
-
-In today's lecture, the script is the result of experimenting
-with unseen data as seen in the video. You can refer back
-to it in order to get the code if the video goes to fast.
-By itself, the script will be less useful than the script
-for regular lectures. I hope you can learn something from
-how I approach a new task and how I handle mistakes and
-errors. The video is largely unedited; I only removed a
-portion where all attempts at webscraping failed for a while
-because my internet connection was gone...
-
-```{r}
-library(tidyverse)
-library(rvest)
-library(glue)
-```
-
-## Christmas Theme!
-
--   Christmas RStudio theme: <https://github.com/gadenbuie/rsthemes>
-
-## Advanced Rmarkdown
-
--   Using the RStudio plugin to insert citations directly from Zotero
-    -   preview of
-        <https://blog.rstudio.com/2020/11/09/rstudio-1-4-preview-citations/>
--   Other output formats:
-    -   <https://bookdown.org/yihui/rmarkdown/>
-    -   <https://github.com/rstudio/rticles>
-        -   note: tinytex package for pdf outputs
-
-## Finding Help Easier
-
--   <https://reprex.tidyverse.org/>
-
-## Into the Unknown: An Example Analysis of Unseen Data
-
-![Into the Unknown, from the giphy
-api](https://media0.giphy.com/media/m8WyNwXQUtzuijrtFq/giphy-downsized-medium.gif){.external}
 
 ## Feedback
 
 I will send round a link with a feedback form.
-It is anonymous, so I have no way of tracking who 
-submitted it. I will just assume you all did and
-count it as a completed exercise.
-
--->
+It is anonymous.

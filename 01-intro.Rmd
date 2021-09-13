@@ -197,4 +197,4 @@ penguins %>%
 
 ## Learn more:
 
-Check out the dedicated [Resources] page.
+Check out the dedicated [Resources](Resources) page.
