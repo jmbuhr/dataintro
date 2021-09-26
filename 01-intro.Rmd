@@ -10,10 +10,19 @@ To sign up, check out the [welcome page](https://jmbuhr.de/dataintro/index.html)
   plot by discovering a Grammar of Graphics.
 
 ::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/teusAoZ0IxI" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/r0bWxrzu4tg" allowfullscreen></iframe>
 :::
 
 ## What You will Learn
+
+- as scientists, we answer questions
+  by generating data and analyzing this data
+- is my hypothesis correct? is there and effect?
+- could this just be a fluke?
+- then show our results in an engaging
+  and correct way e.g. with plots and statistics
+
+- why a new recording?
 
 ## Execute R Code
 
@@ -45,7 +54,6 @@ To sign up, check out the [welcome page](https://jmbuhr.de/dataintro/index.html)
 - mutable / changeable
 - order of execution matters!
 - conventions and allowed names
-- 
 
 ![A depiction of various naming styles by @ArtworkAllisonHorst](images/coding_cases.png)
 
@@ -103,7 +111,6 @@ To sign up, check out the [welcome page](https://jmbuhr.de/dataintro/index.html)
 
 ![Cute little monsters as Rmarkdown Wizards by Allison Horst](images/rmarkdown_wizards.png)
 
-
 ### The Tidyverse
 
 <aside>
@@ -115,6 +122,17 @@ To sign up, check out the [welcome page](https://jmbuhr.de/dataintro/index.html)
 ## Our First Dataset: The Palmer Penguins
 
 ![The three penguin species of the Palmer Archipelago, by Allison Horst](images/lter_penguins.png)
+
+```{r}
+library(palmerpenguins)
+
+```
+
+
+```{r}
+penguins
+```
+
 
 ### Dataframes: R's powerfull tables
 
@@ -153,6 +171,8 @@ penguins %>%
   theme(plot.caption = element_text(hjust = 0))
 ```
 
+
+
 - a grammar means:
   - we can build complex visualizations
     with basic building blocks
@@ -175,6 +195,25 @@ penguins %>%
 - scales
 - theme
 
+```{r}
+theme_set(theme_minimal())
+
+
+my_plot <- ggplot(penguins, aes(x = flipper_length_mm, y = bill_length_mm,
+                     shape = sex, color = species)) +
+  geom_point() +
+  scale_color_manual(values = c("red", "blue", "orange")) +
+  labs(title = "Penguins") +
+  theme(plot.title = element_text(colour = "purple"))
+
+my_plot 
+```
+
+
+```{r}
+ggsave("my_plot.png", my_plot)
+```
+
 - saving plots
 - get rid of the `NA` -> next week
 
@@ -191,9 +230,17 @@ penguins %>%
 
 ## Exercises
 
-- Find the help page for the `seq` function
-  and use it to generate a vector of all even
-  numbers from 2 to 100.
+- how to hand in!
+
+### Put your flippers in the air!
+
+In a fresh Rmarkdown document (without the example template content),
+load the tidyverse and the palmerpenguins packages.
+
+
+
+
+
 
 ## Learn more:
 

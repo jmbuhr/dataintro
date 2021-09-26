@@ -1,27 +1,20 @@
-# Tidy Data
+# Tidy data
 
->   ... in which we explore the concept of Tidy Data, learn more
-  advanced data wrangling techniques and get a sneak peak at
-  iteration.
+>   ... in which we explore the concept of Tidy Data and learn more
+  advanced data wrangling techniques 
 
-::: { .alert .alert-info}
-These are just the notes for the lecture that
-will be filled during the recording.
-Check back later to the the completed script.
+:::{.video-container}
+<iframe class="video" src="https://www.youtube.com/embed/V3AFBd5GbLw" allowfullscreen></iframe>
 :::
-
-<!-- ::: {.video-container} -->
-<!-- <iframe class="video" src="https://www.youtube.com/embed/V3AFBd5GbLw" allowfullscreen></iframe> -->
-<!-- ::: -->
 
 ## Tidy data
 
-### What and Why is Tidy Data?
-
+### What and why is tidy data?
 
 ![Figure from <https://r4ds.had.co.nz/tidy-data.html> @wickhamDataScienceImport2017](images/tidy-data-wickham.png)
 
-### Making Data Tidy
+
+### Make data tidy
 
 <aside>
 <a href="https://tidyr.tidyverse.org/">
@@ -31,37 +24,55 @@ Check back later to the the completed script.
 
 with the `tidyr` package.
 
-> **Note**: I do not go over data is better in another format in this course.
-  Examples for this might involve matrices to benefit from matrix math or
-  their multidimensional equivalent: arrays.
+> "Happy families are all alike; every unhappy family is unhappy in its own way"\
+> --- Leo Tolstoy (<https://tidyr.tidyverse.org/articles/tidy-data.html>)
 
 Let's make some data tidy!
 
+- `table1`
+
 ### `pivot_wider`
+
+- `table2`
 
 ### `separate`
 
-### `left_join` 
+- `table3`
 
 ### `pivot_longer`
 
+- `table4a`
+
+### `left_join` 
+
+- `table4a` and `table4b`
+
 ### `unite`
 
-### Another Example
+- `table5`
 
-## More Shapes for Data
+### Another example
 
-### Nested Data
+- `billboard`
+- explicit vs implicite `NA`s
+- `na.omit`
 
-![]images/environment.png)
+## More shapes for data
 
-## A Sneak Peak at Iteration
+- omitted: 
+  - matrices
+  - arrays
+
+### Lists
+
+### Nested data
+
+![](images/environment.png)
+
 
 ## Exercises
 
-### Tidy Data
-
-### Functions and Iteration
+### Tidy data
 
 ## Resources
 
