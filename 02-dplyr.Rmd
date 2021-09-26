@@ -3,7 +3,7 @@
 > ... in which we explore the typical data analysis workflow with the tidyverse, wrangle different kinds of data and learn about factors.
 
 :::{.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/yo6uQYr8U48" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/oCYn2pHfizg" allowfullscreen></iframe>
 :::
 
 -   talk about how to say things in your head
@@ -48,15 +48,15 @@ library(tidyverse)
     -   write_csv and friends
 -   `View` and ctrl+click
 
-```{r}
+```{r, eval=FALSE}
 read_csv("data/02/gapminder.csv")
 ```
 
-```{r}
+```{r, eval=FALSE}
 download.file("https://raw.githubusercontent.com/jmbuhr/dataintro/main/data/02/gapminder.csv", "example-download.csv")
 ```
 
-```{r}
+```{r, eval=FALSE}
 our_data <- read_csv("https://raw.githubusercontent.com/jmbuhr/dataintro/main/data/02/gapminder.csv")
 
 write_csv(our_data, "our-data.csv")

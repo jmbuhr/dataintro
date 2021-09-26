@@ -44,6 +44,7 @@ resources
 package-documentation
 getting-help
 tidy-data
+recap
 tidy-data-1
 what-and-why-is-tidy-data
 make-data-tidy

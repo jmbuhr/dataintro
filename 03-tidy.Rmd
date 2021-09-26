@@ -4,14 +4,26 @@
   advanced data wrangling techniques 
 
 :::{.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/V3AFBd5GbLw" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/4BuFhsZp-4w" allowfullscreen></iframe>
 :::
+
+```{r}
+library(tidyverse)
+```
+
+## Recap
+
+- a speedrun of lecture 1 and 2
 
 ## Tidy data
 
 ### What and why is tidy data?
 
 ![Figure from <https://r4ds.had.co.nz/tidy-data.html> @wickhamDataScienceImport2017](images/tidy-data-wickham.png)
+
+```{r}
+palmerpenguins::penguins
+```
 
 
 ### Make data tidy
@@ -31,19 +43,73 @@ Let's make some data tidy!
 
 - `table1`
 
+```{r}
+table1
+```
+
+
 ### `pivot_wider`
+
+```{r}
+table2
+```
+
+
+```{r}
+table2 %>% 
+  pivot_wider(names_from = type, values_from = count)
+```
+
 
 - `table2`
 
 ### `separate`
 
+```{r}
+table3 %>% 
+  separate(col = rate, into = c("cases", "population"), sep = "/")
+```
+
+
 - `table3`
 
 ### `pivot_longer`
 
+
+```{r}
+table4a %>% 
+  pivot_longer(-country, names_to = "year", values_to = "cases")
+```
+
+
 - `table4a`
 
-### `left_join` 
+```{r}
+table4b %>% 
+  pivot_longer(-country, names_to = "year", values_to = "population")
+```
+
+
+```{r}
+clean_wide_data <- function(data, values_column) {
+  data %>% 
+    pivot_longer(-country, names_to = "year", values_to = values_column)
+}
+
+clean4a <- table4a %>% 
+  clean_wide_data("cases")
+```
+
+```{r}
+clean4b <- table4b %>% 
+  clean_wide_data("population")
+```
+
+### `left_join`
+
+```{r}
+left_join(clean4a, clean4b, by = c("country", "year"))
+```
 
 - `table4a` and `table4b`
 
@@ -51,23 +117,128 @@ Let's make some data tidy!
 
 - `table5`
 
+```{r}
+table5 %>% 
+  unite("year", century, year, sep = "") %>% 
+  separate(rate, c("cases", "population")) %>% 
+  mutate(
+    year = parse_number(year),
+    cases = parse_number(cases),
+    population = parse_number(population)
+  )
+```
+
+
+```{r}
+table5 %>% 
+  unite("year", century, year, sep = "") %>% 
+  separate(rate, c("cases", "population")) %>% 
+  mutate(
+    across(c(year, cases, population), parse_number)
+  )
+```
+
+```{r}
+table5 %>% 
+  unite("year", century, year, sep = "") %>% 
+  separate(rate, c("cases", "population")) %>% 
+  mutate(
+    across(-country, parse_number)
+  )
+```
+
 ### Another example
 
 - `billboard`
-- explicit vs implicite `NA`s
+- explicit vs implicit `NA`s
 - `na.omit`
+
+
+```{r}
+billboard %>% 
+  pivot_longer(starts_with("wk"), names_to = "week", values_to = "placement") %>% 
+  mutate(week = parse_number(week))
+```
+
+```{r}
+tidy_bilboard <- billboard %>% 
+  pivot_longer(starts_with("wk"),
+    names_to = "week",
+    values_to = "placement",
+    names_prefix = "wk",
+    names_transform = list(week = as.integer)
+  )
+```
+
+```{r}
+plt <- tidy_bilboard %>% 
+  ggplot(aes(week, placement)) +
+  geom_point(aes(label = paste(artist, track))) +
+  geom_line(aes(group = paste(artist, track)))
+
+plotly::ggplotly(plt)
+```
 
 ## More shapes for data
 
 - omitted: 
   - matrices
   - arrays
+  
 
 ### Lists
 
+
+```{r}
+c(first = 1, second = 2)
+```
+
+
+```{r}
+x <- list(first = 1, second = 2, "some text", list(1, 2), 1:5)
+x
+```
+
+```{r}
+palmerpenguins::penguins
+```
+
+
 ### Nested data
 
+```{r}
+example <- tibble(
+  x = 1:3,
+  y = list(
+    "hello",
+    TRUE,
+    1:4
+  )
+)
+
+example
+# View(example)
+```
+
+
+
 ![](images/environment.png)
+
+```{r}
+nested <- palmerpenguins::penguins %>% 
+  nest(data = -island)
+
+nested
+```
+
+```{r}
+nested$data[[1]]
+```
+
+```{r}
+nested %>% 
+  unnest(data)
+```
 
 
 ## Exercises

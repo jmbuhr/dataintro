@@ -210,7 +210,7 @@ my_plot
 ```
 
 
-```{r}
+```{r, eval=FALSE}
 ggsave("my_plot.png", my_plot)
 ```
 
