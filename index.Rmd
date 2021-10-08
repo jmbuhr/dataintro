@@ -35,7 +35,9 @@ WS21/22\
 21.10.21 – 09.12.21\
 Lecture online in your own time\
 Seminar weekly on Fridays at 9:15 – 10:45\
-Sign-up (Heidelberg University): see [discord](#discord)
+Sign-up (Heidelberg University): see [discord](#discord)\
+Language: Lectures are in English but the seminar can be in German if you choose so
+(and in any case you can always ask questions in German as well).
 :::
 
 ::: {.video-container}
