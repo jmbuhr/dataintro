@@ -10,7 +10,7 @@ execute-r-code
 get-to-know-rstudio
 expressions-tell-r-to-do-things
 variables-boxes-for-things
-atomic-datatypes
+atomic-datatype
 functions-calculate-run-and-automate-things
 packages-sharing-functions
 literate-programming-with-rmarkdown-code-is-communication
