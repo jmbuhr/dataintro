@@ -404,7 +404,7 @@ install.packages("tidyverse")
 
 ## Our First Dataset: The Palmer Penguins
 
-![The three penguin species of the Palmer Archipelago, by Allison Horst](images/lter_penguins.png)
+![The three penguin species of the Palmer Archipelago, by Allison Horst](images/lter_penguins.png){#fig-penguins}
 
 So let's explore our first dataset together in a fresh Rmarkdown document. The `setup` chunk is special. It gets executed automatically before any other chunk in the document is run. This makes it a good place to load packages. The dataset we are working with today actually comes in its own package, so we need to install this as well (Yes, there is a lot of installing today, but you will have to do this only once):
 
@@ -606,7 +606,7 @@ load the tidyverse and the palmerpenguins packages.
 
 -   Write a section of text about your previous experience with data analysis and/or programming (optional, but I can use this information to customize the course).
 -   Produce a scatterplot (meaning a plot with points) of the bill length vs. the bill depth, colorcoded by species.
-    -   Imaginary bonus points if you manage to use the same colors as in the image above (hint: look at the help page for `scale_color_manual()` to find out how). Even more bonus points if you also look into the `theme()` function and it's arguments, or the `theme_<...>()` functions to make the plot prettier.
+    -   Imaginary bonus points if you manage to use the same colors as in the [penguin-image](#fig-penguins) (hint: look at the help page for `scale_color_manual()` to find out how. Note, that R can work with it's built-in color names, `rgb()` specifications or as hex-codes such as `#1573c7`). Even more bonus points if you also look into the `theme()` function and it's arguments, or the `theme_<...>()` functions to make the plot prettier.
 -   Create a vector of all odd numbers from 1 to 99 and store it in a variable.
     -   Create a second variable that contains the squares of the first.
     -   Store both variables in a named list and then turn this list into a `tibble` (the enhanced version of a `data.frame`
