@@ -372,7 +372,7 @@ An Rmarkdown document consists of three things:
 2.  **Text**:\
     Regular text is interpreted as markdown, meaning it supports things like creating headings by prefixing a line with `#`, or text that will be bold in the output by surrounding it with `**`.
 3.  **Code chunks**:\
-    Starting with \`\`\`{r} and ending with \`\`\` (backticks). They will be interpreted as R code. This is where you write the code like you did in the `.R` script file. You can insert new chunks with the button on the top right of the editor window or use the shortcut **Ctrl+Alt+i**.
+    Starting with a line with 3 backticks and {r} and ending with 3 backticks. They will be interpreted as R code. This is where you write the code like you did in the `.R` script file. You can insert new chunks with the button on the top right of the editor window or use the shortcut **Ctrl+Alt+i**.
 
 Use these to document your thoughts alongside your code when you are doing data analysis. Future you (and reviewer number 2) will be happy! To run code inside of chunks, use,the little play button on the chunk, the tried and true **Ctrl+Enter** to run one line, or **Ctrl+Shift+Enter** to run the whole chunk. Your chunks can be as large or small as you want, but try to maintain some sensible structure.
 
