@@ -8,3 +8,4 @@ bookdown::bs4_book:
     base: https://github.com/jmbuhr/dataintro
     branch: main
   css: style.css
+  df_print: "paged"
