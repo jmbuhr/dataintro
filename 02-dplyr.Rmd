@@ -687,6 +687,7 @@ animals <- c("cat", "dog", "bear", "shark")
 animals <- factor(animals)
 fct_relevel(animals, c("shark", "dog"))
 ```
+
 Using this in action, we get:
 
 ```{r}
