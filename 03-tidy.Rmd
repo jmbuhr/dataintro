@@ -508,6 +508,50 @@ nested %>%
 
 ### Tidy data
 
+For the first set of exercises I am cheating a little
+and take those from the (absolutely brilliant) book
+R for Data Science [@wickhamDataScienceImport2017] by
+the original creator of much of the tidyverse.
+So, for the first part, solve / answer the 4 questions
+found here: <https://r4ds.had.co.nz/tidy-data.html#exercises-24>
+
+I do have to give another hint, because I haven't mentioned
+it so far: When I introduced variables I told you that
+those can only contain letters, underscores and numbers
+and are not allowed to start with a number.
+However, we can use "illegal" names for variables and
+columns if the surround them with backticks, e.g.:
+
+```{r}
+`illegal variable` <- 42
+`illegal variable`
+```
+
+This is how Hadley can refer to the columns named after years
+in `pivot_longer` in exercise 1.
+
+### A new dataset: airlines
+
+- Imagine for a second this whole pandemic thing is not
+  going on and we are planning a vacation.
+  Of course, we want to choose the safest airline possible.
+  So we download data about incident reports.
+  You can find it in the `./data/03/` folder.
+- Instead of the `type_of_event` and `n_events` columns
+  we would like to have one column per type of event,
+  where the values are the count for this event.
+- Which airlines had the least fatal accidents?
+  What happens if we standardized these numbers
+  to the distance theses airlines covered in the two time ranges?
+- Which airlines have the best record when it comes
+  to fatalities per fatal accident?
+- Create informative visualizations and / or tables
+  to communicate your discoveries.
+  It might be beneficial to only plot e.g. the highest or lowest scoring Airlines.
+  One of the `slice_` functions will help you there.
+  And to make your plot more organized, you might want to
+  have a look into `fct_reorder`.
+
 ## Resources
 
 - [tidyr documentation](https://tidyr.tidyverse.org/)
@@ -515,5 +559,4 @@ nested %>%
 - [stringr documentation](https://stringr.tidyverse.org/)
   for working with text and a helpful cheatsheet for
   the **regular expressions** mentioned in the video
-
 

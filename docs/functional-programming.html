@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Lesson 4 Functional Programming | Introduction to Data Analysis with R</title>
+<meta name="author" content="Jannik Buhr">
+<meta name="description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.  These are just the notes for the lecture that will be filled during...">
+<meta name="generator" content="bookdown 0.23.1 with bs4_book()">
+<meta property="og:title" content="Lesson 4 Functional Programming | Introduction to Data Analysis with R">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://jmbuhr.de/dataintro/functional-programming.html">
+<meta property="og:description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.  These are just the notes for the lecture that will be filled during...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lesson 4 Functional Programming | Introduction to Data Analysis with R">
+<meta name="twitter:description" content="… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.  These are just the notes for the lecture that will be filled during...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.0/transition.js"></script><script src="libs/bs3compat-0.3.0/tabs.js"></script><script src="libs/bs3compat-0.3.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Introduction to Data Analysis with R</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Hello and welcome!</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="data-wrangling.html"><span class="header-section-number">2</span> Data Wrangling</a></li>
+<li><a class="" href="tidy-data.html"><span class="header-section-number">3</span> Tidy data</a></li>
+<li><a class="active" href="functional-programming.html"><span class="header-section-number">4</span> Functional Programming</a></li>
+<li><a class="" href="probability-and-hypothesis-testing.html"><span class="header-section-number">5</span> Probability and Hypothesis Testing</a></li>
+<li><a class="" href="distributions-summaries-and-dimensionality-reduction.html"><span class="header-section-number">6</span> Distributions, Summaries and Dimensionality Reduction</a></li>
+<li><a class="" href="fallacies-correlation-and-regression.html"><span class="header-section-number">7</span> Fallacies, Correlation and Regression</a></li>
+<li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
+<li><a class="" href="resources-5.html">Resources</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jmbuhr/dataintro">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="functional-programming" class="section level1" number="4">
+<h1>
+<span class="header-section-number">Lesson 4</span> Functional Programming<a class="anchor" aria-label="anchor" href="#functional-programming"><i class="fas fa-link"></i></a>
+</h1>
+<blockquote>
+<p>… which is all about functions, bringing the whole tidyverse together and
+exploring advanced dplyr data wrangling techniques.</p>
+</blockquote>
+<div class="alert alert-info">
+<p>These are just the notes for the lecture that
+will be filled during the recording.
+Check back later to the the completed script.</p>
+</div>
+<!-- ::: {.video-container} -->
+<!-- <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe> -->
+<!-- ::: -->
+<div id="todays-goal" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Todays goal<a class="anchor" aria-label="anchor" href="#todays-goal"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>note on resources</li>
+<li>bring everything together</li>
+<li>free our mental capacity for the statistics in the coming lectures</li>
+<li>this lecture might be the most challenging,
+because of the interplay of many things</li>
+</ul>
+</div>
+<div id="iteration" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> Iteration<a class="anchor" aria-label="anchor" href="#iteration"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>“Of course someone has to write for-loops.
+It doesn’t have to be you.”
+— Jenny Bryan</p>
+</blockquote>
+<div id="the-imperative-programming-approach" class="section level3" number="4.2.1">
+<h3>
+<span class="header-section-number">4.2.1</span> The Imperative Programming Approach<a class="anchor" aria-label="anchor" href="#the-imperative-programming-approach"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="the-functional-programming-approach" class="section level3" number="4.2.2">
+<h3>
+<span class="header-section-number">4.2.2</span> The Functional Programming Approach<a class="anchor" aria-label="anchor" href="#the-functional-programming-approach"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>explicitly with <code>map</code>s</p></li>
+<li><p>implicitly with vectorization</p></li>
+<li><p><code>fs</code> and <code>readr</code> playing together</p></li>
+<li>
+<p>roadmap for solving a new problem:</p>
+<ul>
+<li>is there a function that already does that?</li>
+<li>is it vectorized?</li>
+<li>if not, is there a function that solves my problem for one instance?</li>
+<li>can I map it over many things?</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." class="section level2" number="4.3">
+<h2>
+<span class="header-section-number">4.3</span> “If you copy and paste the same code more than three times, write a function.”<a class="anchor" aria-label="anchor" href="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function."><i class="fas fa-link"></i></a>
+</h2>
+<div id="notice-a-pattern" class="section level3" number="4.3.1">
+<h3>
+<span class="header-section-number">4.3.1</span> Notice a Pattern<a class="anchor" aria-label="anchor" href="#notice-a-pattern"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+<div id="where-to-put-your-functions" class="section level3" number="4.3.2">
+<h3>
+<span class="header-section-number">4.3.2</span> Where to put your Functions<a class="anchor" aria-label="anchor" href="#where-to-put-your-functions"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><p>write R script file</p></li>
+<li><p><code>source</code> it</p></li>
+<li><p>Go the extra mile and write your own package</p></li>
+</ul>
+</div>
+</div>
+<div id="implicit-iteration-with-dplyr-build-many-models" class="section level2" number="4.4">
+<h2>
+<span class="header-section-number">4.4</span> Implicit iteration with <code>dplyr</code>: build many models<a class="anchor" aria-label="anchor" href="#implicit-iteration-with-dplyr-build-many-models"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="advanced-dplyr" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Advanced <code>dplyr</code><a class="anchor" aria-label="anchor" href="#advanced-dplyr"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="exercises-3" class="section level2" number="4.6">
+<h2>
+<span class="header-section-number">4.6</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-3"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="resources-2" class="section level2" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> Resources<a class="anchor" aria-label="anchor" href="#resources-2"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://purrr.tidyverse.org/">purrr documentation</a></li>
+<li><a href="https://stringr.tidyverse.org/">stringr documentation</a></li>
+<li><a href="https://dplyr.tidyverse.org/">dplyr documentation</a></li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="tidy-data.html"><span class="header-section-number">3</span> Tidy data</a></div>
+<div class="next"><a href="probability-and-hypothesis-testing.html"><span class="header-section-number">5</span> Probability and Hypothesis Testing</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#functional-programming"><span class="header-section-number">4</span> Functional Programming</a></li>
+<li><a class="nav-link" href="#todays-goal"><span class="header-section-number">4.1</span> Todays goal</a></li>
+<li>
+<a class="nav-link" href="#iteration"><span class="header-section-number">4.2</span> Iteration</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-imperative-programming-approach"><span class="header-section-number">4.2.1</span> The Imperative Programming Approach</a></li>
+<li><a class="nav-link" href="#the-functional-programming-approach"><span class="header-section-number">4.2.2</span> The Functional Programming Approach</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function."><span class="header-section-number">4.3</span> “If you copy and paste the same code more than three times, write a function.”</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#notice-a-pattern"><span class="header-section-number">4.3.1</span> Notice a Pattern</a></li>
+<li><a class="nav-link" href="#where-to-put-your-functions"><span class="header-section-number">4.3.2</span> Where to put your Functions</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#implicit-iteration-with-dplyr-build-many-models"><span class="header-section-number">4.4</span> Implicit iteration with dplyr: build many models</a></li>
+<li><a class="nav-link" href="#advanced-dplyr"><span class="header-section-number">4.5</span> Advanced dplyr</a></li>
+<li><a class="nav-link" href="#exercises-3"><span class="header-section-number">4.6</span> Exercises</a></li>
+<li><a class="nav-link" href="#resources-2"><span class="header-section-number">4.7</span> Resources</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jmbuhr/dataintro/blob/main/04-functional.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jmbuhr/dataintro/edit/main/04-functional.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-10-24.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

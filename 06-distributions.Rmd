@@ -1,0 +1,69 @@
+# Distributions, Summaries and Dimensionality Reduction
+
+> ... in which we explore continuous distributions with spotify data,
+  find out about the central limit theorem and related statistical tests
+  and become N-dimensional whale sharks.
+
+::: { .alert .alert-info}
+These are just the notes for the lecture that
+will be filled during the recording.
+Check back later to the the completed script.
+:::
+
+<!-- ::: {.video-container} -->
+<!-- <iframe class="video" src="https://www.youtube.com/embed/1J2zomeKjFE" allowfullscreen></iframe> -->
+<!-- ::: -->
+
+## Some Preparation
+
+### Sidenote on Reproducible Environments with `renv`
+
+## All models are wrong, but some are useful
+
+### Types of Models
+
+## Say Hello to Spotify Data
+
+## Visualising Continuous Distributions
+
+### Summary Statistics...
+
+### ... or: How to Lie with Graphs
+
+## Graphic Devices, Fonts and the ggplot Book
+
+### ggplot book
+
+### Graphics Devics
+
+## The Normal Distribution and the Central Limit Theorem
+
+### Log-normality
+
+## The T-Distribution
+
+## Student's T-Test
+
+## Wilcoxon rank-sum test
+
+### Direction of Testing
+
+### Confidence Intervals
+
+## Chrunching Dimensions with Dimensionality Reduction: PCA
+
+## Exercises
+
+### The Plotty Horror Picture Show
+
+### Take a Sad Plot and Make it Better
+
+### Stats Time
+
+## Resources
+
+- [Tidymodels website](https://www.tidymodels.org/)
+- [Tidymodels book](https://www.tmwr.org/)
+- [ggplot book](https://ggplot2-book.org/)
+- [ragg graphics device](https://ragg.r-lib.org/)
+

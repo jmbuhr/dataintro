@@ -1,0 +1,66 @@
+# Functional Programming
+
+> ... which is all about functions, bringing the whole tidyverse together and
+  exploring advanced dplyr data wrangling techniques.
+
+::: { .alert .alert-info}
+These are just the notes for the lecture that
+will be filled during the recording.
+Check back later to the the completed script.
+:::
+
+<!-- ::: {.video-container} -->
+<!-- <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe> -->
+<!-- ::: -->
+
+## Todays goal
+
+- note on resources
+- bring everything together
+- free our mental capacity for the statistics in the coming lectures
+- this lecture might be the most challenging,
+  because of the interplay of many things
+
+## Iteration
+
+> "Of course someone has to write for-loops.
+  It doesn't have to be you."
+> --- Jenny Bryan
+
+### The Imperative Programming Approach
+
+### The Functional Programming Approach
+
+- explicitly with `map`s
+
+- implicitly with vectorization
+- `fs` and `readr` playing together
+
+- roadmap for solving a new problem:
+  - is there a function that already does that?
+  - is it vectorized?
+  - if not, is there a function that solves my problem for one instance?
+  - can I map it over many things?
+
+## "If you copy and paste the same code more than three times, write a function."
+
+### Notice a Pattern
+
+### Where to put your Functions
+
+- write R script file
+- `source` it
+
+- Go the extra mile and write your own package
+
+## Implicit iteration with `dplyr`: build many models
+
+## Advanced `dplyr`
+
+## Exercises
+
+## Resources
+
+- [purrr documentation](https://purrr.tidyverse.org/)
+- [stringr documentation](https://stringr.tidyverse.org/)
+- [dplyr documentation](https://dplyr.tidyverse.org/)
