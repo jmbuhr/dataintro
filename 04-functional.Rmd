@@ -55,6 +55,8 @@ Check back later to the the completed script.
 
 ## Implicit iteration with `dplyr`: build many models
 
+- groups, rowwise and list columns
+
 ## Advanced `dplyr`
 
 ## Exercises
