@@ -3,9 +3,11 @@ bookdown::bs4_book:
     # bootswatch: 
     primary: "#388e00"
     base_font:
-      google: "Roboto"
+      google:
+        family: Roboto
     code_font:
-      google: "Fira Mono"
+      google:
+        family: Fira Mono
   repo: 
     base: https://github.com/jmbuhr/dataintro
     branch: main
