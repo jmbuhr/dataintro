@@ -10,7 +10,7 @@ Check back later to the the completed script.
 :::
 
 <!-- ::: {.video-container} -->
-<!-- <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe> -->
+<!-- <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA?vq=hd1080" allowfullscreen></iframe> -->
 <!-- ::: -->
 
 ## Motivation

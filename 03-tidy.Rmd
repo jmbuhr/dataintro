@@ -4,7 +4,7 @@
   advanced data wrangling techniques 
 
 :::{.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/4BuFhsZp-4w" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/4BuFhsZp-4w?vq=hd1080" allowfullscreen></iframe>
 :::
 
 Once again, we start by loading the tidyverse.

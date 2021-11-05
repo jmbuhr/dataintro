@@ -10,7 +10,7 @@ To sign up, check out the [welcome page](https://jmbuhr.de/dataintro/index.html)
   plot by discovering a Grammar of Graphics.
 
 ::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/r0bWxrzu4tg" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/r0bWxrzu4tg?vq=hd1080" allowfullscreen></iframe>
 :::
 
 ## What You will Learn

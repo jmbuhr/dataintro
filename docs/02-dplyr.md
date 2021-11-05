@@ -3,7 +3,7 @@
 > ... in which we explore the typical data analysis workflow with the tidyverse, wrangle different kinds of data and learn about factors.
 
 :::{.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/oCYn2pHfizg" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/oCYn2pHfizg?vq=hd1080" allowfullscreen></iframe>
 :::
 
 > **Note**:\

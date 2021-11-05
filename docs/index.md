@@ -28,7 +28,7 @@ Language: Lectures are in English but the seminar can be in German if you choose
 :::
 
 ::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/GguzPRquTLI" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/GguzPRquTLI?vq=hd1080" allowfullscreen></iframe>
 :::
 
 ::: { .alert .alert-dark}

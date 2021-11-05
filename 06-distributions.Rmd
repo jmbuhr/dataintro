@@ -11,7 +11,7 @@ Check back later to the the completed script.
 :::
 
 <!-- ::: {.video-container} -->
-<!-- <iframe class="video" src="https://www.youtube.com/embed/1J2zomeKjFE" allowfullscreen></iframe> -->
+<!-- <iframe class="video" src="https://www.youtube.com/embed/1J2zomeKjFE?vq=hd1080" allowfullscreen></iframe> -->
 <!-- ::: -->
 
 ## Some Preparation

@@ -4,15 +4,15 @@
   exploring advanced dplyr data wrangling techniques.
 
 ::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/B2RRRpjX1QU" allowfullscreen></iframe>
+<iframe class="video" src="https://www.youtube.com/embed/B2RRRpjX1QU?vq=hd1080" allowfullscreen></iframe>
 :::
+
+## Todays goal
 
 ```{r}
 library(tidyverse)
 library(gapminder)
 ```
-
-## Todays goal
 
 - resources
 - bring everything together
