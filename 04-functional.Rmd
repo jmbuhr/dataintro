@@ -3,19 +3,18 @@
 > ... which is all about functions, bringing the whole tidyverse together and
   exploring advanced dplyr data wrangling techniques.
 
-::: { .alert .alert-info}
-These are just the notes for the lecture that
-will be filled during the recording.
-Check back later to the the completed script.
+::: {.video-container}
+<iframe class="video" src="https://www.youtube.com/embed/B2RRRpjX1QU" allowfullscreen></iframe>
 :::
 
-<!-- ::: {.video-container} -->
-<!-- <iframe class="video" src="https://www.youtube.com/embed/lwnZaHczseA" allowfullscreen></iframe> -->
-<!-- ::: -->
+```{r}
+library(tidyverse)
+library(gapminder)
+```
 
 ## Todays goal
 
-- note on resources
+- resources
 - bring everything together
 - free our mental capacity for the statistics in the coming lectures
 - this lecture might be the most challenging,
@@ -23,18 +22,68 @@ Check back later to the the completed script.
 
 ## Iteration
 
+- example: read in multiple files
+  and combine them into one tibble
+  
+```{r, eval=FALSE}
+read_csv("./data/04/Africa.csv")
+```
+
+  
+```{r}
+paths <- fs::dir_ls("./data/04/")
+read_csv(paths[1])
+```
+
+### The Imperative Programming Approach
+
+```{r}
+result <- vector(mode = "list", length = length(paths))
+
+for (i in 1:length(paths)) {
+  result[[i]] <- read_csv(paths[i])
+}
+
+bind_rows(result)
+```
+
+
+### The Functional Programming Approach
+
 > "Of course someone has to write for-loops.
   It doesn't have to be you."
 > --- Jenny Bryan
 
-### The Imperative Programming Approach
+<aside>
+<a href="https://purrr.tidyverse.org/">
+![](images/purrr.png){width=200}
+</a>
+</aside>
 
-### The Functional Programming Approach
+```{r}
+paths <- fs::dir_ls("./data/04/")
+
+result <- map(paths, read_csv)
+bind_rows(result)
+```
+
+```{r}
+gapminder <- map_df(paths, read_csv, .id = "continent") %>% 
+  mutate(continent = str_extract(continent, "(?<=/)\\w+(?=\\.csv)"))
+
+gapminder
+```
+
 
 - explicitly with `map`s
 
 - implicitly with vectorization
 - `fs` and `readr` playing together
+
+
+```{r}
+read_csv(paths, id = "continent")
+```
 
 - roadmap for solving a new problem:
   - is there a function that already does that?
@@ -42,7 +91,37 @@ Check back later to the the completed script.
   - if not, is there a function that solves my problem for one instance?
   - can I map it over many things?
 
+```{r}
+# map_
+```
+
+
+## Work with text with the `stringr` package
+
+<aside>
+<a href="https://stringr.tidyverse.org/">
+![](images/stringr.png){width=200}
+</a>
+</aside>
+
 ## "If you copy and paste the same code more than three times, write a function."
+
+```{r}
+read_experiment_data <- function(day) {
+  day <- str_pad(day, pad = 0, width = 2)
+  paths <- fs::dir_ls(paste0("./data/",day,"/"))
+
+  gapminder <- map_df(paths, read_csv, .id = "continent") %>% 
+    mutate(continent = str_extract(continent, "(?<=/)\\w+(?=\\.csv)"))
+
+  gapminder
+}
+```
+
+```{r, eval=FALSE}
+source("R/my_functions.R")
+read_experiment_data(4)
+```
 
 ### Notice a Pattern
 
@@ -57,7 +136,94 @@ Check back later to the the completed script.
 
 - groups, rowwise and list columns
 
-## Advanced `dplyr`
+```{r}
+algeria <- gapminder %>% 
+  filter(country == "Algeria")
+
+algeria %>% 
+  ggplot(aes(year, lifeExp)) +
+  geom_smooth(method = "lm") +
+  geom_point()
+```
+
+
+```{r}
+model <- lm(lifeExp ~ year, data = algeria)
+summary(model)
+```
+
+
+```{r}
+broom::tidy(model)
+```
+
+
+```{r}
+broom::glance(model)
+```
+
+
+```{r}
+broom::glance(model)$r.squared
+```
+
+```{r}
+get_r_squared <- function(model) {
+  broom::glance(model)$r.squared
+}
+```
+
+
+```{r}
+all_models <- gapminder %>% 
+  group_by(country, continent) %>% 
+  summarise(
+    model = list(lm(lifeExp ~ year)),
+    rsquared = map_dbl(model, get_r_squared)
+  )
+
+head(all_models)
+```
+
+```{r}
+gapminder <- gapminder %>% 
+  left_join(select(all_models, -model))
+```
+
+
+```{r}
+gapminder %>% 
+  ggplot(aes(year, lifeExp, color = country, alpha = 1/rsquared)) +
+  geom_line() +
+  guides(color = "none", alpha = "none") +
+  scale_color_manual(values = country_colors) +
+  facet_wrap(~continent, scales = "free") +
+  theme_minimal()
+```
+
+
+```{r, fig.width=12, fig.height=7}
+#| fig.cap: Figure caption
+
+gapminder %>% 
+  filter(continent == "Africa") %>% 
+  ggplot(aes(year, lifeExp, color = country, group = country)) +
+  geom_line(color = "black", alpha = 0.3) +
+  geom_line(data = filter(gapminder, rsquared <= 0.4), size = 1.1) +
+  ggrepel::geom_text_repel(aes(label = country), data = filter(gapminder, rsquared <= 0.4,
+                                         year == max(year)),
+                           nudge_x = 20,
+                           direction = "y"
+                           ) +
+  guides(color = "none", alpha = "none") +
+  scale_color_manual(values = country_colors) +
+  facet_wrap(~continent, scales = "free") +
+  theme_minimal() +
+  scale_x_continuous(expand = expansion(mult = c(0, 0.2)))
+```
+
+- plotting: ggrepel package
+- add a figure caption, note about new knitr chunk option syntax
 
 ## Exercises
 

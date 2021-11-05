@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lesson 1 Introduction | Introduction to Data Analysis with R">
 <meta name="twitter:description" content="Hi there! this is where the material for the first lecture will appear. To sign up, check out the welcome page  … in which we get started with R and RStudio, learn about literate programming and...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
@@ -492,7 +492,7 @@ The package is called <code>ggplot2</code>, and we already have it loaded becaus
   <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_color_brewer</span><span class="op">(</span>type <span class="op">=</span> <span class="st">"qual"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">theme</span><span class="op">(</span>plot.caption <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-36-1.png" width="100%"></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-36-1.png" width="100%"></div>
 <p>Having a grammar means:
 - we can build complex visualizations
 with basic building blocks
@@ -509,7 +509,7 @@ piechart)</p>
 <code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span>
 
 <span class="va">plt</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-37-1.png" width="100%"></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-37-1.png" width="100%"></div>
 <p>Then, we add and <code>aesthetic mapping</code> to the plot. It creates a relation from the features of our dataset (like the flipper length of each penguin) to a visual property, like position of the x-axis, color or shape.</p>
 <div class="sourceCode" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">penguins</span>,
@@ -519,21 +519,21 @@ piechart)</p>
                   shape <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">plt</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-38-1.png" width="100%"></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-38-1.png" width="100%"></div>
 <p>Still, the plot is empty, it only has a coordinate system with a certain scale. This is because we have no geometric objects to represent our aesthetics. Elements of the plot are added using the <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code> operator and all geometric elements that ggplot knows start with <code>geom_</code>. Let’s add some points:</p>
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span>
   <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span>
 
 <span class="va">plt</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-39-1.png" width="100%"></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-39-1.png" width="100%"></div>
 <p>Look at the help page for <code>geom_point</code> to find out what aesthetics it understands. The exact way that features are mapped to aesthetics is regulated by <strong>scales</strong> starting with <code>scale_</code> and the name of an aesthetic:</p>
 <div class="sourceCode" id="cb80"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span>
   <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">plt</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-40-1.png" width="100%"></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-40-1.png" width="100%"></div>
 <p>We can add or change labels (like the x-axis-label) by adding the <code>labs</code> function.</p>
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span>
@@ -548,7 +548,7 @@ piechart)</p>
   <span class="fu">theme</span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">plt</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-42-1.png" width="100%"></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-42-1.png" width="100%"></div>
 <p>In summary, this is what our plot needs:</p>
 <ul>
 <li>data</li>
@@ -574,7 +574,7 @@ piechart)</p>
   <span class="fu">theme</span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="va">my_plot</span> </code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-43-1.png" width="100%"></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-43-1.png" width="100%"></div>
 <p>We can save our plot with the <code>ggsave</code> function.
 It also has more arguments to control the dimentions and resolution
 of the image.</p>
@@ -695,7 +695,7 @@ load the tidyverse and the palmerpenguins packages.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-10-26.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-11-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

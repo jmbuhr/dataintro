@@ -532,6 +532,9 @@ in `pivot_longer` in exercise 1.
 
 ### A new dataset: airlines
 
+<!-- TODO: reword these or change, the _standardize_ -->
+<!-- part is misleading with some airlines having 0 accidents! -->
+
 - Imagine for a second this whole pandemic thing is not
   going on and we are planning a vacation.
   Of course, we want to choose the safest airline possible.

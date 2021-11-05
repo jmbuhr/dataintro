@@ -15,7 +15,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lesson 2 Data Wrangling | Introduction to Data Analysis with R">
 <meta name="twitter:description" content="… in which we explore the typical data analysis workflow with the tidyverse, wrangle different kinds of data and learn about factors.    Note: I try to be vocal about what the code does in plain...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.10/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
@@ -712,7 +712,7 @@ For example, we can get all rows where the gdp per Person was highest per countr
   <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">continent</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-88-1.png" width="100%"></div>
+<div class="inline-figure"><img src="02-dplyr_files/figure-html/unnamed-chunk-44-1.png" width="100%"></div>
 <p>The <code>facet_wrap</code> function slices our plot into theses subplots, a style of plot sometimes referred to as <em>small multiples</em>. At this point you might wonder: “How do I control the order of these facets?” The answer is: With a <code>factor</code>!</p>
 <p>Any time we have a vector that can be thought of as representing discrete categories (ordered or unordered), we can express this by turning the vector into a factor with the <code>factor</code> function. This enables R’s functions to handle them appropriately. Let’s create a little example. We start out with a character vector.</p>
 <div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
@@ -744,7 +744,7 @@ Levels: shark dog bear cat</code></pre>
   <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">geom_line</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">continent</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-92-1.png" width="100%"></div>
+<div class="inline-figure"><img src="02-dplyr_files/figure-html/unnamed-chunk-48-1.png" width="100%"></div>
 <p>Note: <code>fct_relevel</code> might be a very constructed example.
 More often you will need its cousin <code>fct_reoder</code>
 to reorder a factor by the values of some other column.</p>
@@ -779,7 +779,7 @@ it would fill up the whole plot.</p>
   <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span><span class="va">continent</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">guides</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="va">color</span><span class="op">)</span></code></pre></div>
-<div class="inline-figure"><img src="dataintro_files/figure-html/unnamed-chunk-95-1.png" width="100%"></div>
+<div class="inline-figure"><img src="02-dplyr_files/figure-html/unnamed-chunk-51-1.png" width="100%"></div>
 </div>
 <div id="exercises-1" class="section level2" number="2.6">
 <h2>
@@ -902,7 +902,7 @@ have.</li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-10-26.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-11-05.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
