@@ -1,5 +1,5 @@
 fig:cover-plot
-fig:unnamed-chunk-20
+fig:unnamed-chunk-23
 prerequisits
 structure-of-the-course
 exe
@@ -66,10 +66,7 @@ todays-goal
 iteration
 the-imperative-programming-approach
 the-functional-programming-approach
-work-with-text-with-the-stringr-package
 if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function.
-notice-a-pattern
-where-to-put-your-functions
 implicit-iteration-with-dplyr-build-many-models
 exercises-3
 resources-2

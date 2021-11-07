@@ -1,7 +1,7 @@
 --- 
 title: "Introduction to Data Analysis with R"
 author: "Jannik Buhr"
-date: "2021-11-05"
+date: "2021-11-07"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
