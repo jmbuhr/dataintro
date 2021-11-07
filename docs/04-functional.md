@@ -562,6 +562,88 @@ and his book "The Complexity of Evil. Perpetration and Genocide" was [published 
 
 ## Exercises
 
+I want to get you playing around with data,
+so keep in mind that the solutions for this exercise 
+are not set in stone.
+There is often more than one viable way of graphing
+the same dataset and we will use the
+Office Hour to talk about the advantages
+and disadvantages of approaches that you
+came up with.
+
+### Roman emperors
+
+The first exercise uses a dataset about roman emperors
+from the tidytuesday project
+([link](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-08-13)).
+You can import it with:
+
+
+```r
+emperors <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv")
+```
+
+There is a slight error in the data because some of the dates are actually in BC time.
+In order to fix this we will be using the [lubridate](https://lubridate.tidyverse.org/) package,
+which is installed with the tidyverse, but not automatically loaded.
+For your convenience here is a function that you can use to fix the dataset:
+
+
+```r
+library(tidyverse)
+library(lubridate)
+
+fix_emperors <- function(data) {
+  data %>% 
+    mutate(
+      birth = case_when(
+        index %in% c(1, 2, 4, 6) ~ update(birth, year = -year(birth)),
+        TRUE                     ~ birth
+      ),
+      reign_start = case_when(
+        index == 1 ~ update(reign_start, year = -year(reign_start)),
+        TRUE       ~ reign_start
+      )
+    )
+}
+```
+
+Here are the questions to answer.
+Decide for yourself, if a particular question is best
+answered using a visualization, a table, a simple sentence
+or a combination of the three.
+
+- What was the most popular way to rise to power?
+- I what are the most common causes of death among roman
+  emperors? What (or who) killed them?
+- Which dynasty was the most successful?
+  - Firstly, how often did each dynasty reign?
+  - Secondly, how long where the reigns?
+  - Which dynasty would you rather be a part of,
+    if your goal is to live the longest?
+    
+### Dairy Products in the US
+
+Another dataset
+([link](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-29#milk_products_facts))
+concerns dairy product consumption per person in the US across a number of years.
+Load it with:
+
+
+```r
+dairy <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-29/milk_products_facts.csv")
+```
+
+- All masses are given in lbs (pounds),
+  can you convert them to kg?
+- Which products lost their customer base over time,
+  which ones won? Which products have the greatest absolute
+  change in production when estimated with a straight line?
+
+Above all, have some fun! If you make interesting
+findings along the way, go ahead and produce plots
+to highlight it.
+
 ## Resources
 
 - [purrr documentation](https://purrr.tidyverse.org/)

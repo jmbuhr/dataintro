@@ -69,6 +69,8 @@ the-functional-programming-approach
 if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function.
 implicit-iteration-with-dplyr-build-many-models
 exercises-3
+roman-emperors
+dairy-products-in-the-us
 resources-2
 probability-and-hypothesis-testing
 motivation
