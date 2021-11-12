@@ -7,6 +7,7 @@ Some will help you understand the topics covered, some dive deeper and some will
 ## Learning the tidyverse
 
 - [R for Data Science](https://r4ds.had.co.nz/) [@wickhamDataScienceImport2017]
+- [The ggplot2 book](https://ggplot2-book.org/index.html)
 - [R4DS online Community](https://www.rfordatasci.com/)
 - [RStudio Cheat Sheets!](https://www.rstudio.com/resources/cheatsheets/)
 - [The Modern Dive](https://moderndive.com/) [@kimStatisticalInferenceData2019]

@@ -1,5 +1,6 @@
 fig:cover-plot
 fig:unnamed-chunk-23
+fig:chess-board
 prerequisits
 structure-of-the-course
 exe
@@ -86,6 +87,8 @@ other-forms-of-p-hacking
 bayesian-statistics-and-the-base-rate-fallacy
 concepts-discussed-today
 exercises-4
+an-fair-coin
+an-unfair-game
 discovering-a-new-distribution
 resources-3
 distributions-summaries-and-dimensionality-reduction

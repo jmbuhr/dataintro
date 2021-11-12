@@ -771,8 +771,6 @@ In summary, this is what our plot needs:
 
 
 ```r
-theme_set(theme_minimal())
-
 my_plot <- ggplot(penguins,
                   aes(x = flipper_length_mm,
                       y = bill_length_mm,
