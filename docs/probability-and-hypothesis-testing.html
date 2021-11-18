@@ -50,8 +50,9 @@
 <li><a class="" href="functional-programming.html"><span class="header-section-number">4</span> Functional Programming</a></li>
 <li><a class="active" href="probability-and-hypothesis-testing.html"><span class="header-section-number">5</span> Probability and Hypothesis Testing</a></li>
 <li><a class="" href="distributions-summaries-and-dimensionality-reduction.html"><span class="header-section-number">6</span> Distributions, Summaries and Dimensionality Reduction</a></li>
-<li><a class="" href="fallacies-correlation-and-regression.html"><span class="header-section-number">7</span> Fallacies, Correlation and Regression</a></li>
-<li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
+<li><a class="" href="exercises-5.html"><span class="header-section-number">7</span> Exercises</a></li>
+<li><a class="" href="fallacies-correlation-and-regression.html"><span class="header-section-number">8</span> Fallacies, Correlation and Regression</a></li>
+<li><a class="" href="freestyle.html"><span class="header-section-number">9</span> Freestyle</a></li>
 <li><a class="" href="resources-5.html">Resources</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
@@ -172,7 +173,7 @@ vector, with or without replacement after taking each thing:</p>
 <div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">coin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"heads"</span>, <span class="st">"tails"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] "heads" "tails"</code></pre>
+<pre><code>[1] "tails" "heads"</code></pre>
 <p>Not giving it a number of things to draw just shuffles the vector, which is
 fairly boring in the case of just two tings. We can’t sample 10 things from a
 vector of only two elements</p>
@@ -182,17 +183,17 @@ vector of only two elements</p>
 <p>But we can, if we put the thing back every time:</p>
 <div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code> [1] "tails" "heads" "heads" "tails" "heads" "tails" "heads" "tails" "tails"
-[10] "tails"</code></pre>
+<pre><code> [1] "heads" "heads" "heads" "heads" "tails" "tails" "heads" "heads" "heads"
+[10] "heads"</code></pre>
 <p>So, let’s make this a little more specific to our question:</p>
 <div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">winner</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"you"</span>, <span class="st">"friend"</span><span class="op">)</span>
 <span class="va">random_winners</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">winner</span>, size <span class="op">=</span> <span class="fl">8</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">random_winners</span></code></pre></div>
-<pre><code>[1] "friend" "you"    "friend" "you"    "you"    "friend" "you"    "you"   </code></pre>
+<pre><code>[1] "you"    "you"    "friend" "friend" "friend" "you"    "friend" "you"   </code></pre>
 <div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">random_winners</span> <span class="op">==</span> <span class="st">"friend"</span></code></pre></div>
-<pre><code>[1]  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE</code></pre>
+<pre><code>[1] FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE</code></pre>
 <div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fl">1</span> <span class="op">+</span> <span class="cn">TRUE</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
@@ -201,10 +202,10 @@ vector of only two elements</p>
 <pre><code>[1] 1</code></pre>
 <div class="sourceCode" id="cb235"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">random_winners</span> <span class="op">==</span> <span class="st">"friend"</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 3</code></pre>
+<pre><code>[1] 4</code></pre>
 <div class="sourceCode" id="cb237"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">random_winners</span> <span class="op">==</span> <span class="st">"friend"</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 0.375</code></pre>
+<pre><code>[1] 0.5</code></pre>
 <p>If we were to run this script a million times, the resulting proportion
 of random wins for both of you would be very, very close to 50-50 because we
 used a fair coin. However, we don’t have the time to play this much Chess and we
@@ -225,12 +226,12 @@ gotten by pure chance for a number of rounds <code>N</code>.</p>
 <span class="op">}</span>
 
 <span class="fu">get_n_win</span><span class="op">(</span><span class="fl">8</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 4</code></pre>
+<pre><code>[1] 5</code></pre>
 <p>This number is different every time, so how does it change?</p>
 <div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">map_dbl</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">1000</span><span class="op">)</span>, <span class="va">get_n_win</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 5 5 6 4 1 3</code></pre>
+<pre><code>[1] 3 2 4 6 3 3</code></pre>
 <p>A histogram is a type of plot that shows how often each value occurs in a
 vector. Usually, the values are put into bins first, grouping close values
 together for continuous values, but in this case it makes sense to just have one
@@ -293,7 +294,7 @@ the null hypothesis is:</p>
   <span class="op">)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mean(wins >= 7)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.038"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["mean(wins >= 7)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.032"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Which is smaller than the commonly used significance threshold of <span class="math inline">\(\alpha=0.05\)</span>
@@ -372,7 +373,7 @@ with quantile-quantile plots.</p>
 number of random numbers from the distribution.</p>
 <div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">8</span>, <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
-<pre><code> [1] 6 5 5 3 5 6 4 4 2 4</code></pre>
+<pre><code> [1] 4 7 4 2 3 6 5 4 5 5</code></pre>
 </div>
 <div id="but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives" class="section level3" number="5.3.4">
 <h3>
@@ -406,7 +407,7 @@ number of games). We can explore the concept with another simulation.</p>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">simulation</span><span class="op">)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["N"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["true_prob"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["wins"],"name":[3],"type":["int"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"4","4":"0.6367187"},{"1":"8","2":"0.5","3":"6","4":"0.1445313"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["N"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["true_prob"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["wins"],"name":[3],"type":["int"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"8","2":"0.5","3":"2","4":"0.9648438"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"2","4":"0.9648438"},{"1":"8","2":"0.5","3":"1","4":"0.9960938"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>I also introduced a new piece of advanced dplyr syntax. <code>rowwise</code> is similar to
@@ -666,9 +667,9 @@ as <strong>priors</strong>.</p>
 <span class="header-section-number">5.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-4"><i class="fas fa-link"></i></a>
 </h2>
 </div>
-<div id="an-fair-coin" class="section level2" number="5.8">
+<div id="a-fair-coin" class="section level2" number="5.8">
 <h2>
-<span class="header-section-number">5.8</span> An Fair Coin<a class="anchor" aria-label="anchor" href="#an-fair-coin"><i class="fas fa-link"></i></a>
+<span class="header-section-number">5.8</span> A Fair Coin<a class="anchor" aria-label="anchor" href="#a-fair-coin"><i class="fas fa-link"></i></a>
 </h2>
 <p>We have a regular old coin and flip it 100 times.
 Given a significance threshold <span class="math inline">\(\alpha\)</span> of 0.05,
@@ -763,7 +764,7 @@ likely? How likely is it, to get at least
 <li><a class="nav-link" href="#bayesian-statistics-and-the-base-rate-fallacy"><span class="header-section-number">5.5</span> Bayesian Statistics and the Base Rate Fallacy</a></li>
 <li><a class="nav-link" href="#concepts-discussed-today"><span class="header-section-number">5.6</span> Concepts discussed today</a></li>
 <li><a class="nav-link" href="#exercises-4"><span class="header-section-number">5.7</span> Exercises</a></li>
-<li><a class="nav-link" href="#an-fair-coin"><span class="header-section-number">5.8</span> An Fair Coin</a></li>
+<li><a class="nav-link" href="#a-fair-coin"><span class="header-section-number">5.8</span> A Fair Coin</a></li>
 <li><a class="nav-link" href="#an-unfair-game"><span class="header-section-number">5.9</span> An Unfair Game</a></li>
 <li><a class="nav-link" href="#discovering-a-new-distribution"><span class="header-section-number">5.10</span> Discovering a new Distribution</a></li>
 <li><a class="nav-link" href="#resources-3"><span class="header-section-number">5.11</span> Resources</a></li>
@@ -784,7 +785,7 @@ likely? How likely is it, to get at least
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-11-13.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-11-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

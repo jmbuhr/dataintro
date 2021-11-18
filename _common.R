@@ -7,6 +7,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   comment = "",
+  dev = "ragg_png",
   paged.print = TRUE
 )
 

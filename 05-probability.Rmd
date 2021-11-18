@@ -669,7 +669,7 @@ After today you should be familiar with the following concepts:
 
 ## Exercises
 
-## An Fair Coin
+## A Fair Coin
 
 We have a regular old coin and flip it 100 times.
 Given a significance threshold $\alpha$ of 0.05,

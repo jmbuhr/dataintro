@@ -1,6 +1,7 @@
 fig:cover-plot
 fig:unnamed-chunk-23
 fig:chess-board
+fig:tdist
 prerequisits
 structure-of-the-course
 exe
@@ -87,7 +88,7 @@ other-forms-of-p-hacking
 bayesian-statistics-and-the-base-rate-fallacy
 concepts-discussed-today
 exercises-4
-an-fair-coin
+a-fair-coin
 an-unfair-game
 discovering-a-new-distribution
 resources-3
@@ -99,10 +100,14 @@ types-of-models
 say-hello-to-spotify-data
 visualising-continuous-distributions
 summary-statistics
+mean-median-and-other-quartiles-range
+variance
+standard-deviation
+standard-error-of-the-mean
 or-how-to-lie-with-graphs
 graphic-devices-fonts-and-the-ggplot-book
 ggplot-book
-graphics-devics
+sidenote-graphics-devices
 the-normal-distribution-and-the-central-limit-theorem
 log-normality
 the-t-distribution
@@ -114,7 +119,6 @@ chrunching-dimensions-with-dimensionality-reduction-pca
 exercises-5
 the-plotty-horror-picture-show
 take-a-sad-plot-and-make-it-better
-stats-time
 resources-4
 fallacies-correlation-and-regression
 data-considerations

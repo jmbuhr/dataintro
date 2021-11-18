@@ -105,7 +105,7 @@ sample(coin)
 ```
 
 ```
-[1] "heads" "tails"
+[1] "tails" "heads"
 ```
 
 Not giving it a number of things to draw just shuffles the vector, which is
@@ -129,8 +129,8 @@ sample(coin, 10, replace = TRUE)
 ```
 
 ```
- [1] "tails" "heads" "heads" "tails" "heads" "tails" "heads" "tails" "tails"
-[10] "tails"
+ [1] "heads" "heads" "heads" "heads" "tails" "tails" "heads" "heads" "heads"
+[10] "heads"
 ```
 
 So, let's make this a little more specific to our question:
@@ -143,7 +143,7 @@ random_winners
 ```
 
 ```
-[1] "friend" "you"    "friend" "you"    "you"    "friend" "you"    "you"   
+[1] "you"    "you"    "friend" "friend" "friend" "you"    "friend" "you"   
 ```
 
 ```r
@@ -151,7 +151,7 @@ random_winners == "friend"
 ```
 
 ```
-[1]  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE
+[1] FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
 ```
 
 ```r
@@ -178,7 +178,7 @@ sum(random_winners == "friend")
 ```
 
 ```
-[1] 3
+[1] 4
 ```
 
 
@@ -187,7 +187,7 @@ mean(random_winners == "friend")
 ```
 
 ```
-[1] 0.375
+[1] 0.5
 ```
 
 If we were to run this script a million times, the resulting proportion
@@ -215,7 +215,7 @@ get_n_win(8)
 ```
 
 ```
-[1] 4
+[1] 5
 ```
 
 This number is different every time, so how does it change?
@@ -227,7 +227,7 @@ head(result)
 ```
 
 ```
-[1] 5 5 6 4 1 3
+[1] 3 2 4 6 3 3
 ```
 
 A histogram is a type of plot that shows how often each value occurs in a
@@ -312,7 +312,7 @@ simulation %>%
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mean(wins >= 7)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.038"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["mean(wins >= 7)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.032"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 Which is smaller than the commonly used significance threshold of $\alpha=0.05$
@@ -431,7 +431,7 @@ rbinom(10, 8, 0.5)
 ```
 
 ```
- [1] 6 5 5 3 5 6 4 4 2 4
+ [1] 4 7 4 2 3 6 5 4 5 5
 ```
 
 
@@ -470,7 +470,7 @@ head(simulation)
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["N"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["true_prob"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["wins"],"name":[3],"type":["int"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"4","4":"0.6367187"},{"1":"8","2":"0.5","3":"6","4":"0.1445313"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["N"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["true_prob"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["wins"],"name":[3],"type":["int"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"8","2":"0.5","3":"2","4":"0.9648438"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"2","4":"0.9648438"},{"1":"8","2":"0.5","3":"1","4":"0.9960938"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 
@@ -755,7 +755,7 @@ After today you should be familiar with the following concepts:
 
 ## Exercises
 
-## An Fair Coin
+## A Fair Coin
 
 We have a regular old coin and flip it 100 times.
 Given a significance threshold $\alpha$ of 0.05,
