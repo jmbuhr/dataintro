@@ -172,7 +172,7 @@ vector, with or without replacement after taking each thing:</p>
 <div class="sourceCode" id="cb221"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">coin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"heads"</span>, <span class="st">"tails"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] "tails" "heads"</code></pre>
+<pre><code>[1] "heads" "tails"</code></pre>
 <p>Not giving it a number of things to draw just shuffles the vector, which is
 fairly boring in the case of just two tings. We can’t sample 10 things from a
 vector of only two elements</p>
@@ -182,17 +182,17 @@ vector of only two elements</p>
 <p>But we can, if we put the thing back every time:</p>
 <div class="sourceCode" id="cb225"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">coin</span>, <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
-<pre><code> [1] "heads" "tails" "tails" "heads" "heads" "heads" "heads" "heads" "heads"
+<pre><code> [1] "tails" "heads" "tails" "tails" "heads" "tails" "heads" "tails" "tails"
 [10] "heads"</code></pre>
 <p>So, let’s make this a little more specific to our question:</p>
 <div class="sourceCode" id="cb227"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">winner</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"you"</span>, <span class="st">"friend"</span><span class="op">)</span>
 <span class="va">random_winners</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">winner</span>, size <span class="op">=</span> <span class="fl">8</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="va">random_winners</span></code></pre></div>
-<pre><code>[1] "you"    "friend" "you"    "you"    "friend" "you"    "you"    "friend"</code></pre>
+<pre><code>[1] "you"    "friend" "you"    "you"    "you"    "you"    "friend" "friend"</code></pre>
 <div class="sourceCode" id="cb229"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">random_winners</span> <span class="op">==</span> <span class="st">"friend"</span></code></pre></div>
-<pre><code>[1] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE</code></pre>
+<pre><code>[1] FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE</code></pre>
 <div class="sourceCode" id="cb231"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fl">1</span> <span class="op">+</span> <span class="cn">TRUE</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
@@ -225,12 +225,12 @@ gotten by pure chance for a number of rounds <code>N</code>.</p>
 <span class="op">}</span>
 
 <span class="fu">get_n_win</span><span class="op">(</span><span class="fl">8</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] 4</code></pre>
 <p>This number is different every time, so how does it change?</p>
 <div class="sourceCode" id="cb241"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">map_dbl</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">1000</span><span class="op">)</span>, <span class="va">get_n_win</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre></div>
-<pre><code>[1] 5 4 3 2 5 5</code></pre>
+<pre><code>[1] 4 4 4 5 4 4</code></pre>
 <p>A histogram is a type of plot that shows how often each value occurs in a
 vector. Usually, the values are put into bins first, grouping close values
 together for continuous values, but in this case it makes sense to just have one
@@ -293,7 +293,7 @@ the null hypothesis is:</p>
   <span class="op">)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mean(wins >= 7)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.039"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["mean(wins >= 7)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.023"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>Which is smaller than the commonly used significance threshold of <span class="math inline">\(\alpha=0.05\)</span>
@@ -372,7 +372,7 @@ with quantile-quantile plots.</p>
 number of random numbers from the distribution.</p>
 <div class="sourceCode" id="cb256"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">8</span>, <span class="fl">0.5</span><span class="op">)</span></code></pre></div>
-<pre><code> [1] 5 6 5 6 4 4 5 4 3 5</code></pre>
+<pre><code> [1] 3 3 3 3 4 4 6 4 7 3</code></pre>
 </div>
 <div id="but-how-much-better-understanding-effect-size-and-power-false-positives-and-false-negatives" class="section level3" number="5.3.4">
 <h3>
@@ -406,7 +406,7 @@ number of games). We can explore the concept with another simulation.</p>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">simulation</span><span class="op">)</span></code></pre></div>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["N"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["true_prob"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["wins"],"name":[3],"type":["int"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"4","4":"0.6367187"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["N"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["true_prob"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["wins"],"name":[3],"type":["int"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"6","4":"0.1445313"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 <p>I also introduced a new piece of advanced dplyr syntax. <code>rowwise</code> is similar to
