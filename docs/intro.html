@@ -21,7 +21,7 @@
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/plotly-binding-4.9.4.1/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet">
 <script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-1.57.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<script src="libs/plotly-main-1.57.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -50,9 +50,8 @@
 <li><a class="" href="functional-programming.html"><span class="header-section-number">4</span> Functional Programming</a></li>
 <li><a class="" href="probability-and-hypothesis-testing.html"><span class="header-section-number">5</span> Probability and Hypothesis Testing</a></li>
 <li><a class="" href="distributions-summaries-and-dimensionality-reduction.html"><span class="header-section-number">6</span> Distributions, Summaries and Dimensionality Reduction</a></li>
-<li><a class="" href="exercises-5.html"><span class="header-section-number">7</span> Exercises</a></li>
-<li><a class="" href="fallacies-correlation-and-regression.html"><span class="header-section-number">8</span> Fallacies, Correlation and Regression</a></li>
-<li><a class="" href="freestyle.html"><span class="header-section-number">9</span> Freestyle</a></li>
+<li><a class="" href="fallacies-correlation-and-regression.html"><span class="header-section-number">7</span> Fallacies, Correlation and Regression</a></li>
+<li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
 <li><a class="" href="resources-5.html">Resources</a></li>
 <li><a class="" href="references.html">References</a></li>
 </ul>
@@ -107,7 +106,7 @@ the plots that come out of it!</li>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fl">1</span><span class="op">:</span><span class="fl">10</span></code></pre></div>
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<p>But I rarely type directly into the console. Because we want our results to be reproducible, we write our code in a <strong>script</strong> first, so that the next person <a href="references.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> can see what we did and replicate our analysis. You will see that reproducibility is quite near and dear to me, so it will pop up once or twice. And as scientists, I am sure you understand the importance.</p>
+<p>But I rarely type directly into the console. Because we want our results to be reproducible, we write our code in a <strong>script</strong> first, so that the next person <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This will most likely be future You. And you will thank yourself later&lt;/p&gt;"><sup>1</sup></a> can see what we did and replicate our analysis. You will see that reproducibility is quite near and dear to me, so it will pop up once or twice. And as scientists, I am sure you understand the importance.</p>
 <blockquote>
 <p>A script is like a recipe. It is the most important part of your data analysis
 workflow, because as long as you have the recipe, you can recreate whatever
@@ -199,7 +198,7 @@ This is what <strong>variables</strong> are for. We can assign a value to a vari
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1000</span>
 <span class="va">y</span></code></pre></div>
 <pre><code>[1] 2</code></pre>
-<p>Variable names can contain letters (capitalization matters), numbers (but not as the first character) and underscores <code>_</code>. <a href="references.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<p>Variable names can contain letters (capitalization matters), numbers (but not as the first character) and underscores <code>_</code>. <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;They can also contain dots (&lt;code&gt;.&lt;/code&gt;), but it is considered bad practice because it can lead to some confusing edge cases.&lt;/p&gt;"><sup>2</sup></a></p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># snake_case</span>
 <span class="va">main_character_name</span> <span class="op">&lt;-</span> <span class="st">"Kvothe"</span>
@@ -210,7 +209,7 @@ This is what <strong>variables</strong> are for. We can assign a value to a vari
 <span class="co"># you can have numbers in the name</span>
 <span class="va">x1</span> <span class="op">&lt;-</span> <span class="fl">12</span></code></pre></div>
 <div class="figure">
-<img src="images/coding_cases.png" alt=""><p class="caption">A depiction of various naming styles by <span class="citation">Allison Horst<a href="references.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></span></p>
+<img src="images/coding_cases.png" alt=""><p class="caption">A depiction of various naming styles by <span class="citation">Allison Horst<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;span&gt;“Artwork by @Allison_horst”&lt;/span&gt; (https://github.com/allisonhorst/stats-illustrations, 2020), &lt;a href="https://github.com/allisonhorst/stats-illustrations" role="doc-biblioref"&gt;https://github.com/allisonhorst/stats-illustrations&lt;/a&gt;.&lt;/p&gt;'><sup>3</sup></a></span></p>
 </div>
 <p>A good convention is to always use <code>snake_case</code>.</p>
 </div>
@@ -349,7 +348,7 @@ Double or single quotation marks are both fine.</p>
 There is a welcoming and helpful community out there.
 Some people also write a bunch of functions and put them together in a so called <code>package</code>.
 And some people even went a step further.
-The <code>tidyverse</code> is a <strong>collection of packages</strong> that play very well together and also iron out some of the quirkier ways in which R works.<span class="citation"><a href="references.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></span>
+The <code>tidyverse</code> is a <strong>collection of packages</strong> that play very well together and also iron out some of the quirkier ways in which R works.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Hadley Wickham et al., &lt;span&gt;“Welcome to the &lt;span class="nocase"&gt;tidyverse&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;Journal of Open Source Software&lt;/em&gt; 4, no. 43 (2019): 1686, &lt;a href="https://doi.org/10.21105/joss.01686" role="doc-biblioref"&gt;https://doi.org/10.21105/joss.01686&lt;/a&gt;.&lt;/p&gt;'><sup>4</sup></a></span>
 They provide a consistent interface to enable us to do more while having to learn less special cases.
 The R function <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("&lt;package_name_here&gt;")</a></code> installs packages from CRAN a curated set of R packages.</p>
 <p>R packages, especially the ones we will be using, often come
@@ -434,7 +433,7 @@ but for the exercises we will only be using <code>html_document</code>.</p>
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></code></pre></div>
-<p>This gives us the <code>penguins</code> dataset:<span class="citation"><a href="references.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></span></p>
+<p>This gives us the <code>penguins</code> dataset:<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Allison Horst, Alison Hill, and Kristen Gorman, &lt;em&gt;Palmerpenguins: &lt;span&gt;Palmer&lt;/span&gt; Archipelago (Antarctica) Penguin Data&lt;/em&gt;, Manual, 2020.&lt;/p&gt;"><sup>5</sup></a></span></p>
 <div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">penguins</span></code></pre></div>
 <div data-pagedtable="false">
@@ -470,7 +469,7 @@ Both are a list of columns, where columns are (usually) vectors.</p>
 </h2>
 <aside><a href="https://ggplot2.tidyverse.org/">
 <img src="images/ggplot2.png" width="200"></a>
-</aside><p>You probably took this course because you want to build some cool visualizations for you data. In order to do that, let us talk about how we can describe visualizations. Just like language has grammar, some smart people came up with a <strong>grammar of graphics</strong>,<span class="citation"><a href="references.html#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></span> which was then slightly modified and turned into an R package so that we can not only talk about but also create visualizations using this grammar.<span class="citation"><a href="references.html#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></span>
+</aside><p>You probably took this course because you want to build some cool visualizations for you data. In order to do that, let us talk about how we can describe visualizations. Just like language has grammar, some smart people came up with a <strong>grammar of graphics</strong>,<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Leland Wilkinson et al., &lt;em&gt;The &lt;span&gt;Grammar&lt;/span&gt; of &lt;span&gt;Graphics&lt;/span&gt;&lt;/em&gt;, 2nd edition (&lt;span&gt;New York&lt;/span&gt;: &lt;span&gt;Springer&lt;/span&gt;, 2005).&lt;/p&gt;"><sup>6</sup></a></span> which was then slightly modified and turned into an R package so that we can not only talk about but also create visualizations using this grammar.<span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Hadley Wickham, &lt;span&gt;“A &lt;span&gt;Layered Grammar&lt;/span&gt; of &lt;span&gt;Graphics&lt;/span&gt;,”&lt;/span&gt; &lt;em&gt;Journal of Computational and Graphical Statistics&lt;/em&gt; 19, no. 1 (January 2010): 3–28, &lt;a href="https://doi.org/10.1198/jcgs.2009.07098" role="doc-biblioref"&gt;https://doi.org/10.1198/jcgs.2009.07098&lt;/a&gt;.&lt;/p&gt;'><sup>7</sup></a></span>
 The package is called <code>ggplot2</code>, and we already have it loaded because it is included in the tidyverse. Before looking at the code, we can describe what we need in order to create this graphic.</p>
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
@@ -649,6 +648,7 @@ load the tidyverse and the palmerpenguins packages.</p>
 
 </div>
 </div>
+
   <div class="chapter-nav">
 <div class="prev"><a href="index.html">Hello and welcome!</a></div>
 <div class="next"><a href="data-wrangling.html"><span class="header-section-number">2</span> Data Wrangling</a></div>
@@ -694,7 +694,7 @@ load the tidyverse and the palmerpenguins packages.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-11-18.</p>
+    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2021-11-24.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

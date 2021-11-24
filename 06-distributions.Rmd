@@ -1190,7 +1190,7 @@ tibble(
 
 
 
-# Exercises
+## Exercises
 
 The **tidytuesday** project also had a spotify
 dataset. This one es even more interesting,
@@ -1201,7 +1201,7 @@ And it has more data (Over 30000 songs)!
 
 <https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-01-21/readme.md>
 
-## The Plotty Horror Picture Show
+### The Plotty Horror Picture Show
 
 Sometimes we have to experience true horror
 to see the light in the darkness. Take the spotify data
@@ -1224,7 +1224,7 @@ ways. Here are some ideas, mix and match what suits you:
   maybe find the ones that are the worst possible choice
   for the features.
   
-## Take a Sad Plot and Make it Better
+### Take a Sad Plot and Make it Better
 
 The title of this exercise is stolen from
 [this talk](https://alison.rbind.io/talk/2018-ohsu-sad-plot-better/)

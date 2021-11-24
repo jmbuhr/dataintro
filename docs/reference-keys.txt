@@ -121,13 +121,12 @@ the-plotty-horror-picture-show
 take-a-sad-plot-and-make-it-better
 resources-4
 fallacies-correlation-and-regression
+setup
 data-considerations
 section
-the-story-of-abraham-wald
 thinking-further
-miscelaneous
+sidenotes
 glue
-svgs
 best-practices
 covariance-correlation-and-regression
 introducing-the-dataset
