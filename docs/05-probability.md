@@ -105,7 +105,7 @@ sample(coin)
 ```
 
 ```
-[1] "heads" "tails"
+[1] "tails" "heads"
 ```
 
 Not giving it a number of things to draw just shuffles the vector, which is
@@ -129,7 +129,7 @@ sample(coin, 10, replace = TRUE)
 ```
 
 ```
- [1] "tails" "heads" "tails" "tails" "heads" "tails" "heads" "tails" "tails"
+ [1] "heads" "heads" "heads" "heads" "heads" "tails" "heads" "tails" "tails"
 [10] "heads"
 ```
 
@@ -143,7 +143,7 @@ random_winners
 ```
 
 ```
-[1] "you"    "friend" "you"    "you"    "you"    "you"    "friend" "friend"
+[1] "friend" "you"    "you"    "you"    "friend" "friend" "you"    "you"   
 ```
 
 ```r
@@ -151,7 +151,7 @@ random_winners == "friend"
 ```
 
 ```
-[1] FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE
+[1]  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
 ```
 
 ```r
@@ -215,7 +215,7 @@ get_n_win(8)
 ```
 
 ```
-[1] 4
+[1] 3
 ```
 
 This number is different every time, so how does it change?
@@ -227,7 +227,7 @@ head(result)
 ```
 
 ```
-[1] 4 4 4 5 4 4
+[1] 4 2 1 3 5 6
 ```
 
 A histogram is a type of plot that shows how often each value occurs in a
@@ -312,7 +312,7 @@ simulation %>%
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["mean(wins >= 7)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.023"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["mean(wins >= 7)"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.033"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 Which is smaller than the commonly used significance threshold of $\alpha=0.05$
@@ -431,7 +431,7 @@ rbinom(10, 8, 0.5)
 ```
 
 ```
- [1] 3 3 3 3 4 4 6 4 7 3
+ [1] 4 2 5 5 3 4 8 3 3 3
 ```
 
 
@@ -470,7 +470,7 @@ head(simulation)
 
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["N"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["true_prob"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["wins"],"name":[3],"type":["int"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"6","4":"0.1445313"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"3","4":"0.8554688"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["N"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["true_prob"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["wins"],"name":[3],"type":["int"],"align":["right"]},{"label":["p"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"8","2":"0.5","3":"4","4":"0.6367187"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"5","4":"0.3632813"},{"1":"8","2":"0.5","3":"4","4":"0.6367187"},{"1":"8","2":"0.5","3":"4","4":"0.6367187"},{"1":"8","2":"0.5","3":"4","4":"0.6367187"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 

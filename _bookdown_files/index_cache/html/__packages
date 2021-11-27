@@ -1,10 +1,4 @@
 base
-methods
-utils
-datasets
-grDevices
-graphics
-stats
 knitr
 rmarkdown
 tidyverse

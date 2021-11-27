@@ -1,7 +1,7 @@
 options(tidyverse.quiet = TRUE)
 
 knitr::opts_chunk$set(
-  # cache = TRUE,
+  cache = TRUE,
   out.width = "100%",
   echo = TRUE,
   message = FALSE,
