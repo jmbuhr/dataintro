@@ -1,0 +1,13 @@
+name: example-app
+title: example-app
+username:
+account: buhr
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5232585
+bundleId: 5309702
+url: https://buhr.shinyapps.io/example-app/
+when: 1638279893.25528
+lastSyncTime: 1638279893.2553
+asMultiple: FALSE
+asStatic: FALSE
