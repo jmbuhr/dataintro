@@ -30,12 +30,6 @@ Language: Lectures are in English but the seminar can be in German if you choose
 <iframe class="video" src="https://www.youtube.com/embed/GguzPRquTLI?vq=hd1080" allowfullscreen></iframe>
 :::
 
-::: { .alert .alert-dark}
-**Warning**: This site is still under development, as I am restructuring some of the lectures to further improve the learning experience.
-
-If you are curious ahead of time about my style of teaching and the topics covered, check out the website for the previous year here: <https://jmbuhr.de/dataIntro20/>
-:::
-
 In this course, we will handle different kinds of data, create pretty and insightful visualizations, compute different statistics on our data and also explore what these statistical concepts mean.
 From penguins to p-values, I got you covered.
 

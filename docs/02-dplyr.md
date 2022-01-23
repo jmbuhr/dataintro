@@ -155,7 +155,7 @@ getwd()
 ```
 
 ```
-[1] "/home/jannik/Documents/projects/teaching/dataintro"
+[1] "/home/jannik/teaching/dataintro"
 ```
 
 RStudio projects set this working directory automatically, which is very convenient.

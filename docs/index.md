@@ -1,9 +1,8 @@
 --- 
 title: "Introduction to Data Analysis with R"
 author: "Jannik Buhr"
-date: "2021-12-04"
+date: "2022-01-23"
 site: bookdown::bookdown_site
-documentclass: book
 bibliography: [book.bib, packages.bib]
 csl: chicago-fullnote-bibliography.csl
 url: "https://jmbuhr.de/dataintro/"
@@ -29,12 +28,6 @@ Language: Lectures are in English but the seminar can be in German if you choose
 
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/GguzPRquTLI?vq=hd1080" allowfullscreen></iframe>
-:::
-
-::: { .alert .alert-dark}
-**Warning**: This site is still under development, as I am restructuring some of the lectures to further improve the learning experience.
-
-If you are curious ahead of time about my style of teaching and the topics covered, check out the website for the previous year here: <https://jmbuhr.de/dataIntro20/>
 :::
 
 In this course, we will handle different kinds of data, create pretty and insightful visualizations, compute different statistics on our data and also explore what these statistical concepts mean.
