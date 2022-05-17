@@ -1,8 +1,0 @@
-book_filename: "dataintro"
-new_session: true
-delete_merged_file: true
-before_chapter_script: "_common.R"
-output_dir: docs
-language:
-  ui:
-    chapter_name: "Lesson "

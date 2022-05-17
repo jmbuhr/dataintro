@@ -1,231 +1,449 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Hello and welcome! | Introduction to Data Analysis with R</title>
+<meta name="generator" content="quarto-99.9.9">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Jannik Buhr">
-<meta name="description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
-<meta name="generator" content="bookdown 0.24.2 with bs4_book()">
-<meta property="og:title" content="Hello and welcome! | Introduction to Data Analysis with R">
-<meta property="og:type" content="book">
-<meta property="og:url" content="https://jmbuhr.de/dataintro/">
-<meta property="og:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello and welcome! | Introduction to Data Analysis with R">
-<meta name="twitter:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><link href="libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-<script src="libs/pagedtable-1.1/js/pagedtable.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><script src="libs/plotly-binding-4.10.0/plotly.js"></script><script src="libs/typedarray-0.1/typedarray.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
-<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script><script src="libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<meta name="dcterms.date" content="2022-05-17">
+<title>Introduction to Data Analysis with R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script><script src="site_libs/quarto-nav/headroom.min.js"></script><script src="site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script><script src="site_libs/quarto-search/fuse.min.js"></script><script src="site_libs/quarto-search/quarto-search.js"></script><link href="./intro.html" rel="next">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script><script src="site_libs/quarto-html/popper.min.js"></script><script src="site_libs/quarto-html/tippy.umd.min.js"></script><script src="site_libs/quarto-html/anchor.min.js"></script><link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link class="quarto-color-scheme" id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script><link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link class="quarto-color-scheme" href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link class="quarto-color-scheme quarto-color-alternate" rel="prefetch" href="site_libs/bootstrap/bootstrap-dark.min.css">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><link rel="stylesheet" href="style.css">
+<meta property="og:title" content="Introduction to Data Analysis with R">
+<meta property="og:image" content="https:/jmbuhr.de/dataintro/index_files/figure-html/cover-plot-1.png">
+<meta property="og:site-name" content="Introduction to Data Analysis with R">
+<meta property="og:image:height" content="960">
+<meta property="og:image:width" content="1344">
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body class="nav-sidebar floating">
 
-<div class="container-fluid">
-<div class="row">
-  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
-
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">Introduction to Data Analysis with R</a>
-      </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Introduction to Data Analysis with R</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
     </div>
-
-    <div id="main-nav" class="collapse-lg">
-      <form role="search">
-        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
-</form>
-
-      <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="active" href="index.html">Hello and welcome!</a></li>
-<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li><a class="" href="data-wrangling.html"><span class="header-section-number">2</span> Data Wrangling</a></li>
-<li><a class="" href="tidy-data.html"><span class="header-section-number">3</span> Tidy data</a></li>
-<li><a class="" href="functional-programming.html"><span class="header-section-number">4</span> Functional Programming</a></li>
-<li><a class="" href="probability-and-hypothesis-testing.html"><span class="header-section-number">5</span> Probability and Hypothesis Testing</a></li>
-<li><a class="" href="distributions-summaries-and-dimensionality-reduction.html"><span class="header-section-number">6</span> Distributions, Summaries and Dimensionality Reduction</a></li>
-<li><a class="" href="fallacies-correlation-and-regression.html"><span class="header-section-number">7</span> Fallacies, Correlation and Regression</a></li>
-<li><a class="" href="freestyle.html"><span class="header-section-number">8</span> Freestyle</a></li>
-<li><a class="" href="resources-5.html">Resources</a></li>
-<li><a class="" href="references.html">References</a></li>
-</ul>
-
-        <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/jmbuhr/dataintro">View book source <i class="fab fa-github"></i></a></p>
-        </div>
-      </nav>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction to Data Analysis with R</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/jmbuhr/dataintro" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/intent/tweet?url=%7Curl%7C" title="Twitter" class="sidebar-tool px-1"><i class="bi bi-twitter"></i></a>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="welcome" class="section level1 unnumbered">
-<h1>Hello and welcome!<a class="anchor" aria-label="anchor" href="#welcome"><i class="fas fa-link"></i></a>
-</h1>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">Hello and welcome!</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-wrangling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tidy-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tidy data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./functional-programming.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functional Programming</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./probability-and-hypothesis-testing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability and Hypothesis Testing</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./distributions-summaries-and-dimensionality-reduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Distributions, Summaries and Dimensionality Reduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fallacies-correlation-and-regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./freestyle.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Freestyle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">Resources</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Hello and welcome!</a>
+  <ul class="collapse">
+<li><a href="#prerequisits" id="toc-prerequisits" class="nav-link" data-scroll-target="#prerequisits">Prerequisits</a></li>
+  <li>
+<a href="#structure-of-the-course" id="toc-structure-of-the-course" class="nav-link" data-scroll-target="#structure-of-the-course">Structure of the course</a>
+  <ul class="collapse">
+<li><a href="#exe" id="toc-exe" class="nav-link" data-scroll-target="#exe">Exercises</a></li>
+  <li><a href="#seminar" id="toc-seminar" class="nav-link" data-scroll-target="#seminar">Seminar</a></li>
+  <li><a href="#discord" id="toc-discord" class="nav-link" data-scroll-target="#discord">Discord and signup</a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jmbuhr/dataintro/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/jmbuhr/dataintro/blob/main/index.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title d-none d-lg-block">Introduction to Data Analysis with R</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jannik Buhr </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 17, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header><section id="welcome" class="level1 unnumbered"><h1 class="unnumbered">Hello and welcome!</h1>
 <p>… to the latest iteration of my introductory R course, where we will learn to analyse data in style.</p>
 <div class="alert alert-info">
-<p><strong>Current course dates</strong><br>
-WS21/22<br>
-21.10.21 – 09.12.21<br>
-Lecture online in your own time<br>
-Seminar weekly on Fridays at 9:15 – 10:45<br>
-Sign-up (Heidelberg University): see <a href="index.html#discord">discord</a><br>
-Language: Lectures are in English but the seminar can be in German if you choose so
-(and in any case you can always ask questions in German as well).</p>
+<p><strong>Notes</strong><br>
+I changed the layout of this site to be easier to navigate. It is now using <a href="https://quarto.org">quarto</a>, which is the next evolution of Rmarkdown. The Rmarkdown code still works, just this site looks different.</p>
 </div>
+<!--
+::: { .alert .alert-info}
+**Current course dates**\
+WS21/22\
+21.10.21 – 09.12.21\
+Lecture online in your own time\
+Seminar weekly on Fridays at 9:15 – 10:45\
+Sign-up (Heidelberg University): see [discord](#discord)\
+Language: Lectures are in English but the seminar can be in German if you choose so
+(and in any case you can always ask questions in German as well).
+:::
+-->
 <div class="video-container">
-<iframe class="video" src="https://www.youtube.com/embed/GguzPRquTLI?vq=hd1080" allowfullscreen>
+<iframe class="video" src="https://www.youtube.com/embed/GguzPRquTLI?vq=hd1080" allowfullscreen="">
 </iframe>
 </div>
-<p>In this course, we will handle different kinds of data, create pretty and insightful visualizations, compute different statistics on our data and also explore what these statistical concepts mean.
-From penguins to p-values, I got you covered.</p>
-<div class="figure">
-<span style="display:block;" id="fig:cover-plot"></span>
-<img src="index_files/figure-html/cover-plot-1.png" alt="One of the plots we will be creating in the first lecture." width="100%"><p class="caption">
-Figure 0.1: One of the plots we will be creating in the first lecture.
-</p>
+<p>In this course, we will handle different kinds of data, create pretty and insightful visualizations, compute different statistics on our data and also explore what these statistical concepts mean. From penguins to p-values, I got you covered.</p>
+<div class="cell" data-hash="index_cache/html/cover-plot_cdfa5086c05f57eb6d6394ede8bf8451">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="index_files/figure-html/cover-plot-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">One of the plots we will be creating in the first lecture.</figcaption><p></p>
+</figure>
 </div>
-<div id="prerequisits" class="section level2" number="0.1">
-<h2>
-<span class="header-section-number">0.1</span> Prerequisits<a class="anchor" aria-label="anchor" href="#prerequisits"><i class="fas fa-link"></i></a>
-</h2>
+</div>
+</div>
+<section id="prerequisits" class="level2"><h2 class="anchored" data-anchor-id="prerequisits">Prerequisits</h2>
 <p>No prior knowledge necessary.</p>
 <p>Software to install:</p>
 <ul>
 <li><a href="https://cloud.r-project.org/">R</a></li>
 <li><a href="https://www.rstudio.com/products/rstudio/download/#download">Rstudio</a></li>
-</ul>
-</div>
-<div id="structure-of-the-course" class="section level2" number="0.2">
-<h2>
-<span class="header-section-number">0.2</span> Structure of the course<a class="anchor" aria-label="anchor" href="#structure-of-the-course"><i class="fas fa-link"></i></a>
-</h2>
-<p>The current course is for the WS21/22 at Heidelberg University.
-Most participants will be biochemistry bachelor (and master) students,
-but the material is open to anyone!</p>
+</ul></section><section id="structure-of-the-course" class="level2"><h2 class="anchored" data-anchor-id="structure-of-the-course">Structure of the course</h2>
+<p>The current course is for the WS21/22 at Heidelberg University. Most participants will be biochemistry bachelor (and master) students, but the material is open to anyone!</p>
 <ul>
 <li>There are 8 lectures in total, each accompanied by:
 <ul>
 <li>A video of the lecture at the top of each page</li>
-<li>The lecture script, which consists of the code written during the lecture
-(plus some more code to generate illustrative graphics) and explanations</li>
+<li>The lecture script, which consists of the code written during the lecture (plus some more code to generate illustrative graphics) and explanations</li>
 <li>
-<a href="index.html#exe">Exercises</a> to complete and send in</li>
-<li>A <a href="index.html#seminar">seminar</a> to discuss the exercises</li>
-<li>A <a href="index.html#discord">discord</a> server to ask questions and share solutions</li>
+<a href="#exe">Exercises</a> to complete and send in</li>
+<li>A <a href="#seminar">seminar</a> to discuss the exercises</li>
+<li>A <a href="#discord">discord</a> server to ask questions and share solutions</li>
 </ul>
 </li>
 </ul>
-<p>I do recommend to watch the lecture in your own time, and then use the lecture script afterwards to look up concepts and code you want to revisit.
-Code chunks also have a copy-button, which is helpful for quickly playing around with it, but make sure you actually walk through the lecture and do the typing first,
-because muscle memory will server you well in the future.</p>
-<div id="exe" class="section level3" number="0.2.1">
-<h3>
-<span class="header-section-number">0.2.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exe"><i class="fas fa-link"></i></a>
-</h3>
-<p>To complete the course, hand in at least 5 out of 8 exercises.
-The important part here is not that each exercise is a perfect solution,
-but if you encounter questions and struggles during your attempt of the exercise, make sure to include those pain points as well so that we can cover those in the <a href="index.html#seminar">Seminar</a>.
-Please hand in your solutions <strong>before</strong> the seminar via a direct message on <a href="index.html#discord">discord</a>.
-The earlier in the week you submit your solutions,
-the more time I have to prepare answers for the seminar.</p>
-</div>
-<div id="seminar" class="section level3" number="0.2.2">
-<h3>
-<span class="header-section-number">0.2.2</span> Seminar<a class="anchor" aria-label="anchor" href="#seminar"><i class="fas fa-link"></i></a>
-</h3>
-<p>Each week, we will meet to discuss the exercises and answer any questions that might have have popped up.
-Currently it looks like it will be possible to do so in person, in which case we will meet here:</p>
-<blockquote>
+<p>I do recommend to watch the lecture in your own time, and then use the lecture script afterwards to look up concepts and code you want to revisit. Code chunks also have a copy-button, which is helpful for quickly playing around with it, but make sure you actually walk through the lecture and do the typing first, because muscle memory will server you well in the future.</p>
+<section id="exe" class="level3"><h3 class="anchored" data-anchor-id="exe">Exercises</h3>
+<p>To complete the course, hand in at least 5 out of 8 exercises. The important part here is not that each exercise is a perfect solution, but if you encounter questions and struggles during your attempt of the exercise, make sure to include those pain points as well so that we can cover those in the <a href="#seminar">Seminar</a>. Please hand in your solutions <strong>before</strong> the seminar via a direct message on <a href="#discord">discord</a>. The earlier in the week you submit your solutions, the more time I have to prepare answers for the seminar.</p>
+</section><section id="seminar" class="level3"><h3 class="anchored" data-anchor-id="seminar">Seminar</h3>
+<p>Each week, we will meet to discuss the exercises and answer any questions that might have have popped up. Currently it looks like it will be possible to do so in person, in which case we will meet here:</p>
+<blockquote class="blockquote">
 <p>Mathematikon (INF 205), IWR CIP-Pool 3. OG</p>
 </blockquote>
-<p>Even though these are technically computer rooms, it would be great if you could bring your own laptop so that you can code along and known that you will be able to apply what you learned after the course as well.
-Also, we might not be able to install the necessary software in the computer room.</p>
-</div>
-<div id="discord" class="section level3" number="0.2.3">
-<h3>
-<span class="header-section-number">0.2.3</span> Discord and signup<a class="anchor" aria-label="anchor" href="#discord"><i class="fas fa-link"></i></a>
-</h3>
-<p>If you are a biochemistry student at Heidelberg University,
-click on this link: <a href="https://discord.gg/jVZcNPCrp7" class="uri">https://discord.gg/jVZcNPCrp7</a> to join our discord server and sign up for the course.
-If the link doesn’t work, please send me a message via my <a href="https://jmbuhr.de/contact">contact form</a></p>
-<p>Once you are there be sure to drop me a message with your name name matriculation number so that we can put the course onto your official transcript of records.
-On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.</p>
+<p>Even though these are technically computer rooms, it would be great if you could bring your own laptop so that you can code along and known that you will be able to apply what you learned after the course as well. Also, we might not be able to install the necessary software in the computer room.</p>
+</section><section id="discord" class="level3"><h3 class="anchored" data-anchor-id="discord">Discord and signup</h3>
+<p>If you are a biochemistry student at Heidelberg University, click on this link: <a href="https://discord.gg/jVZcNPCrp7" class="uri">https://discord.gg/jVZcNPCrp7</a> to join our discord server and sign up for the course. If the link doesn’t work, please send me a message via my <a href="https://jmbuhr.de/contact">contact form</a></p>
+<p>Once you are there be sure to drop me a message with your name name matriculation number so that we can put the course onto your official transcript of records. On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.</p>
 <p>Discord is a good choice for this, because messages there support code formatting and we can easily open up a voice call should a question get more complicated.</p>
 
-</div>
-</div>
-</div>
-  <div class="chapter-nav">
-<div class="empty"></div>
-<div class="next"><a href="intro.html"><span class="header-section-number">1</span> Introduction</a></div>
-</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#welcome">Hello and welcome!</a></li>
-<li><a class="nav-link" href="#prerequisits"><span class="header-section-number">0.1</span> Prerequisits</a></li>
-<li>
-<a class="nav-link" href="#structure-of-the-course"><span class="header-section-number">0.2</span> Structure of the course</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exe"><span class="header-section-number">0.2.1</span> Exercises</a></li>
-<li><a class="nav-link" href="#seminar"><span class="header-section-number">0.2.2</span> Seminar</a></li>
-<li><a class="nav-link" href="#discord"><span class="header-section-number">0.2.3</span> Discord and signup</a></li>
-</ul>
-</li>
-</ul>
 
-      <div class="book-extra">
-        <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jmbuhr/dataintro/blob/main/index.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jmbuhr/dataintro/edit/main/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
-        </ul>
-</div>
-    </nav>
-</div>
-
-</div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Introduction to Data Analysis with R</strong>" was written by Jannik Buhr. It was last built on 2022-01-23.</p>
-  </div>
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
   }
-}
-</script>
-</body>
-</html>
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+    } else {
+      disableStylesheet(alternateStylesheets);
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./intro.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,101 @@
+# Resources {-}
+
+Learning R can be quite the journey.
+This is why I am collecting useful links to more resources on this extra page.
+Some will help you understand the topics covered, some dive deeper and some will be interesting if you want to discover more cool things you can do with R.
+
+## Learning the tidyverse
+
+- [R for Data Science](https://r4ds.had.co.nz/) [@wickhamDataScienceImport2017]
+- [The ggplot2 book](https://ggplot2-book.org/index.html)
+- [R4DS online Community](https://www.rfordatasci.com/)
+- [RStudio Cheat Sheets!](https://www.rstudio.com/resources/cheatsheets/)
+- [The Modern Dive](https://moderndive.com/) [@kimStatisticalInferenceData2019]
+- [RStudio Education](https://education.rstudio.com/)
+
+## Learning Rmarkdown
+
+- [rmarkdown cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-cheatsheet-2.0.pdf)
+- [rmarkdown reference](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+- [pandoc manual (advanced)](https://pandoc.org/MANUAL.html#pandocs-markdown)
+- [rmarkdown for reproducible analysis](https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html)
+- [rmarkdown website](https://rmarkdown.rstudio.com/index.html)
+
+## Learning R in general
+
+- [Advanced R](https://adv-r.hadley.nz/) [@wickhamAdvancedSecondEdition2019]
+- [Hands on Programming with R](https://rstudio-education.github.io/hopr/) [@grolemundHandsOnProgrammingWrite2014]
+- [R Packages](http://r-pkgs.had.co.nz/) [@wickhamPackagesOrganizeTest2015]
+- [Data Visualization: A Practical Introduction](https://socviz.co/index.html) [@healyDataVisualizationPractical2018]
+- [Graph Cookbook](http://www.cookbook-r.com/Graphs/) [@changGraphicsCookbookPractical2013]
+
+## Learning Statistics
+
+- [Intuitive Biostatistics](http://www.intuitivebiostatistics.com/) [@motulskyIntuitiveBiostatisticsNonmathematical2017]
+- [Statistics Done Wrong](https://www.statisticsdonewrong.com/) [@reinhartStatisticsDoneWrong2015]
+- [StatQuest!!! with Josh Starner](https://statquest.org/video-index/#statistics)
+- [Modern Statistics for Modern Biology](https://www.huber.embl.de/msmb/index.html)
+
+## Helpful tools
+
+- [Generate ggplots via graphical user interface with esquisee](https://github.com/dreamRs/esquisse)
+
+## Talks, Podcasts, Blogs, Videos
+
+Just some of the people with inspiring blogposts, videos and the likes.
+
+- David Robinson
+  - [YouTube](https://www.youtube.com/user/safe4democracy)
+  - [website](http://varianceexplained.org/)
+- Julia Silge
+  - [YouTube](https://www.youtube.com/c/JuliaSilge/)
+  - [website](https://juliasilge.com/)
+- Alison Hill
+  - [website](https://alison.rbind.io/)
+- Thomas Lin Pedersen
+  - [website](https://www.data-imaginist.com/)
+
+## Misc
+
+- [Cute and insightful illustrations](https://github.com/allisonhorst/stats-illustrations) [@ArtworkAllisonHorst]
+- [Happy Git with R](https://happygitwithr.com/)
+
+## Package Documentation
+
+- [tidyverse](https://www.tidyverse.org/)
+- [tidymodels](https://www.tidymodels.org/)
+- [rmarkdown](https://rmarkdown.rstudio.com/docs/)
+- [readr](https://readr.tidyverse.org/)
+- [dplyr](https://dplyr.tidyverse.org/)
+- [ggplot](https://ggplot2.tidyverse.org/)
+- [tidyr](https://tidyr.tidyverse.org/)
+- [stringr](https://stringr.tidyverse.org/)
+- [purrr](https://purrr.tidyverse.org/)
+- [ragg](https://ragg.r-lib.org/)
+
+## Books and Manuals
+
+- [Tidymodels book](https://www.tmwr.org/)
+- [ggplot book](https://ggplot2-book.org/)
+- [Rmarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+- [Rmarkdown Book](https://bookdown.org/yihui/rmarkdown/)
+
+## Getting Help
+
+- [How to find help](https://www.tidyverse.org/help/#reprex)
+- [R4DS online learning community](https://www.rfordatasci.com/)
+
+## Lists of Resources
+
+The meta section. This is a list of lists:
+
+- [big book of R](https://www.bigbookofr.com/)
+- [r for the rest of us](https://rfortherestofus.com/resources/)
+
+## Packages that enable this lecture format
+
+- R by @rcoreteamLanguageEnvironmentStatistical2020a
+- knitr by [@knitr]
+- rmarkdown by [@rmarkdown]
+- xaringan by @xieXaringanPresentationNinja2020
+

@@ -1,0 +1,79 @@
+project:
+  output-dir: docs
+  type: book
+
+book:
+  site-url: "https://jmbuhr.de/dataintro/"
+  title: "Introduction to Data Analysis with R"
+  author: "Jannik Buhr"
+  description-meta: "This is where you will find all the resources for the course Introduction to Data Analysis with R"
+  date: today
+  date-meta: today
+  image: cover.png
+  favicon: "favicon.png"
+  page-navigation: true
+  search: true
+  repo-url: https://github.com/jmbuhr/dataintro
+  repo-actions: [issue, source]
+  # downloads: [pdf, epub]
+  sharing: [twitter]
+  open-graph: true
+  # twitter-card: 
+  #   creator: "@jannikbuhr"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - data-wrangling.qmd
+    - tidy-data.qmd
+    - functional-programming.qmd
+    - probability-and-hypothesis-testing.qmd
+    - distributions-summaries-and-dimensionality-reduction.qmd
+    - fallacies-correlation-and-regression.qmd
+    - freestyle.qmd
+  appendices:
+    - resources.qmd
+    - references.qmd
+
+execute:
+  cache: true
+  echo: true
+  warning: false
+  message: false
+  freeze: false  # auto = re-render only when source changes
+
+knitr:
+  opts_chunk: 
+    # collapse: true
+    # dev: "ragg_png"
+    comment: ""
+    out.width: "100%"
+    echo: TRUE
+    paged.print: TRUE
+
+
+bibliography: references.bib
+citation:
+  license: "CC BY"
+  type: book
+  author: Jannik Buhr
+  collection-title: Introduction to Data Analysis with R
+  issued: 2022-05-17
+  abstract: |
+    An introductory course to data analysis with R.
+
+
+format:
+  html:
+    theme:
+      light: [default, theme.scss]
+      dark: [default, darkly, theme.scss]
+    mainfont: Roboto
+    monofont: Fira Mono
+    css: ./style.css
+    number-sections: true 
+    code-link: true
+    reference-links: true
+    reference-location: margin
+
+
+
