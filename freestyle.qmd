@@ -244,7 +244,6 @@ gapminder::gapminder %>%
   ggplot(aes(gdpPercap, lifeExp, size = pop, color = country)) +
   geom_point() +
   scale_x_log10() +
-  # facet_wrap(~year) +
   transition_time(year) +
   scale_color_manual(values = gapminder::country_colors) +
   guides(color = "none",
