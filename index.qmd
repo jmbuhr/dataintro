@@ -9,7 +9,10 @@ I changed the layout of this site to be easier to navigate.
 It is now using [quarto](https://quarto.org),
 which is the next evolution of Rmarkdown.
 The Rmarkdown code still works,
-just this site looks different.
+just this site looks different
+and the lecture scripts end in `.qmd`
+instead of `.Rmd`.
+And there is a darkmode option!
 :::
 
 <!--
