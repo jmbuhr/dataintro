@@ -16,9 +16,9 @@ book:
   repo-url: https://github.com/jmbuhr/dataintro
   repo-actions: [issue, source]
   # downloads: [pdf, epub]
-  sharing: [twitter]
+  # sharing: [twitter]
   open-graph: true
-  # twitter-card: 
+  # twitter-card:
   #   creator: "@jannikbuhr"
   chapters:
     - index.qmd
@@ -39,12 +39,10 @@ execute:
   echo: true
   warning: false
   message: false
-  freeze: false  # auto = re-render only when source changes
+  freeze: false
 
 knitr:
-  opts_chunk: 
-    # collapse: true
-    # dev: "ragg_png"
+  opts_chunk:
     comment: ""
     out.width: "100%"
     echo: TRUE

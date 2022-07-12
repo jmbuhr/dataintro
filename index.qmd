@@ -2,31 +2,17 @@
 
 ... to the latest iteration of my introductory R course, where we will learn to analyse data in style.
 
-
-::: {.alert .alert-info}
-**Notes**\
-I changed the layout of this site to be easier to navigate.
-It is now using [quarto](https://quarto.org),
-which is the next evolution of Rmarkdown.
-The Rmarkdown code still works,
-just this site looks different
-and the lecture scripts end in `.qmd`
-instead of `.Rmd`.
-And there is a darkmode option!
-:::
-
-<!--
-::: { .alert .alert-info}
+::: { .alert .alert-secondary}
 **Current course dates**\
-WS21/22\
-21.10.21 – 09.12.21\
+WS22/23\
+2022-10-21 -- 2022-12-16\
+See [structure of the course](#structure)\
 Lecture online in your own time\
 Seminar weekly on Fridays at 9:15 – 10:45\
-Sign-up (Heidelberg University): see [discord](#discord)\
+Sign-up (Heidelberg University students): see [discord](#discord)\
 Language: Lectures are in English but the seminar can be in German if you choose so
-(and in any case you can always ask questions in German as well).
+(in any case, you can always ask questions in German as well).
 :::
--->
 
 ::: {.video-container}
 <iframe class="video" src="https://www.youtube.com/embed/GguzPRquTLI?vq=hd1080" allowfullscreen></iframe>
@@ -68,9 +54,8 @@ Software to install:
 - [R](https://cloud.r-project.org/)
 - [Rstudio](https://www.rstudio.com/products/rstudio/download/#download)
 
-## Structure of the course
+## Structure of the course {#structure}
 
-The current course is for the WS21/22 at Heidelberg University.
 Most participants will be biochemistry bachelor (and master) students,
 but the material is open to anyone!
 
@@ -81,6 +66,16 @@ but the material is open to anyone!
   - [Exercises](#exe) to complete and send in
   - A [seminar] to discuss the exercises
   - A [discord](#discord) server to ask questions and share solutions
+
+In addition to the 8 regular lectures + follow up seminars, there
+is an introductory seminar in the first week, before the first lecture.
+
+- October 21: First seminar
+- October 28: Seminar for the first lecture
+- December 16: Seminar for the last lecture
+
+The first seminar is dedicated to helping you get your laptops set up for the course,
+show the course structure and explain core concepts.
 
 I do recommend to watch the lecture in your own time, and then use the lecture script afterwards to look up concepts and code you want to revisit.
 Code chunks also have a copy-button, which is helpful for quickly playing around with it, but make sure you actually walk through the lecture and do the typing first,
@@ -100,19 +95,17 @@ the more time I have to prepare answers for the seminar.
 Each week, we will meet to discuss the exercises and answer any questions that might have have popped up.
 Currently it looks like it will be possible to do so in person, in which case we will meet here: 
 
-> Mathematikon (INF 205), IWR CIP-Pool 3. OG
+> TO BE ANNOUNCED
 
 Even though these are technically computer rooms, it would be great if you could bring your own laptop so that you can code along and known that you will be able to apply what you learned after the course as well.
 Also, we might not be able to install the necessary software in the computer room.
 
 ### Discord and signup {#discord}
 
-If you are a biochemistry student at Heidelberg University,
-click on this link: <https://discord.gg/jVZcNPCrp7> to join our discord server and sign up for the course.
-If the link doesn't work, please send me a message via my [contact form](https://jmbuhr.de/contact)
+If you are a biochemistry student at Heidelberg University, click on this link: <https://discord.gg/y54pnjkDyw> to join our discord server.
 
-Once you are there be sure to drop me a message with your name name matriculation number so that we can put the course onto your official transcript of records.
+To sign up for the course, send a message to me (Jannik) with your **full name** and **matriculation number** so that we can put the course onto your official transcript of records.
+If the link doesn't work, please send me a message via my [contact form](https://jmbuhr.de/contact).
 On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.
 
-Discord is a good choice for this, because messages there support code formatting and we can easily open up a voice call should a question get more complicated.
 
