@@ -2,7 +2,7 @@
 
 ... to the latest iteration of my introductory R course, where we will learn to analyse data in style.
 
-::: { .alert .alert-primary}
+::: { .alert .alert-secondary}
 **Current course dates**\
 WS22/23\
 2022-10-21 -- 2022-12-16\
