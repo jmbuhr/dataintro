@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.5">
+<meta name="generator" content="quarto-1.0.28">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Introduction to Data Analysis with R - 1&nbsp; Introduction</title>
 <style>
@@ -115,8 +115,8 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -212,24 +212,24 @@ div.csl-indent {
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./resources.html" class="sidebar-item-text sidebar-link">Resources</a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
-    </ul>
+      </ul>
 </li>
     </ul>
 </div>
@@ -429,7 +429,7 @@ div.csl-indent {
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/coding_cases.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">A depiction of various naming styles by <span class="citation" data-cites="ArtworkAllisonHorst">Horst (<a href="references.html#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
+<p></p><figcaption class="figure-caption">A depiction of various naming styles by <span class="citation" data-cites="ArtworkAllisonHorst">Horst (<a href="references.html#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <p>A good convention is to always use <code>snake_case</code>.</p>
@@ -640,7 +640,7 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/rmarkdown_wizards.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Cute little monsters as Rmarkdown Wizards by Allison Horst</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Cute little monsters as Rmarkdown Wizards by Allison Horst</figcaption><p></p>
 </figure>
 </div>
 <section id="the-tidyverse" class="level3 page-columns page-full" data-number="1.9.1"><h3 data-number="1.9.1" class="anchored" data-anchor-id="the-tidyverse">
@@ -654,7 +654,7 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <span class="header-section-number">1.10</span> Our First Dataset: The Palmer Penguins</h2>
 <div id="fig-penguins" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/lter_penguins.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Figure 1.1: The three penguin species of the Palmer Archipelago, by Allison Horst</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure 1.1: The three penguin species of the Palmer Archipelago, by Allison Horst</figcaption><p></p>
 </figure>
 </div>
 <p>So let’s explore our first dataset together in a fresh Rmarkdown document. The <code>setup</code> chunk is special. It gets executed automatically before any other chunk in the document is run. This makes it a good place to load packages. The dataset we are working with today actually comes in its own package, so we need to install this as well (Yes, there is a lot of installing today, but you will have to do this only once):</p>
@@ -831,12 +831,12 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <span class="header-section-number">1.12</span> The Community: There to catch You.</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/code_hero.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Comunity Teamwork by Allison Horst</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Comunity Teamwork by Allison Horst</figcaption><p></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/errors.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Googling the Error Message</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Googling the Error Message</figcaption><p></p>
 </figure>
 </div>
 </section><section id="bonus-get-more-rstudio-themes" class="level2" data-number="1.13"><h2 data-number="1.13" class="anchored" data-anchor-id="bonus-get-more-rstudio-themes">
@@ -900,6 +900,24 @@ Wilkinson, Leland, D. Wills, D. Rope, A. Norton, and R. Dubbs. 2005. <em>The <sp
 </div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -929,8 +947,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles

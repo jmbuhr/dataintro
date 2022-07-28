@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.5">
+<meta name="generator" content="quarto-1.0.28">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Introduction to Data Analysis with R - 6&nbsp; Distributions, Summaries and Dimensionality Reduction</title>
 <style>
@@ -115,8 +115,8 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -216,24 +216,24 @@ div.csl-indent {
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
-    <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-        <i class="bi bi-chevron-right ms-2"></i>
-      </a>
-    </div>
-    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./resources.html" class="sidebar-item-text sidebar-link">Resources</a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
-    </ul>
+      </ul>
 </li>
     </ul>
 </div>
@@ -664,7 +664,7 @@ $ track_year        &lt;dbl&gt; 1982, 1985, 1984, 1983, 2020, 2019, 2019, 2015, 
 <p>So the next time you see a barplot ask the question:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/summary_statistics.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Summary statistics by <span class="citation" data-cites="ArtworkAllisonHorst">Horst (<a href="references.html#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Summary statistics by <span class="citation" data-cites="ArtworkAllisonHorst">Horst (<a href="references.html#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <p>I hope you can take some inspiration from this chapter and now have the vocabulary to know where to look when it comes to your own data.</p>
@@ -759,7 +759,7 @@ $ track_year        &lt;dbl&gt; 1982, 1985, 1984, 1983, 2020, 2019, 2019, 2015, 
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="distributions-summaries-and-dimensionality-reduction_files/figure-html/tdist-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">t-distributions; normal distribution in black.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">t-distributions; normal distribution in black.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -939,13 +939,13 @@ attr(,"conf.level")
 <p>Imagine you are whale shark!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/whaleshark.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Whale shark by <span class="citation" data-cites="ArtworkAllisonHorst">Horst (<a href="references.html#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Whale shark by <span class="citation" data-cites="ArtworkAllisonHorst">Horst (<a href="references.html#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <p>And want to orient your mouth in such a way that you can eat the greatest amount of krill in one sweep.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/krill.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Krill by <span class="citation" data-cites="ArtworkAllisonHorst">Horst (<a href="references.html#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
+<p></p><figcaption class="figure-caption">Krill by <span class="citation" data-cites="ArtworkAllisonHorst">Horst (<a href="references.html#ref-ArtworkAllisonHorst" role="doc-biblioref">2020</a>)</span></figcaption><p></p>
 </figure>
 </div>
 <p>This is your first principal component. The second is perpendicular to the first. This is a throwback to “Math for Natural Scientists” and linear algebra, we are defining a new coordinate system here.</p>
@@ -1146,6 +1146,24 @@ Wickham, Hadley. 2016. <em>Ggplot2: <span>Elegant Graphics</span> for <span>Data
 </div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
     for (let i=0; i < stylesheets.length; i++) {
       const stylesheet = stylesheets[i];
@@ -1175,8 +1193,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     manageTransitions('#quarto-margin-sidebar .nav-link', false);
     if (alternate) {
       enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
     } else {
       disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
     }
     manageTransitions('#quarto-margin-sidebar .nav-link', true);
     // Switch the toggles
