@@ -8,7 +8,7 @@ WS22/23\
 2022-10-21 -- 2022-12-16\
 See [structure of the course](#structure)\
 Lecture online in your own time\
-Seminar weekly on Fridays at 9:15 – 10:45\
+Seminar weekly on Tuesdays at 13:00 – 15:00\
 Sign-up (Heidelberg University students): see [discord](#discord)\
 Language: Lectures are in English but the seminar can be in German if you choose so
 (in any case, you can always ask questions in German as well).
@@ -70,9 +70,9 @@ but the material is open to anyone!
 In addition to the 8 regular lectures + follow up seminars, there
 is an introductory seminar in the first week, before the first lecture.
 
-- October 21: First seminar
-- October 28: Seminar for the first lecture
-- December 16: Seminar for the last lecture
+- October 18: First seminar
+- October 25: Seminar for the first lecture
+- December 13: Seminar for the last lecture
 
 The first seminar is dedicated to helping you get your laptops set up for the course,
 show the course structure and explain core concepts.
