@@ -8,9 +8,7 @@ source("./_common.R")
 >  ... in which we learn about ANOVA, explore ggplot extensions and
   build and interactive web application with Shiny.
 
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/gZ0u6b_1ej4?vq=hd1080" allowfullscreen></iframe>
-:::
+{{< youtube gZ0u6b_1ej4 >}}
 
 ## Setup
 

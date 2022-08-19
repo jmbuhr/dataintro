@@ -5,13 +5,10 @@
 source("./_common.R")
 ```
 
-
 >   ... in which we explore the concept of Tidy Data and learn more
   advanced data wrangling techniques 
 
-:::{.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/4BuFhsZp-4w?vq=hd1080" allowfullscreen></iframe>
-:::
+{{< youtube 4BuFhsZp-4w >}}
 
 Once again, we start by loading the tidyverse.
 In the lecture video you can also see a recap, a speed run of sorts,

@@ -19,15 +19,11 @@ are not required for the exercises.
 
 Here is the main lecture video:
 
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/uBCsxqw2kEM?vq=hd1080" allowfullscreen></iframe>
-:::
+{{< youtube uBCsxqw2kEM >}}
 
 And here are the bonus bits:
 
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/zGJ_Zsw8QqY?vq=hd1080" allowfullscreen></iframe>
-:::
+{{< youtube zGJ_Zsw8QqY >}}
 
 ## Some Preparation
 

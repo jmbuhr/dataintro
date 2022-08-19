@@ -9,9 +9,7 @@ To sign up, check out the [welcome page](https://jmbuhr.de/dataintro/index.html)
   learn about literate programming and build our first
   plot by discovering a Grammar of Graphics.
 
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/r0bWxrzu4tg?vq=hd1080" allowfullscreen></iframe>
-:::
+{{< youtube r0bWxrzu4tg >}}
 
 ## What You will Learn
 

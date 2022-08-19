@@ -8,9 +8,7 @@ source("./_common.R")
 > ... which is all about functions, bringing the whole tidyverse together and
   exploring advanced dplyr data wrangling techniques.
 
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/B2RRRpjX1QU?vq=hd1080" allowfullscreen></iframe>
-:::
+{{< youtube B2RRRpjX1QU >}}
 
 ## Todays goal
 

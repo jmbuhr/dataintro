@@ -14,9 +14,7 @@ Language: Lectures are in English but the seminar can be in German if you choose
 (in any case, you can always ask questions in German as well).
 :::
 
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/GguzPRquTLI?vq=hd1080" allowfullscreen></iframe>
-:::
+{{< youtube GguzPRquTLI >}}
 
 In this course, we will handle different kinds of data, create pretty and insightful visualizations, compute different statistics on our data and also explore what these statistical concepts mean.
 From penguins to p-values, I got you covered.

@@ -9,9 +9,8 @@ source("./_common.R")
 > ... in which we hear Stories of Warplanes,
   Correlation and Regression and explore the Datasaurus Dozen.
   
-::: {.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/vX1WGlFNtBo?vq=hd1080" allowfullscreen></iframe>
-:::
+
+{{< youtube vX1WGlFNtBo >}}
 
 ## Setup
 

@@ -2,16 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.28">
+<meta name="generator" content="quarto-99.9.9">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>Introduction to Data Analysis with R - 5&nbsp; Probability and Hypothesis Testing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: 1;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -50,7 +55,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -63,7 +68,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -236,7 +241,7 @@ div.csl-indent {
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
 <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"> <span class="header-section-number">5.1</span> Motivation</a></li>
@@ -285,10 +290,8 @@ div.csl-indent {
 </header><blockquote class="blockquote">
 <p>… in which we reason about the nature of randomness and discover various statistical tests.</p>
 </blockquote>
-<div class="video-container">
-<iframe class="video" src="https://www.youtube.com/embed/LBU22HxJm6I?vq=hd1080" allowfullscreen="">
-</iframe>
-</div>
+<p></p>
+<div id="youtube-frame" style="position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; margin-bottom: 1rem;"><iframe width="100%" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/LBU22HxJm6I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="motivation" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="motivation">
 <span class="header-section-number">5.1</span> Motivation</h2>
 <div class="cell" data-hash="probability-and-hypothesis-testing_cache/html/unnamed-chunk-2_1101f7b57e6a691f03ca4dce252b5d7d">
@@ -645,7 +648,7 @@ div.csl-indent {
 <p>At this point, here is another shout-out to Alex Reinharts book <span class="citation" data-cites="reinhartStatisticsDoneWrong2015">(<a href="references.html#ref-reinhartStatisticsDoneWrong2015" role="doc-biblioref">Reinhart 2015</a>)</span>. It is a very pleasant read and also shines more light on some of the other forms of <strong>p-hacking</strong>.</p>
 </section></section><section id="bayesian-statistics-and-the-base-rate-fallacy" class="level2 page-columns page-full" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="bayesian-statistics-and-the-base-rate-fallacy">
 <span class="header-section-number">5.5</span> Bayesian Statistics and the Base Rate Fallacy</h2>
-<div class="page-columns page-full"><p>There is another more subtle problem called the base rate fallacy. As an example, we assume a medical test, testing for a certain condition. In medical testing, different words are used for the same concepts we defined above<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p><div class="no-row-height column-margin column-container"><li id="fn1" role="doc-endnote"><p><sup>1</sup>&nbsp;This is a slightly annoying trend in statistics; as it enters different fields, people come up with new names for old things (perhaps the most notorious field for this is machine learning).</p></li></div></div>
+<div class="page-columns page-full"><p>There is another more subtle problem called the base rate fallacy. As an example, we assume a medical test, testing for a certain condition. In medical testing, different words are used for the same concepts we defined above<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;This is a slightly annoying trend in statistics; as it enters different fields, people come up with new names for old things (perhaps the most notorious field for this is machine learning).</p></li></div></div>
 <p>Here, we have:</p>
 <ul>
 <li>Sensitivity = Power = true positive rate = <span class="math inline">\(1-\beta\)</span>
@@ -782,6 +785,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         }
       }
     }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
   }
   const isFileUrl = () => { 
     return window.location.protocol === 'file:';
@@ -883,7 +896,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

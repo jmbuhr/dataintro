@@ -7,9 +7,7 @@ source("./_common.R")
 
 > ... in which we explore the typical data analysis workflow with the tidyverse, wrangle different kinds of data and learn about factors.
 
-:::{.video-container}
-<iframe class="video" src="https://www.youtube.com/embed/oCYn2pHfizg?vq=hd1080" allowfullscreen></iframe>
-:::
+{{< youtube oCYn2pHfizg >}}
 
 > **Note**:\
 > I try to be vocal about what the code does in plain English while I type it and learning the "translations" of symbols and keywords can help you, too. After a while, programming can feel a lot more like having a conversation with your digital assistant or a helpful friend. The boundary between human languages and computer languages is more blurry than you might think.
