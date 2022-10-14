@@ -1,17 +1,22 @@
-# Hello and welcome! {- #welcome}
+---
+editor: 
+  markdown: 
+    wrap: sentence
+---
+
+# Hello and welcome! {#welcome .unnumbered}
 
 ... to the latest iteration of my introductory R course, where we will learn to analyse data in style.
 
-::: { .alert .alert-secondary}
+::: {.alert .alert-secondary}
 **Current course dates**\
 WS22/23\
 2022-10-21 -- 2022-12-16\
 See [structure of the course](#structure)\
 Lecture online in your own time\
-Seminar weekly on Tuesdays at 13:00 – 15:00\
+Seminar weekly on Tuesdays at 13:00 -- 15:00\
 Sign-up (Heidelberg University students): see [discord](#discord)\
-Language: Lectures are in English but the seminar can be in German if you choose so
-(in any case, you can always ask questions in German as well).
+Language: Lectures are in English but the seminar can be in German if you choose so (in any case, you can always ask questions in German as well).
 :::
 
 {{< youtube GguzPRquTLI >}}
@@ -19,7 +24,9 @@ Language: Lectures are in English but the seminar can be in German if you choose
 In this course, we will handle different kinds of data, create pretty and insightful visualizations, compute different statistics on our data and also explore what these statistical concepts mean.
 From penguins to p-values, I got you covered.
 
-```{r cover-plot, echo=FALSE, fig.cap="One of the plots we will be creating in the first lecture."}
+```{r cover-plot}
+#| echo: FALSE
+#| fig-cap: One of the plots we will be creating in the first lecture.
 library(tidyverse)
 library(palmerpenguins)
 
@@ -49,49 +56,42 @@ No prior knowledge necessary.
 
 Software to install:
 
-- [R](https://cloud.r-project.org/)
-- [Rstudio](https://www.rstudio.com/products/rstudio/download/#download)
+-   [R](https://cloud.r-project.org/)
+-   [Rstudio](https://www.rstudio.com/products/rstudio/download/#download)
 
 ## Structure of the course {#structure}
 
-Most participants will be biochemistry bachelor (and master) students,
-but the material is open to anyone!
+Most participants will be biochemistry bachelor (and master) students, but the material is open to anyone!
 
-- There are 8 lectures in total, each accompanied by:
-  - A video of the lecture at the top of each page
-  - The lecture script, which consists of the code written during the lecture
-    (plus some more code to generate illustrative graphics) and explanations
-  - [Exercises](#exe) to complete and send in
-  - A [seminar] to discuss the exercises
-  - A [discord](#discord) server to ask questions and share solutions
+-   There are 8 lectures in total, each accompanied by:
+    -   A video of the lecture at the top of each page
+    -   The lecture script, which consists of the code written during the lecture (plus some more code to generate illustrative graphics) and explanations
+    -   [Exercises](#exe) to complete and send in
+    -   A [seminar] to discuss the exercises
+    -   A [discord](#discord) server to ask questions and share solutions
 
-In addition to the 8 regular lectures + follow up seminars, there
-is an introductory seminar in the first week, before the first lecture.
+In addition to the 8 regular lectures + follow up seminars, there is an introductory seminar in the first week, before the first lecture.
 
-- October 18: First seminar
-- October 25: Seminar for the first lecture
-- December 13: Seminar for the last lecture
+-   October 18: First seminar
+-   October 25: Seminar for the first lecture
+-   December 13: Seminar for the last lecture
 
-The first seminar is dedicated to helping you get your laptops set up for the course,
-show the course structure and explain core concepts.
+The first seminar is dedicated to helping you get your laptops set up for the course, show the course structure and explain core concepts.
 
 I do recommend to watch the lecture in your own time, and then use the lecture script afterwards to look up concepts and code you want to revisit.
-Code chunks also have a copy-button, which is helpful for quickly playing around with it, but make sure you actually walk through the lecture and do the typing first,
-because muscle memory will server you well in the future.
+Code chunks also have a copy-button, which is helpful for quickly playing around with it, but make sure you actually walk through the lecture and do the typing first, because muscle memory will server you well in the future.
 
 ### Exercises {#exe}
 
 To complete the course, hand in at least 5 out of 8 exercises.
-The important part here is not that each exercise is a perfect solution,
-but if you encounter questions and struggles during your attempt of the exercise, make sure to include those pain points as well so that we can cover those in the [Seminar].
+The important part here is not that each exercise is a perfect solution, but if you encounter questions and struggles during your attempt of the exercise, make sure to include those pain points as well so that we can cover those in the [Seminar].
 Please hand in your solutions **before** the seminar via a direct message on [discord](#discord).
-The earlier in the week you submit your solutions,
-the more time I have to prepare answers for the seminar.
+The earlier in the week you submit your solutions, the more time I have to prepare answers for the seminar.
 
 ### Seminar
 
 Each week, we will meet to discuss the exercises and answer any questions that might have have popped up.
-Currently it looks like it will be possible to do so in person, in which case we will meet here: 
+Currently it looks like it will be possible to do so in person, in which case we will meet here:
 
 > Mathematikon (INF 205), IWR CIP-Pool 1
 
@@ -105,5 +105,3 @@ If you are a biochemistry student at Heidelberg University, click on this link: 
 To sign up for the course, send a message to me (Jannik) with your **full name** and **matriculation number** so that we can put the course onto your official transcript of records.
 If the link doesn't work, please send me a message via my [contact form](https://jmbuhr.de/contact).
 On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.
-
-

@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.2.157">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <title>Introduction to Data Analysis with R - 8&nbsp; Freestyle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: 1;}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -122,7 +123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script><link rel="stylesheet" href="style.css">
 <meta property="og:title" content="Introduction to Data Analysis with R - 8&nbsp; Freestyle">
-<meta property="og:description" content="Today we are using quite a bunch of packages.">
+<meta property="og:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <meta property="og:site-name" content="Introduction to Data Analysis with R">
 </head>
 <body class="nav-sidebar floating">
@@ -225,32 +226,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"> <span class="header-section-number">8.1</span> Setup</a></li>
+<li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="toc-section-number">8.1</span>  Setup</a></li>
   <li>
-<a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova"> <span class="header-section-number">8.2</span> ANOVA</a>
+<a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova"><span class="toc-section-number">8.2</span>  ANOVA</a>
   <ul class="collapse">
-<li><a href="#tukey-post-hoc-test" id="toc-tukey-post-hoc-test" class="nav-link" data-scroll-target="#tukey-post-hoc-test"> <span class="header-section-number">8.2.1</span> Tukey Post-Hoc Test</a></li>
-  <li><a href="#dunnet-post-hoc-test" id="toc-dunnet-post-hoc-test" class="nav-link" data-scroll-target="#dunnet-post-hoc-test"> <span class="header-section-number">8.2.2</span> Dunnet Post-Hoc Test</a></li>
+<li><a href="#tukey-post-hoc-test" id="toc-tukey-post-hoc-test" class="nav-link" data-scroll-target="#tukey-post-hoc-test"><span class="toc-section-number">8.2.1</span>  Tukey Post-Hoc Test</a></li>
+  <li><a href="#dunnet-post-hoc-test" id="toc-dunnet-post-hoc-test" class="nav-link" data-scroll-target="#dunnet-post-hoc-test"><span class="toc-section-number">8.2.2</span>  Dunnet Post-Hoc Test</a></li>
   </ul>
 </li>
   <li>
-<a href="#ggplot-extensions" id="toc-ggplot-extensions" class="nav-link" data-scroll-target="#ggplot-extensions"> <span class="header-section-number">8.3</span> ggplot extensions</a>
+<a href="#ggplot-extensions" id="toc-ggplot-extensions" class="nav-link" data-scroll-target="#ggplot-extensions"><span class="toc-section-number">8.3</span>  ggplot extensions</a>
   <ul class="collapse">
-<li><a href="#ggsignif-ggpubr" id="toc-ggsignif-ggpubr" class="nav-link" data-scroll-target="#ggsignif-ggpubr"> <span class="header-section-number">8.3.1</span> <code>ggsignif</code>, <code>ggpubr</code></a></li>
-  <li><a href="#patchwork" id="toc-patchwork" class="nav-link" data-scroll-target="#patchwork"> <span class="header-section-number">8.3.2</span> <code>patchwork</code></a></li>
-  <li><a href="#ggfortify" id="toc-ggfortify" class="nav-link" data-scroll-target="#ggfortify"> <span class="header-section-number">8.3.3</span> <code>ggfortify</code></a></li>
-  <li><a href="#esquisse" id="toc-esquisse" class="nav-link" data-scroll-target="#esquisse"> <span class="header-section-number">8.3.4</span> <code>esquisse</code></a></li>
-  <li><a href="#gganimate" id="toc-gganimate" class="nav-link" data-scroll-target="#gganimate"> <span class="header-section-number">8.3.5</span> <code>gganimate</code></a></li>
+<li><a href="#ggsignif-ggpubr" id="toc-ggsignif-ggpubr" class="nav-link" data-scroll-target="#ggsignif-ggpubr"><span class="toc-section-number">8.3.1</span>  <code>ggsignif</code>, <code>ggpubr</code></a></li>
+  <li><a href="#patchwork" id="toc-patchwork" class="nav-link" data-scroll-target="#patchwork"><span class="toc-section-number">8.3.2</span>  <code>patchwork</code></a></li>
+  <li><a href="#ggfortify" id="toc-ggfortify" class="nav-link" data-scroll-target="#ggfortify"><span class="toc-section-number">8.3.3</span>  <code>ggfortify</code></a></li>
+  <li><a href="#esquisse" id="toc-esquisse" class="nav-link" data-scroll-target="#esquisse"><span class="toc-section-number">8.3.4</span>  <code>esquisse</code></a></li>
+  <li><a href="#gganimate" id="toc-gganimate" class="nav-link" data-scroll-target="#gganimate"><span class="toc-section-number">8.3.5</span>  <code>gganimate</code></a></li>
   </ul>
 </li>
-  <li><a href="#build-apps-with-shiny" id="toc-build-apps-with-shiny" class="nav-link" data-scroll-target="#build-apps-with-shiny"> <span class="header-section-number">8.4</span> Build Apps with <code>shiny</code></a></li>
+  <li><a href="#build-apps-with-shiny" id="toc-build-apps-with-shiny" class="nav-link" data-scroll-target="#build-apps-with-shiny"><span class="toc-section-number">8.4</span>  Build Apps with <code>shiny</code></a></li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">8.5</span> Exercises</a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">8.5</span>  Exercises</a>
   <ul class="collapse">
-<li><a href="#the-whole-deal" id="toc-the-whole-deal" class="nav-link" data-scroll-target="#the-whole-deal"> <span class="header-section-number">8.5.1</span> The Whole Deal</a></li>
+<li><a href="#the-whole-deal" id="toc-the-whole-deal" class="nav-link" data-scroll-target="#the-whole-deal"><span class="toc-section-number">8.5.1</span>  The Whole Deal</a></li>
   </ul>
 </li>
-  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback"> <span class="header-section-number">8.6</span> Feedback</a></li>
+  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback"><span class="toc-section-number">8.6</span>  Feedback</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jmbuhr/dataintro/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/jmbuhr/dataintro/blob/main/freestyle.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -265,6 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -277,7 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="setup" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="setup">
 <span class="header-section-number">8.1</span> Setup</h2>
 <p>Today we are using quite a bunch of packages. In the lecture these are of course introduced one by one, but because it is a good habit to have all your imports and dependencies near the top of your analysis they show up here already.</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-2_bf56e77d60f6d3e6de4849e6fd330d1d">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-2_8d561f9957898d9f68b67ef4e25d5201">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com">gganimate</a></span><span class="op">)</span></span>
@@ -288,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section><section id="anova" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="anova">
 <span class="header-section-number">8.2</span> ANOVA</h2>
 <p>Let’s get started. ANOVA stands for Analysis of Variance. We start with our familiar penguins dataset and ask the question: “Is there a difference in bill length between the species?”</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-3_971d91b828a6dc9f0ced529cf481cab8">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-3_4b52d65c28e02d44c925b00bbbbbd997">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>outlier.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
@@ -300,12 +302,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Optically, it certainly looks like it. We could run a bunch of t-tests to compare between the groups, which would be 3 in total (Adelie–Chinstrap, Adelie–Gentoo, Gentoo–Chinstrap). And then we would have to correct for multiple testing. At this point, only running one of tests (like Adelie vs.&nbsp;Chinstrap) because it looks so promising is not an option! Looking at the data visually is a form of comparison, so we would be cheating if we formed our hypothesis only after looking at the data.</p>
 <p><strong>ANOVA</strong> is a way of comparing multiple groups and tells us, if there is a difference at all between the groups. It does not however tell us, between which groups the difference exists, just that there is an overall difference. In order to get p-values for direct comparisons between the groups we run a <strong>post-hoc</strong> (Latin for “after the fact”) on our anova result.</p>
 <p>First I am sliding in a little extra code chunk, because later down the line we might want to compare all groups to e.g.&nbsp;a baseline or control group (see the section about Dunnet below) and this baseline is decided to be the first factor-level of the grouping variable. With <code>fct_relevel</code> we can move a lovel to the first (or any other) position.</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-4_f1c50a89df3df6ca8891f787b385eeb0">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-4_fdc6bfb22695d2a9d1a7d4c78e38d1e8">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>species <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">species</span>, <span class="st">"Gentoo"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Not we create an anova fit with <code>aov</code>.</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-5_47c03f4781778c495d308c4cb96a39b8">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-5_d0bee390aabc04be097caef2dc67f5e3">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anova_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">bill_length_mm</span> <span class="op">~</span> <span class="va">species</span>, data <span class="op">=</span> <span class="va">penguins</span><span class="op">)</span></span>
 <span><span class="va">anova_fit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -323,7 +325,7 @@ Estimated effects may be unbalanced
 </div>
 </div>
 <p>And explore if further with various functions.</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-6_e3e40ba665cee72a8e9ed03a76ec14f0">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-6_8b1000ba812f14103aa8b918c51e7ce2">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
@@ -334,7 +336,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 2 observations deleted due to missingness</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-7_34ef6d6d41fd4a8a4fb1cd2f0554fcb6">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-7_25109a30cbabbf1292e30c5eed6ce32c">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">anova_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 6
@@ -347,7 +349,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <section id="tukey-post-hoc-test" class="level3" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="tukey-post-hoc-test">
 <span class="header-section-number">8.2.1</span> Tukey Post-Hoc Test</h3>
 <p>The most straighforward post-hoc test, which is already built into R, is “Tukey’s Honest Significant Differences”, which compares all groups with all other groups.</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-8_0ba25b5799c3a37b8d2b66769b52c6ce">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-8_4fe83f8ded54d6bf3f477d04ac7f36f2">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">anova_fit</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -363,7 +365,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <span class="header-section-number">8.2.2</span> Dunnet Post-Hoc Test</h3>
 <p>If we have a control group we use Dunnet’s test to compare all other groups to the control group. This means we have to do less comparisons and end up with a higher statistical power.</p>
 <p>Unfortunately, Dunnet is not built into R, but we can get the necessary functions from the <code>multcomp</code> package. When loading the <code>multcomp</code> package we have to be careful to load it before the <code>tidyverse</code>! Because <code>multcomp</code> also loads a bunch of other packages and one of them brings it’s own <code>select</code> function, so loading it after the <code>tidyverse</code> would overwrite tidyverse <code>select</code> and make our life very hard.</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-9_6efb410a2cecc63366f1444579c91279">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-9_99d6b6782e4ed5cff6fb5555463d461f">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">glht</a></span><span class="op">(</span><span class="va">anova_fit</span>, <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">mcp</a></span><span class="op">(</span>species <span class="op">=</span> <span class="st">"Dunnet"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -384,7 +386,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <span class="header-section-number">8.3.1</span> <code>ggsignif</code>, <code>ggpubr</code>
 </h3>
 <p>One of these is <code>ggsignif</code>, which we can use to add comparison brackets to our plot.</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-10_2d69e6e524fed44eeafdfd8111f52555">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-10_82f253390c85785edfb5e0abc2a734f6">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>outlier.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
@@ -398,7 +400,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 </div>
 </div>
 <p><code>ggsignif</code> can also run it’s own comparisons, which is a wilcoxon rank sum test by default, but especially for statistical tests I prefer to run them myself first before trusting more packages. Additionally, we have of course a different type of test (ANOVA), and we already have our values, so we use it just to manually add text to the annotation:</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-11_b4e3bad6b2bf2353e4b82ace22fbc8b8">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-11_0ab8773eab1446df42aee8812fd744aa">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stars</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
 <span>    <span class="va">p</span> <span class="op">&lt;=</span> <span class="fl">0.001</span> <span class="op">~</span> <span class="st">"***"</span>,</span>
@@ -432,7 +434,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <span class="header-section-number">8.3.2</span> <code>patchwork</code>
 </h3>
 <p>I also saved the plot to a variable and will now create a second one just to show you the <code>patchwork</code> package, which can combine plots into neat layouts:</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-12_91bcfce5727e66238499bbfcf6747f13">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-12_f0b4b38937a8bc8b95aa658e37626e4f">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">bill_length_mm</span>, <span class="va">bill_depth_mm</span>, color <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
@@ -445,7 +447,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <span class="header-section-number">8.3.3</span> <code>ggfortify</code>
 </h3>
 <p><code>ggfortiy</code> might not strictly be necessary but I want to mention it to talk about <code>autoplot</code>. <code>autoplot</code> is in <code>ggplot2</code> already by default. It creates automatic plot for certain objects, like models for example, or an anova result. <code>ggfortify</code> makes more objects have the ability to generate an autoplot.</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-13_7cc029041cf1be6d9d873d0eac5ee299">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-13_b22cd46146dd59c16d5a4fd14f393ed1">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sinhrks/ggfortify">ggfortify</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">anova_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -464,7 +466,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 <span class="header-section-number">8.3.5</span> <code>gganimate</code>
 </h3>
 <p>And <code>gganimate</code> extends <code>ggplot</code> with the ability to use time as a dimension:</p>
-<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-14_152136a4c600da8870194fb49481c910">
+<div class="cell" data-hash="freestyle_cache/html/unnamed-chunk-14_0b6753f52b21ea69c1020b53e7b20317">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">gapminder</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/gapminder/man/gapminder.html">gapminder</a></span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">gdpPercap</span>, <span class="va">lifeExp</span>, size <span class="op">=</span> <span class="va">pop</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -626,7 +628,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -648,7 +652,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -677,31 +698,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
       // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href');
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">

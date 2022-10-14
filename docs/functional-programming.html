@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.2.157">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <title>Introduction to Data Analysis with R - 4&nbsp; Functional Programming</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: 1;}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -141,7 +142,7 @@ div.csl-indent {
   }
 }</script><link rel="stylesheet" href="style.css">
 <meta property="og:title" content="Introduction to Data Analysis with R - 4&nbsp; Functional Programming">
-<meta property="og:description" content="My goal today is to bring together everything we learned so far and solidify our understanding of wrangling data in the tidyverse.">
+<meta property="og:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <meta property="og:site-name" content="Introduction to Data Analysis with R">
 </head>
 <body class="nav-sidebar floating">
@@ -244,24 +245,24 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#todays-goal" id="toc-todays-goal" class="nav-link active" data-scroll-target="#todays-goal"> <span class="header-section-number">4.1</span> Todays goal</a></li>
+<li><a href="#todays-goal" id="toc-todays-goal" class="nav-link active" data-scroll-target="#todays-goal"><span class="toc-section-number">4.1</span>  Todays goal</a></li>
   <li>
-<a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration"> <span class="header-section-number">4.2</span> Iteration</a>
+<a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration"><span class="toc-section-number">4.2</span>  Iteration</a>
   <ul class="collapse">
-<li><a href="#the-imperative-programming-approach" id="toc-the-imperative-programming-approach" class="nav-link" data-scroll-target="#the-imperative-programming-approach"> <span class="header-section-number">4.2.1</span> The Imperative Programming Approach</a></li>
-  <li><a href="#the-functional-programming-approach" id="toc-the-functional-programming-approach" class="nav-link" data-scroll-target="#the-functional-programming-approach"> <span class="header-section-number">4.2.2</span> The Functional Programming Approach</a></li>
+<li><a href="#the-imperative-programming-approach" id="toc-the-imperative-programming-approach" class="nav-link" data-scroll-target="#the-imperative-programming-approach"><span class="toc-section-number">4.2.1</span>  The Imperative Programming Approach</a></li>
+  <li><a href="#the-functional-programming-approach" id="toc-the-functional-programming-approach" class="nav-link" data-scroll-target="#the-functional-programming-approach"><span class="toc-section-number">4.2.2</span>  The Functional Programming Approach</a></li>
   </ul>
 </li>
-  <li><a href="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." id="toc-if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." class="nav-link" data-scroll-target="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function."> <span class="header-section-number">4.3</span> “If you copy and paste the same code more than three times, write a function.”</a></li>
-  <li><a href="#implicit-iteration-with-dplyr-build-many-models" id="toc-implicit-iteration-with-dplyr-build-many-models" class="nav-link" data-scroll-target="#implicit-iteration-with-dplyr-build-many-models"> <span class="header-section-number">4.4</span> Implicit iteration with <code>dplyr</code>: build many models</a></li>
+  <li><a href="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." id="toc-if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." class="nav-link" data-scroll-target="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function."><span class="toc-section-number">4.3</span>  “If you copy and paste the same code more than three times, write a function.”</a></li>
+  <li><a href="#implicit-iteration-with-dplyr-build-many-models" id="toc-implicit-iteration-with-dplyr-build-many-models" class="nav-link" data-scroll-target="#implicit-iteration-with-dplyr-build-many-models"><span class="toc-section-number">4.4</span>  Implicit iteration with <code>dplyr</code>: build many models</a></li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">4.5</span> Exercises</a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">4.5</span>  Exercises</a>
   <ul class="collapse">
-<li><a href="#roman-emperors" id="toc-roman-emperors" class="nav-link" data-scroll-target="#roman-emperors"> <span class="header-section-number">4.5.1</span> Roman emperors</a></li>
-  <li><a href="#dairy-products-in-the-us" id="toc-dairy-products-in-the-us" class="nav-link" data-scroll-target="#dairy-products-in-the-us"> <span class="header-section-number">4.5.2</span> Dairy Products in the US</a></li>
+<li><a href="#roman-emperors" id="toc-roman-emperors" class="nav-link" data-scroll-target="#roman-emperors"><span class="toc-section-number">4.5.1</span>  Roman emperors</a></li>
+  <li><a href="#dairy-products-in-the-us" id="toc-dairy-products-in-the-us" class="nav-link" data-scroll-target="#dairy-products-in-the-us"><span class="toc-section-number">4.5.2</span>  Dairy Products in the US</a></li>
   </ul>
 </li>
-  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"> <span class="header-section-number">4.6</span> Resources</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="toc-section-number">4.6</span>  Resources</a></li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jmbuhr/dataintro/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/jmbuhr/dataintro/blob/main/functional-programming.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
@@ -276,6 +277,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -289,7 +291,7 @@ div.csl-indent {
 <span class="header-section-number">4.1</span> Todays goal</h2>
 <p>My goal today is to bring together everything we learned so far and solidify our understanding of wrangling data in the tidyverse. If all goes according to plan, we will then have more mental capacity freed up for the statistics starting next week. And our understanding of data will hopefully enable us to experiment and play with statistical concepts without getting stuck too much on data wrangling. This also means that today’s lecture might be the most challenging so far, because everything learned up until now will – in one way or another – be relevant.</p>
 <p>But first, we load the libraries for today as usual. Note, that I am cheating a bit here by loading the <code>gapminder</code> package as well. Even though we will be reading in actual <code>gapminder</code> dataset again from files today, having access to the vector of country colors is nice to have.</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-2_c599bca6578aafe29ac0c2f2031df6b6">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-2_e58303939c821752b2b0b9e32ddf02a1">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -300,13 +302,13 @@ div.csl-indent {
 <p>Iteration is the basic idea of doing one thing multiple times. This is an area where computers shine, so in this chapter we will learn to fully utilize the power at our fingertips.</p>
 <p>As an example, we will be reading in multiple similar files. Remember the <code>gapminder</code> dataset? Well, we are working with it again, but this time, our collaborator sent us one csv-file for each continent. You can find them in the <code>data/04/</code> folder.</p>
 <p>We already know how to read in <em>one</em> csv-file:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-3_9a0a9d8106567fa961935ec80eba219e">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-3_ff2cc8e4b4c025dfd4ac6068951c36e4">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./data/04/Africa.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="the-imperative-programming-approach" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="the-imperative-programming-approach">
 <span class="header-section-number">4.2.1</span> The Imperative Programming Approach</h3>
 <p>The first solution to our problem is not my favorite one, but I want to show it anyway for the sake of completeness. In general, in Functional Programming, we <strong>tell the computer what we want</strong>, while in Imperative Programming, we <strong>tell the computer what steps to do</strong>. So here, we tell R what steps to perform. First, we get a vector of file-path’s with the <code>fs</code> package, which stands for <em>file system</em>. <code>dir_ls</code> means <em>directory list</em>, so we get the contents of a directory. We then create a list to store the dataframes that we are going to read in. We already define the length of the list because making a data structure longer is not R’s strong suit when it doesn’t know how much space to reserve for it. We then iterate over the numbers from 1 to the length of our <code>paths</code>. At each iteration we get the <code>i</code>s path, read it and store it in our results list at position <code>i</code>. Finally we bind the list into one dataframe:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-4_043e6d7f20aa75b6f6f0ce7b1436d765">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-4_477c394513f5fa3c6d8cb0b8ddd04e27">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="st">"./data/04/"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="st">"list"</span>, length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">paths</span><span class="op">)</span><span class="op">)</span></span>
@@ -342,20 +344,20 @@ div.csl-indent {
 </aside><p>We have a function (<code>read_csv</code>) that <strong>takes</strong> a file path and <strong>returns</strong> (spits out) the data. In the Functional Programming style, the next idea is to now have a function, that takes two things: vector (atomic or list) and a function. And it feeds the individual elements of the vector to the function, one after another. In mathematics, the relation between a set of inputs and a set of outputs is called a <strong>map</strong>, which is where the name of the following family of functions comes from. In the tidyverse, these functional programming concepts live in the <code>purrr</code> package.</p>
 <p>Iterating <strong>Explicitly</strong> with <code>map</code>s:</p>
 <p>First, we create the vector of things that we want to iterate over, the things that will be fed into our function one after the other:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-5_96a80b3b861c3aac557287626a2a52c0">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-5_4e8bf3bf21e0396f0fbfc24507a5418a">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="st">"./data/04/"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then we map the <code>read_csv</code> function over our vector and bind the resulting list of dataframes into one dataframe:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-6_f217f3caeb3b7ec1d012a20c201e2f2c">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-6_4634ef1198509d88f081df8a4c8c0a3e">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The operation of mapping over a vector and combining the resulting list into one dataframe is actually so common that there is a variant of <code>map</code> that does this step automatically:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-7_2b0d21b07031880085bda3f64ddd4317">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-7_b652b6853001767e294e1d60a118311d">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_df</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span>, .id <span class="op">=</span> <span class="st">"continent"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This distills everything our initial for-loop did into just one line of code. Using the <code>.id</code> argument we can save the name of the file path to a column in our dataset. This allows us to extract the continent from it:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-8_36369b5219d133b47b08c025764a38ae">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-8_81398211ae478707127a57071e2114a4">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_df</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span>, .id <span class="op">=</span> <span class="st">"continent"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">continent</span>, <span class="st">"(?&lt;=/)\\w+(?=\\.csv)"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -376,7 +378,7 @@ div.csl-indent {
 <aside><a href="https://stringr.tidyverse.org/"> <img src="images/stringr.png" class="img-fluid" width="200"></a>
 </aside><p>Iterating <strong>implicitly</strong> with vectorized functions:</p>
 <p>We had our first encounter with iteration in a very implicit form. When we use R’s basic math operators, the computer is iterating behind the scenes. Take this expression:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-9_6e00862ae60da5d176a93d07499f9fec">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-9_23fef10451f1acaabaf7b92e02b88217">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span> <span class="op">+</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2 4 6</code></pre>
@@ -386,7 +388,7 @@ div.csl-indent {
 <p>Notice, how it looks like the operation happens all at the same time. But in reality, this is not what happens. The computer is just really fast at adding numbers, one after the other.</p>
 <p>The mathematical operations in R call another programming language that does the actual addition. This other programming language is closer to the way computers <em>think</em>, making it less fun to write for us humans, but also faster because the instructions are easier to translate into actions for our computer processor.</p>
 <p>Remember, we only have to build our own iteration (e.g.&nbsp;with a <code>map</code> function), when we find a task that we want to apply to multiple things, and that is not already vectorized. And as it turns out, the <code>fs</code> and <code>readr</code> packages play very well together, because <code>readr</code> can also just take a vector of file paths and does the combining automatically!</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-10_be04a4fb76301380a38f0773c7903c98">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-10_b792f3ae149d89ba1657c8bb99879bc1">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">paths</span>, id <span class="op">=</span> <span class="st">"continent"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 6
@@ -425,7 +427,7 @@ div.csl-indent {
 <li>
 <code>map_dfr</code> always returns a dataframe.</li>
 </ul>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-11_f40c5adb33a53872e32919bf59ced9d4">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-11_378381c445ededbba7235a366f9409d3">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># map_</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The for-loop-version had a lot more code, especially <em>boilerplate</em>, code that is just there to make the construct work and doesn’t convey our intentions with the code. Furthermore, the loop focuses the object that is iterated over (the file paths), while the <code>map</code>-version focuses on what is happening (the function, <code>read_csv</code>). But the loop still works. If you can’t think of a way to solve a problem with a <code>map</code> function, it is absolutely OK to use for-loops.</p>
@@ -433,7 +435,7 @@ div.csl-indent {
 <span class="header-section-number">4.3</span> “If you copy and paste the same code more than three times, write a function.”</h2>
 <p>Writing our own functions can be very helpful for making our code more readable. It allows us to separate certain steps of your analysis from the rest, look at them in isolation to test and validate them, and also allows us to give them reasonable names.</p>
 <p>It also allows us to re-use function across projects! Let’s imagine we have some experiment where the read-out of the machine is always in a certain format and needs some cleaning up. If we turn this into a function, e.g.&nbsp;like this:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-12_f12110bbfd2eda2036f1d15fd8f96de5">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-12_c13693f8b1e7e01c552f065130f618de">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">read_experiment_data</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">day</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">day</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="va">day</span>, pad <span class="op">=</span> <span class="fl">0</span>, width <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span>  <span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"./data/"</span>,<span class="va">day</span>,<span class="st">"/"</span><span class="op">)</span><span class="op">)</span></span>
@@ -445,7 +447,7 @@ div.csl-indent {
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can put this function in a file (in my case <code>R/my_functions</code>) and <code>source</code> it, for example in multiple analysis Rmarkdown documents. The <code>source</code> function is nothing special, it just runs the R code in a file. And when we define functions in this file, those functions are then available to us:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-13_687989fef44c158299731f721a9998f8">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-13_770d40c1ac5ac963b602b3b12e1438bf">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"R/my_functions.R"</span><span class="op">)</span></span>
 <span><span class="fu">read_experiment_data</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -455,12 +457,12 @@ div.csl-indent {
 <span class="header-section-number">4.4</span> Implicit iteration with <code>dplyr</code>: build many models</h2>
 <p><code>dplyr</code>s idea of grouping allows us to express many ideas that are implicitly also iterations.</p>
 <p>Let us start by looking at just one country at first:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-14_d12949ca4ecd37d08b78a7177f59507d">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-14_7b7be09dfa08462e39fc0a4f854c196f">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algeria</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"Algeria"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can plot the life expectancy over time with ggplot and add a <strong>linear model</strong> to our plot with <code>geom_smooth</code> using <code>method = "lm"</code>.</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-15_3274175f892bf6d0c7eea4027050ff65">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-15_d2bb8225c3266e3a605950d7c97440aa">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algeria</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span></span>
@@ -470,11 +472,11 @@ div.csl-indent {
 </div>
 </div>
 <p>However, while <code>geom_smooth</code> allows us to easily add smoothing lines or linear trends to our plot, it does not give us any information about the actual model. In order to do that we need to fit it ourselves with the <code>lm</code> function:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-16_5deb0b5ed58008558649a87d02825b8e">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-16_5b6e50bd34a71224903cdc7e25bc8c3c">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lifeExp</span> <span class="op">~</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">algeria</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>~</code> symbol defines a <em>formula</em>, you can read it as: “lifeExp depending on year”. The <code>data</code> argument tells R where to look for the variables <code>lifeExp</code> and <code>year</code>, namely in our <code>algeria</code> tibble.</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-17_58d766e3eff2ef72a468bf5c91747519">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-17_51ae640d07f126127114ec5550468ad7">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -498,7 +500,7 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 </div>
 </div>
 <p>That is a lot of information about our model! The <code>broom</code> package provides some functions for a cleaner and more specialized output:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-18_874c33f0eb786ad34435c92d4cfd60f3">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-18_8889beff7255cc57c819278493504cd3">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
@@ -510,7 +512,7 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 </div>
 <p>Every 1 year the life expectancy in Algeria went up by about half a year. Of course, this is only valid in the limited linear regime of our datapoints. We can’t extrapolate this indefinitely. After all, the intercept tells us that there would be a negative life expectancy at year 0.</p>
 <p>But given the data that we have, how good does a line fit here?</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-19_1b4fdc924f1624fe017486ccf65b7dda">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-19_d8695e52e3338d6769b06c53b1862b9a">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
@@ -522,7 +524,7 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 </div>
 <p>R<sup>2</sup> takes on values between 0 and 1, with 1 being a perfectly straight line connecting all the points and 0 for the points being all over the place. So 0.985 is a pretty good fit!</p>
 <p>Using the dollar syntax, we get pull one column from a tibble, so we can write a function that, given a model, returns the R<sup>2</sup></p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-20_8986da6b4c993eb131a2cbb7ee923587">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-20_b7ee18e5bd31c9cbc66d25418243cb49">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">get_r_squared</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">$</span><span class="va">r.squared</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -530,7 +532,7 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 <p>And now come the <code>dplyr</code> magic! If we group by <code>country</code> (and <code>continent</code> for good measuere just so that we don’t loose that column when summarizing), we can calculate a linear model for every country!</p>
 <p>Note two things: Firstly, we don’t use the <code>data</code> argument of <code>lm</code> here because the tidyverse functions already know where to look for <code>lifeExp</code> and <code>year</code> and they do so <strong>respecting the groups</strong>. So within each group (i.e.&nbsp;for each country), <code>lifeExp</code> will only contain the life expectancy for that country, not the life expectancy for all countries. Secondly, we wrap this part in <code>list</code> because we have to create a list column here (models don’t fit into an atomic vector). Otherwise, <code>dplyr</code> will complain.</p>
 <p>In the second step we calculate the <code>rsqured</code> value for each model by mapping the function we created above over all models. We use the <code>_dbl</code> variant here because we want the values as an atomic vector of numbers, not as a list.</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-21_85721d59c97bb00e0156b27c940f2979">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-21_56e2868c1cc92b3e6ddec870e8f4d7c5">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">all_models</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">country</span>, <span class="va">continent</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
@@ -553,12 +555,12 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 </div>
 </div>
 <p>Finally, we can add our calculated R<sup>2</sup> values as a column to the original gapminder dataset so that we can use it in the following visualization.</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-22_5d9d314c5eb2c5b33b051efe941a451d">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-22_3b3c6f793f6e38812ee5c3d055e4d1a3">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">all_models</span>, <span class="op">-</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, we highlight the irregularities (less linear countries) by making the transparency (= alpha value) depend on the R<sup>2</sup> value.</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-23_d42508037a880efa367efddbe9659b3e">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-23_5f35205568ec28ec3d30dfe899c913ca">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, color <span class="op">=</span> <span class="va">country</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="va">rsquared</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -571,7 +573,7 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 </div>
 </div>
 <p>We can highlight one continent by filtering and use the <code>ggrepel</code> package to allow for more flexible labels. Furthermore check out the source document of this lecture and the video of the lecture to find out how you can add a figure caption and control the width and height of the plot via <code>knitr</code> chunk options. I also showcase a new way of writing chunk options in the latest version of the <code>knitr</code> package that is especially suited for longer captions.</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-24_e5e8e74184e457c9fdbc54ba117e8d6c">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-24_d7e242b433bc93207329c726025cb316">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">continent</span> <span class="op">==</span> <span class="st">"Africa"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, color <span class="op">=</span> <span class="va">country</span>, group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -604,11 +606,11 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 <section id="roman-emperors" class="level3" data-number="4.5.1"><h3 data-number="4.5.1" class="anchored" data-anchor-id="roman-emperors">
 <span class="header-section-number">4.5.1</span> Roman emperors</h3>
 <p>The first exercise uses a dataset about roman emperors from the tidytuesday project (<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-08-13">link</a>). You can import it with:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-25_84eca8ba2e711bdef279c28bd724583e">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-25_5f3db0564fc6c0fe070b1c41683df62d">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emperors</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There is a slight error in the data because some of the dates are actually in BC time. In order to fix this we will be using the <a href="https://lubridate.tidyverse.org/">lubridate</a> package, which is installed with the tidyverse, but not automatically loaded. For your convenience here is a function that you can use to fix the dataset:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-26_034acf06638df674dc5405d1ff677e7c">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-26_00a09c636c06e31104dad66016883369">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span></span>
 <span></span>
@@ -640,7 +642,7 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 </ul></section><section id="dairy-products-in-the-us" class="level3" data-number="4.5.2"><h3 data-number="4.5.2" class="anchored" data-anchor-id="dairy-products-in-the-us">
 <span class="header-section-number">4.5.2</span> Dairy Products in the US</h3>
 <p>Another dataset (<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-29#milk_products_facts">link</a>) concerns dairy product consumption per person in the US across a number of years. Load it with:</p>
-<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-27_9ac2d1e2478d7ad34da745b7a5eed55b">
+<div class="cell" data-hash="functional-programming_cache/html/unnamed-chunk-27_fca1bea62a50ef078bbe39b98064c99e">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dairy</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-29/milk_products_facts.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -797,7 +799,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -819,7 +823,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -848,31 +869,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
       // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href');
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">

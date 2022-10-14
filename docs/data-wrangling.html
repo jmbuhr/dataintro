@@ -2,14 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-99.9.9">
+<meta name="generator" content="quarto-1.2.157">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <title>Introduction to Data Analysis with R - 2&nbsp; Data Wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: 1;}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -141,7 +142,7 @@ div.csl-indent {
   }
 }</script><link rel="stylesheet" href="style.css">
 <meta property="og:title" content="Introduction to Data Analysis with R - 2&nbsp; Data Wrangling">
-<meta property="og:description" content="Right after the setup-chunk, where we specify common code execution options like showing the code (echo) or hiding messages and warnings, the first thing we usually do at the top of a new analysis…">
+<meta property="og:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <meta property="og:site-name" content="Introduction to Data Analysis with R">
 </head>
 <body class="nav-sidebar floating">
@@ -244,35 +245,35 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#a-data-analysis-workflow" id="toc-a-data-analysis-workflow" class="nav-link active" data-scroll-target="#a-data-analysis-workflow"> <span class="header-section-number">2.1</span> A Data Analysis Workflow</a></li>
-  <li><a href="#reading-data-with-readr" id="toc-reading-data-with-readr" class="nav-link" data-scroll-target="#reading-data-with-readr"> <span class="header-section-number">2.2</span> Reading Data with <code>readr</code></a></li>
+<li><a href="#a-data-analysis-workflow" id="toc-a-data-analysis-workflow" class="nav-link active" data-scroll-target="#a-data-analysis-workflow"><span class="toc-section-number">2.1</span>  A Data Analysis Workflow</a></li>
+  <li><a href="#reading-data-with-readr" id="toc-reading-data-with-readr" class="nav-link" data-scroll-target="#reading-data-with-readr"><span class="toc-section-number">2.2</span>  Reading Data with <code>readr</code></a></li>
   <li>
-<a href="#a-project-based-workflow" id="toc-a-project-based-workflow" class="nav-link" data-scroll-target="#a-project-based-workflow"> <span class="header-section-number">2.3</span> A Project-based Workflow</a>
+<a href="#a-project-based-workflow" id="toc-a-project-based-workflow" class="nav-link" data-scroll-target="#a-project-based-workflow"><span class="toc-section-number">2.3</span>  A Project-based Workflow</a>
   <ul class="collapse">
-<li><a href="#common-hurdles-when-importing-data" id="toc-common-hurdles-when-importing-data" class="nav-link" data-scroll-target="#common-hurdles-when-importing-data"> <span class="header-section-number">2.3.1</span> Common Hurdles when Importing Data</a></li>
+<li><a href="#common-hurdles-when-importing-data" id="toc-common-hurdles-when-importing-data" class="nav-link" data-scroll-target="#common-hurdles-when-importing-data"><span class="toc-section-number">2.3.1</span>  Common Hurdles when Importing Data</a></li>
   </ul>
 </li>
   <li>
-<a href="#wrangling-data-with-dplyr" id="toc-wrangling-data-with-dplyr" class="nav-link" data-scroll-target="#wrangling-data-with-dplyr"> <span class="header-section-number">2.4</span> Wrangling Data with <code>dplyr</code></a>
+<a href="#wrangling-data-with-dplyr" id="toc-wrangling-data-with-dplyr" class="nav-link" data-scroll-target="#wrangling-data-with-dplyr"><span class="toc-section-number">2.4</span>  Wrangling Data with <code>dplyr</code></a>
   <ul class="collapse">
-<li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"> <span class="header-section-number">2.4.1</span> select</a></li>
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"> <span class="header-section-number">2.4.2</span> filter</a></li>
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"> <span class="header-section-number">2.4.3</span> mutate</a></li>
-  <li><a href="#interlude-begind-the-magic-handling-data-with-base-r" id="toc-interlude-begind-the-magic-handling-data-with-base-r" class="nav-link" data-scroll-target="#interlude-begind-the-magic-handling-data-with-base-r"> <span class="header-section-number">2.4.4</span> Interlude: Begind the magic, handling data with base-R</a></li>
-  <li><a href="#the-pipe" id="toc-the-pipe" class="nav-link" data-scroll-target="#the-pipe"> <span class="header-section-number">2.4.5</span> The pipe <code>%&gt;%</code></a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"> <span class="header-section-number">2.4.6</span> arrange</a></li>
-  <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise"> <span class="header-section-number">2.4.7</span> summarise</a></li>
-  <li><a href="#group_by" id="toc-group_by" class="nav-link" data-scroll-target="#group_by"> <span class="header-section-number">2.4.8</span> group_by</a></li>
-  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others"> <span class="header-section-number">2.4.9</span> others:</a></li>
+<li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="toc-section-number">2.4.1</span>  select</a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="toc-section-number">2.4.2</span>  filter</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="toc-section-number">2.4.3</span>  mutate</a></li>
+  <li><a href="#interlude-begind-the-magic-handling-data-with-base-r" id="toc-interlude-begind-the-magic-handling-data-with-base-r" class="nav-link" data-scroll-target="#interlude-begind-the-magic-handling-data-with-base-r"><span class="toc-section-number">2.4.4</span>  Interlude: Begind the magic, handling data with base-R</a></li>
+  <li><a href="#the-pipe" id="toc-the-pipe" class="nav-link" data-scroll-target="#the-pipe"><span class="toc-section-number">2.4.5</span>  The pipe <code>%&gt;%</code></a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="toc-section-number">2.4.6</span>  arrange</a></li>
+  <li><a href="#summarise" id="toc-summarise" class="nav-link" data-scroll-target="#summarise"><span class="toc-section-number">2.4.7</span>  summarise</a></li>
+  <li><a href="#group_by" id="toc-group_by" class="nav-link" data-scroll-target="#group_by"><span class="toc-section-number">2.4.8</span>  group_by</a></li>
+  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others"><span class="toc-section-number">2.4.9</span>  others:</a></li>
   </ul>
 </li>
-  <li><a href="#visualization-and-our-first-encounter-with-factors" id="toc-visualization-and-our-first-encounter-with-factors" class="nav-link" data-scroll-target="#visualization-and-our-first-encounter-with-factors"> <span class="header-section-number">2.5</span> Visualization and our first encounter with <code>factor</code>s</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"> <span class="header-section-number">2.6</span> Exercises</a></li>
+  <li><a href="#visualization-and-our-first-encounter-with-factors" id="toc-visualization-and-our-first-encounter-with-factors" class="nav-link" data-scroll-target="#visualization-and-our-first-encounter-with-factors"><span class="toc-section-number">2.5</span>  Visualization and our first encounter with <code>factor</code>s</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">2.6</span>  Exercises</a></li>
   <li>
-<a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"> <span class="header-section-number">2.7</span> Resources</a>
+<a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="toc-section-number">2.7</span>  Resources</a>
   <ul class="collapse">
-<li><a href="#package-documentation" id="toc-package-documentation" class="nav-link" data-scroll-target="#package-documentation"> <span class="header-section-number">2.7.1</span> Package Documentation</a></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"> <span class="header-section-number">2.7.2</span> Getting Help</a></li>
+<li><a href="#package-documentation" id="toc-package-documentation" class="nav-link" data-scroll-target="#package-documentation"><span class="toc-section-number">2.7.1</span>  Package Documentation</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="toc-section-number">2.7.2</span>  Getting Help</a></li>
   </ul>
 </li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jmbuhr/dataintro/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/jmbuhr/dataintro/blob/main/data-wrangling.qmd" class="toc-action">View source</a></p></div></div></nav>
@@ -289,6 +290,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -303,7 +305,7 @@ div.csl-indent {
 I try to be vocal about what the code does in plain English while I type it and learning the “translations” of symbols and keywords can help you, too. After a while, programming can feel a lot more like having a conversation with your digital assistant or a helpful friend. The boundary between human languages and computer languages is more blurry than you might think.</p>
 </blockquote>
 <p>Right after the setup-chunk, where we specify common code execution options like showing the code (<code>echo</code>) or hiding messages and warnings, the first thing we usually do at the top of a new analysis is load the packages we are going to used. If I later find that I need some more, I come back here and add it to the list, so that people reading my code can see straight away, what they have to install in order for them to run the code themselves.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/loading-packages_8efb2d1d0fdff5c60d6294874ebc76bb">
+<div class="cell" data-hash="data-wrangling_cache/html/loading-packages_1f2d5e96326f4be98e2a184284e49285">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="a-data-analysis-workflow" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="a-data-analysis-workflow">
@@ -326,7 +328,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 <p>On GitHub, we can also download individual files, but for plain text files you need to remember one extra step. If you have already clicked on the file in GitHub and can see it’s content, it is tempting to copy and paste the link from the browser bar and use R’s <code>download.file</code> function. However, this is just the link to the part of the website where GitHub shows the file, not a link to the actual file. We can get the correct link by clicking on the <strong>Raw</strong> button:</p>
 <p><img src="images/github-raw.png" class="img-fluid"></p>
 <p>Then we can use this to download the file:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-2_feb4b505c6351b9e9888aee930c5e7d2">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-2_104edfb90694e8b4662925c0f5739758">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/jmbuhr/dataintro/main/data/02/gapminder.csv"</span>, <span class="st">"example-download.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If you look into the source for this lecture you will find that I set the chunk option <code>eval=FALSE</code>, meaning the code will not but run. I don’t want to download the file again every time I make a change to the course script.</p>
@@ -343,11 +345,11 @@ I try to be vocal about what the code does in plain English while I type it and 
 <code>View</code> and ctrl+click</li>
 </ul>
 <p>With our data downloaded, we can make use of RStudio’s autocompletion to complete the file-path to our data inside of quotation marks. We can trigger it explicitly with <code>ctrl+space</code> or <code>tab</code>.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-3_91c4f490c09584527b8f63ac7a531704">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-3_fb1d9854a3397e9e35d4cf771ee7aebf">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/02/gapminder.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>readr</code> will also tell you the datatypes it guessed for the columns. Let’s inspect our dataset:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-4_3e1d1ddaa839558c94de1a56a654e0e8">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-4_f500c6305e9fc1f5de9fb16300049c12">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 6
@@ -369,7 +371,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 <p>The gapminder dataset <span class="citation" data-cites="bryanGapminderDataGapminder2017">(<a href="references.html#ref-bryanGapminderDataGapminder2017" role="doc-biblioref">Bryan 2017</a>)</span> is an excerpt from the <a href="https://www.gapminder.org/">gapminder project</a> and contains the life expectancy at birth for 142 countries at 5 year intervals between 1952 and 2007. It also contains the population and the Gross Domestic Product (GDP) per Inhabitant. We will built a visualization later on.</p>
 <p>A cool trick for when you have your data in a variable is the <code>View</code> function. The same effect can be reached by <code>ctrl+click</code>ing on it or by using the button next to it in the environment panel.</p>
 <p>It should be noted that the <code>read_csv</code> function can also read data from links and will download it automatically. However, in order to have the data nice and safe, we might want to save if somewhere, just in case (links can change, especially when it is someone else’s link).</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-5_4f67f37b25673488efa0e1af67b9917c">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-5_53c7c191b759c5d151894baf17c8c20e">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">our_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/jmbuhr/dataintro/main/data/02/gapminder.csv"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">our_data</span>, <span class="st">"our-data.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -377,19 +379,19 @@ I try to be vocal about what the code does in plain English while I type it and 
 </section><section id="a-project-based-workflow" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="a-project-based-workflow">
 <span class="header-section-number">2.3</span> A Project-based Workflow</h2>
 <p>Last week we simply went ahead and created a script file and an Rmarkdown file in some folder on our computer. But how does R known, where the script is? How does it know, where to look, when we tell it to read in a file or save a plot? The main folder where R starts is called the <strong>working directory</strong>. To find out, what our current working directory is, we execute the function <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> for get working directory:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-6_1f9734be3fe31f9b52161a170ca865a7">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-6_4c8aac76ff3be9f9517e0e03ff8fe1f2">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "/home/jannik/teaching/dataintro"</code></pre>
 </div>
 </div>
 <p>RStudio projects set this working directory automatically, which is very convenient. It makes it easier for us to share code and projects, by simply copying the whole folder. But we have to follow one prerequisite. Our file paths need to be <strong>relative</strong>, not absolute. An absolute file path starts at the root of our operating system, so on windows you will see something like <code>C:\\User\Jannik\Documents\...</code> while on mac and linux it starts with <code>/home/jannik/Documents/...</code>. For example, I could read the same gapminder dataset by:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-7_74145bea1689b19260d6425cd02dc172">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-7_81be339034b1427c78238c4da1356c6e">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"/home/jannik/Documents/projects/teaching/dataintro/data/02/gapminder.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>But this is a terrible idea! If I ever move my analysis folder, this file path will no longer be correct and if someone else tries to run my code they will most certainly not be called Jannik and have the exact same directory structure. So it will also not work.</p>
 <p>In order for our work to be portable, robust and shareable, we need our file paths to be relative to the root of our project (which is set by the RStudio project).</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-8_9e230d8a2acd19a430bf4a5643bb2901">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-8_f0cd451f5e91b69d655d294028a080ad">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./data/02/gapminder.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, <code>./</code> refers to the current working directory, which is set by the RStudio project. It can also be omitted (e.g.&nbsp;<code>data/02/...</code>), but the path can’t start with <code>/</code> because this would mark it as an absolute path.</p>
@@ -400,12 +402,12 @@ I try to be vocal about what the code does in plain English while I type it and 
 <p>So, importing the gapminder csv went smoothly. But this will not always be the case. We will now look at common hurdles when importing data.</p>
 <p>The function we just used was called <code>read_csv</code>, because it reads a file format that consists of <strong>comma separated values</strong>. Look at the raw file in a text editor (not word) like notepad or RStudio to see why. But the file extension <code>.csv</code> can sometimes be lying…</p>
 <p>Because in German, the comma is used to separate decimal numbers (vs.&nbsp;the dot in English), a lot of Software will output a different type of csv-file when configured in German. It will still call it csv, but actually it is separated by semicolons! We have a special function for this:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-9_69f292e8d3603e65dc24797d486f7980">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-9_27b1233c5026a65aa2b5d758fdffecec">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv2</a></span><span class="op">(</span><span class="st">"data/02/gapminder_csv2.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>When looking through the autocompletion options that pop up when you are typing the function name, you might have noticed a similar function <code>read.csv</code> and <code>read.csv2</code>. These are the functions that come with R, without any packages like the tidyverse. You can of course use those as well, but the tidyverse functions provide a more consistent experience and have less surprising quirks. I am teaching the tidyverse first because it allows you to do more while having to learn less edge cases.</p>
 <p>If we look at yet another file <code>gapminder_tsv.txt</code>, we notice that the file extension doesn’t tell us much about the format, only that it is text (as opposed to a binary format only computers can read). If we look into the file:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-10_bd5a2508fdeb17a395308d24a90330f6">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-10_29dec946f29da120f8f442c2cb8930fc">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="st">"data/02/gapminder_tsv.txt"</span>, n_max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "country\tcontinent\tyear\tlifeExp\tpop\tgdpPercap"    
@@ -414,15 +416,15 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 </div>
 <p>We notice that the values are separated by “, a special sequence that stands for the tab character. The <code>read_tsv</code> function will do the job. I am not showing the output here because it is just the gapminder dataset once again.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-11_b1ae4f263defaf618ea6263c2c8993e3">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-11_0e242b0ba6fc8da2009938fb5e3269d1">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_tsv</a></span><span class="op">(</span><span class="st">"data/02/gapminder_tsv.txt"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If the separator (also called delimiter) is even more obscure, we can use the general function <code>read_delim</code>. Say a co-worker misunderstood us and thought tsv stands for “Tilde separated values”, we can still read his file.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-12_c3c94d715e717cc4cf697a95835bdeba">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-12_160e734afe52d8fea97e291a03d07151">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_delim</a></span><span class="op">(</span><span class="st">"data/02/obscure_file.tsv"</span>, <span class="st">"~"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There are more ways in which raw data can be messy or hard to read depending on the machine but I can’t show all of them. One common thing you will encounter though is measurement machines writing some additional information in the first couple of lines before the actual data (like the time of the measurement). In this example:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-13_794e994b02793c5bd96cffb9e7aece41">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-13_e90286586160a0e0a3c6ec4d7156cf5d">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_lines.html">read_lines</a></span><span class="op">(</span><span class="st">"data/02/gapminder_messier.csv"</span>, n_max <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "# Some comment about the data"                   
@@ -434,7 +436,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 <p>The first 2 lines are not part of the data. Reading the file normally as a csv would produce something weird: Because the first line does not contain any commata, it will assume that the file contains only one column and also report a bunch of <strong>parsing failures</strong>. Parsing is the act of turning data represented as raw text into a useful format, like a table of numbers.</p>
 <p>We can fix this by telling R to skip the first 2 lines entirely:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-14_c3efd9f13f4417b0425c79e83871c817">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-14_eac12a223b972cc41fae3fe5a6a9c06f">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/02/gapminder_messier.csv"</span>, skip <span class="op">=</span> <span class="fl">2</span>, n_max <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 6
@@ -447,7 +449,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 <p>I was using the <code>n_max</code> argument of the functions above to save space in this lecture script.</p>
 <p>We can also read excel files it using a function from the <code>readxl</code> package. This package is automatically installed with the tidyverse, but it is not loaded along with the other packages via <code><a href="https://tidyverse.tidyverse.org">library(tidyverse)</a></code>. We can either load it with <code><a href="https://readxl.tidyverse.org">library(readxl)</a></code> or refer to a single function from the package without loading the whole thing using double colons (<code>::</code>) like so:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-15_ae7f22c02792285819e61892107e3618">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-15_b06f930e8e76d5cc1e1891e7ba349161">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span><span class="st">"data/02/gapminder.xlsx"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 6
@@ -481,7 +483,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 <section id="select" class="level3" data-number="2.4.1"><h3 data-number="2.4.1" class="anchored" data-anchor-id="select">
 <span class="header-section-number">2.4.1</span> select</h3>
 <p>The first verb we introduce is used to select columns. And hence, it is called <code>select</code>. The first argument is always the data, followed by an arbitrary number of column names. We can recognize functions the take an arbitrary number of additional arguments by the <code>...</code> in the autocompletion and help page.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-16_02e7549ba6ee5289b763752d4e21e94e">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-16_6cda8adcdd82fa61a19e01627f9215b9">
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">country</span>, <span class="va">year</span>, <span class="va">gdpPercap</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 3
@@ -506,7 +508,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 <p><code>dplyr</code> functions always look in the data first when they search for names.</p>
 </blockquote>
 <p>The help page for <code>select</code> tells us more about the different ways in which we can select columns. Here are a couple of examples without the output, run them in your R session to confirm that they do what you think they do (but do have a look at the help pages yourselves, they are quite well written).</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-17_2d943f04fc3318743a0e0339a954160f">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-17_1c99d7f9c8b4c94439b84cf1e934217c">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">year</span><span class="op">:</span><span class="va">pop</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">starts_with</a></span><span class="op">(</span><span class="st">"co"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span></span>
@@ -522,25 +524,25 @@ I try to be vocal about what the code does in plain English while I type it and 
 </figure>
 </div>
 <p>Here, we select all rows, where the year is greater than 2000 and the country is New Zealand.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-18_d4a5e7fe0cc5d9a7bfb9b6cb0995e363">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-18_187f3bab50bf2073777620a813adb474">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">year</span> <span class="op">&gt;</span> <span class="fl">2000</span>, <span class="va">country</span> <span class="op">==</span> <span class="st">"New Zealand"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Because text comparisons are cases sensitive, we would have missed New Zealand had we written it with lowercase letters. In order to make sure we find the correct country, it can be helpful to simply convert all country names to lower case, and in fact we can use functions on our columns straight inside of any dplyr verb. Functions that deal with text (strings or character in R’s language) in the tidyverse start with <code>str_</code>, so they are easy to find with autocompletion.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-19_ddee8a56709e240d2702f6a6f6190cab">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-19_9dc585a6ede8845406142c43e8516e09">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">year</span> <span class="op">&gt;</span> <span class="fl">2000</span>, <span class="fu"><a href="https://stringr.tidyverse.org/reference/case.html">str_to_lower</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op">==</span> <span class="st">"new zealand"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Instead of combining conditions with <code>,</code> (which works the same as <code>&amp;</code> here), we can also use <code>|</code> meaning <strong>or</strong>. Here, we get all rows where the country is New Zealand or the country is Afghanistan.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-20_aeb6c4b0e6b14d61ca92fa916228a02b">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-20_788c368d43d44ae75e6b8870601d97a9">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">country</span> <span class="op">==</span> <span class="st">"New Zealand"</span> <span class="op">|</span> <span class="va">country</span> <span class="op">==</span> <span class="st">"Afghanistan"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This particular comparison can be written more succinctly, by asking (for every row), is the particular country <code>%in%</code> this vector?</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-21_80170dfb84af55a0c4e794ad6c5867e3">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-21_84b668e231d364ee1c3c7b3c530243a9">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">country</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"New Zealand"</span>, <span class="st">"Afghanistan"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="mutate" class="level3" data-number="2.4.3"><h3 data-number="2.4.3" class="anchored" data-anchor-id="mutate">
 <span class="header-section-number">2.4.3</span> mutate</h3>
 <p>We are back at manipulating columns, this time by creating new ones or changing old ones. The <code>dplyr</code> verb that does that is called <code>mutate</code>. For example, we might want to calculate the total GDP from the GDP per Capita and the population:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-22_055800f2e15e1a2a266cc6a8e3c19cf6">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-22_b5772936a9397d79d8e00fd2a8ac561d">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">gapminder</span>, gdp <span class="op">=</span> <span class="va">pop</span> <span class="op">*</span> <span class="va">gdpPercap</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,704 × 7
@@ -560,7 +562,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 </div>
 <p>Notice, that none of the functions changed the original variable <code>gapminder</code>. They only take an input and return and output, which makes it easier to reason about our code and later chain pieces of code together. How do you change it then? Use the Force! … ahem, I mean, the assignment operator (<code>&lt;-</code>).</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-23_9850bfe4168181a2a9d6d551a8bb1a3f">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-23_035ef8fe671192debabd10dac425a701">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">gapminder</span>, gdp <span class="op">=</span> <span class="va">pop</span> <span class="op">*</span> <span class="va">gdpPercap</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here, the power of dplyr shines. It knows that <code>pop</code> and <code>gdpPercap</code> are columns of the tibble and that <code>gdp</code> refers to the new name of the freshly created column.</p>
@@ -568,7 +570,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 <span class="header-section-number">2.4.4</span> Interlude: Begind the magic, handling data with base-R</h3>
 <p>This section is meant to show you what happens behind the scenes. It is not strictly necessary to understand all the details of it in order to work effectively with the tidyverse, but it helps especially when things don’t go as planned.</p>
 <p>Let’s create a tibble to play with:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-24_ae08e9f160b54df6a4333084602219bf">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-24_11fa2ab8804fc5af013c4892c6cb0bdf">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_tibble</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,</span>
 <span>  y <span class="op">=</span> <span class="va">x</span> <span class="op">^</span> <span class="fl">2</span>,</span>
@@ -588,7 +590,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 </div>
 <p>Instead of the tidyverse functions, we can also use what is called <strong>subsetting</strong>, getting a subset of our datasctructure, with square brackets:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-25_75071917e336d45a61b7859825ef45ba">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-25_982ce162ac3ce9aad6c9340aeedfdd76">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_tibble</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
@@ -602,7 +604,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 </div>
 <p>This selected the first and third column. This also works for lone vectors:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-26_c4661d95a68ed37cf4e9b6115de85f11">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-26_9242b75e8153e29b19102d02fce9b081">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">evens</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">evens</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -610,7 +612,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 </div>
 <p>If we want to select columns by their names without the tidyverse, we have to pass these names as a character vector (hence the quotation marks).</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-27_b4cf7a0ae18a59e12b52ec708218fe47">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-27_da0e381ccb2e314bb05a60c65301fe39">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_tibble</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"z"</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
@@ -624,7 +626,7 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 </div>
 <p>If we have two things in the square brackets, separated by a comma, the first refers to the rows and the second refers to the columns. e.g.&nbsp;this would be “the first row and the columns from 1 to 2”:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-28_7a7c83bbbabbe9a88c8e95d6faa30558">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-28_dba625697be8ad04df0eba806426a77b">
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_tibble</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
@@ -634,14 +636,14 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 </div>
 <p>Internally, tibbles / dataframes are lists of columns. Lists have more ways of accessing their elements. The <code>$</code> symbol gets us an element from the list:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-29_c5a9eedcc50df0a955b990eac7b3660a">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-29_90e1fa07a0c6cd75b7c606996ab14dcb">
 <div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_tibble</span><span class="op">$</span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
 </div>
 <p>If we want to use numbers (=indices) to get a single element from a list (or a column from a tibble), we have ot use double square brackets:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-30_72d2cc33726b8616a5ee67c46cf21c75">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-30_1d4125fc188596a0ff1727c2ee0674f9">
 <div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">test_tibble</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
@@ -649,14 +651,14 @@ I try to be vocal about what the code does in plain English while I type it and 
 </div>
 <p>The reason for this: Single square brackets give us a subset of the list, which is still packed up in a list. If we want to unpack it to work with it we need the content of just one element <code>[[</code> does that for us.</p>
 <p>The <code>pull</code> function from the tidyverse works like <code>$</code>.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-31_7033026904c83c4345d39e869d8b6062">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-31_edf25e7e1a4dc3e36d8df82a6f1e77a1">
 <div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">test_tibble</span>, <span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
 </div>
 <p>Subsetting not only works for looking at things, it also allows us to replace the part we are subsetting:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-32_560cc9172c23cd217662958ce149e2d3">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-32_ecf0448ebd3bd1e21e664f5efd0925a0">
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span></span>
 <span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">42</span></span>
 <span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -673,7 +675,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </h3>
 <p>The tidyverse functions are easier to compose (i.e.&nbsp;chain together). To facilitate this, we introduce another operator, a bit like <code>+</code> for numbers or the <code>+</code> to add ggplot components, but specially for functions. The pipe, which you can either type or insert in RStudio with <strong>Ctrl+Shift+M</strong>, takes it’s left side and passes it as the first argument to the function on the right side</p>
 <p>Why is this useful? Imagine our data processing involves a bunch of steps, so we save the output to intermediate variables.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-33_9383995d5f6292b495127f2903dcea62">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-33_b7c73779e4bed864c1bbbac640db6b5c">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">subset_gapminder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">country</span>, <span class="va">year</span>, <span class="va">pop</span><span class="op">)</span></span>
 <span><span class="va">filtered_gapminder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">subset_gapminder</span>, <span class="va">year</span> <span class="op">&gt;</span> <span class="fl">200</span><span class="op">)</span></span>
 <span><span class="va">final_gapminder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="va">filtered_gapminder</span>, pop_thousands <span class="op">=</span> <span class="va">pop</span> <span class="op">/</span> <span class="fl">1000</span><span class="op">)</span></span>
@@ -696,7 +698,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </div>
 </div>
 <p>However, we don’t really need those intermediate variables and they just clutter our code. The pip allows us to express our data processing as a series of steps:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-34_277927eb26c228accefb1eb415d4ac2a">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-34_d456126cdca05ec6eb4738d2cc965a05">
 <div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">final_gapminder</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">country</span>, <span class="va">year</span>, <span class="va">pop</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">year</span> <span class="op">&gt;</span> <span class="fl">2000</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -726,7 +728,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </section><section id="arrange" class="level3" data-number="2.4.6"><h3 data-number="2.4.6" class="anchored" data-anchor-id="arrange">
 <span class="header-section-number">2.4.6</span> arrange</h3>
 <p>A simple thing you might want from a table is to sort it based on some column. This is what <code>arrange</code> does:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-35_8247e28b575ef36369906af9253efcca">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-35_ea8502481ca86a05c18487b23371e15c">
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -747,7 +749,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </div>
 </div>
 <p>The helper function <code>desc</code> marks a column to be arranged in descending order. We can arrange by multiple columns, where the first will be most important.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-36_6e4b829c58642ceb7dac4729b1659ee4">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-36_8dcf31ffcf9581783a7884e4fae98f60">
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>, <span class="va">pop</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -770,7 +772,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </section><section id="summarise" class="level3" data-number="2.4.7"><h3 data-number="2.4.7" class="anchored" data-anchor-id="summarise">
 <span class="header-section-number">2.4.7</span> summarise</h3>
 <p>To condense one or multiple columns into summary values, we use <code>summarise</code>. Like with mutate, we can calculate multiple things in one step.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-37_a0700cce849cded7ba5cbf8351ac8f40">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-37_4219fe98c3c3bf96002338bf9b883b29">
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
 <span>    max_year <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>,</span>
@@ -788,7 +790,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </section><section id="group_by" class="level3" data-number="2.4.8"><h3 data-number="2.4.8" class="anchored" data-anchor-id="group_by">
 <span class="header-section-number">2.4.8</span> group_by</h3>
 <p><code>group_by</code> is considered an adverb, because it doesn’t change the data itself but it changes how subsequent functions handle the data. For example, if a tibble has groups, all summaries are calculated within these groups:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-38_178e04f566c16ce801de3757b1322802">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-38_68cb3fbaef8c61ddccb3a1b343590379">
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
@@ -813,7 +815,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </div>
 </div>
 <p><code>summarize</code> removes one level of grouping. If the data was grouped by multiple features, this means that some groups remain. We can make sure that the data is no longer grouped with <code>ungroup</code>.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-39_4ef52ed8cc8904a83dda5ce11f6b909d">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-39_66bc74c3a1a3b824a83e010aac8c0d86">
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">continent</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
@@ -838,7 +840,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </div>
 </div>
 <p>Groups also work within <code>mutate</code> and <code>filter</code>. For example, we can get all rows where the gdp per Person was highest per country:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-40_0185970c07fb4cb551174b23913a944a">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-40_1e67d0d0ce41ffd2a1701f6e1f30ab83">
 <div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gdpPercap</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">gdpPercap</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -860,7 +862,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 # … with 132 more rows</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-41_f8c6eb15143b9766889098dce7f4f24f">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-41_8202404bdccb019c84c24bb9a67f2d32">
 <div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>pop <span class="op">=</span> <span class="va">pop</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">pop</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -885,7 +887,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </section><section id="others" class="level3" data-number="2.4.9"><h3 data-number="2.4.9" class="anchored" data-anchor-id="others">
 <span class="header-section-number">2.4.9</span> others:</h3>
 <p>We can rename columns with <code>rename</code>:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-42_a3f3cd4d033638e8b9ff098971294ce2">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-42_1da68163096b959d4b26c9ddc7e69322">
 <div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html">rename</a></span><span class="op">(</span>population <span class="op">=</span> <span class="va">pop</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -906,7 +908,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </div>
 </div>
 <p>Sometimes you want to refer to the size of the current group inside of <code>mutate</code> or <code>summarise</code>. The function to to just that is called <code><a href="https://dplyr.tidyverse.org/reference/context.html">n()</a></code>. For example, I wonder how many rows of data we have per year.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-43_b013ffd61afe84507f67757e7507625c">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-43_d8abf40c31e66e1bba6f366b4b34529b">
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -929,7 +931,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </div>
 </div>
 <p>A shortcut for <code>group_by</code> and <code>summarise</code> with <code><a href="https://dplyr.tidyverse.org/reference/context.html">n()</a></code> is the <code>count</code> function:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-44_b829ac493bfa9ca430b4040d8805de3d">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-44_a753d80270a588fbded42ca64d6d5655">
 <div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">country</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">n</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -945,7 +947,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </section></section><section id="visualization-and-our-first-encounter-with-factors" class="level2 page-columns page-full" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="visualization-and-our-first-encounter-with-factors">
 <span class="header-section-number">2.5</span> Visualization and our first encounter with <code>factor</code>s</h2>
 <aside><p><a href="https://forcats.tidyverse.org/"> <img src="images/forcats.png" class="img-fluid"></a></p>
-</aside><div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-45_6b423a838e1741fe3429e908f0a3d7f0">
+</aside><div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-45_5fc304b461005ecd5c8d98f51877b27f">
 <div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -956,7 +958,7 @@ The base-R and the tidyverse way are not mutually exclusive. Sometimes you can m
 </div>
 <p>The <code>facet_wrap</code> function slices our plot into theses subplots, a style of plot sometimes referred to as <em>small multiples</em>. At this point you might wonder: “How do I control the order of these facets?” The answer is: With a <code>factor</code>!</p>
 <p>Any time we have a vector that can be thought of as representing discrete categories (ordered or unordered), we can express this by turning the vector into a factor with the <code>factor</code> function. This enables R’s functions to handle them appropriately. Let’s create a little example. We start out with a character vector.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-46_9bd3b58185d7af4e742362a26f0b07e3">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-46_ce03a18c5518e4d40f98fe7bc0338778">
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"bear"</span>, <span class="st">"shark"</span><span class="op">)</span></span>
 <span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span></span>
 <span><span class="va">animals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -966,7 +968,7 @@ Levels: bear cat dog shark</code></pre>
 </div>
 </div>
 <p>Note the new information R gives us, the <strong>Levels</strong>, which is all possible values we can put into the factor. They are automatically ordered alphabetically on creation. We can also pass a vector of levels on creation.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-47_2a9b1fbad812ad74ee9067545227c5e6">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-47_22fef89f06534e109ef5103fd4971cd7">
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"bear"</span>, <span class="st">"shark"</span><span class="op">)</span></span>
 <span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">animals</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="st">"dog"</span><span class="op">)</span>, ordered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">animals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -977,7 +979,7 @@ Levels: cat &lt; dog</code></pre>
 </div>
 <p>A factor can only contain elements that are in the levels, so because I omitted the whale shark, it will be turned into <code>NA</code>. The tidyverse contains the <code>forcats</code> package to help with factors. Most functions from this package start with <code>fct_</code>.</p>
 <p>For example, the <code>fct_relevel</code> function, which keeps all levels but let’s us change the order:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-48_89763e669492a6c829e0b9b9d257b1bb">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-48_e87fe8312a5d24d139077c1df7780231">
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"bear"</span>, <span class="st">"shark"</span><span class="op">)</span></span>
 <span><span class="va">animals</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">animals</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">animals</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"shark"</span>, <span class="st">"dog"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -987,7 +989,7 @@ Levels: shark dog bear cat</code></pre>
 </div>
 </div>
 <p>Using this in action, we get:</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-49_6c5df375be8265054f8efb5bb4277845">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-49_3c7236c0b2978befa623bdb265f044f6">
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">continent</span>, <span class="st">"Oceania"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -999,7 +1001,7 @@ Levels: shark dog bear cat</code></pre>
 </div>
 <p>Note: <code>fct_relevel</code> might be a very constructed example. More often you will need its cousin <code>fct_reoder</code> to reorder a factor by the values of some other column.</p>
 <p>Let’s make this plot a bit prettier by adding color! The <code>gapminder</code> package that provided this dataset also included a nice color palette. I included it as a <code>.csv</code> file in the <code>data/</code> folder so that we can practice importing data once more. But you could also take the shortcut of getting it straight from the package (<code><a href="https://rdrr.io/pkg/gapminder/man/country_colors.html">gapminder::country_colors</a></code>). Here, we are using the <code>head</code> function to look at the first couple of rows of the tibble and to look at the first couple of elements of the named vector from the package.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-50_e1ce806e66ae13dc21e85e205b80aa78">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-50_a21a138f95aa605977e17164e6d85859">
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">country_colors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/02/country_colors.csv"</span><span class="op">)</span></span>
 <span><span class="va">color</span> <span class="op">&lt;-</span> <span class="va">country_colors</span><span class="op">$</span><span class="va">color</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">color</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">country_colors</span><span class="op">$</span><span class="va">country</span></span>
@@ -1012,7 +1014,7 @@ Levels: shark dog bear cat</code></pre>
 </div>
 </div>
 <p>Having a named vector means that we can access individual elements by their names, and ggplot can use those names to match up for example colors with countries when we pass it to a <code>scale_</code> function.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-51_4bbc9da842506a164c5b67b98b692cec">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-51_2e13bd744c9bc6d230985f32e59abfa3">
 <div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>first <span class="op">=</span> <span class="fl">1</span>, second <span class="op">=</span> <span class="fl">3</span>, hello <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="va">x</span><span class="op">[</span><span class="st">"first"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1021,7 +1023,7 @@ Levels: shark dog bear cat</code></pre>
 </div>
 </div>
 <p>To the final plot we also add <code>guides(color = "none")</code>, because if we were to show a guide (for discrete colors typically a legend), it would fill up the whole plot.</p>
-<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-52_3ec860ae6a2fc5a798421afb87c933f7">
+<div class="cell" data-hash="data-wrangling_cache/html/unnamed-chunk-52_1bcee37acc713bcb2598b9cf09a10b5b">
 <div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">continent</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Oceania"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1212,7 +1214,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1234,7 +1238,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1263,31 +1284,49 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
       // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href');
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">

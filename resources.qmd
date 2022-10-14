@@ -13,8 +13,9 @@ Some will help you understand the topics covered, some dive deeper and some will
 - [The Modern Dive](https://moderndive.com/) [@kimStatisticalInferenceData2019]
 - [RStudio Education](https://education.rstudio.com/)
 
-## Learning Rmarkdown
+## Learning Rmarkdown and Quarto
 
+- [quarto website](https://quarto.org)
 - [rmarkdown cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-cheatsheet-2.0.pdf)
 - [rmarkdown reference](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 - [pandoc manual (advanced)](https://pandoc.org/MANUAL.html#pandocs-markdown)

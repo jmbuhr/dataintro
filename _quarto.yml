@@ -6,9 +6,8 @@ book:
   site-url: "https://jmbuhr.de/dataintro/"
   title: "Introduction to Data Analysis with R"
   author: "Jannik Buhr"
-  description-meta: "This is where you will find all the resources for the course Introduction to Data Analysis with R"
+  description: "This is where you will find all the resources for the course Introduction to Data Analysis with R"
   date: today
-  date-meta: today
   image: cover.png
   favicon: "favicon.png"
   page-navigation: true
