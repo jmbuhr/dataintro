@@ -634,8 +634,9 @@ In a fresh quarto document (without the example template content), load the tidy
     -   Create a scatterplot of the two variables stored in the tibble using `ggplot`.
     -   What `geom_` function do you need to add to the plot to add a line that connects your points?
 -   Check the metadata (YAML) of your quarto document and make sure it contains your name as the `author:` .
+- Make the output document [self contained](https://quarto.org/docs/output-formats/html-basics.html#self-contained) by adding `self-contained: true` to the yaml header.
     -   [Here](https://quarto.org/docs/reference/formats/html.html) are a couple more YAML options you can try if you feel adventurous.
--   Knit it and ship it!
+-   Knit it and ship it! (=press the render button and send me the rendered html document via discord)
 
 ## Learn more:
 
