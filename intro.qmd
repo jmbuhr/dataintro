@@ -640,7 +640,8 @@ In a fresh quarto document (without the example template content), load the tidy
 
 ### Exercise Tips
 
-{{< youtube https://youtu.be/Ycl4CMJdneM >}}
+{{< youtube Ycl4CMJdneM >}}
+
 
 ## Learn more:
 
