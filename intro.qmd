@@ -638,6 +638,10 @@ In a fresh quarto document (without the example template content), load the tidy
     -   [Here](https://quarto.org/docs/reference/formats/html.html) are a couple more YAML options you can try if you feel adventurous.
 -   Knit it and ship it! (=press the render button and send me the rendered html document via discord)
 
+### Exercise Tips
+
+{{< youtube https://youtu.be/Ycl4CMJdneM >}}
+
 ## Learn more:
 
 Check out the dedicated [Resources](Resources) page.
