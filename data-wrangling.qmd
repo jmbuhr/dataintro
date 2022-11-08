@@ -777,7 +777,7 @@ gapminder %>%
 
 ## Resources
 
-Don't miss the dedicated [Resources](resources.qmd) page.
+Don't miss the dedicated [Resources](resources) page.
 
 ### Package Documentation
 
