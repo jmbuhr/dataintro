@@ -612,6 +612,12 @@ positive with a positive test result is
 
 $$\frac{true~positives}{true~positives + false~positives}=10\%$$
 
+
+::: {.callout-warning}
+TODO: fix the plot!
+(the `waffle` package is broken)
+:::
+
 ```{r, echo = FALSE}
 total <- 1000
 positives <- 10
@@ -639,7 +645,7 @@ tibble(
            negatives)
 ) %>% 
   ggplot(aes(values = vals, fill = parts)) +
-    waffle::geom_waffle(color = "black", n_rows = 10) +
+    # waffle::geom_waffle(color = "black", n_rows = 10) +
     theme_void() +
     scale_fill_manual(values = colors) +
     theme(legend.position = "bottom") +

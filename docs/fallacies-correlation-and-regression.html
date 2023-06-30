@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.4.176">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <title>Introduction to Data Analysis with R - 7&nbsp; Fallacies, Correlation and Regression</title>
@@ -15,9 +15,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -44,48 +45,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -99,8 +71,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -129,6 +100,11 @@ div.csl-indent {
   "panel-placement": "start",
   "type": "textbox",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -138,157 +114,178 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
-}</script><script src="site_libs/twitter-widget-0.0.1/widgets.js"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="style.css">
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="style.css">
 <meta property="og:title" content="Introduction to Data Analysis with R - 7&nbsp; Fallacies, Correlation and Regression">
 <meta property="og:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
-<meta property="og:site-name" content="Introduction to Data Analysis with R">
+<meta property="og:image" content="https://jmbuhr.de/dataintro/cover.png">
+<meta property="og:site_name" content="Introduction to Data Analysis with R">
+<meta property="og:image:height" content="960">
+<meta property="og:image:width" content="1344">
 </head>
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">
-<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span>
-</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./fallacies-correlation-and-regression.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Data Analysis with R</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/jmbuhr/dataintro" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+    <a href="https://github.com/jmbuhr/dataintro" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Hello and welcome!</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hello and welcome!</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-wrangling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Wrangling</span></a>
+  <a href="./data-wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tidy-data.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tidy data</span></a>
+  <a href="./tidy-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tidy data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functional-programming.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functional Programming</span></a>
+  <a href="./functional-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./probability-and-hypothesis-testing.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability and Hypothesis Testing</span></a>
+  <a href="./probability-and-hypothesis-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability and Hypothesis Testing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./distributions-summaries-and-dimensionality-reduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Distributions, Summaries and Dimensionality Reduction</span></a>
+  <a href="./distributions-summaries-and-dimensionality-reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Distributions, Summaries and Dimensionality Reduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fallacies-correlation-and-regression.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span></a>
+  <a href="./fallacies-correlation-and-regression.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./freestyle.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Freestyle</span></a>
+  <a href="./freestyle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Freestyle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./resources.html" class="sidebar-item-text sidebar-link">Resources</a>
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
 </li>
     </ul>
 </div>
-</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="toc-section-number">7.1</span>  Setup</a></li>
+<li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">7.1</span> Setup</a></li>
   <li>
-<a href="#data-considerations" id="toc-data-considerations" class="nav-link" data-scroll-target="#data-considerations"><span class="toc-section-number">7.2</span>  Data Considerations</a>
+<a href="#data-considerations" id="toc-data-considerations" class="nav-link" data-scroll-target="#data-considerations"><span class="header-section-number">7.2</span> Data Considerations</a>
   <ul class="collapse">
-<li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">7.2.1</span>  1943</a></li>
-  <li><a href="#thinking-further" id="toc-thinking-further" class="nav-link" data-scroll-target="#thinking-further"><span class="toc-section-number">7.2.2</span>  Thinking further</a></li>
+<li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">7.2.1</span> 1943</a></li>
+  <li><a href="#thinking-further" id="toc-thinking-further" class="nav-link" data-scroll-target="#thinking-further"><span class="header-section-number">7.2.2</span> Thinking further</a></li>
   </ul>
 </li>
   <li>
-<a href="#sidenotes" id="toc-sidenotes" class="nav-link" data-scroll-target="#sidenotes"><span class="toc-section-number">7.3</span>  Sidenotes</a>
+<a href="#sidenotes" id="toc-sidenotes" class="nav-link" data-scroll-target="#sidenotes"><span class="header-section-number">7.3</span> Sidenotes</a>
   <ul class="collapse">
-<li><a href="#glue-and-inline-r-code" id="toc-glue-and-inline-r-code" class="nav-link" data-scroll-target="#glue-and-inline-r-code"><span class="toc-section-number">7.3.1</span>  Glue and Inline R Code</a></li>
-  <li><a href="#inline-r-code" id="toc-inline-r-code" class="nav-link" data-scroll-target="#inline-r-code"><span class="toc-section-number">7.3.2</span>  Inline R code</a></li>
-  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices"><span class="toc-section-number">7.3.3</span>  Best Practices</a></li>
+<li><a href="#glue-and-inline-r-code" id="toc-glue-and-inline-r-code" class="nav-link" data-scroll-target="#glue-and-inline-r-code"><span class="header-section-number">7.3.1</span> Glue and Inline R Code</a></li>
+  <li><a href="#inline-r-code" id="toc-inline-r-code" class="nav-link" data-scroll-target="#inline-r-code"><span class="header-section-number">7.3.2</span> Inline R code</a></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices"><span class="header-section-number">7.3.3</span> Best Practices</a></li>
   </ul>
 </li>
   <li>
-<a href="#covariance-correlation-and-regression" id="toc-covariance-correlation-and-regression" class="nav-link" data-scroll-target="#covariance-correlation-and-regression"><span class="toc-section-number">7.4</span>  Covariance, Correlation and Regression</a>
+<a href="#covariance-correlation-and-regression" id="toc-covariance-correlation-and-regression" class="nav-link" data-scroll-target="#covariance-correlation-and-regression"><span class="header-section-number">7.4</span> Covariance, Correlation and Regression</a>
   <ul class="collapse">
-<li><a href="#introducing-the-dataset" id="toc-introducing-the-dataset" class="nav-link" data-scroll-target="#introducing-the-dataset"><span class="toc-section-number">7.4.1</span>  Introducing the Dataset</a></li>
-  <li><a href="#pearson-vs.-spearman-not-a-boxing-match" id="toc-pearson-vs.-spearman-not-a-boxing-match" class="nav-link" data-scroll-target="#pearson-vs.-spearman-not-a-boxing-match"><span class="toc-section-number">7.4.2</span>  Pearson vs.&nbsp;Spearman (not a Boxing Match)</a></li>
-  <li><a href="#difference-to-linear-regression" id="toc-difference-to-linear-regression" class="nav-link" data-scroll-target="#difference-to-linear-regression"><span class="toc-section-number">7.4.3</span>  Difference to Linear Regression</a></li>
+<li><a href="#introducing-the-dataset" id="toc-introducing-the-dataset" class="nav-link" data-scroll-target="#introducing-the-dataset"><span class="header-section-number">7.4.1</span> Introducing the Dataset</a></li>
+  <li><a href="#pearson-vs.-spearman-not-a-boxing-match" id="toc-pearson-vs.-spearman-not-a-boxing-match" class="nav-link" data-scroll-target="#pearson-vs.-spearman-not-a-boxing-match"><span class="header-section-number">7.4.2</span> Pearson vs.&nbsp;Spearman (not a Boxing Match)</a></li>
+  <li><a href="#difference-to-linear-regression" id="toc-difference-to-linear-regression" class="nav-link" data-scroll-target="#difference-to-linear-regression"><span class="header-section-number">7.4.3</span> Difference to Linear Regression</a></li>
   </ul>
 </li>
   <li>
-<a href="#non-linear-least-squares" id="toc-non-linear-least-squares" class="nav-link" data-scroll-target="#non-linear-least-squares"><span class="toc-section-number">7.5</span>  Non-linear Least Squares</a>
+<a href="#non-linear-least-squares" id="toc-non-linear-least-squares" class="nav-link" data-scroll-target="#non-linear-least-squares"><span class="header-section-number">7.5</span> Non-linear Least Squares</a>
   <ul class="collapse">
-<li><a href="#one-model" id="toc-one-model" class="nav-link" data-scroll-target="#one-model"><span class="toc-section-number">7.5.1</span>  One model</a></li>
-  <li><a href="#multiple-models" id="toc-multiple-models" class="nav-link" data-scroll-target="#multiple-models"><span class="toc-section-number">7.5.2</span>  Multiple models</a></li>
-  <li><a href="#excursion-a-weird-error-message" id="toc-excursion-a-weird-error-message" class="nav-link" data-scroll-target="#excursion-a-weird-error-message"><span class="toc-section-number">7.5.3</span>  Excursion: A weird error message</a></li>
+<li><a href="#one-model" id="toc-one-model" class="nav-link" data-scroll-target="#one-model"><span class="header-section-number">7.5.1</span> One model</a></li>
+  <li><a href="#multiple-models" id="toc-multiple-models" class="nav-link" data-scroll-target="#multiple-models"><span class="header-section-number">7.5.2</span> Multiple models</a></li>
+  <li><a href="#excursion-a-weird-error-message" id="toc-excursion-a-weird-error-message" class="nav-link" data-scroll-target="#excursion-a-weird-error-message"><span class="header-section-number">7.5.3</span> Excursion: A weird error message</a></li>
   </ul>
 </li>
   <li>
-<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="toc-section-number">7.6</span>  Exercises</a>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7.6</span> Exercises</a>
   <ul class="collapse">
-<li><a href="#the-datasaurus-dozen" id="toc-the-datasaurus-dozen" class="nav-link" data-scroll-target="#the-datasaurus-dozen"><span class="toc-section-number">7.6.1</span>  The Datasaurus Dozen</a></li>
-  <li><a href="#fit-a-non-linear-model" id="toc-fit-a-non-linear-model" class="nav-link" data-scroll-target="#fit-a-non-linear-model"><span class="toc-section-number">7.6.2</span>  Fit a non-linear model</a></li>
+<li><a href="#the-datasaurus-dozen" id="toc-the-datasaurus-dozen" class="nav-link" data-scroll-target="#the-datasaurus-dozen"><span class="header-section-number">7.6.1</span> The Datasaurus Dozen</a></li>
+  <li><a href="#fit-a-non-linear-model" id="toc-fit-a-non-linear-model" class="nav-link" data-scroll-target="#fit-a-non-linear-model"><span class="header-section-number">7.6.2</span> Fit a non-linear model</a></li>
   </ul>
 </li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jmbuhr/dataintro/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/jmbuhr/dataintro/blob/main/fallacies-correlation-and-regression.qmd" class="toc-action">View source</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
+<h1 class="title">
 <span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span>
 </h1>
 </div>
@@ -322,15 +319,13 @@ div.csl-indent {
 <p>It is 1943. The second World War is well underway, ravaging large parts of Europe. Military aircraft that had first entered the stage in World War I are now reaching their peak importance as they rain fire from the skies. But the Allied forces are facing a problem. As warplanes get better, so do anti-aircraft systems. In an effort to improve the survival of their fleet, the US military starts examining the planes returning from skirmishes with the opposing forces. They characterize the pattern of bullet holes in the metal hull, meticulously noting down each hit that the plane sustained. The resulting picture is better summarized in the modern, redrawn version below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/survivorship-bias.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Figure from Wikipedia <span class="citation" data-cites="SurvivorshipBias2020"><span>“Survivorship Bias”</span> (<a href="references.html#ref-SurvivorshipBias2020" role="doc-biblioref">2020</a>)</span>.</figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">Figure from Wikipedia <span class="citation" data-cites="SurvivorshipBias2020"><span>“Survivorship Bias”</span> (<a href="references.html#ref-SurvivorshipBias2020" role="doc-biblioref">2020</a>)</span>.</figcaption></figure>
 </div>
 <p>After taking a look at the data they gathered, the military is ready to rush into action. To improve the endurance of their aircraft, the plan is to reinforce the parts of the plane that were most often hit by bullets. With stronger wings and a sturdier body of the plane, they think, surely more pilots will come back from their missions safely. They were wrong.</p>
 <p>But the pilots where in luck. The military also consulted with the Statistics Research Group at Columbia University. A man named Abraham Wald worked there. In his now unclassified report “A method of estimating plane vulnerability based on damage of survivors”, he argued against the generals’ conclusion <span class="citation" data-cites="waldReprintMethodEstimating1980">(<a href="references.html#ref-waldReprintMethodEstimating1980" role="doc-biblioref">Wald 1980</a>)</span>. Instead of the most-hit parts of the planes, the least-hit parts are to be reinforced.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/paste-57122EF0.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Cover of “A method of estimating plane vulnerability based on damage of survivors” <span class="citation" data-cites="waldReprintMethodEstimating1980">Wald (<a href="references.html#ref-waldReprintMethodEstimating1980" role="doc-biblioref">1980</a>)</span></figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">Cover of “A method of estimating plane vulnerability based on damage of survivors” <span class="citation" data-cites="waldReprintMethodEstimating1980">Wald (<a href="references.html#ref-waldReprintMethodEstimating1980" role="doc-biblioref">1980</a>)</span></figcaption></figure>
 </div>
 <blockquote class="blockquote">
 <p>Instead of the most-hit parts, the least-hit parts are to be reinforced.</p>
@@ -342,21 +337,14 @@ div.csl-indent {
 <p>A common saying is that music was better back in the days, or that all the old music still holds up while the new stuff on the radio just sounds the same. Well, not quite. This is also survivorship bias at work. All the bad and forgettable songs from the past just faded into oblivion, never to be mentioned again, while the songs people generally agreed to be good survived the ravages of time unscathed. A similar thing happens with success in general, not just songs. If you ask any CEO high up the corporate ladder, a millionaire, or the author of a book that reads “How to get rich”, they are sure to have a witty anecdote about how their persistence, or their brilliance, or charisma got them to where they are now. What we are not seeing is all the people just as witty, just as charismatic or even just as persistent that where simply not as lucky. Very few people will tell you this. Because it takes a whole lot of courage to admit that ones success is based on luck and privilege.</p>
 <p>And to take it back to the scientific context: When you are planning an experiment for the lab, always ask whether your data collection process can in some way be biased towards what you are trying to show.</p>
 <p>I leave you with this:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-3_ddb7f4f83d094efb77135cd218c12e66">
-<div class="cell-output-display">
-<blockquote class="twitter-tweet blockquote" data-width="550" data-lang="en" data-dnt="true" data-theme="light">
-<p lang="en" dir="ltr">weird how every time you see this image on twitter it has a ton of retweets <a href="https://t.co/VALAKdeheP">pic.twitter.com/VALAKdeheP</a></p>— Jake VanderPlas (@jakevdp) <a href="https://twitter.com/jakevdp/status/1336343740235935744?ref_src=twsrc%5Etfw">December 8, 2020</a>
-</blockquote>
-
-</div>
-</div>
+<p><img src="./images/survivorship-tweet.png" class="img-fluid"></p>
 <p>And from this cautionary tale we jump straight back into RStudio.</p>
 </section></section><section id="sidenotes" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="sidenotes">
 <span class="header-section-number">7.3</span> Sidenotes</h2>
 <section id="glue-and-inline-r-code" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="glue-and-inline-r-code">
 <span class="header-section-number">7.3.1</span> Glue and Inline R Code</h3>
 <p>Using <code>paste</code> to create a text in which the values of variables are inserted can be painful.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-4_64cfd74e894911a7dd6124129dfbc2af">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-3_f996b0dd89346ef05afa9a595d6eac31">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">name</span> <span class="op">&lt;-</span> <span class="st">"Jannik"</span></span>
 <span><span class="va">age</span> <span class="op">&lt;-</span> <span class="fl">26</span></span>
 <span><span class="va">text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">name</span>, <span class="st">"is"</span>, <span class="va">age</span>, <span class="st">"years old."</span><span class="op">)</span></span>
@@ -366,7 +354,7 @@ div.csl-indent {
 </div>
 </div>
 <p>The <code>glue</code> package makes it a breeze. Everything inside of curly braces in the text inside of the <code>glue</code> function will be evaluated as regular R code, enabling us to write text quite naturally:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-5_8e8c30b98aa038cc0737b886bcf2ccda">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-4_c43e049e60a95355b57f4bab8f0ff961">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{name} is {age} years old."</span><span class="op">)</span></span>
 <span><span class="va">text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -374,7 +362,7 @@ div.csl-indent {
 </div>
 </div>
 <p>I hope you are not too confused by the package and it’s main function having the same name.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-6_8156ce5f52f7148c2128bb951df886f2">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-5_3e2859d07a195f49cecf6ea092e86012">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"{name} is {age + 10} years old."</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Jannik is 36 years old.</code></pre>
@@ -396,13 +384,12 @@ div.csl-indent {
 <span class="header-section-number">7.4</span> Covariance, Correlation and Regression</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/correlation.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Source: https://xkcd.com/552/</figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">Source: https://xkcd.com/552/</figcaption></figure>
 </div>
 <p>Last week, we talked about a measure of the spread of a random variable called the <strong>variance</strong>.</p>
 <p><span class="math display">\[var(X) = \frac{\sum_{i=0}^{n}{(x_i-\bar x)^2}}{(n-1)}\]</span></p>
 <p>Today, we are extending this idea to 2 random variables. Because the normal distribution is so common, we are using two normally distributed variables.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-7_22b9d63d1c168beb5e0f1860774d036b">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-6_d0dca6394ff98254898f1c7713a7a7bd">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>,</span>
@@ -417,7 +404,7 @@ div.csl-indent {
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="va">m_y</span>, alpha <span class="op">=</span> <span class="fl">0.8</span>, color <span class="op">=</span> <span class="st">"midnightblue"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"white"</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>We also added lines for the means of the two random variables. Maybe I should have mentioned this more clearly earlier on, but the general convention in statistics is that random variables are uppercase and concrete values from the distribution have the same letter but lowercase.</p>
@@ -433,10 +420,9 @@ div.csl-indent {
 <p>The <code>dplyr</code> package includes and example dataset of Star Wars characters. Unfortunately, it was created a while ago, so the is no baby yoda, but 87 other characters are present.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/baby_yoda.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">I guess it is the baby yoda show now.</figcaption><p></p>
-</figure>
+<figcaption class="figure-caption">I guess it is the baby yoda show now.</figcaption></figure>
 </div>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-8_18d0c121477592f305052497d5ea0ba3">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-7_5981932680fe6154cd1d790ae4195a9c">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">starwars</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 87 × 14
@@ -452,15 +438,16 @@ div.csl-indent {
  8 R5-D4        97    32 &lt;NA&gt;       white, red red             NA   none  mascu…
  9 Biggs D…    183    84 black      light      brown           24   male  mascu…
 10 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
-# … with 77 more rows, and 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
-#   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+# ℹ 77 more rows
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 <p>Let’s look at some correlations:</p>
 </section><section id="pearson-vs.-spearman-not-a-boxing-match" class="level3 page-columns page-full" data-number="7.4.2"><h3 data-number="7.4.2" class="anchored" data-anchor-id="pearson-vs.-spearman-not-a-boxing-match">
 <span class="header-section-number">7.4.2</span> Pearson vs.&nbsp;Spearman (not a Boxing Match)</h3>
 <p>To compute pearsons correlation, we use the <code>cor</code> function in R. Instead of filtering out <code>NA</code>, we can use <code>use = "complete.obs"</code> to ignore rows with missing values in the computation.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-9_ef6304698f220a55a485c436b177b5e8">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-8_f3c3d1c79bdbeddc11d5de9a1eeae896">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pearson</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">$</span><span class="va">height</span>, <span class="va">starwars</span><span class="op">$</span><span class="va">mass</span>, use <span class="op">=</span> <span class="st">"complete.obs"</span><span class="op">)</span></span>
 <span><span class="va">pearson</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -468,7 +455,7 @@ div.csl-indent {
 </div>
 </div>
 <p>When I first did this I was surprised that the correlation was so low. We are after all talking about height and mass, which I assumed to be highly correlated. Let us look at the data to see what is going on.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-10_214a5aba1e3e18f19be6129b83874fa0">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-9_b9bc547b9e1e6692530c99e321d275f9">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">label_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Pearson correlation: {round(pearson, 2)}"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">jabba</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">starwars</span>, <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">name</span>, <span class="st">"Jabba"</span><span class="op">)</span><span class="op">)</span></span>
@@ -492,11 +479,11 @@ div.csl-indent {
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"mass [kg]"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"height [cm]"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>This is the culprit! We have a massive outlier, in all senses of the word “massive”. Luckily, there is another method to asses correlation. Spearman’s method is more resistant to outliers, because the data is transformed into ranks first, which negates the massive effect of outliers.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-11_abe01cdd5028afe29696e5e5c90d0a91">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-10_bb1510622623e9debc08d6dfa876898d">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spearman</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">$</span><span class="va">height</span>, <span class="va">starwars</span><span class="op">$</span><span class="va">mass</span>,</span>
 <span>                use <span class="op">=</span> <span class="st">"complete.obs"</span>, method <span class="op">=</span> <span class="st">"spearman"</span><span class="op">)</span></span>
 <span><span class="va">spearman</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -505,7 +492,7 @@ div.csl-indent {
 </div>
 </div>
 <p>Visually, this is what the points look like after rank transformation:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-12_1c4969d545075fee43747281703ddb59">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-11_86553c8f5c7d722e996b98cc7395cc46">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">label_text</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span><span class="op">(</span><span class="st">"Spearman rank correlation: {round(spearman, 2)}"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -518,11 +505,11 @@ div.csl-indent {
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"rank(mass)"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"rank(height)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>Apart from <code>cor</code>, there is also <code>cor.test</code>, which gives more information. If we so fancy, we can use <code>broom</code> to turn the test output into a tidy format as well.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-13_e162b1ee7bab67842718d01eed9383b1">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-12_ac98b8e8665ea992d8ea873c95e298f1">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cortest</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.test.html">cor.test</a></span><span class="op">(</span><span class="va">starwars</span><span class="op">$</span><span class="va">mass</span>, <span class="va">starwars</span><span class="op">$</span><span class="va">height</span>,</span>
 <span>                <span class="co"># method = "spearman",</span></span>
 <span>                use <span class="op">=</span> <span class="st">"complete.obs"</span><span class="op">)</span></span>
@@ -542,7 +529,7 @@ sample estimates:
 0.1338842 </code></pre>
 </div>
 </div>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-14_43acbfcf72cc401b793903a410d01179">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-13_b5475fad12890a2ed02acd7896b86fbb">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">cortest</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 8
@@ -553,9 +540,9 @@ sample estimates:
 </div>
 <p>There is another way we can specify which features to correlate. <code>corr</code> also takes a matrix or data frame as it’s x argument instead of x and y. We then end up with the pairwise correlation coefficients for all columns of the dataframe.</p>
 <p>This is known as a correlation matrix, and we can create it for more than two features, as long as all features are numeric (after all, what is the correlation between 1,4 and “cat” “dog”?). Unfortunately there are only three numeric columns in the <code>starwars</code> dataset, which makes for a pretty boring correlation matrix.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-15_d3b74fcb029b4d828ab3751acc585c52">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-14_24408c3223530d6285cdf228691c6793">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">starwars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu">where</span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.numeric</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
@@ -570,16 +557,16 @@ sample estimates:
 </div>
 </div>
 <p>So let’s look at another built-in dataset instead. <code>mtcars</code> has some data about cars, like their engine displacement or miles per gallon.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-16_bf32aebd9ff9f1b8279f9881d98e2346">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-15_2b06497a468a118f9a797a06421c9d91">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">disp</span>, <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>This makes for a much more interesting correlation matrix:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-17_dfe63b1f05887e1e410c301ae24f76c2">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-16_4b0d1617a124a4d8115c967a14171a74">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span>rownames <span class="op">=</span> <span class="st">"feature"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="op">-</span><span class="va">feature</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -589,13 +576,13 @@ sample estimates:
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_fill_gradient2</a></span><span class="op">(</span>low <span class="op">=</span> <span class="st">"blue"</span>, high <span class="op">=</span> <span class="st">"red"</span>,</span>
 <span>                       mid <span class="op">=</span> <span class="st">"white"</span>, midpoint <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>If you are working a lot with correlations, it is certainly worth checking out the <code>corrr</code> package from the tidymodels framework:</p>
 <aside><a href="https://corrr.tidymodels.org/"> <img src="images/corrr.png" class="img-fluid" width="200"></a>
 </aside><p>Its functions make these steps easier.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-18_525601b483e435f879a77cbed17d0476">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-17_69bfa3db0a0460688cb95cc1902eb2a2">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">corrr</span><span class="fu">::</span><span class="fu"><a href="https://corrr.tidymodels.org/reference/correlate.html">correlate</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">corrr</span><span class="fu">::</span><span class="fu"><a href="https://corrr.tidymodels.org/reference/stretch.html">stretch</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -612,22 +599,22 @@ sample estimates:
  8 mpg   vs     0.664
  9 mpg   am     0.600
 10 mpg   gear   0.480
-# … with 111 more rows</code></pre>
+# ℹ 111 more rows</code></pre>
 </div>
 </div>
 <p>And give use access to two different types of plots out of the box.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-19_3b6a61ea290887a826dd504018a0e779">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-18_4640bfaa35e6d36c131d39c9f83742c2">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">corrr</span><span class="fu">::</span><span class="fu"><a href="https://corrr.tidymodels.org/reference/correlate.html">correlate</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">corrr</span><span class="fu">::</span><span class="fu"><a href="https://corrr.tidymodels.org/reference/rplot.html">rplot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-20_be3fd4e9c4b8a7bacfcc0acfe88285ad">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-19_da094f1094b3ef37ec6815d0a9bcfda4">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">corrr</span><span class="fu">::</span><span class="fu"><a href="https://corrr.tidymodels.org/reference/correlate.html">correlate</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu">corrr</span><span class="fu">::</span><span class="fu"><a href="https://corrr.tidymodels.org/reference/network_plot.html">network_plot</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section><section id="difference-to-linear-regression" class="level3" data-number="7.4.3"><h3 data-number="7.4.3" class="anchored" data-anchor-id="difference-to-linear-regression">
@@ -640,7 +627,7 @@ sample estimates:
 <p><span class="math display">\[cor(X,Y)=cor(X * a +b,Y * c + d)\]</span></p>
 <p>The same is <strong>not</strong> true for linear models!</p>
 <p>Let us look at an example where linear regression is more appropriate than correlation. In the <code>data</code> folder we find the IMDB ratings for 10 Star Wars movies (plus more features).</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-21_a2faf1889f1407c445b4d8a99917a518">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-20_27f07469e2be8dbbfbeac38dea5a05cf">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ratings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="st">"data/07/starwars_movies.rds"</span><span class="op">)</span></span>
 <span><span class="va">ratings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -657,14 +644,14 @@ sample estimates:
  8 Star Wa… PG-13 2017-12-15 152 min Acti… Rian Jo… Rian … Daisy… The … English 
  9 Rogue O… PG-13 2016-12-16 133 min Acti… Gareth … Chris… Felic… In a… English 
 10 Star Wa… PG-13 2019-12-20 141 min Acti… J.J. Ab… Chris… Daisy… In t… English 
-# … with 15 more variables: Country &lt;chr&gt;, Awards &lt;chr&gt;, Poster &lt;chr&gt;,
+# ℹ 15 more variables: Country &lt;chr&gt;, Awards &lt;chr&gt;, Poster &lt;chr&gt;,
 #   Ratings &lt;list&gt;, Metascore &lt;chr&gt;, imdbRating &lt;dbl&gt;, imdbVotes &lt;dbl&gt;,
 #   imdbID &lt;chr&gt;, Type &lt;chr&gt;, DVD &lt;date&gt;, BoxOffice &lt;chr&gt;, Production &lt;chr&gt;,
 #   Website &lt;chr&gt;, Response &lt;chr&gt;, year &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <p>We can fit a linear model to see if the production year has an effect on the rating.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-22_c33439066575494a27df1bf77e873a89">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-21_dda450285554960c1937afa944ec4222">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">imdbRating</span> <span class="op">~</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">ratings</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -675,11 +662,11 @@ sample estimates:
 <span>               alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>What I added here as gray segments are the so called <strong>residuals</strong>. They are what makes linear regression work. It’s full name is <strong>Ordinary Least Squares</strong> and the squares in question are the squares of these residuals, the word <em>least</em> indicates that these squares are minimized in order to find the best fit line.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-23_daa65cdf56d49bb43353f73f7c8f0dd0">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-22_d343b9edc065a53d703e62fe9b3cd0d3">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
@@ -691,7 +678,7 @@ sample estimates:
 </div>
 <p>Looks like every year decreases the estimated rating by 0.03.</p>
 <p>One thing however is the same between correlation and linear regression, and that is the <span class="math inline">\(R^2\)</span> value we get from both calculations:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-24_8f25a64df52c43154ae7d5f667da43b6">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-23_0e457815deb9f6a58032abb6225fb9a2">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -719,7 +706,7 @@ F-statistic: 6.051 on 1 and 8 DF,  p-value: 0.03933</code></pre>
 <span class="header-section-number">7.5</span> Non-linear Least Squares</h2>
 <p>So far, we only properly dealt with linear relationships and now it is time to get non-linear. We will be creating a mechanistically driven predictive model, so we have a formula of which we want to adjust the parameters so that it fits our data.</p>
 <p>Let’s take classical Michaelis-Menten-Kinetics There is a dataset for enzyme reaction rates included in R. But we convert it from a dataframe to a tibble so that it prints nicer:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-25_7db97987ff2a41297e36cdb1452a04f5">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-24_3bdd956ac96315293feb476384309a64">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">puromycin</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">Puromycin</span><span class="op">)</span></span>
 <span><span class="va">puromycin</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -736,42 +723,42 @@ F-statistic: 6.051 on 1 and 8 DF,  p-value: 0.03933</code></pre>
  8  0.22   152 treated
  9  0.56   191 treated
 10  0.56   201 treated
-# … with 13 more rows</code></pre>
+# ℹ 13 more rows</code></pre>
 </div>
 </div>
 <p>The initial rate <span class="math inline">\(v_0\)</span> of the an enzymatic reaction was measured for a control and a sample treated with puromycin at different substrate concentrations. For every concentration we have two replicates except for one missing replicate.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-26_684005db4bc5d27da18b123546f1c681">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-25_3e79df046b9529652fa97b514d883fbd">
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">puromycin</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">conc</span>, <span class="va">rate</span>, color <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>From our Biochemistry studies, we know that we can express the rate depending on the concentration with the following formula:</p>
 <p><span class="math display">\[rate=\frac{(Vm * conc)}{(K + conc)}\]</span></p>
 <p>To make it easier to work with, let’s turn it into a function.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-27_5dd77491016e68c47ad7de222f10adfa">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-26_22cee6c981a9c52b7fbef3f406167354">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rate</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">conc</span>, <span class="va">Vm</span>, <span class="va">K</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">Vm</span> <span class="op">*</span> <span class="va">conc</span> <span class="op">/</span> <span class="op">(</span><span class="va">K</span> <span class="op">+</span> <span class="va">conc</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s pick some arbitrary starting values. For example, we see that the maximal velocity could be around 200. We also know that K is the concentration at which the half-maximal velocity is reached.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-28_bf502259c6988621d3ae3690c4308161">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-27_ae843cc7109595054c493f7451b4d856">
 <div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">puromycin</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">conc</span>, <span class="va">rate</span>, color <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">geom_function</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="op">~</span> <span class="fu">rate</span><span class="op">(</span>conc <span class="op">=</span> <span class="va">.x</span>, Vm <span class="op">=</span> <span class="fl">200</span>, K <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span>,</span>
 <span>                color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p><code>geom_function</code> expects a function of x or an anonymous function where the first argument is the values on the x-axis, so this is what we did. Well, I bet we can do better than guessing the function! What R can do for us is the same it did for linear least squares and that is minimizing the distance of our curve to the datapoints. This is the job of the <code>nls</code> function, which stands for <strong>Nonlinear Least Squares</strong>.</p>
 <section id="one-model" class="level3" data-number="7.5.1"><h3 data-number="7.5.1" class="anchored" data-anchor-id="one-model">
 <span class="header-section-number">7.5.1</span> One model</h3>
 <p>Let’s look at just the “treated” data first.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-29_44675c1b19e25ae846eb4a0ebded6c04">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-28_e70c053e925766e13766362282e326b4">
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">treated</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">puromycin</span>, <span class="va">state</span> <span class="op">==</span> <span class="st">"treated"</span><span class="op">)</span></span>
 <span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/nls.html">nls</a></span><span class="op">(</span><span class="va">rate</span> <span class="op">~</span> <span class="fu">rate</span><span class="op">(</span><span class="va">conc</span>, <span class="va">Vm</span>, <span class="va">K</span><span class="op">)</span>,</span>
 <span>             data <span class="op">=</span> <span class="va">treated</span>,</span>
@@ -797,7 +784,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 </blockquote>
 <p>Additionally, <code>nls</code> takes an argument <code>subset</code>, which works like the <code>dplyr</code> verb <code>filter</code> so that we can fit the model on a subset of the data without having to create it beforehand.</p>
 <p>We use the <code>broom</code> package to display our model parameters in a tidy tibble.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-30_8cf65e58f2fee6d2546e32d3b07a0973">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-29_5b7a3160200de5361c248d4c3b6228e5">
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
@@ -808,25 +795,25 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 </div>
 </div>
 <p>With the base-R function <code>predict</code> we can make new predictions based on a model and new data:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-31_492fec2aac10cf230a166c8b9a91061f">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-30_dc12be35b25126789137dfba45312b79">
 <div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model</span>, newdata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>conc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0.01</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  0.00000 28.69405 50.56602 67.79038 81.70621 93.18326</code></pre>
 </div>
 </div>
 <p>We can use the same function inside of <code>geom_function</code>:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-32_dcfb5c4d6af0db242ae4f910bf43b43f">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-31_cddf50ad3596e378e4676239c3520ab3">
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">treated</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">conc</span>, <span class="va">rate</span>, color <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">geom_function</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model</span>, newdata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>conc <span class="op">=</span> <span class="va">.x</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>                color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>Or alternatively create a new dataset of predictions beforehand and use that with <code>geom_line</code>:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-33_0bd2772c0c4e6ef6bf6a062858aacb5d">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-32_820ac3dbd68a52a5704176648918b29e">
 <div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">predictions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>  conc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0.01</span><span class="op">)</span>,</span>
 <span>  rate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">model</span>, newdata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>conc <span class="op">=</span> <span class="va">conc</span><span class="op">)</span><span class="op">)</span></span>
@@ -837,22 +824,22 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">predictions</span>, color <span class="op">=</span> <span class="st">"black"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-34_bb817336753b066e506350b0a318bd0c">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-33_9f90449da28963a19442ee048cbc6109">
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://generics.r-lib.org/reference/augment.html">augment</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">conc</span>, <span class="va">.resid</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section><section id="multiple-models" class="level3" data-number="7.5.2"><h3 data-number="7.5.2" class="anchored" data-anchor-id="multiple-models">
 <span class="header-section-number">7.5.2</span> Multiple models</h3>
 <p>Now, what if we want to fit the model for both states? We can resort back to our trusty <code>purrr</code> package like we did in an earlier lecture.</p>
 <p>We start out by creating a function that takes a dataframe and fits our model:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-35_45b6f7e03551467781e9b3e418942892">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-34_13ebad41c5e50cca972ac84cec27d445">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fit_micmen</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/nls.html">nls</a></span><span class="op">(</span><span class="va">rate</span> <span class="op">~</span> <span class="fu">rate</span><span class="op">(</span><span class="va">conc</span>, <span class="va">Vm</span>, <span class="va">K</span><span class="op">)</span>,</span>
 <span>      data <span class="op">=</span> <span class="va">data</span>,</span>
@@ -861,7 +848,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And by nesting the data (grouped by state) into a list column we can map this function over each dataset. And to get the fitted parameters we map the <code>tidy</code> function from <code>broom</code> over the fitted models.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-36_d2aada6872d2dfc12a6f433843aebec9">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-35_23cf1d95e97fc33a593ed92c8f1357f2">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">models</span> <span class="op">&lt;-</span> <span class="va">puromycin</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">nest</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
@@ -871,10 +858,10 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s inspect the fitted parameters.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-37_d71b5536be7416b54ef27fd6ce8a26d8">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-36_a0925169391d7dcbedebc6efebc19850">
 <div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">models</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">state</span>, <span class="va">params</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html">unnest</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">state</span>, <span class="va">term</span>, <span class="va">estimate</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">term</span>, values_from <span class="op">=</span> <span class="va">estimate</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -887,7 +874,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 </div>
 </div>
 <p>To plot our fitted models we have two options. Firstly, we could generate the predicted values for a number of concentrations beforehand and then plot these:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-38_cb34316a947e5ea33c3a3692473de6b6">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-37_490e6411a2e3e69c4314d9bbebd318ac">
 <div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">make_predicions</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
 <span>    conc <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1.2</span>, <span class="fl">0.01</span><span class="op">)</span>,</span>
@@ -900,18 +887,18 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 <span>    preds <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">make_predicions</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">state</span>, <span class="va">preds</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op">(</span><span class="va">preds</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/unnest.html">unnest</a></span><span class="op">(</span><span class="va">preds</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">puromycin</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">conc</span>, <span class="va">rate</span>, color <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">predictions</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>Or we use <code>geom_smooth</code>, which can take “nls” as a method as well. We just need to make sure to pass the correct arguments. And it can be confusing, because when we are specifying the formula in <code>geom_smooth</code>, it always needs to be a formula of <code>y ~ x</code>, whereas in the normal <code>nls</code> we did earlier, we specified the variables in terms of their actual names (<code>rate</code> and <code>conc</code>).</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-39_ed390352754b7ad5176304f0aef11778">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-38_495b7bef589400ace3aaf617541b9416">
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">puromycin</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">conc</span>, <span class="va">rate</span>, color <span class="op">=</span> <span class="va">state</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -921,7 +908,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 <span>              se <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span>              <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="fallacies-correlation-and-regression_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>We also need <code>se = FALSE</code>, because by default R would try to plot a confidence interval around the fit-line like it did for the linear model, but <code>nls</code> doesn’t return one, so we would get an error.</p>
@@ -929,7 +916,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 </section><section id="excursion-a-weird-error-message" class="level3" data-number="7.5.3"><h3 data-number="7.5.3" class="anchored" data-anchor-id="excursion-a-weird-error-message">
 <span class="header-section-number">7.5.3</span> Excursion: A weird error message</h3>
 <p>Finally, I want to take minute to mention another approach which we took earlier in the series when we where fitting many linear models and show you, why it unfortunately does not work here.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-40_7ecb7ce471412b2a10cf0bf32b5df697">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-39_51a4eacf203e0475e7ea96f98154d9cd">
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newmodels</span> <span class="op">&lt;-</span> <span class="va">puromycin</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
@@ -939,7 +926,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 <span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>At first it looks like everything is fine. Because we are inside of a dplyr verb <code>nls</code> know where to look for the columns <code>rate</code> and <code>conc</code> that it should fit, so we are not specifying its <code>data</code> argument. However, this fails in an unexpected way when we later try to make predictions with one of the models:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-41_26eff45a7dd4e12a3cf881593149f592">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-40_75f189c5f6dc4bccb9fdee6352c3e657">
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">make_predicions</span><span class="op">(</span><span class="va">newmodels</span><span class="op">$</span><span class="va">model</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error:
@@ -950,7 +937,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 </div>
 </div>
 <p>The reason for this as follows: When <code>nls</code> fit the model it didn’t remember the actual values of <code>rate</code> and <code>conc</code>, it just made a note that these are columns available in the data. And because the data was not passed to it explicitly it just wrote down that the columns are available in the environment in which it was called, which at that time was inside of <code>summarise</code>. Check out the <code>data</code> argument here:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-42_e2c165ef9842cae846934039f4417945">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-41_b61c48822e79567e64eef804090e177c">
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">newmodels</span><span class="op">$</span><span class="va">model</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Nonlinear regression model
@@ -970,7 +957,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 <section id="the-datasaurus-dozen" class="level3" data-number="7.6.1"><h3 data-number="7.6.1" class="anchored" data-anchor-id="the-datasaurus-dozen">
 <span class="header-section-number">7.6.1</span> The Datasaurus Dozen</h3>
 <p>The Datasaurus Dozen <span class="citation" data-cites="matejka2017">(<a href="references.html#ref-matejka2017" role="doc-biblioref">Matejka and Fitzmaurice 2017</a>)</span> is a dataset crafted to illustrate certain concepts. It can be accessed from R via the <code>datasauRus</code> package.</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-43_061b1936f2e143295ceecd7a9b606842">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-42_5e767838433e32711610e38107d6d8bd">
 <div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">datasauRus</span><span class="fu">::</span><span class="va">datasaurus_dozen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -982,7 +969,7 @@ Achieved convergence tolerance: 3.528e-06</code></pre>
 </li>
 </ul>
 <p>There is another dataset in the package to illustrate a different point:</p>
-<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-44_687a44c88baed5f8bc9a854db9607f0e">
+<div class="cell" data-hash="fallacies-correlation-and-regression_cache/html/unnamed-chunk-43_603b1f768b13728bfc84455780f94cb6">
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">datasauRus</span><span class="fu">::</span><span class="va">box_plots</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -1007,17 +994,17 @@ Tip 3
 The description in the dataset header also contains the function to fit and potential starting values to try out. Note, the <code>e</code> in the function refers to the remaining error of the fit, so you don’t need it in your function.
 </details>
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-matejka2017" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-matejka2017" class="csl-entry" role="listitem">
 Matejka, Justin, and George Fitzmaurice. 2017. <span>“The <span>Datasaurus Dozen</span> - <span>Same Stats</span>, <span>Different Graphs</span> | <span>Autodesk Research</span>.”</span> https://doi.org/<a href="http://dx.doi.org/10.1145/3025453.3025912">http://dx.doi.org/10.1145/3025453.3025912</a>.
 </div>
-<div id="ref-SurvivorshipBias2020" class="csl-entry" role="doc-biblioentry">
+<div id="ref-SurvivorshipBias2020" class="csl-entry" role="listitem">
 <span>“Survivorship Bias.”</span> 2020. <em>Wikipedia</em>, December.
 </div>
-<div id="ref-waldReprintMethodEstimating1980" class="csl-entry" role="doc-biblioentry">
+<div id="ref-waldReprintMethodEstimating1980" class="csl-entry" role="listitem">
 Wald, Abraham. 1980. <span>“A <span>Reprint</span> of ’<span>A Method</span> of <span>Estimating Plane Vulnerability Based</span> on <span>Damage</span> of <span>Survivors</span>.”</span> CRC-432. <span>CENTER FOR NAVAL ANALYSES ALEXANDRIA VA OPERATIONS EVALUATION GROUP</span>.
 </div>
-<div id="ref-ziemannGeneNameErrors2016" class="csl-entry" role="doc-biblioentry">
+<div id="ref-ziemannGeneNameErrors2016" class="csl-entry" role="listitem">
 Ziemann, Mark, Yotam Eren, and Assam El-Osta. 2016. <span>“Gene Name Errors Are Widespread in the Scientific Literature.”</span> <em>Genome Biology</em> 17 (1): 177. <a href="https://doi.org/10.1186/s13059-016-1044-7">https://doi.org/10.1186/s13059-016-1044-7</a>.
 </div>
 </div>
@@ -1062,6 +1049,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -1130,13 +1144,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1163,9 +1179,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1201,10 +1231,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1214,8 +1243,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1230,6 +1268,147 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      try { hash = new URL(url).hash; } catch {}
+      const id = hash.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note !== null) {
+        try {
+          const html = processXRef(id, note);
+          instance.setContent(html);
+        } finally {
+          instance.enable();
+          instance.show();
+        }
+      } else {
+        // See if we can fetch this
+        fetch(url.split('#')[0])
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.getElementById(id);
+          if (note !== null) {
+            const html = processXRef(id, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

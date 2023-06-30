@@ -91,9 +91,7 @@ some way be biased towards what you are trying to show.
 
 I leave you with this:
 
-```{r, echo=FALSE}
-tweetrmd::include_tweet("https://twitter.com/jakevdp/status/1336343740235935744")
-```
+![](./images/survivorship-tweet.png)
 
 And from this cautionary tale we jump straight back into RStudio.
 
