@@ -11,10 +11,11 @@ editor:
 ::: {.alert .alert-secondary}
 **Current course dates**\
 WS23/24\
-2023-10-21 -- 2023-12-16\
+2023-10-17 -- 2023-12-12\
 See [structure of the course](#structure)\
 Lecture online in your own time\
-Seminar weekly on TO BE DETERMINED\
+Seminar weekly on Tuesday, 13:00 -- 15:00\
+In Seminar room 11 (SR 11, 5.OG), Mathematikon (INF 205)\
 Sign-up (Heidelberg University students): see [discord](#discord)\
 Language: Lectures are in English but the seminar can be in German if you choose so (in any case, you can always ask questions in German as well).
 :::
@@ -72,9 +73,9 @@ Most participants will be biochemistry bachelor (and master) students, but the m
 
 In addition to the 8 regular lectures + follow up seminars, there is an introductory seminar in the first week, before the first lecture.
 
--   October 18: First seminar
--   October 25: Seminar for the first lecture
--   December 13: Seminar for the last lecture
+- October 17 (Tuesday, 13:00): First seminar
+- October 24: Seminar for the first lecture
+- December 12: Seminar for the last lecture
 
 The first seminar is dedicated to helping you get your laptops set up for the course, show the course structure and explain core concepts.
 
@@ -91,17 +92,15 @@ The earlier in the week you submit your solutions, the more time I have to prepa
 ### Seminar
 
 Each week, we will meet to discuss the exercises and answer any questions that might have have popped up.
-Currently it looks like it will be possible to do so in person, in which case we will meet here:
+We will meet in:
 
-> Mathematikon (INF 205), IWR CIP-Pool 1
+> Seminar room 11 (SR 11, 5.OG), Mathematikon (INF 205)
 
-Even though these are technically computer rooms, it would be great if you could bring your own laptop so that you can code along and known that you will be able to apply what you learned after the course as well.
-Also, we might not be able to install the necessary software in the computer room.
+Please bring your own laptop, so that you can code along and know that you will be able to apply what you learned after the course as well.
 
 ### Discord and signup {#discord}
 
 If you are a biochemistry student at Heidelberg University, click on this link: <https://discord.gg/BdfBxEDN5x> to join our discord server.
 
 To sign up for the course, send a message to me (Jannik) with your **full name** and **matriculation number** so that we can put the course onto your official transcript of records.
-If the link doesn't work, please send me a message via my [contact form](https://jmbuhr.de/contact).
 On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.

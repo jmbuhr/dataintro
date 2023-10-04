@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.176">
+<meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Jannik Buhr">
-<meta name="dcterms.date" content="2023-06-30">
+<meta name="dcterms.date" content="2023-10-04">
 <meta name="description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <title>Introduction to Data Analysis with R</title>
 <style>
@@ -48,11 +48,6 @@ ul.task-list li input[type="checkbox"] {
   "panel-placement": "start",
   "type": "textbox",
   "limit": 20,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -69,7 +64,7 @@ ul.task-list li input[type="checkbox"] {
 <meta property="og:title" content="Introduction to Data Analysis with R">
 <meta property="og:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
 <meta property="og:image" content="https://jmbuhr.de/dataintro/index_files/figure-html/cover-plot-1.png">
-<meta property="og:site_name" content="Introduction to Data Analysis with R">
+<meta property="og:site-name" content="Introduction to Data Analysis with R">
 <meta property="og:image:height" content="960">
 <meta property="og:image:width" content="1344">
 </head>
@@ -80,9 +75,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Hello and welcome!</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Hello and welcome!</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -230,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 30, 2023</p>
+      <p class="date">October 4, 2023</p>
     </div>
   </div>
   
@@ -243,10 +238,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="alert alert-secondary">
 <p><strong>Current course dates</strong><br>
 WS23/24<br>
-2023-10-21 – 2023-12-16<br>
+2023-10-17 – 2023-12-12<br>
 See <a href="#structure">structure of the course</a><br>
 Lecture online in your own time<br>
-Seminar weekly on TO BE DETERMINED<br>
+Seminar weekly on Tuesday, 13:00 – 15:00<br>
+In Seminar room 11 (SR 11, 5.OG), Mathematikon (INF 205)<br>
 Sign-up (Heidelberg University students): see <a href="#discord">discord</a><br>
 Language: Lectures are in English but the seminar can be in German if you choose so (in any case, you can always ask questions in German as well).</p>
 </div>
@@ -283,23 +279,23 @@ Language: Lectures are in English but the seminar can be in German if you choose
 </ul>
 <p>In addition to the 8 regular lectures + follow up seminars, there is an introductory seminar in the first week, before the first lecture.</p>
 <ul>
-<li>October 18: First seminar</li>
-<li>October 25: Seminar for the first lecture</li>
-<li>December 13: Seminar for the last lecture</li>
+<li>October 17 (Tuesday, 13:00): First seminar</li>
+<li>October 24: Seminar for the first lecture</li>
+<li>December 12: Seminar for the last lecture</li>
 </ul>
 <p>The first seminar is dedicated to helping you get your laptops set up for the course, show the course structure and explain core concepts.</p>
 <p>I do recommend to watch the lecture in your own time, and then use the lecture script afterwards to look up concepts and code you want to revisit. Code chunks also have a copy-button, which is helpful for quickly playing around with it, but make sure you actually walk through the lecture and do the typing first, because muscle memory will server you well in the future.</p>
 <section id="exe" class="level3"><h3 class="anchored" data-anchor-id="exe">Exercises</h3>
 <p>To complete the course, hand in at least 5 out of 8 exercises. The important part here is not that each exercise is a perfect solution, but if you encounter questions and struggles during your attempt of the exercise, make sure to include those pain points as well so that we can cover those in the <a href="#seminar">Seminar</a>. Please hand in your solutions <strong>before</strong> the seminar via a direct message on <a href="#discord">discord</a>. The earlier in the week you submit your solutions, the more time I have to prepare answers for the seminar.</p>
 </section><section id="seminar" class="level3"><h3 class="anchored" data-anchor-id="seminar">Seminar</h3>
-<p>Each week, we will meet to discuss the exercises and answer any questions that might have have popped up. Currently it looks like it will be possible to do so in person, in which case we will meet here:</p>
+<p>Each week, we will meet to discuss the exercises and answer any questions that might have have popped up. We will meet in:</p>
 <blockquote class="blockquote">
-<p>Mathematikon (INF 205), IWR CIP-Pool 1</p>
+<p>Seminar room 11 (SR 11, 5.OG), Mathematikon (INF 205)</p>
 </blockquote>
-<p>Even though these are technically computer rooms, it would be great if you could bring your own laptop so that you can code along and known that you will be able to apply what you learned after the course as well. Also, we might not be able to install the necessary software in the computer room.</p>
+<p>Please bring your own laptop, so that you can code along and know that you will be able to apply what you learned after the course as well.</p>
 </section><section id="discord" class="level3"><h3 class="anchored" data-anchor-id="discord">Discord and signup</h3>
 <p>If you are a biochemistry student at Heidelberg University, click on this link: <a href="https://discord.gg/BdfBxEDN5x" class="uri">https://discord.gg/BdfBxEDN5x</a> to join our discord server.</p>
-<p>To sign up for the course, send a message to me (Jannik) with your <strong>full name</strong> and <strong>matriculation number</strong> so that we can put the course onto your official transcript of records. If the link doesn’t work, please send me a message via my <a href="https://jmbuhr.de/contact">contact form</a>. On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.</p>
+<p>To sign up for the course, send a message to me (Jannik) with your <strong>full name</strong> and <strong>matriculation number</strong> so that we can put the course onto your official transcript of records. On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.</p>
 
 
 </section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -343,33 +339,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       } else {
         el.classList.add('notransition');
       }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
     }
   }
   const toggleColorMode = (alternate) => {
@@ -438,15 +407,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  let localAlternateSentinel = 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -525,9 +492,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -537,17 +505,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -560,60 +519,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    if (id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
-        }
-        return container.innerHTML
-      } else {
-        return note.innerHTML;
-      }
-    } else {
-      return note.innerHTML;
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      try { hash = new URL(url).hash; } catch {}
-      const id = hash.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note !== null) {
-        try {
-          const html = processXRef(id, note);
-          instance.setContent(html);
-        } finally {
-          instance.enable();
-          instance.show();
-        }
-      } else {
-        // See if we can fetch this
-        fetch(url.split('#')[0])
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.getElementById(id);
-          if (note !== null) {
-            const html = processXRef(id, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -657,7 +562,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
