@@ -31,8 +31,8 @@ From penguins to p-values, I got you covered.
 library(tidyverse)
 library(palmerpenguins)
 
-penguins %>%
-  filter(complete.cases(.)) %>% 
+penguins |>
+  drop_na() |>
   ggplot(aes(flipper_length_mm, bill_length_mm,
                      color = species,
                      shape = sex)) +

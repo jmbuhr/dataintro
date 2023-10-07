@@ -1,0 +1,109 @@
+Trig                   package:base                    R Documentation
+
+_T_r_i_g_o_n_o_m_e_t_r_i_c _F_u_n_c_t_i_o_n_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     These functions give the obvious trigonometric functions.  They
+     respectively compute the cosine, sine, tangent, arc-cosine,
+     arc-sine, arc-tangent, and the two-argument arc-tangent.
+
+     ‘cospi(x)’, ‘sinpi(x)’, and ‘tanpi(x)’, compute ‘cos(pi*x)’,
+     ‘sin(pi*x)’, and ‘tan(pi*x)’.
+
+_U_s_a_g_e:
+
+     cos(x)
+     sin(x)
+     tan(x)
+     
+     acos(x)
+     asin(x)
+     atan(x)
+     atan2(y, x)
+     
+     cospi(x)
+     sinpi(x)
+     tanpi(x)
+     
+_A_r_g_u_m_e_n_t_s:
+
+    x, y: numeric or complex vectors.
+
+_D_e_t_a_i_l_s:
+
+     The arc-tangent of two arguments ‘atan2(y, x)’ returns the angle
+     between the x-axis and the vector from the origin to (x, y), i.e.,
+     for positive arguments ‘atan2(y, x) == atan(y/x)’.
+
+     Angles are in radians, not degrees, for the standard versions
+     (i.e., a right angle is pi/2), and in ‘half-rotations’ for ‘cospi’
+     etc.
+
+     ‘cospi(x)’, ‘sinpi(x)’, and ‘tanpi(x)’ are accurate for ‘x’ values
+     which are multiples of a half.
+
+     All except ‘atan2’ are internal generic primitive functions:
+     methods can be defined for them individually or via the ‘Math’
+     group generic.
+
+     These are all wrappers to system calls of the same name (with
+     prefix ‘c’ for complex arguments) where available.  (‘cospi’,
+     ‘sinpi’, and ‘tanpi’ are part of a C11 extension and provided by
+     e.g. macOS and Solaris: where not yet available call to ‘cos’
+     _etc_ are used, with special cases for multiples of a half.)
+
+_V_a_l_u_e:
+
+     ‘tanpi(0.5)’ is ‘NaN’.  Similarly for other inputs with fractional
+     part ‘0.5’.
+
+_C_o_m_p_l_e_x _v_a_l_u_e_s:
+
+     For the inverse trigonometric functions, branch cuts are defined
+     as in Abramowitz and Stegun, figure 4.4, page 79.
+
+     For ‘asin’ and ‘acos’, there are two cuts, both along the real
+     axis: (-Inf, -1] and [1, Inf).
+
+     For ‘atan’ there are two cuts, both along the pure imaginary axis:
+     (-1i*Inf, -1i] and [1i, 1i*Inf).
+
+     The behaviour actually on the cuts follows the C99 standard which
+     requires continuity coming round the endpoint in a
+     counter-clockwise direction.
+
+     Complex arguments for ‘cospi’, ‘sinpi’, and ‘tanpi’ are not yet
+     implemented, and they are a ‘future direction’ of ISO/IEC TS
+     18661-4.
+
+_S_4 _m_e_t_h_o_d_s:
+
+     All except ‘atan2’ are S4 generic functions: methods can be
+     defined for them individually or via the ‘Math’ group generic.
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Becker, R. A., Chambers, J. M. and Wilks, A. R. (1988) _The New S
+     Language_.  Wadsworth & Brooks/Cole.
+
+     Abramowitz, M. and Stegun, I. A. (1972). _Handbook of Mathematical
+     Functions_. New York: Dover.
+     Chapter 4. Elementary Transcendental Functions: Logarithmic,
+     Exponential, Circular and Hyperbolic Functions
+
+     For ‘cospi’, ‘sinpi’, and ‘tanpi’ the C11 extension ISO/IEC TS
+     18661-4:2015 (draft at
+     <https://www.open-std.org/jtc1/sc22/wg14/www/docs/n1950.pdf>).
+
+_E_x_a_m_p_l_e_s:
+
+     x <- seq(-3, 7, by = 1/8)
+     tx <- cbind(x, cos(pi*x), cospi(x), sin(pi*x), sinpi(x),
+                    tan(pi*x), tanpi(x), deparse.level=2)
+     op <- options(digits = 4, width = 90) # for nice formatting
+     head(tx)
+     tx[ (x %% 1) %in% c(0, 0.5) ,]
+     options(op)
+     
+
