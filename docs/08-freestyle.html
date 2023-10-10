@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
+<title>Introduction to Data Analysis with R - 8&nbsp; Freestyle</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./resources.html" rel="next">
+<link href="./07-fallacies-correlation-and-regression.html" rel="prev">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link rel="stylesheet" href="style.css">
+<meta property="og:title" content="Introduction to Data Analysis with R - 8&nbsp; Freestyle">
+<meta property="og:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
+<meta property="og:image" content="https://jmbuhr.de/dataintro/08-freestyle_files/figure-html/unnamed-chunk-3-1.png">
+<meta property="og:site-name" content="Introduction to Data Analysis with R">
+<meta property="og:image:height" content="960">
+<meta property="og:image:width" content="1344">
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-freestyle.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Freestyle</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction to Data Analysis with R</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/jmbuhr/dataintro" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hello and welcome!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data-wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-tidy-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tidy data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-functional-programming.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-probability-and-hypothesis-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability and Hypothesis Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-distributions-summaries-and-dimensionality-reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Distributions, Summaries and Dimensionality Reduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-fallacies-correlation-and-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-freestyle.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Freestyle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup"><span class="header-section-number">8.1</span> Setup</a></li>
+  <li>
+<a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova"><span class="header-section-number">8.2</span> ANOVA</a>
+  <ul class="collapse">
+<li><a href="#tukey-post-hoc-test" id="toc-tukey-post-hoc-test" class="nav-link" data-scroll-target="#tukey-post-hoc-test"><span class="header-section-number">8.2.1</span> Tukey Post-Hoc Test</a></li>
+  <li><a href="#dunnet-post-hoc-test" id="toc-dunnet-post-hoc-test" class="nav-link" data-scroll-target="#dunnet-post-hoc-test"><span class="header-section-number">8.2.2</span> Dunnet Post-Hoc Test</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#ggplot-extensions" id="toc-ggplot-extensions" class="nav-link" data-scroll-target="#ggplot-extensions"><span class="header-section-number">8.3</span> ggplot extensions</a>
+  <ul class="collapse">
+<li><a href="#ggsignif-ggpubr" id="toc-ggsignif-ggpubr" class="nav-link" data-scroll-target="#ggsignif-ggpubr"><span class="header-section-number">8.3.1</span> <code>ggsignif</code>, <code>ggpubr</code></a></li>
+  <li><a href="#patchwork" id="toc-patchwork" class="nav-link" data-scroll-target="#patchwork"><span class="header-section-number">8.3.2</span> <code>patchwork</code></a></li>
+  <li><a href="#ggfortify" id="toc-ggfortify" class="nav-link" data-scroll-target="#ggfortify"><span class="header-section-number">8.3.3</span> <code>ggfortify</code></a></li>
+  <li><a href="#esquisse" id="toc-esquisse" class="nav-link" data-scroll-target="#esquisse"><span class="header-section-number">8.3.4</span> <code>esquisse</code></a></li>
+  <li><a href="#gganimate" id="toc-gganimate" class="nav-link" data-scroll-target="#gganimate"><span class="header-section-number">8.3.5</span> <code>gganimate</code></a></li>
+  </ul>
+</li>
+  <li><a href="#build-apps-with-shiny" id="toc-build-apps-with-shiny" class="nav-link" data-scroll-target="#build-apps-with-shiny"><span class="header-section-number">8.4</span> Build Apps with <code>shiny</code></a></li>
+  <li>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.5</span> Exercises</a>
+  <ul class="collapse">
+<li><a href="#the-whole-deal" id="toc-the-whole-deal" class="nav-link" data-scroll-target="#the-whole-deal"><span class="header-section-number">8.5.1</span> The Whole Deal</a></li>
+  </ul>
+</li>
+  <li><a href="#feedback" id="toc-feedback" class="nav-link" data-scroll-target="#feedback"><span class="header-section-number">8.6</span> Feedback</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jmbuhr/dataintro/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/jmbuhr/dataintro/blob/main/08-freestyle.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Freestyle</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><blockquote class="blockquote">
+<p>… in which we learn about ANOVA, explore ggplot extensions and build and interactive web application with Shiny.</p>
+</blockquote>
+<p></p>
+<div id="youtube-frame" style="position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; margin-bottom: 1rem;"><iframe width="100%" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/gZ0u6b_1ej4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="setup" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="setup">
+<span class="header-section-number">8.1</span> Setup</h2>
+<p>Today we are using quite a bunch of packages. In the lecture these are of course introduced one by one, but because it is a good habit to have all your imports and dependencies near the top of your analysis they show up here already.</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-2_08c857bd8c93e82cee1d4f05eb13f5c8">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://multcomp.R-forge.R-project.org">multcomp</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com">gganimate</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section><section id="anova" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="anova">
+<span class="header-section-number">8.2</span> ANOVA</h2>
+<p>Let’s get started. ANOVA stands for Analysis of Variance. We start with our familiar penguins dataset and ask the question: “Is there a difference in bill length between the species?”</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-3_027cbae8c1b9482d793f4bd6e1e7f02a">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>outlier.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.2</span>, width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-freestyle_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p>Optically, it certainly looks like it. We could run a bunch of t-tests to compare between the groups, which would be 3 in total (Adelie–Chinstrap, Adelie–Gentoo, Gentoo–Chinstrap). And then we would have to correct for multiple testing. At this point, only running one of tests (like Adelie vs.&nbsp;Chinstrap) because it looks so promising is not an option! Looking at the data visually is a form of comparison, so we would be cheating if we formed our hypothesis only after looking at the data.</p>
+<p><strong>ANOVA</strong> is a way of comparing multiple groups and tells us, if there is a difference at all between the groups. It does not however tell us, between which groups the difference exists, just that there is an overall difference. In order to get p-values for direct comparisons between the groups we run a <strong>post-hoc</strong> (Latin for “after the fact”) on our anova result.</p>
+<p>First I am sliding in a little extra code chunk, because later down the line we might want to compare all groups to e.g.&nbsp;a baseline or control group (see the section about Dunnet below) and this baseline is decided to be the first factor-level of the grouping variable. With <code>fct_relevel</code> we can move a lovel to the first (or any other) position.</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-4_c91357273691af2dfb73d16ad16a8d20">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>species <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="va">species</span>, <span class="st">"Gentoo"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Not we create an anova fit with <code>aov</code>.</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-5_d7f5535449b932613d558b388d820c45">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">anova_fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">bill_length_mm</span> <span class="op">~</span> <span class="va">species</span>, data <span class="op">=</span> <span class="va">penguins</span><span class="op">)</span></span>
+<span><span class="va">anova_fit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+   aov(formula = bill_length_mm ~ species, data = penguins)
+
+Terms:
+                 species Residuals
+Sum of Squares  7194.317  2969.888
+Deg. of Freedom        2       339
+
+Residual standard error: 2.959853
+Estimated effects may be unbalanced
+2 observations deleted due to missingness</code></pre>
+</div>
+</div>
+<p>And explore if further with various functions.</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-6_2cb474ed97caeccf7548df2040c475e7">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">anova_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Df Sum Sq Mean Sq F value Pr(&gt;F)    
+species       2   7194    3597   410.6 &lt;2e-16 ***
+Residuals   339   2970       9                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+2 observations deleted due to missingness</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-7_eb58996257bce05f35e3c5e2268d4f4e">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">anova_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  term         df sumsq  meansq statistic   p.value
+  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 species       2 7194. 3597.        411.  2.69e-91
+2 Residuals   339 2970.    8.76       NA  NA       </code></pre>
+</div>
+</div>
+<section id="tukey-post-hoc-test" class="level3" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="tukey-post-hoc-test">
+<span class="header-section-number">8.2.1</span> Tukey Post-Hoc Test</h3>
+<p>The most straighforward post-hoc test, which is already built into R, is “Tukey’s Honest Significant Differences”, which compares all groups with all other groups.</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-8_a7f53f7fdb3955a60a6951225d705abc">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">anova_fit</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+  term    contrast         null.value estimate conf.low conf.high adj.p.value
+  &lt;chr&gt;   &lt;chr&gt;                 &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+1 species Adelie-Gentoo             0    -8.71   -9.56      -7.87     0      
+2 species Chinstrap-Gentoo          0     1.33    0.276      2.38     0.00890
+3 species Chinstrap-Adelie          0    10.0     9.02      11.1      0      </code></pre>
+</div>
+</div>
+</section><section id="dunnet-post-hoc-test" class="level3" data-number="8.2.2"><h3 data-number="8.2.2" class="anchored" data-anchor-id="dunnet-post-hoc-test">
+<span class="header-section-number">8.2.2</span> Dunnet Post-Hoc Test</h3>
+<p>If we have a control group we use Dunnet’s test to compare all other groups to the control group. This means we have to do less comparisons and end up with a higher statistical power.</p>
+<p>Unfortunately, Dunnet is not built into R, but we can get the necessary functions from the <code>multcomp</code> package. When loading the <code>multcomp</code> package we have to be careful to load it before the <code>tidyverse</code>! Because <code>multcomp</code> also loads a bunch of other packages and one of them brings it’s own <code>select</code> function, so loading it after the <code>tidyverse</code> would overwrite tidyverse <code>select</code> and make our life very hard.</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-9_83a4ce273295ee2a11ae887f24e2e4b6">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">glht</a></span><span class="op">(</span><span class="va">anova_fit</span>, <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">mcp</a></span><span class="op">(</span>species <span class="op">=</span> <span class="st">"Dunnet"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term    contrast           null.value estimate std.error statistic adj.p.value
+  &lt;chr&gt;   &lt;chr&gt;                   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+1 species Adelie - Gentoo             0    -8.71     0.360    -24.2    -4.44e-16
+2 species Chinstrap - Gentoo          0     1.33     0.447      2.97    6.20e- 3</code></pre>
+</div>
+</div>
+<p>Note, that this package can also do Tukey’s test by changing “Dunnet” to “Tukey”.</p>
+</section></section><section id="ggplot-extensions" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="ggplot-extensions">
+<span class="header-section-number">8.3</span> ggplot extensions</h2>
+<p>In order to plot these nice significance stars on top of of our comparisons let me first introduce you to ggplot extensions:</p>
+<p><a href="https://exts.ggplot2.tidyverse.org/" class="uri">https://exts.ggplot2.tidyverse.org/</a></p>
+<p>This is just a collection of packages that extend ggplot in some shape or form or simply work very well with it.</p>
+<section id="ggsignif-ggpubr" class="level3" data-number="8.3.1"><h3 data-number="8.3.1" class="anchored" data-anchor-id="ggsignif-ggpubr">
+<span class="header-section-number">8.3.1</span> <code>ggsignif</code>, <code>ggpubr</code>
+</h3>
+<p>One of these is <code>ggsignif</code>, which we can use to add comparison brackets to our plot.</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-10_1dad74f048066f456034c190305b1e38">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>outlier.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.2</span>, width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggsignif</span><span class="fu">::</span><span class="fu"><a href="https://const-ae.github.io/ggsignif/reference/stat_signif.html">geom_signif</a></span><span class="op">(</span></span>
+<span>    comparisons <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Gentoo"</span>, <span class="st">"Adelie"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    annotations <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hello"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-freestyle_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p><code>ggsignif</code> can also run it’s own comparisons, which is a wilcoxon rank sum test by default, but especially for statistical tests I prefer to run them myself first before trusting more packages. Additionally, we have of course a different type of test (ANOVA), and we already have our values, so we use it just to manually add text to the annotation:</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-11_b9da96b8537f258e0ba046f68bcdcd39">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stars</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">p</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>    <span class="va">p</span> <span class="op">&lt;=</span> <span class="fl">0.001</span> <span class="op">~</span> <span class="st">"***"</span>,</span>
+<span>    <span class="va">p</span> <span class="op">&lt;=</span> <span class="fl">0.01</span>  <span class="op">~</span> <span class="st">"**"</span>,</span>
+<span>    <span class="va">p</span> <span class="op">&lt;=</span> <span class="fl">0.05</span>  <span class="op">~</span> <span class="st">"*"</span>,</span>
+<span>    <span class="cn">TRUE</span>       <span class="op">~</span> <span class="st">"ns"</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">dunnet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">glht</a></span><span class="op">(</span><span class="va">anova_fit</span>, <span class="fu"><a href="https://rdrr.io/pkg/multcomp/man/glht.html">mcp</a></span><span class="op">(</span>species <span class="op">=</span> <span class="st">"Dunnet"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>contrast <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_split.html">str_split</a></span><span class="op">(</span><span class="va">contrast</span>, <span class="st">" - "</span><span class="op">)</span>,</span>
+<span>         stars    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/stars.html">stars</a></span><span class="op">(</span><span class="va">adj.p.value</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">species</span>, <span class="va">bill_length_mm</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span>outlier.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.2</span>, width <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggsignif</span><span class="fu">::</span><span class="fu"><a href="https://const-ae.github.io/ggsignif/reference/stat_signif.html">geom_signif</a></span><span class="op">(</span></span>
+<span>    comparisons <span class="op">=</span> <span class="va">dunnet</span><span class="op">$</span><span class="va">contrast</span>,</span>
+<span>    annotations <span class="op">=</span> <span class="va">dunnet</span><span class="op">$</span><span class="va">stars</span>,</span>
+<span>    y_position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">60</span>, <span class="fl">65</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="va">plt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-freestyle_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section><section id="patchwork" class="level3" data-number="8.3.2"><h3 data-number="8.3.2" class="anchored" data-anchor-id="patchwork">
+<span class="header-section-number">8.3.2</span> <code>patchwork</code>
+</h3>
+<p>I also saved the plot to a variable and will now create a second one just to show you the <code>patchwork</code> package, which can combine plots into neat layouts:</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-12_63069b65485402115238123db3a825e5">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">bill_length_mm</span>, <span class="va">bill_depth_mm</span>, color <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="op">(</span><span class="op">(</span><span class="va">plt</span> <span class="op">|</span> <span class="va">plt2</span><span class="op">)</span> <span class="op">/</span> <span class="va">plt2</span> <span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html">plot_layout</a></span><span class="op">(</span>guides <span class="op">=</span> <span class="st">'collect'</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-freestyle_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section><section id="ggfortify" class="level3" data-number="8.3.3"><h3 data-number="8.3.3" class="anchored" data-anchor-id="ggfortify">
+<span class="header-section-number">8.3.3</span> <code>ggfortify</code>
+</h3>
+<p><code>ggfortiy</code> might not strictly be necessary but I want to mention it to talk about <code>autoplot</code>. <code>autoplot</code> is in <code>ggplot2</code> already by default. It creates automatic plot for certain objects, like models for example, or an anova result. <code>ggfortify</code> makes more objects have the ability to generate an autoplot.</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-13_c3ca7fecf31b7e42378ec3bcadaa74ed">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/sinhrks/ggfortify">ggfortify</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">anova_fit</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-freestyle_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p>I want to mention this here because it has an important implication for communication. There are two purposes too plots. The first purpose is to generate insight for you, the data analyst. Autoplots are often very helpful for this. But the second purpose is to communicate your findings to a reader! It takes time and effort to refine a plot from something that generated and insight for you after having spent a lot of time with your data to also generating insights for a reader that sees the data for the first time. Too many people stop at the first step and publish their plots as is, without thinking much about the reader. Keep this in mind as you advance in your scientific career.</p>
+<blockquote class="blockquote">
+<p>Communication is key! Both code and plots are means of communicating.</p>
+</blockquote>
+</section><section id="esquisse" class="level3" data-number="8.3.4"><h3 data-number="8.3.4" class="anchored" data-anchor-id="esquisse">
+<span class="header-section-number">8.3.4</span> <code>esquisse</code>
+</h3>
+<p>Two more cool packages: The <code>esquisse</code> package let’s you create ggplots interactively with a gui! But make sure to always save the code this created to ensure reproducibility!</p>
+</section><section id="gganimate" class="level3" data-number="8.3.5"><h3 data-number="8.3.5" class="anchored" data-anchor-id="gganimate">
+<span class="header-section-number">8.3.5</span> <code>gganimate</code>
+</h3>
+<p>And <code>gganimate</code> extends <code>ggplot</code> with the ability to use time as a dimension:</p>
+<div class="cell" data-hash="08-freestyle_cache/html/unnamed-chunk-14_806c52eaab651699342d98da123cfaa0">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">gapminder</span><span class="fu">::</span><span class="va"><a href="https://jennybc.github.io/gapminder/reference/gapminder.html">gapminder</a></span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">gdpPercap</span>, <span class="va">lifeExp</span>, size <span class="op">=</span> <span class="va">pop</span>, color <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://gganimate.com/reference/transition_time.html">transition_time</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu">gapminder</span><span class="fu">::</span><span class="va"><a href="https://jennybc.github.io/gapminder/reference/country_colors.html">country_colors</a></span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"none"</span>,</span>
+<span>         size <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+</section></section><section id="build-apps-with-shiny" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="build-apps-with-shiny">
+<span class="header-section-number">8.4</span> Build Apps with <code>shiny</code>
+</h2>
+<p>You can find the code written during the lecture in: <code>example-app/</code>.</p>
+</section><section id="exercises" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">8.5</span> Exercises</h2>
+<section id="the-whole-deal" class="level3" data-number="8.5.1"><h3 data-number="8.5.1" class="anchored" data-anchor-id="the-whole-deal">
+<span class="header-section-number">8.5.1</span> The Whole Deal</h3>
+<p>Data analysis takes practice. For this last exercise you get the option to show what you have learned on a fresh dataset. But people have different interests, so I am leaving the choice open.</p>
+<p>Choose a dataset from the TidyTuesday project:</p>
+<p><a href="https://github.com/rfordatascience/tidytuesday#datasets" class="uri">https://github.com/rfordatascience/tidytuesday#datasets</a></p>
+<p>and write your data analysis report. Aim to write down some questions you have about the topic and answer them with the available data. Explore it with plots and tables and try to end up with 1 or 2 high quality plots that clearly communicate you findings. Above all, have fun!</p>
+</section></section><section id="feedback" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="feedback">
+<span class="header-section-number">8.6</span> Feedback</h2>
+<p>I will send round a link for a feedback form. It is anonymous.</p>
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./07-fallacies-correlation-and-regression.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./resources.html" class="pagination-link">
+        <span class="nav-page-text">Resources</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

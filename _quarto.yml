@@ -21,14 +21,14 @@ book:
   #   creator: "@jannikbuhr"
   chapters:
     - index.qmd
-    - intro.qmd
-    - data-wrangling.qmd
-    - tidy-data.qmd
-    - functional-programming.qmd
-    - probability-and-hypothesis-testing.qmd
-    - distributions-summaries-and-dimensionality-reduction.qmd
-    - fallacies-correlation-and-regression.qmd
-    - freestyle.qmd
+    - 01-intro.qmd
+    - 02-data-wrangling.qmd
+    - 03-tidy-data.qmd
+    - 04-functional-programming.qmd
+    - 05-probability-and-hypothesis-testing.qmd
+    - 06-distributions-summaries-and-dimensionality-reduction.qmd
+    - 07-fallacies-correlation-and-regression.qmd
+    - 08-freestyle.qmd
   appendices:
     - resources.qmd
     - references.qmd

@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
+<title>Introduction to Data Analysis with R - 4&nbsp; Functional Programming</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05-probability-and-hypothesis-testing.html" rel="next">
+<link href="./03-tidy-data.html" rel="prev">
+<link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link rel="stylesheet" href="style.css">
+<meta property="og:title" content="Introduction to Data Analysis with R - 4&nbsp; Functional Programming">
+<meta property="og:description" content="This is where you will find all the resources for the course Introduction to Data Analysis with R">
+<meta property="og:image" content="https://jmbuhr.de/dataintro/images/purrr.png">
+<meta property="og:site-name" content="Introduction to Data Analysis with R">
+<meta property="og:image:height" content="139">
+<meta property="og:image:width" content="120">
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-functional-programming.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functional Programming</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction to Data Analysis with R</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/jmbuhr/dataintro" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Hello and welcome!</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-data-wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-tidy-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tidy data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-functional-programming.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functional Programming</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-probability-and-hypothesis-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability and Hypothesis Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-distributions-summaries-and-dimensionality-reduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Distributions, Summaries and Dimensionality Reduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-fallacies-correlation-and-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Fallacies, Correlation and Regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-freestyle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Freestyle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#todays-goal" id="toc-todays-goal" class="nav-link active" data-scroll-target="#todays-goal"><span class="header-section-number">4.1</span> Todays goal</a></li>
+  <li>
+<a href="#iteration" id="toc-iteration" class="nav-link" data-scroll-target="#iteration"><span class="header-section-number">4.2</span> Iteration</a>
+  <ul class="collapse">
+<li><a href="#the-imperative-programming-approach" id="toc-the-imperative-programming-approach" class="nav-link" data-scroll-target="#the-imperative-programming-approach"><span class="header-section-number">4.2.1</span> The Imperative Programming Approach</a></li>
+  <li><a href="#the-functional-programming-approach" id="toc-the-functional-programming-approach" class="nav-link" data-scroll-target="#the-functional-programming-approach"><span class="header-section-number">4.2.2</span> The Functional Programming Approach</a></li>
+  </ul>
+</li>
+  <li><a href="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." id="toc-if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." class="nav-link" data-scroll-target="#if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function."><span class="header-section-number">4.3</span> “If you copy and paste the same code more than three times, write a function.”</a></li>
+  <li><a href="#implicit-iteration-with-dplyr-build-many-models" id="toc-implicit-iteration-with-dplyr-build-many-models" class="nav-link" data-scroll-target="#implicit-iteration-with-dplyr-build-many-models"><span class="header-section-number">4.4</span> Implicit iteration with <code>dplyr</code>: build many models</a></li>
+  <li>
+<a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">4.5</span> Exercises</a>
+  <ul class="collapse">
+<li><a href="#roman-emperors" id="toc-roman-emperors" class="nav-link" data-scroll-target="#roman-emperors"><span class="header-section-number">4.5.1</span> Roman emperors</a></li>
+  <li><a href="#dairy-products-in-the-us" id="toc-dairy-products-in-the-us" class="nav-link" data-scroll-target="#dairy-products-in-the-us"><span class="header-section-number">4.5.2</span> Dairy Products in the US</a></li>
+  </ul>
+</li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources"><span class="header-section-number">4.6</span> Resources</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jmbuhr/dataintro/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.com/jmbuhr/dataintro/blob/main/04-functional-programming.qmd" class="toc-action">View source</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Functional Programming</span>
+</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header><blockquote class="blockquote">
+<p>… which is all about functions, bringing the whole tidyverse together and exploring advanced dplyr data wrangling techniques.</p>
+</blockquote>
+<p></p>
+<div id="youtube-frame" style="position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; margin-bottom: 1rem;"><iframe width="100%" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/B2RRRpjX1QU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="todays-goal" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="todays-goal">
+<span class="header-section-number">4.1</span> Todays goal</h2>
+<p>My goal today is to bring together everything we learned so far and solidify our understanding of wrangling data in the tidyverse. If all goes according to plan, we will then have more mental capacity freed up for the statistics starting next week. And our understanding of data will hopefully enable us to experiment and play with statistical concepts without getting stuck too much on data wrangling. This also means that today’s lecture might be the most challenging so far, because everything learned up until now will – in one way or another – be relevant.</p>
+<p>But first, we load the libraries for today as usual. Note, that I am cheating a bit here by loading the <code>gapminder</code> package as well. Even though we will be reading in actual <code>gapminder</code> dataset again from files today, having access to the vector of country colors is nice to have.</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-2_8a6136d6386697ad7303e6d80cc0b075">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jennybc/gapminder">gapminder</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the lecture I also quickly go over some of the most important <a href="Resources">resources</a> so far. This mostly concerns the pure R resources, I will cover the resources for statistics and some of the maths involved in the next couple of lectures.</p>
+<p>As you might be able to tell, mental models are one of my favorite topics. We are starting today with a powerful mental model: <strong>iteration</strong>.</p>
+</section><section id="iteration" class="level2 page-columns page-full" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="iteration">
+<span class="header-section-number">4.2</span> Iteration</h2>
+<p>Iteration is the basic idea of doing one thing multiple times. This is an area where computers shine, so in this chapter we will learn to fully utilize the power at our fingertips.</p>
+<p>As an example, we will be reading in multiple similar files. Remember the <code>gapminder</code> dataset? Well, we are working with it again, but this time, our collaborator sent us one csv-file for each continent. You can find them in the <code>data/04/</code> folder.</p>
+<p>We already know how to read in <em>one</em> csv-file:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-3_80f5791d58ae9e80e05f1daac963fad9">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./data/04/Africa.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="the-imperative-programming-approach" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="the-imperative-programming-approach">
+<span class="header-section-number">4.2.1</span> The Imperative Programming Approach</h3>
+<p>The first solution to our problem is not my favorite one, but I want to show it anyway for the sake of completeness. In general, in Functional Programming, we <strong>tell the computer what we want</strong>, while in Imperative Programming, we <strong>tell the computer what steps to do</strong>. So here, we tell R what steps to perform. First, we get a vector of file-path’s with the <code>fs</code> package, which stands for <em>file system</em>. <code>dir_ls</code> means <em>directory list</em>, so we get the contents of a directory. We then create a list to store the dataframes that we are going to read in. We already define the length of the list because making a data structure longer is not R’s strong suit when it doesn’t know how much space to reserve for it. We then iterate over the numbers from 1 to the length of our <code>paths</code>. At each iteration we get the <code>i</code>s path, read it and store it in our results list at position <code>i</code>. Finally we bind the list into one dataframe:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-4_015ddda165a0bf0341cd55399ca879a4">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="st">"./data/04/"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="st">"list"</span>, length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">paths</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">paths</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">result</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">paths</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 5
+   country  year lifeExp      pop gdpPercap
+   &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Algeria  1952    43.1  9279525     2449.
+ 2 Algeria  1957    45.7 10270856     3014.
+ 3 Algeria  1962    48.3 11000948     2551.
+ 4 Algeria  1967    51.4 12760499     3247.
+ 5 Algeria  1972    54.5 14760787     4183.
+ 6 Algeria  1977    58.0 17152804     4910.
+ 7 Algeria  1982    61.4 20033753     5745.
+ 8 Algeria  1987    65.8 23254956     5681.
+ 9 Algeria  1992    67.7 26298373     5023.
+10 Algeria  1997    69.2 29072015     4797.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>In doing this we have lost the information about the <code>Continent</code>, which was in the file name, but before dwelling on this for too long, let’s leave the more convoluted and manual way behind and explore a, I dare say, more elegant approach.</p>
+</section><section id="the-functional-programming-approach" class="level3 page-columns page-full" data-number="4.2.2"><h3 data-number="4.2.2" class="anchored" data-anchor-id="the-functional-programming-approach">
+<span class="header-section-number">4.2.2</span> The Functional Programming Approach</h3>
+<blockquote class="blockquote">
+<p>“Of course someone has to write for-loops. It doesn’t have to be you.” — Jenny Bryan</p>
+</blockquote>
+<aside><a href="https://purrr.tidyverse.org/"> <img src="images/purrr.png" class="img-fluid" width="200"></a>
+</aside><p>We have a function (<code>read_csv</code>) that <strong>takes</strong> a file path and <strong>returns</strong> (spits out) the data. In the Functional Programming style, the next idea is to now have a function, that takes two things: vector (atomic or list) and a function. And it feeds the individual elements of the vector to the function, one after another. In mathematics, the relation between a set of inputs and a set of outputs is called a <strong>map</strong>, which is where the name of the following family of functions comes from. In the tidyverse, these functional programming concepts live in the <code>purrr</code> package.</p>
+<p>Iterating <strong>Explicitly</strong> with <code>map</code>s:</p>
+<p>First, we create the vector of things that we want to iterate over, the things that will be fed into our function one after the other:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-5_b9bd0d06fa0db50637783f30d881b778">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="st">"./data/04/"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then we map the <code>read_csv</code> function over our vector and bind the resulting list of dataframes into one dataframe:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-6_e75158f3cb95afaa16c9471d3ec76122">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The operation of mapping over a vector and combining the resulting list into one dataframe is actually so common that there is a variant of <code>map</code> that does this step automatically:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-7_dc997f936d87fe5011776f5b6889da9f">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html">map_df</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span>, .id <span class="op">=</span> <span class="st">"continent"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This distills everything our initial for-loop did into just one line of code. Using the <code>.id</code> argument we can save the name of the file path to a column in our dataset. This allows us to extract the continent from it:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-8_e5501305d6daab56ec3d96dbd574189c">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html">map_df</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span>, .id <span class="op">=</span> <span class="st">"continent"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">continent</span>, <span class="st">"(?&lt;=/)\\w+(?=\\.csv)"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">gapminder</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+  continent country  year lifeExp      pop gdpPercap
+  &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+1 Africa    Algeria  1952    43.1  9279525     2449.
+2 Africa    Algeria  1957    45.7 10270856     3014.
+3 Africa    Algeria  1962    48.3 11000948     2551.
+4 Africa    Algeria  1967    51.4 12760499     3247.
+5 Africa    Algeria  1972    54.5 14760787     4183.
+6 Africa    Algeria  1977    58.0 17152804     4910.</code></pre>
+</div>
+</div>
+<p>My way of extracting the continent from the file path seems magical at first, and I still refer to the cheat sheet of the <code>stringr</code> package a lot when I am having to deal with text:</p>
+<aside><a href="https://stringr.tidyverse.org/"> <img src="images/stringr.png" class="img-fluid" width="200"></a>
+</aside><p>Iterating <strong>implicitly</strong> with vectorized functions:</p>
+<p>We had our first encounter with iteration in a very implicit form. When we use R’s basic math operators, the computer is iterating behind the scenes. Take this expression:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-9_54d985ebf6afaf726426d88fd63bef61">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span> <span class="op">+</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 4 6</code></pre>
+</div>
+</div>
+<p>This operation is vectorized. Without us having to tell R to do so, R will add the first element of the first vector to the first element of the second vector and so forth.</p>
+<p>Notice, how it looks like the operation happens all at the same time. But in reality, this is not what happens. The computer is just really fast at adding numbers, one after the other.</p>
+<p>The mathematical operations in R call another programming language that does the actual addition. This other programming language is closer to the way computers <em>think</em>, making it less fun to write for us humans, but also faster because the instructions are easier to translate into actions for our computer processor.</p>
+<p>Remember, we only have to build our own iteration (e.g.&nbsp;with a <code>map</code> function), when we find a task that we want to apply to multiple things, and that is not already vectorized. And as it turns out, the <code>fs</code> and <code>readr</code> packages play very well together, because <code>readr</code> can also just take a vector of file paths and does the combining automatically!</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-10_495a902ddd551a47190a03d824e57284">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">paths</span>, id <span class="op">=</span> <span class="st">"continent"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,704 × 6
+   continent            country  year lifeExp      pop gdpPercap
+   &lt;chr&gt;                &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 ./data/04/Africa.csv Algeria  1952    43.1  9279525     2449.
+ 2 ./data/04/Africa.csv Algeria  1957    45.7 10270856     3014.
+ 3 ./data/04/Africa.csv Algeria  1962    48.3 11000948     2551.
+ 4 ./data/04/Africa.csv Algeria  1967    51.4 12760499     3247.
+ 5 ./data/04/Africa.csv Algeria  1972    54.5 14760787     4183.
+ 6 ./data/04/Africa.csv Algeria  1977    58.0 17152804     4910.
+ 7 ./data/04/Africa.csv Algeria  1982    61.4 20033753     5745.
+ 8 ./data/04/Africa.csv Algeria  1987    65.8 23254956     5681.
+ 9 ./data/04/Africa.csv Algeria  1992    67.7 26298373     5023.
+10 ./data/04/Africa.csv Algeria  1997    69.2 29072015     4797.
+# ℹ 1,694 more rows</code></pre>
+</div>
+</div>
+<p>Whenever you encounter a new problem, ask yourself these questions:</p>
+<ul>
+<li>Is there a function that already does that?</li>
+<li>Is it already vectorized?</li>
+<li>If not, is there a function that solves my problem for one instance?</li>
+<li>Can I map it over many things?</li>
+</ul>
+<p>The <code>purrr</code> package contains various variants of the <code>map</code> function.</p>
+<ul>
+<li>
+<code>map</code> itself will always return a list.</li>
+<li>
+<code>map_chr</code> always returns an atomic character (=text) vector.</li>
+<li>
+<code>map_dbl</code> always returns numbers (dbl = double precision).</li>
+<li>
+<code>map_lgl</code> always returns logical (yes or no, TRUE / FALSE) vectors.</li>
+<li>
+<code>map_dfr</code> always returns a dataframe.</li>
+</ul>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-11_2caf62e581bdcb8c206946e085befcc2">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># map_</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The for-loop-version had a lot more code, especially <em>boilerplate</em>, code that is just there to make the construct work and doesn’t convey our intentions with the code. Furthermore, the loop focuses the object that is iterated over (the file paths), while the <code>map</code>-version focuses on what is happening (the function, <code>read_csv</code>). But the loop still works. If you can’t think of a way to solve a problem with a <code>map</code> function, it is absolutely OK to use for-loops.</p>
+</section></section><section id="if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function." class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="if-you-copy-and-paste-the-same-code-more-than-three-times-write-a-function.">
+<span class="header-section-number">4.3</span> “If you copy and paste the same code more than three times, write a function.”</h2>
+<p>Writing our own functions can be very helpful for making our code more readable. It allows us to separate certain steps of your analysis from the rest, look at them in isolation to test and validate them, and also allows us to give them reasonable names.</p>
+<p>It also allows us to re-use function across projects! Let’s imagine we have some experiment where the read-out of the machine is always in a certain format and needs some cleaning up. If we turn this into a function, e.g.&nbsp;like this:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-12_0ef3b0468c28d837cce1843ffe5444d1">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">read_experiment_data</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">day</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">day</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_pad.html">str_pad</a></span><span class="op">(</span><span class="va">day</span>, pad <span class="op">=</span> <span class="fl">0</span>, width <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span>  <span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"./data/"</span>,<span class="va">day</span>,<span class="st">"/"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html">map_df</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span>, .id <span class="op">=</span> <span class="st">"continent"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>continent <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_extract.html">str_extract</a></span><span class="op">(</span><span class="va">continent</span>, <span class="st">"(?&lt;=/)\\w+(?=\\.csv)"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="va">gapminder</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can put this function in a file (in my case <code>R/my_functions</code>) and <code>source</code> it, for example in multiple analysis Rmarkdown documents. The <code>source</code> function is nothing special, it just runs the R code in a file. And when we define functions in this file, those functions are then available to us:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-13_91a0042a69f7fd0e8d5d7d79252963e9">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"R/my_functions.R"</span><span class="op">)</span></span>
+<span><span class="fu">read_experiment_data</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note: This example function only make sense to use with <code>4</code> as the input, as the data for the other days is of course different, but I hope you get the gist.</p>
+<p>I like to store my regular R files (as opposed to Rmd files) in a folder of my project called <code>R</code>. This makes it already look like an R package, in case I decide later on that the functions could be helpful for others as well or I want to share them more easily with colleagues. You can read more about creating your own R packages <a href="http://r-pkgs.had.co.nz/">here</a> <span class="citation" data-cites="wickhamPackagesOrganizeTest2015">(<a href="references.html#ref-wickhamPackagesOrganizeTest2015" role="doc-biblioref">Wickham 2015</a>)</span>.</p>
+</section><section id="implicit-iteration-with-dplyr-build-many-models" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="implicit-iteration-with-dplyr-build-many-models">
+<span class="header-section-number">4.4</span> Implicit iteration with <code>dplyr</code>: build many models</h2>
+<p><code>dplyr</code>s idea of grouping allows us to express many ideas that are implicitly also iterations.</p>
+<p>Let us start by looking at just one country at first:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-14_62b768b0a2d161ba9ed581dab4cda684">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algeria</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">country</span> <span class="op">==</span> <span class="st">"Algeria"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can plot the life expectancy over time with ggplot and add a <strong>linear model</strong> to our plot with <code>geom_smooth</code> using <code>method = "lm"</code>.</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-15_8b09c50da12301a12514b7f6063700ed">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algeria</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="04-functional-programming_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p>However, while <code>geom_smooth</code> allows us to easily add smoothing lines or linear trends to our plot, it does not give us any information about the actual model. In order to do that we need to fit it ourselves with the <code>lm</code> function:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-16_c3d91aa61729c15150a7ab5925902799">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lifeExp</span> <span class="op">~</span> <span class="va">year</span>, data <span class="op">=</span> <span class="va">algeria</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>~</code> symbol defines a <em>formula</em>, you can read it as: “lifeExp depending on year”. The <code>data</code> argument tells R where to look for the variables <code>lifeExp</code> and <code>year</code>, namely in our <code>algeria</code> tibble.</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-17_5070a253c02aca13011b4476d8d0b76b">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = lifeExp ~ year, data = algeria)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.3844 -0.5935 -0.2703  0.5339  2.4992 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.068e+03  4.380e+01  -24.38 3.07e-10 ***
+year         5.693e-01  2.213e-02   25.73 1.81e-10 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.323 on 10 degrees of freedom
+Multiple R-squared:  0.9851,    Adjusted R-squared:  0.9836 
+F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
+</div>
+</div>
+<p>That is a lot of information about our model! The <code>broom</code> package provides some functions for a cleaner and more specialized output:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-18_5bc5e95af26d44807cdedcebeaadbfb4">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 5
+  term         estimate std.error statistic  p.value
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 (Intercept) -1068.      43.8        -24.4 3.07e-10
+2 year            0.569    0.0221      25.7 1.81e-10</code></pre>
+</div>
+</div>
+<p>Every 1 year the life expectancy in Algeria went up by about half a year. Of course, this is only valid in the limited linear regime of our datapoints. We can’t extrapolate this indefinitely. After all, the intercept tells us that there would be a negative life expectancy at year 0.</p>
+<p>But given the data that we have, how good does a line fit here?</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-19_bd406f86c90c2a2de67144b72ef5c192">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     0.985         0.984  1.32      662. 1.81e-10     1  -19.3  44.6  46.0
+# ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
+</div>
+<p>R<sup>2</sup> takes on values between 0 and 1, with 1 being a perfectly straight line connecting all the points and 0 for the points being all over the place. So 0.985 is a pretty good fit!</p>
+<p>Using the dollar syntax, we get pull one column from a tibble, so we can write a function that, given a model, returns the R<sup>2</sup></p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-20_8e6693e5aa91ba870633a5da3b20680a">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">get_r_squared</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">model</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">broom</span><span class="fu">::</span><span class="fu"><a href="https://generics.r-lib.org/reference/glance.html">glance</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">$</span><span class="va">r.squared</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And now come the <code>dplyr</code> magic! If we group by <code>country</code> (and <code>continent</code> for good measuere just so that we don’t loose that column when summarizing), we can calculate a linear model for every country!</p>
+<p>Note two things: Firstly, we don’t use the <code>data</code> argument of <code>lm</code> here because the tidyverse functions already know where to look for <code>lifeExp</code> and <code>year</code> and they do so <strong>respecting the groups</strong>. So within each group (i.e.&nbsp;for each country), <code>lifeExp</code> will only contain the life expectancy for that country, not the life expectancy for all countries. Secondly, we wrap this part in <code>list</code> because we have to create a list column here (models don’t fit into an atomic vector). Otherwise, <code>dplyr</code> will complain.</p>
+<p>In the second step we calculate the <code>rsqured</code> value for each model by mapping the function we created above over all models. We use the <code>_dbl</code> variant here because we want the values as an atomic vector of numbers, not as a list.</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-21_6334ae6aaf66ac9eef232d367030249c">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">all_models</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">country</span>, <span class="va">continent</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span></span>
+<span>    model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">lifeExp</span> <span class="op">~</span> <span class="va">year</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    rsquared <span class="op">=</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map_dbl</a></span><span class="op">(</span><span class="va">model</span>, <span class="va">get_r_squared</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">all_models</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+# Groups:   country [6]
+  country     continent model  rsquared
+  &lt;chr&gt;       &lt;chr&gt;     &lt;list&gt;    &lt;dbl&gt;
+1 Afghanistan Asia      &lt;lm&gt;      0.948
+2 Albania     Europe    &lt;lm&gt;      0.911
+3 Algeria     Africa    &lt;lm&gt;      0.985
+4 Angola      Africa    &lt;lm&gt;      0.888
+5 Argentina   Americas  &lt;lm&gt;      0.996
+6 Australia   Oceania   &lt;lm&gt;      0.980</code></pre>
+</div>
+</div>
+<p>Finally, we can add our calculated R<sup>2</sup> values as a column to the original gapminder dataset so that we can use it in the following visualization.</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-22_e3ab282223eda59ed78d44bd3cbb458c">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op">&lt;-</span> <span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">all_models</span>, <span class="op">-</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, we highlight the irregularities (less linear countries) by making the transparency (= alpha value) depend on the R<sup>2</sup> value.</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-23_5795d964510decd9079de7379ab07545">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, color <span class="op">=</span> <span class="va">country</span>, alpha <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="va">rsquared</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"none"</span>, alpha <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">country_colors</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">continent</span>, scales <span class="op">=</span> <span class="st">"free"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="04-functional-programming_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p>We can highlight one continent by filtering and use the <code>ggrepel</code> package to allow for more flexible labels. Furthermore check out the source document of this lecture and the video of the lecture to find out how you can add a figure caption and control the width and height of the plot via <code>knitr</code> chunk options. I also showcase a new way of writing chunk options in the latest version of the <code>knitr</code> package that is especially suited for longer captions.</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-24_6051c3b9bfc261068120c47dfbeedffe">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">continent</span> <span class="op">==</span> <span class="st">"Africa"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">year</span>, <span class="va">lifeExp</span>, color <span class="op">=</span> <span class="va">country</span>, group <span class="op">=</span> <span class="va">country</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"black"</span>, alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">rsquared</span> <span class="op">&lt;=</span> <span class="fl">0.4</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1.1</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggrepel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggrepel/man/geom_text_repel.html">geom_text_repel</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>label <span class="op">=</span> <span class="va">country</span><span class="op">)</span>,</span>
+<span>                           data <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">gapminder</span>, <span class="va">rsquared</span> <span class="op">&lt;=</span> <span class="fl">0.4</span>,</span>
+<span>                                         <span class="va">year</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                           nudge_x <span class="op">=</span> <span class="fl">20</span>,</span>
+<span>                           direction <span class="op">=</span> <span class="st">"y"</span></span>
+<span>                           <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html">guides</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"none"</span>, alpha <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">country_colors</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">continent</span>, scales <span class="op">=</span> <span class="st">"free"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Year"</span>, y <span class="op">=</span> <span class="st">"Life Expectancy at Birth"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span>mult <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-functional-programming_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure caption</figcaption></figure>
+</div>
+</div>
+</div>
+<p>The downward slope of our highlighted countries starting in the 1990s is a result of the ravaging AIDS pandemic. The prominent dips in two of the curves, orange for Rwanda and Cambodia in gray, are the direct consequences of genocides. These dire realities can in no way be summarized in just a couple of colorful lines. I am also in no way qualified to lecture on these topics. A good friend of mine, Timothy Williams, however is a researcher and teacher in the field of conflict and violence with a focus on genocides. He did field work in Cambodia and Rwanda and his book “The Complexity of Evil. Perpetration and Genocide” was <a href="https://www.rutgersuniversitypress.org/the-complexity-of-evil/9781978814295">published here</a> on December 18 2020 <span class="citation" data-cites="williamsComplexityEvil">(<a href="references.html#ref-williamsComplexityEvil" role="doc-biblioref">Williams, n.d.</a>)</span>.</p>
+</section><section id="exercises" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="exercises">
+<span class="header-section-number">4.5</span> Exercises</h2>
+<p>I want to get you playing around with data, so keep in mind that the solutions for this exercise are not set in stone. There is often more than one viable way of graphing the same dataset and we will use the Office Hour to talk about the advantages and disadvantages of approaches that you came up with.</p>
+<section id="roman-emperors" class="level3" data-number="4.5.1"><h3 data-number="4.5.1" class="anchored" data-anchor-id="roman-emperors">
+<span class="header-section-number">4.5.1</span> Roman emperors</h3>
+<p>The first exercise uses a dataset about roman emperors from the tidytuesday project (<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-08-13">link</a>). You can import it with:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-25_85762d49351e43cca794a0eabdabc056">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emperors</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>There is a slight error in the data because some of the dates are actually in BC time. In order to fix this we will be using the <a href="https://lubridate.tidyverse.org/">lubridate</a> package, which is installed with the tidyverse, but not automatically loaded. For your convenience here is a function that you can use to fix the dataset:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-26_cadb32f6b8a146f7bbbdec9a00a667a8">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fix_emperors</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>      birth <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>        <span class="va">index</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">birth</span>, year <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">birth</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        <span class="cn">TRUE</span>                     <span class="op">~</span> <span class="va">birth</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      reign_start <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>        <span class="va">index</span> <span class="op">==</span> <span class="fl">1</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">reign_start</span>, year <span class="op">=</span> <span class="op">-</span><span class="fu"><a href="https://lubridate.tidyverse.org/reference/year.html">year</a></span><span class="op">(</span><span class="va">reign_start</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>        <span class="cn">TRUE</span>       <span class="op">~</span> <span class="va">reign_start</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here are the questions to answer. Decide for yourself, if a particular question is best answered using a visualization, a table, a simple sentence or a combination of the three.</p>
+<ul>
+<li>What was the most popular way to rise to power?</li>
+<li>I what are the most common causes of death among roman emperors? What (or who) killed them?</li>
+<li>Which dynasty was the most successful?
+<ul>
+<li>Firstly, how often did each dynasty reign?</li>
+<li>Secondly, how long where the reigns?</li>
+<li>Which dynasty would you rather be a part of, if your goal is to live the longest?</li>
+</ul>
+</li>
+</ul></section><section id="dairy-products-in-the-us" class="level3" data-number="4.5.2"><h3 data-number="4.5.2" class="anchored" data-anchor-id="dairy-products-in-the-us">
+<span class="header-section-number">4.5.2</span> Dairy Products in the US</h3>
+<p>Another dataset (<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-29#milk_products_facts">link</a>) concerns dairy product consumption per person in the US across a number of years. Load it with:</p>
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-27_c1c7cc54f605ef940127d1745082581d">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dairy</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-29/milk_products_facts.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>All masses are given in lbs (pounds), can you convert them to kg?</li>
+<li>Which products lost their customer base over time, which ones won? Which products have the greatest absolute change in production when estimated with a straight line?</li>
+</ul>
+<p>Above all, have some fun! If you make interesting findings along the way, go ahead and produce plots to highlight it.</p>
+</section></section><section id="resources" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="resources">
+<span class="header-section-number">4.6</span> Resources</h2>
+<ul>
+<li><a href="https://purrr.tidyverse.org/">purrr documentation</a></li>
+<li><a href="https://stringr.tidyverse.org/">stringr documentation</a></li>
+<li><a href="https://dplyr.tidyverse.org/">dplyr documentation</a></li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-wickhamPackagesOrganizeTest2015" class="csl-entry" role="listitem">
+Wickham, Hadley. 2015. <em>R <span>Packages</span>: <span>Organize</span>, <span>Test</span>, <span>Document</span>, and <span>Share Your Code</span></em>. 1 edition. <span>Sebastopol, CA</span>: <span>O’Reilly Media</span>.
+</div>
+<div id="ref-williamsComplexityEvil" class="csl-entry" role="listitem">
+Williams, Timothy. n.d. <span>“The <span>Complexity</span> of <span>Evil</span>.”</span> <em>Rutgers University Press</em>.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./03-tidy-data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tidy data</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05-probability-and-hypothesis-testing.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Probability and Hypothesis Testing</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
