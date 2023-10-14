@@ -169,20 +169,23 @@ A good convention is to always use `snake_case`.
 
 First we have numbers (which internally are called `numeric` or `double`)
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 12
 12.5
 ```
 
 Then, there are whole numbers (`integer`)
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 1L # denoted by L
 ```
 
 as well as the rarely used complex numbers (`complex`)
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 1 + 3i # denoted by the small i for the imaginary part
 ```
 
@@ -190,14 +193,16 @@ Text data however will be used more often (`character`, `string`).
 Everything enclosed in quotation marks will be treated as text.
 Double or single quotation marks are both fine.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 "It was night again."
 'This is also text'
 ```
 
 Logical values can only contain yes or no, or rather `TRUE` and `FALSE` in programming terms (`boolean`, `logical`).
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 TRUE
 FALSE
 ```
@@ -205,7 +210,8 @@ FALSE
 There are some special types that mix with any other type.
 Like `NULL` for no value and `NA` for "Not Assigned".
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 NULL
 NA
 ```
@@ -269,7 +275,8 @@ This is actually one of the most important things to learn today, because the he
 We can pass arguments by name or by order of appearance.
 The following two expressions are equivalent.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 sin(x = 12)
 sin(12)
 ```
@@ -365,12 +372,12 @@ Sometimes it can be helpful to write our R's full name when searching (turns out
 
 ## Literate Programming with Quarto (previously Rmarkdown): Code is communication
 
-<aside><a href="https://rmarkdown.rstudio.com/index.html"> ![](images/rmarkdown.png){width="200"} </a></aside>
-
-<!-- TODO -->
+:::aside
+[![](./images/quarto.png){width="200"}](https://quarto.org)
+:::
 
 **Quarto** enables us, to combine text with `code` and then produce a range of output formats like pdf, html, word documents, presentations etc.
-In fact, this whole website, including the slides, was created with Quarto.
+In fact, this whole website was created with Quarto.
 Sounds exciting?
 Let's dive into it!
 
@@ -401,7 +408,8 @@ The lecture video also demonstrates the different output formats (though for the
 
 Go ahead and install the tidyverse packages with
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("tidyverse")
 ```
 
@@ -415,7 +423,8 @@ It gets executed automatically before any other chunk in the document is run.
 This makes it a good place to load packages.
 The dataset we are working with today actually comes in its own package, so we need to install this as well (Yes, there is a lot of installing today, but you will have to do this only once):
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("palmerpenguins")
 ```
 
@@ -575,7 +584,8 @@ my_plot
 We can save our plot with the `ggsave` function.
 It also has more arguments to control the dimentions and resolution of the image.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 ggsave("my_plot.png", my_plot)
 ```
 
@@ -607,21 +617,40 @@ Here are today's tasks:
 
 In a fresh quarto document (without the example template content), load the tidyverse and the palmerpenguins packages.
 
-- Write a section of text about your previous experience with data analysis and/or programming (optional, but I can use this information to customize the course).
-- Produce a scatterplot (meaning a plot with points) of the bill length vs. the bill depth, colorcoded by species.
-    - Imaginary bonus points if you manage to use the same colors as in the [penguin-image](#fig-penguins) (hint: look at the help page for `scale_color_manual()` to find out how. Note, that R can work with it's built-in color names, `rgb()` specifications or as hex-codes such as `#1573c7`). Even more bonus points if you also look into the `theme()` function and it's arguments, or the `theme_<...>()` functions to make the plot prettier.
--   Create a vector of all odd numbers from 1 to 99 and store it in a variable.
+- Write a section of text about your **previous experience** with data analysis and/or programming (optional, but I can use this information to customize the seminars to your needs).
+
+- Create a **vector of all odd numbers from 1 to 99** and store it in a variable.
     - Create a second variable that contains the squares of the first.
     - Have a look at the `tibble` function. Remember that you can always access the help page for a function using the `?` syntax, e.g. `?tibble::tibble` (The two colons `::` specify the package a function is coming from. You only need `tibble(...)` in the code because the `tibble` package is loaded automatically with the tidyverse. Here, I specify it directly to send you to the correct help page).
     - Create a `tibble` where the columns are the vectors `x` and `y`.
     - Create a scatterplot (points) of the two columns using `ggplot`.
     - What `geom_` function do you need to add to the plot to add a line that connects your points?
-- Check the metadata (YAML) of your quarto document and make sure it contains your name as the `author:` .
 
-<!-- TODO -->
+- Load the **penguins** dataset from the `palmerpenguins` package.
+  Produce a scatterplot of the bill length vs. the bill depth, colorcoded by species.
+    - Imaginary bonus points if you manage to use the same colors as in the [penguin-image](#fig-penguins) (hint: look at the help page for `scale_color_manual()` to find out how.
+      Note, that R can work with it's built-in color names, `rgb()` specifications or as hex-codes such as `#1573c7`).
+      Even more bonus points if you also look into the `theme()` function and it's arguments, or the `theme_<...>()` functions to make the plot prettier.
+
+- Check the metadata (YAML) of your quarto document and make sure it contains your name as the `author:` .
 
 - Make the output document [self contained](https://quarto.org/docs/output-formats/html-basics.html#self-contained) by adding `embed-resources: true` to the yaml header.
     - [Here](https://quarto.org/docs/reference/formats/html.html) are a couple more YAML options you can try if you feel adventurous.
+
+The top of your Quarto document should now look like this between the `---`:
+
+```yaml
+title: "Lecture 1"
+author: <Your Name>
+format:
+  html:
+    embed-resources: true
+    # more html options if you want
+    # like e.g. theme: <...>
+execute:
+  warning: false
+```
+
 - Knit it and ship it! (=press the render button and send me the rendered html document via discord)
 
 
@@ -633,6 +662,8 @@ In a fresh quarto document (without the example template content), load the tidy
 :::
 
 ### Exercise Tips
+
+<!-- TODO -->
 
 {{< youtube Ycl4CMJdneM >}}
 

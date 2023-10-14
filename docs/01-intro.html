@@ -590,8 +590,13 @@ div.csl-indent {
 <p>If you don’t have the link at hand you can also always find help on the internet. Most of these packages publish their source code on a site called GitHub, so you will be able to find further links, help and documentation by searching for <em>r</em> <the package=""> github. Sometimes it can be helpful to write our R’s full name when searching (turns out there are a lot of thing with the letter R): <code>rstats</code>.</the></p>
 </section><section id="literate-programming-with-quarto-previously-rmarkdown-code-is-communication" class="level2 page-columns page-full" data-number="1.9"><h2 data-number="1.9" class="anchored" data-anchor-id="literate-programming-with-quarto-previously-rmarkdown-code-is-communication">
 <span class="header-section-number">1.9</span> Literate Programming with Quarto (previously Rmarkdown): Code is communication</h2>
-<aside><a href="https://rmarkdown.rstudio.com/index.html"> <img src="images/rmarkdown.png" class="img-fluid" width="200"></a>
-</aside><!-- TODO --><p><strong>Quarto</strong> enables us, to combine text with <code>code</code> and then produce a range of output formats like pdf, html, word documents, presentations etc. In fact, this whole website, including the slides, was created with Quarto. Sounds exciting? Let’s dive into it!</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><a href="https://quarto.org"><img src="./images/quarto.png" class="img-fluid figure-img" width="200"></a></p>
+</figure>
+</div>
+</div></div><p><strong>Quarto</strong> enables us, to combine text with <code>code</code> and then produce a range of output formats like pdf, html, word documents, presentations etc. In fact, this whole website was created with Quarto. Sounds exciting? Let’s dive into it!</p>
 <p>Open up a new Quarto document with the file extension <code>.qmd</code> from the <em>New File</em> menu in the top left corner of RStudio: <strong>File → New File → Quarto Document</strong> and choose <strong>html</strong> as the output format. I particularly like html, because you don’t have to worry about page breaks and it easily works on screens of different sizes, like your phone.</p>
 <p>A Quarto document consists of three things:</p>
 <ol type="1">
@@ -680,23 +685,23 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <div class="sourceCode" id="cb76"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://allisonhorst.github.io/palmerpenguins/">palmerpenguins</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">penguins</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">flipper_length_mm</span>, <span class="va">bill_length_mm</span>,</span>
+<span><span class="va">penguins</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span><span class="va">flipper_length_mm</span>, <span class="va">bill_length_mm</span>,</span>
 <span>             color <span class="op">=</span> <span class="va">species</span>,</span>
 <span>             shape <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">species</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_smooth.html">geom_smooth</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">species</span><span class="op">)</span>, method <span class="op">=</span> <span class="st">"lm"</span>, se <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>              show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Flipper length [mm]"</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Flipper length [mm]"</span>,</span>
 <span>       y <span class="op">=</span> <span class="st">"Bill length [mm]"</span>,</span>
 <span>       title <span class="op">=</span> <span class="st">"Penguins!"</span>,</span>
 <span>       subtitle <span class="op">=</span> <span class="st">"The 3 penguin species can be differentiated by their flipper- and bill-lengths."</span>,</span>
 <span>       caption <span class="op">=</span> <span class="st">"Datasource:\nHorst AM, Hill AP, Gorman KB (2020). palmerpenguins:\nPalmer Archipelago (Antarctica) penguin data.\nR package version 0.1.0. https://allisonhorst.github.io/palmerpenguins/"</span>,</span>
 <span>       color <span class="op">=</span> <span class="st">"Species"</span>,</span>
 <span>       shape <span class="op">=</span> <span class="st">"Sex"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"qual"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.caption <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_brewer.html">scale_color_brewer</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"qual"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/theme.html">theme</a></span><span class="op">(</span>plot.caption <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/element.html">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="01-intro_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" style="width:100.0%"></p>
 </div>
@@ -704,7 +709,7 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <p>Having a grammar means: - we can build complex visualizations with basic building blocks that fit together according to some rules (the grammar) - just like lego bricks - we just have to learn the building blocks and not a different function for all the different types of plots (e.g.&nbsp;barplot, scatterplot, lineplot, piechart)</p>
 <p>We can build this plot up step by step. The data is the foundation of our plot, but this just gives us an empty plotting canvas. I am assigning the individual steps we are going through to a variable, so that we can sequentially add elements, but you can do this in one step as shown above.</p>
 <div class="cell" data-hash="01-intro_cache/html/unnamed-chunk-37_27d5e9ed3dc61a2d618d8c3e59e30318">
-<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">plt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -713,8 +718,8 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 </div>
 <p>Then, we add and <code>aesthetic mapping</code> to the plot. It creates a relation from the features of our dataset (like the flipper length of each penguin) to a visual property, like position of the x-axis, color or shape.</p>
 <div class="cell" data-hash="01-intro_cache/html/unnamed-chunk-38_b37f91657c81aaf439f2f50053409a65">
-<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>,</span>
-<span>              <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">flipper_length_mm</span>,</span>
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>,</span>
+<span>              <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">flipper_length_mm</span>,</span>
 <span>                  y <span class="op">=</span> <span class="va">bill_length_mm</span>,</span>
 <span>                  color <span class="op">=</span> <span class="va">species</span>,</span>
 <span>                  shape <span class="op">=</span> <span class="va">sex</span><span class="op">)</span><span class="op">)</span></span>
@@ -727,7 +732,7 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <p>Still, the plot is empty, it only has a coordinate system with a certain scale. This is because we have no geometric objects to represent our aesthetics. Elements of the plot are added using the <code>+</code> operator and all geometric elements that ggplot knows start with <code>geom_</code>. Let’s add some points:</p>
 <div class="cell" data-hash="01-intro_cache/html/unnamed-chunk-39_42e288ff07e319ca4ecf97c9d9c4c891">
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">plt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -737,7 +742,7 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <p>Look at the help page for <code>geom_point</code> to find out what aesthetics it understands. The exact way that features are mapped to aesthetics is regulated by <strong>scales</strong> starting with <code>scale_</code> and the name of an aesthetic:</p>
 <div class="cell" data-hash="01-intro_cache/html/unnamed-chunk-40_ec653d64f76c797c613a4bcd747c8041">
 <div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">plt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -747,16 +752,16 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <p>We can add or change labels (like the x-axis-label) by adding the <code>labs</code> function.</p>
 <div class="cell" data-hash="01-intro_cache/html/unnamed-chunk-41_273fbc61c96cae3f9adf4f32160f2611">
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Flipper length [mm]"</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Flipper length [mm]"</span>,</span>
 <span>         y <span class="op">=</span> <span class="st">"Bill length [mm]"</span>,</span>
 <span>         title <span class="op">=</span> <span class="st">"Penguins!"</span>,</span>
 <span>         subtitle <span class="op">=</span> <span class="st">"The 3 penguin species can differentiated by their flipper and bill lengths"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The overall look of the plot is regulated by themes like the pre-made <code>theme_</code> functions or more finely regulated with the <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code> function, which uses <code>element</code> functions to create the look of individual elements. Autocomplete helps us out a lot here (<strong>Ctrl+Space</strong>).</p>
+<p>The overall look of the plot is regulated by themes like the pre-made <code>theme_</code> functions or more finely regulated with the <code><a href="https://rdrr.io/pkg/ggplot2/man/theme.html">theme()</a></code> function, which uses <code>element</code> functions to create the look of individual elements. Autocomplete helps us out a lot here (<strong>Ctrl+Space</strong>).</p>
 <div class="cell" data-hash="01-intro_cache/html/unnamed-chunk-42_08864ee17c3e3c7bab755f5fcb407a4b">
 <div class="sourceCode" id="cb82"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plt</span> <span class="op">&lt;-</span> <span class="va">plt</span> <span class="op">+</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/theme.html">theme</a></span><span class="op">(</span>legend.text <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">plt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -775,15 +780,15 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <li>theme</li>
 </ul>
 <div class="cell" data-hash="01-intro_cache/html/unnamed-chunk-43_4dce7359d49a29fe54148c8dbb0d16a9">
-<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>,</span>
-<span>                  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">flipper_length_mm</span>,</span>
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">my_plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">penguins</span>,</span>
+<span>                  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">flipper_length_mm</span>,</span>
 <span>                      y <span class="op">=</span> <span class="va">bill_length_mm</span>,</span>
 <span>                      shape <span class="op">=</span> <span class="va">sex</span>,</span>
 <span>                      color <span class="op">=</span> <span class="va">species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Penguins"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"red"</span>, <span class="st">"blue"</span>, <span class="st">"orange"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Penguins"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/element.html">element_text</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="st">"purple"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">my_plot</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -792,7 +797,7 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 </div>
 <p>We can save our plot with the <code>ggsave</code> function. It also has more arguments to control the dimentions and resolution of the image.</p>
 <div class="cell" data-hash="01-intro_cache/html/unnamed-chunk-44_d5a8bbb5f1ad88bec0bf6887dd995e96">
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"my_plot.png"</span>, <span class="va">my_plot</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggsave.html">ggsave</a></span><span class="op">(</span><span class="st">"my_plot.png"</span>, <span class="va">my_plot</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next week we will be get rid of the annoying <code>NA</code> in the legend for <code>sex</code>.</p>
 </section><section id="the-community-there-to-catch-you." class="level2" data-number="1.12"><h2 data-number="1.12" class="anchored" data-anchor-id="the-community-there-to-catch-you.">
@@ -819,30 +824,43 @@ Starting with a line with 3 backticks and {r} and ending with 3 backticks. They 
 <span class="header-section-number">1.14.1</span> Put your flippers in the air!</h3>
 <p>In a fresh quarto document (without the example template content), load the tidyverse and the palmerpenguins packages.</p>
 <ul>
-<li>Write a section of text about your previous experience with data analysis and/or programming (optional, but I can use this information to customize the course).</li>
-<li>Produce a scatterplot (meaning a plot with points) of the bill length vs.&nbsp;the bill depth, colorcoded by species.
-<ul>
-<li>Imaginary bonus points if you manage to use the same colors as in the <a href="#fig-penguins">penguin-image</a> (hint: look at the help page for <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual()</a></code> to find out how. Note, that R can work with it’s built-in color names, <code><a href="https://rdrr.io/r/grDevices/rgb.html">rgb()</a></code> specifications or as hex-codes such as <code>#1573c7</code>). Even more bonus points if you also look into the <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code> function and it’s arguments, or the <code>theme_&lt;...&gt;()</code> functions to make the plot prettier.</li>
-</ul>
-</li>
-<li>Create a vector of all odd numbers from 1 to 99 and store it in a variable.
+<li><p>Write a section of text about your <strong>previous experience</strong> with data analysis and/or programming (optional, but I can use this information to customize the seminars to your needs).</p></li>
+<li>
+<p>Create a <strong>vector of all odd numbers from 1 to 99</strong> and store it in a variable.</p>
 <ul>
 <li>Create a second variable that contains the squares of the first.</li>
-<li>Have a look at the <code>tibble</code> function. Remember that you can always access the help page for a function using the <code>?</code> syntax, e.g.&nbsp;<code><a href="https://tibble.tidyverse.org/reference/tibble.html">?tibble::tibble</a></code> (The two colons <code>::</code> specify the package a function is coming from. You only need <code>tibble(...)</code> in the code because the <code>tibble</code> package is loaded automatically with the tidyverse. Here, I specify it directly to send you to the correct help page).</li>
+<li>Have a look at the <code>tibble</code> function. Remember that you can always access the help page for a function using the <code>?</code> syntax, e.g.&nbsp;<code><a href="https://rdrr.io/pkg/tibble/man/tibble.html">?tibble::tibble</a></code> (The two colons <code>::</code> specify the package a function is coming from. You only need <code>tibble(...)</code> in the code because the <code>tibble</code> package is loaded automatically with the tidyverse. Here, I specify it directly to send you to the correct help page).</li>
 <li>Create a <code>tibble</code> where the columns are the vectors <code>x</code> and <code>y</code>.</li>
 <li>Create a scatterplot (points) of the two columns using <code>ggplot</code>.</li>
 <li>What <code>geom_</code> function do you need to add to the plot to add a line that connects your points?</li>
 </ul>
 </li>
-<li>Check the metadata (YAML) of your quarto document and make sure it contains your name as the <code>author:</code> .</li>
+<li>
+<p>Load the <strong>penguins</strong> dataset from the <code>palmerpenguins</code> package. Produce a scatterplot of the bill length vs.&nbsp;the bill depth, colorcoded by species.</p>
+<ul>
+<li>Imaginary bonus points if you manage to use the same colors as in the <a href="#fig-penguins">penguin-image</a> (hint: look at the help page for <code><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_color_manual()</a></code> to find out how. Note, that R can work with it’s built-in color names, <code><a href="https://rdrr.io/r/grDevices/rgb.html">rgb()</a></code> specifications or as hex-codes such as <code>#1573c7</code>). Even more bonus points if you also look into the <code><a href="https://rdrr.io/pkg/ggplot2/man/theme.html">theme()</a></code> function and it’s arguments, or the <code>theme_&lt;...&gt;()</code> functions to make the plot prettier.</li>
 </ul>
-<!-- TODO --><ul>
-<li>Make the output document <a href="https://quarto.org/docs/output-formats/html-basics.html#self-contained">self contained</a> by adding <code>embed-resources: true</code> to the yaml header.
+</li>
+<li><p>Check the metadata (YAML) of your quarto document and make sure it contains your name as the <code>author:</code> .</p></li>
+<li>
+<p>Make the output document <a href="https://quarto.org/docs/output-formats/html-basics.html#self-contained">self contained</a> by adding <code>embed-resources: true</code> to the yaml header.</p>
 <ul>
 <li>
 <a href="https://quarto.org/docs/reference/formats/html.html">Here</a> are a couple more YAML options you can try if you feel adventurous.</li>
 </ul>
 </li>
+</ul>
+<p>The top of your Quarto document should now look like this between the <code>---</code>:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Lecture 1"</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> &lt;Your Name&gt;</span></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a><span class="co">    # more html options if you want</span></span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a><span class="co">    # like e.g. theme: &lt;...&gt;</span></span>
+<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb85-9"><a href="#cb85-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
 <li>Knit it and ship it! (=press the render button and send me the rendered html document via discord)</li>
 </ul>
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -863,6 +881,7 @@ Caution
 </div>
 </section><section id="exercise-tips" class="level3" data-number="1.14.2"><h3 data-number="1.14.2" class="anchored" data-anchor-id="exercise-tips">
 <span class="header-section-number">1.14.2</span> Exercise Tips</h3>
+<!-- TODO -->
 <p></p>
 <div id="youtube-frame" style="position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; margin-bottom: 1rem;"><iframe width="100%" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/Ycl4CMJdneM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section></section><section id="learn-more" class="level2" data-number="1.15"><h2 data-number="1.15" class="anchored" data-anchor-id="learn-more">

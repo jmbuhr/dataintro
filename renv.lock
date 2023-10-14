@@ -2056,7 +2056,7 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.17.3",
+      "Version": "1.0.3",
       "Source": "Repository"
     },
     "reprex": {

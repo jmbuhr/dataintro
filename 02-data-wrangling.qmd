@@ -80,7 +80,8 @@ We can get the correct link by clicking on the **Raw** button:
 
 Then we can use this to download the file:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 download.file("https://raw.githubusercontent.com/jmbuhr/dataintro/main/data/02/gapminder.csv", "example-download.csv")
 ```
 
@@ -131,7 +132,8 @@ However, in order to have the data nice and safe,
 we might want to save if somewhere, just in case
 (links can change, especially when it is someone else's link).
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 our_data <- read_csv("https://raw.githubusercontent.com/jmbuhr/dataintro/main/data/02/gapminder.csv")
 
 write_csv(our_data, "our-data.csv")
@@ -159,7 +161,8 @@ so on windows you will see something like `C:\\User\Jannik\Documents\...`
 while on mac and linux it starts with `/home/jannik/Documents/...`.
 For example, I could read the same gapminder dataset by:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 read_csv("/home/jannik/Documents/projects/teaching/dataintro/data/02/gapminder.csv")
 ```
 
@@ -174,7 +177,8 @@ In order for our work to be portable, robust and shareable,
 we need our file paths to be relative to the root
 of our project (which is set by the RStudio project).
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 read_csv("./data/02/gapminder.csv")
 ```
 
@@ -216,7 +220,8 @@ It will still call it csv,
 but actually it is separated by semicolons!
 We have a special function for this:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 read_csv2("data/02/gapminder_csv2.csv")
 ```
 
@@ -240,7 +245,8 @@ We notice that the values are separated by "\t", a special sequence that stands 
 I am not showing the output here because it is just
 the gapminder dataset once again.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 read_tsv("data/02/gapminder_tsv.txt")
 ```
 
@@ -249,7 +255,8 @@ we can use the general function `read_delim`.
 Say a co-worker misunderstood us and thought tsv stands for "Tilde separated values",
 we can still read his file.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 read_delim("data/02/obscure_file.tsv", "~")
 ```
 
@@ -337,7 +344,8 @@ Here are a couple of examples without the output,
 run them in your R session to confirm that they do what you think they do
 (but do have a look at the help pages yourselves, they are quite well written).
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 select(gapminder, year:pop)
 select(gapminder, starts_with("co"))
 select(gapminder, where(is.numeric))
@@ -355,7 +363,8 @@ This is achieved with the function `filter`.
 Here, we select all rows, where the year is greater than 2000
 and the country is New Zealand.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 filter(gapminder, year > 2000, country == "New Zealand")
 ```
 
@@ -369,7 +378,8 @@ Functions that deal with text (strings or character in R's language)
 in the tidyverse start with `str_`, so they are easy to find
 with autocompletion.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 filter(gapminder, year > 2000, str_to_lower(country) == "new zealand")
 ```
 
@@ -378,14 +388,16 @@ Instead of combining conditions with `,` (which works the same as
 Here, we get all rows where the country is New Zealand or
 the country is Afghanistan.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 filter(gapminder, country == "New Zealand" | country == "Afghanistan")
 ```
 
 This particular comparison can be written more succinctly,
 by asking (for every row), is the particular country `%in%` this vector?
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 filter(gapminder, country %in% c("New Zealand", "Afghanistan"))
 ```
 

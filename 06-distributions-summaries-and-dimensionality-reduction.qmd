@@ -127,7 +127,8 @@ which is fast.
 After having installed a new package,
 we call:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 renv::snapshot()
 ```
 
@@ -138,7 +139,8 @@ Not it is also really easy to collaborate with
 other people. Because after we send them
 our project folder, all they have to do is run:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 renv::restore()
 ```
 
@@ -756,7 +758,8 @@ Here are some examples of using graphics devices manually
 by opening the device first and then finalizing the plot
 by closing the device:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 png("myplot.png")
 
 songs %>% 
@@ -766,7 +769,8 @@ songs %>%
 dev.off()
 ```
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 svg("myplot.svg")
 
 songs %>% 
@@ -778,7 +782,8 @@ dev.off()
 
 Or by manually specifying the device in `ggsave`.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 plt <- songs %>% 
   ggplot(aes(speechiness, color = factor(mode), fill = factor(mode))) +
   geom_density(alpha = 0.3)

@@ -789,7 +789,8 @@ The Datasaurus Dozen [@matejka2017] is a dataset
 crafted to illustrate certain concepts.
 It can be accessed from R via the `datasauRus` package.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 datasauRus::datasaurus_dozen
 ```
 
@@ -807,7 +808,8 @@ datasauRus::datasaurus_dozen
 There is another dataset in the package to illustrate a different
 point:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 datasauRus::box_plots
 ```
 

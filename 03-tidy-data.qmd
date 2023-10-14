@@ -432,7 +432,8 @@ So, what do I mean by nested?
 Remember that `lists` can contain elements of any type, even other lists.
 If we have a list that contains more lists, we call it nested e.g.
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 list(
   c(1, 2),
   list(

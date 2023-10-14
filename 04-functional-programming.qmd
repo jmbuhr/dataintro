@@ -69,7 +69,8 @@ You can find them in the `data/04/` folder.
 
 We already know how to read in *one* csv-file:
   
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 read_csv("./data/04/Africa.csv")
 ```
 
@@ -145,7 +146,8 @@ paths <- fs::dir_ls("./data/04/")
 Then we map the `read_csv` function over our vector
 and bind the resulting list of dataframes into one dataframe:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 result <- map(paths, read_csv)
 bind_rows(result)
 ```
@@ -154,7 +156,8 @@ The operation of mapping over a vector and combining the resulting
 list into one dataframe is actually so common that
 there is a variant of `map` that does this step automatically:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 map_df(paths, read_csv, .id = "continent")
 ```
 
@@ -275,7 +278,8 @@ code in a file.
 And when we define functions in this file, those functions
 are then available to us:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 source("R/my_functions.R")
 read_experiment_data(4)
 ```
@@ -495,7 +499,8 @@ from the tidytuesday project
 ([link](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-08-13)).
 You can import it with:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 emperors <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv")
 ```
 
@@ -504,7 +509,8 @@ In order to fix this we will be using the [lubridate](https://lubridate.tidyvers
 which is installed with the tidyverse, but not automatically loaded.
 For your convenience here is a function that you can use to fix the dataset:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 library(tidyverse)
 library(lubridate)
 
@@ -544,7 +550,8 @@ Another dataset
 concerns dairy product consumption per person in the US across a number of years.
 Load it with:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 dairy <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-29/milk_products_facts.csv")
 ```
 
