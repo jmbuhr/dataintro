@@ -632,7 +632,9 @@ In a fresh quarto document (without the example template content), load the tidy
       Note, that R can work with it's built-in color names, `rgb()` specifications or as hex-codes such as `#1573c7`).
       Even more bonus points if you also look into the `theme()` function and it's arguments, or the `theme_<...>()` functions to make the plot prettier.
 
-- Check the metadata (YAML) of your quarto document and make sure it contains your name as the `author:` .
+- Check the metadata (YAML) of your quarto document and make sure it contains your name as the `author:`.
+
+- The filename of your solution should also contain your name, e.g. `lecture1-jannik.qmd`, which gets rendered to `lecture1-jannik.html` when you knit it.
 
 - Make the output document [self contained](https://quarto.org/docs/output-formats/html-basics.html#self-contained) by adding `embed-resources: true` to the yaml header.
     - [Here](https://quarto.org/docs/reference/formats/html.html) are a couple more YAML options you can try if you feel adventurous.
@@ -656,9 +658,12 @@ execute:
 
 ::: {.callout-caution}
 - Some operating systems (looking at you, Windows), will not show you file extensions by default (e.g. `.html`, `.png`, `docx`).
-  Check out the exercise tips video below for instructions on turning those on, to make it easier for you to send the correct file (the rendered html file instead of the source qmd).
+  [Here](https://www.howtogeek.com/205086/beginner-how-to-make-windows-show-file-extensions/) is a guide on how to turn them on in Windows 11 and 10.
+  I recommend to to so, to make it easier for you to send the correct file (the rendered html file instead of the source qmd).
 - You can test that your file is truely self contained, by copying it to a different location on your computer and opening it (a simple double-click should suffice) with your default browser.
-  If you can see your plots, you are good to go. If you don't see them that means the plots are not embedded into the output (just linked to their relative location). Check the second-to-last point of the exercise list again.
+  If you can see your plots, you are good to go.
+  If you don't see them that means the plots are not embedded into the output (just linked to their relative location).
+  Check the second-to-last point of the exercise list again.
 :::
 
 ### Exercise Tips
