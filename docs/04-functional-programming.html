@@ -294,7 +294,7 @@ div.csl-indent {
 <p>Iteration is the basic idea of doing one thing multiple times. This is an area where computers shine, so in this chapter we will learn to fully utilize the power at our fingertips.</p>
 <p>As an example, we will be reading in multiple similar files. Remember the <code>gapminder</code> dataset? Well, we are working with it again, but this time, our collaborator sent us one csv-file for each continent. You can find them in the <code>data/04/</code> folder.</p>
 <p>We already know how to read in <em>one</em> csv-file:</p>
-<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-3_80f5791d58ae9e80e05f1daac963fad9">
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-3_5eefc9c86f0ba27adac501d53ff81d8c">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"./data/04/Africa.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="the-imperative-programming-approach" class="level3" data-number="4.2.1"><h3 data-number="4.2.1" class="anchored" data-anchor-id="the-imperative-programming-approach">
@@ -340,12 +340,12 @@ div.csl-indent {
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">paths</span> <span class="op">&lt;-</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_ls.html">dir_ls</a></span><span class="op">(</span><span class="st">"./data/04/"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then we map the <code>read_csv</code> function over our vector and bind the resulting list of dataframes into one dataframe:</p>
-<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-6_e75158f3cb95afaa16c9471d3ec76122">
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-6_73bad505c2ebe9f9564cd47b8fa0132c">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The operation of mapping over a vector and combining the resulting list into one dataframe is actually so common that there is a variant of <code>map</code> that does this step automatically:</p>
-<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-7_dc997f936d87fe5011776f5b6889da9f">
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-7_38f577f8457b2cd6830d2041b3738ebc">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html">map_df</a></span><span class="op">(</span><span class="va">paths</span>, <span class="va">read_csv</span>, .id <span class="op">=</span> <span class="st">"continent"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This distills everything our initial for-loop did into just one line of code. Using the <code>.id</code> argument we can save the name of the file path to a column in our dataset. This allows us to extract the continent from it:</p>
@@ -439,7 +439,7 @@ div.csl-indent {
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We can put this function in a file (in my case <code>R/my_functions</code>) and <code>source</code> it, for example in multiple analysis Rmarkdown documents. The <code>source</code> function is nothing special, it just runs the R code in a file. And when we define functions in this file, those functions are then available to us:</p>
-<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-13_91a0042a69f7fd0e8d5d7d79252963e9">
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-13_c935e8c00462b3d37e76344442ede646">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"R/my_functions.R"</span><span class="op">)</span></span>
 <span><span class="fu">read_experiment_data</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -597,11 +597,11 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 <section id="roman-emperors" class="level3" data-number="4.5.1"><h3 data-number="4.5.1" class="anchored" data-anchor-id="roman-emperors">
 <span class="header-section-number">4.5.1</span> Roman emperors</h3>
 <p>The first exercise uses a dataset about roman emperors from the tidytuesday project (<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-08-13">link</a>). You can import it with:</p>
-<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-25_85762d49351e43cca794a0eabdabc056">
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-25_ecc909569a20b7687b958cdda0a9d86d">
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">emperors</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-08-13/emperors.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>There is a slight error in the data because some of the dates are actually in BC time. In order to fix this we will be using the <a href="https://lubridate.tidyverse.org/">lubridate</a> package, which is installed with the tidyverse, but not automatically loaded. For your convenience here is a function that you can use to fix the dataset:</p>
-<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-26_cadb32f6b8a146f7bbbdec9a00a667a8">
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-26_5dd8fba8f5b20dc857dd171a718cd674">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span></span>
 <span></span>
@@ -633,7 +633,7 @@ F-statistic: 661.9 on 1 and 10 DF,  p-value: 1.808e-10</code></pre>
 </ul></section><section id="dairy-products-in-the-us" class="level3" data-number="4.5.2"><h3 data-number="4.5.2" class="anchored" data-anchor-id="dairy-products-in-the-us">
 <span class="header-section-number">4.5.2</span> Dairy Products in the US</h3>
 <p>Another dataset (<a href="https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-01-29#milk_products_facts">link</a>) concerns dairy product consumption per person in the US across a number of years. Load it with:</p>
-<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-27_c1c7cc54f605ef940127d1745082581d">
+<div class="cell" data-hash="04-functional-programming_cache/html/unnamed-chunk-27_54b647f2f1211986a806eff472f6988b">
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dairy</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-01-29/milk_products_facts.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
