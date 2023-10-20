@@ -13,14 +13,11 @@ Some will help you understand the topics covered, some dive deeper and some will
 - [The Modern Dive](https://moderndive.com/) [@kimStatisticalInferenceData2019]
 - [RStudio Education](https://education.rstudio.com/)
 
-## Learning Rmarkdown and Quarto
+## Learning Quarto
 
 - [quarto website](https://quarto.org)
-- [rmarkdown cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-cheatsheet-2.0.pdf)
-- [rmarkdown reference](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+- [markdown syntax reference](https://quarto.org/docs/authoring/markdown-basics.html)
 - [pandoc manual (advanced)](https://pandoc.org/MANUAL.html#pandocs-markdown)
-- [rmarkdown for reproducible analysis](https://reproducible-analysis-workshop.readthedocs.io/en/latest/6.RMarkdown-knitr.html)
-- [rmarkdown website](https://rmarkdown.rstudio.com/index.html)
 
 ## Learning R in general
 
@@ -78,8 +75,6 @@ Just some of the people with inspiring blogposts, videos and the likes.
 
 - [Tidymodels book](https://www.tmwr.org/)
 - [ggplot book](https://ggplot2-book.org/)
-- [Rmarkdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
-- [Rmarkdown Book](https://bookdown.org/yihui/rmarkdown/)
 
 ## Getting Help
 
@@ -95,8 +90,9 @@ The meta section. This is a list of lists:
 
 ## Packages that enable this lecture format
 
-- R by @rcoreteamLanguageEnvironmentStatistical2020a
-- knitr by [@knitr]
-- rmarkdown by [@rmarkdown]
-- xaringan by @xieXaringanPresentationNinja2020
+- R [@rcoreteamLanguageEnvironmentStatistical2020a]
+- Quarto [@quarto]
+- knitr [@knitr]
+- rmarkdown [@rmarkdown]
+- xaringan [@xieXaringanPresentationNinja2020]
 
