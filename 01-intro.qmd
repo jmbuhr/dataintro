@@ -2,6 +2,7 @@
 aliases:
   - intro.html
 ---
+
 # Introduction {#intro}
 
 ::: {.alert .alert-secondary}
@@ -53,11 +54,11 @@ Or generate the numbers from one to 10:
 ```
 
 But I rarely type directly into the console.
-Because we want our results to be reproducible, we write our code in a **script** first, so that the next person [^intro-1] can see what we did and replicate our analysis.
+Because we want our results to be reproducible, we write our code in a **script** first, so that the next person [^01-intro-1] can see what we did and replicate our analysis.
 You will see that reproducibility is quite near and dear to me, so it will pop up once or twice.
 And as scientists, I am sure you understand the importance.
 
-[^intro-1]: This will most likely be future You.
+[^01-intro-1]: This will most likely be future You.
     And you will thank yourself later
 
 > A script is like a recipe.
@@ -146,9 +147,9 @@ y
 ```
 
 Variable names can contain letters (capitalization matters), numbers (but not as the first character) and underscores `_`.
-[^intro-2]
+[^01-intro-2]
 
-[^intro-2]: They can also contain dots (`.`), but it is considered bad practice, because it can lead to some confusing edge cases.
+[^01-intro-2]: They can also contain dots (`.`), but it is considered bad practice, because it can lead to some confusing edge cases.
 
 ```{r}
 # snake_case
@@ -372,7 +373,7 @@ Sometimes it can be helpful to write our R's full name when searching (turns out
 
 ## Literate Programming with Quarto (previously Rmarkdown): Code is communication
 
-:::aside
+::: aside
 [![](./images/quarto.png){width="200"}](https://quarto.org)
 :::
 
@@ -605,7 +606,7 @@ Next week we will be get rid of the annoying `NA` in the legend for `sex`.
 ## Exercises
 
 This course is not graded, but I need some way of confirming that you did indeed take part in this course.
-In order to get the confirmation, you will send your solutions for a minimum of 5 out of the 8 exercises to me before the Seminar Fridays.
+In order to get the confirmation, you will send your solutions for a minimum of 6 out of the 8 exercises to me before the Seminar Tuesdays
 For each week I would like you to create a fresh quarto document with your solutions as code as well as any questions that arose during the lecture.
 This will help me a lot in improving this course.
 
@@ -617,31 +618,32 @@ Here are today's tasks:
 
 In a fresh quarto document (without the example template content), load the tidyverse and the palmerpenguins packages.
 
-- Write a section of text about your **previous experience** with data analysis and/or programming (optional, but I can use this information to customize the seminars to your needs).
+-   Write a section of text about your **previous experience** with data analysis and/or programming (optional, but I can use this information to customize the seminars to your needs).
 
-- Create a **vector of all odd numbers from 1 to 99** and store it in a variable.
-    - Create a second variable that contains the squares of the first.
-    - Have a look at the `tibble` function. Remember that you can always access the help page for a function using the `?` syntax, e.g. `?tibble::tibble` (The two colons `::` specify the package a function is coming from. You only need `tibble(...)` in the code because the `tibble` package is loaded automatically with the tidyverse. Here, I specify it directly to send you to the correct help page).
-    - Create a `tibble` where the columns are the vectors `x` and `y`.
-    - Create a scatterplot (points) of the two columns using `ggplot`.
-    - What `geom_` function do you need to add to the plot to add a line that connects your points?
+-   Create a **vector of all odd numbers from 1 to 99** and store it in a variable.
 
-- Load the **penguins** dataset from the `palmerpenguins` package.
-  Produce a scatterplot of the bill length vs. the bill depth, colorcoded by species.
-    - Imaginary bonus points if you manage to use the same colors as in the [penguin-image](#fig-penguins) (hint: look at the help page for `scale_color_manual()` to find out how.
-      Note, that R can work with it's built-in color names, `rgb()` specifications or as hex-codes such as `#1573c7`).
-      Even more bonus points if you also look into the `theme()` function and it's arguments, or the `theme_<...>()` functions to make the plot prettier.
+    -   Create a second variable that contains the squares of the first.
+    -   Have a look at the `tibble` function. Remember that you can always access the help page for a function using the `?` syntax, e.g. `?tibble::tibble` (The two colons `::` specify the package a function is coming from. You only need `tibble(...)` in the code because the `tibble` package is loaded automatically with the tidyverse. Here, I specify it directly to send you to the correct help page).
+    -   Create a `tibble` where the columns are the vectors `x` and `y`.
+    -   Create a scatterplot (points) of the two columns using `ggplot`.
+    -   What `geom_` function do you need to add to the plot to add a line that connects your points?
 
-- Check the metadata (YAML) of your quarto document and make sure it contains your name as the `author:`.
+-   Load the **penguins** dataset from the `palmerpenguins` package.
+    Produce a scatterplot of the bill length vs. the bill depth, colorcoded by species.
 
-- The filename of your solution should also contain your name, e.g. `lecture1-jannik.qmd`, which gets rendered to `lecture1-jannik.html` when you knit it.
+    -   Imaginary bonus points if you manage to use the same colors as in the [penguin-image](#fig-penguins) (hint: look at the help page for `scale_color_manual()` to find out how. Note, that R can work with it's built-in color names, `rgb()` specifications or as hex-codes such as `#1573c7`). Even more bonus points if you also look into the `theme()` function and it's arguments, or the `theme_<...>()` functions to make the plot prettier.
 
-- Make the output document [self contained](https://quarto.org/docs/output-formats/html-basics.html#self-contained) by adding `embed-resources: true` to the yaml header.
-    - [Here](https://quarto.org/docs/reference/formats/html.html) are a couple more YAML options you can try if you feel adventurous.
+-   Check the metadata (YAML) of your quarto document and make sure it contains your name as the `author:`.
+
+-   The filename of your solution should also contain your name, e.g. `lecture1-jannik.qmd`, which gets rendered to `lecture1-jannik.html` when you knit it.
+
+-   Make the output document [self contained](https://quarto.org/docs/output-formats/html-basics.html#self-contained) by adding `embed-resources: true` to the yaml header.
+
+    -   [Here](https://quarto.org/docs/reference/formats/html.html) are a couple more YAML options you can try if you feel adventurous.
 
 The top of your Quarto document should now look like this between the `---`:
 
-```yaml
+``` yaml
 title: "Lecture 1"
 author: <Your Name>
 format:
@@ -653,17 +655,11 @@ execute:
   warning: false
 ```
 
-- Knit it and ship it! (=press the render button and send me the rendered html document via discord)
+-   Knit it and ship it! (=press the render button and send me the rendered html document via discord)
 
-
-::: {.callout-caution}
-- Some operating systems (looking at you, Windows), will not show you file extensions by default (e.g. `.html`, `.png`, `docx`).
-  [Here](https://www.howtogeek.com/205086/beginner-how-to-make-windows-show-file-extensions/) is a guide on how to turn them on in Windows 11 and 10.
-  I recommend to to so, to make it easier for you to send the correct file (the rendered html file instead of the source qmd).
-- You can test that your file is truely self contained, by copying it to a different location on your computer and opening it (a simple double-click should suffice) with your default browser.
-  If you can see your plots, you are good to go.
-  If you don't see them that means the plots are not embedded into the output (just linked to their relative location).
-  Check the second-to-last point of the exercise list again.
+::: callout-caution
+-   Some operating systems (looking at you, Windows), will not show you file extensions by default (e.g. `.html`, `.png`, `docx`). [Here](https://www.howtogeek.com/205086/beginner-how-to-make-windows-show-file-extensions/) is a guide on how to turn them on in Windows 11 and 10. I recommend to to so, to make it easier for you to send the correct file (the rendered html file instead of the source qmd).
+-   You can test that your file is truely self contained, by copying it to a different location on your computer and opening it (a simple double-click should suffice) with your default browser. If you can see your plots, you are good to go. If you don't see them that means the plots are not embedded into the output (just linked to their relative location). Check the second-to-last point of the exercise list again.
 :::
 
 ### Exercise Tips

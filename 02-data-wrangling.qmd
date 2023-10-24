@@ -56,10 +56,9 @@ There is also the option to not load a package at all but rather only use one fu
 
 Without further ado, let's download the data for today.
 In fact, there are multiple ways to go about this.
-We could download the whole course folder from GitHub by following the link
-that says "View book source"
-in the left sidebar (or the pancake-menu in mobile view) and then using the download button
-on GitHub:
+We could download the whole course folder from GitHub
+<https://github.com/jmbuhr/dataintro>
+and then using the "<> Code" download button:
 
 ![](images/download_repo.png)
 
