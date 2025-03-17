@@ -1,21 +1,15 @@
----
-editor: 
-  markdown: 
-    wrap: sentence
----
-
 # Hello and welcome! {#welcome .unnumbered}
 
 ... to the latest iteration of my introductory R course, where we will learn to analyse data in style.
 
 ::: {.alert .alert-secondary}
 **Current course dates**\
-WS23/24\
-2023-10-17 -- 2023-12-12\
+SS25\
+2025-04-01 -- TODO: 9 weeks after start\
 See [structure of the course](#structure)\
 Lecture online in your own time\
-Seminar weekly on Tuesday, 13:00 -- 15:00\
-In Seminar room 11 (SR 11, 5.OG), Mathematikon (INF 205)\
+Seminar weekly on TO-BE-ANNOUNCED\
+In Seminar room TO-BE-ANNOUNCED, Mathematikon (INF 205)\
 Sign-up (Heidelberg University students): see [discord](#discord)\
 Language: Lectures are in English but the seminar can be in German if you choose so (in any case, you can always ask questions in German as well).
 :::
@@ -95,13 +89,13 @@ The earlier in the week you submit your solutions, the more time I have to prepa
 Each week, we will meet to discuss the exercises and answer any questions that might have have popped up.
 We will meet in:
 
-> Seminar room 11 (SR 11, 5.OG), Mathematikon (INF 205)
+> TODO
 
 Please bring your own laptop, so that you can code along and know that you will be able to apply what you learned after the course as well.
 
 ### Discord and signup {#discord}
 
-If you are a biochemistry student at Heidelberg University, click on this link: <https://discord.gg/BdfBxEDN5x> to join our discord server.
+If you are a biochemistry student at Heidelberg University, click on this link: <https://discord.gg/TYQhFAAfxu> to join our discord server.
 
 To sign up for the course, send a message to me (Jannik) with your **full name** and **matriculation number** so that we can put the course onto your official transcript of records.
 On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.

@@ -7,7 +7,6 @@ book:
   title: "Introduction to Data Analysis with R"
   author: "Jannik Buhr"
   description: "This is where you will find all the resources for the course Introduction to Data Analysis with R"
-  date: today
   image: cover.png
   favicon: "favicon.png"
   page-navigation: true
@@ -61,6 +60,7 @@ citation:
 
 format:
   html:
+    date-modified: last-modified
     theme:
       light: [default, theme.scss]
       dark: [default, darkly, theme.scss]
