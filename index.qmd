@@ -5,11 +5,13 @@
 ::: {.alert .alert-secondary}
 **Current course dates**\
 SS25\
-2025-04-01 -- TODO: 9 weeks after start\
+2025-04-14 -- 2025-05-15\
 See [structure of the course](#structure)\
 Lecture online in your own time\
-Seminar weekly on TO-BE-ANNOUNCED\
-In Seminar room TO-BE-ANNOUNCED, Mathematikon (INF 205)\
+Seminar twice weekly on Monday and Thursday at 13:00\
+In the Mathematikon (INF 205),\
+Seminar room 11, 5.OG (Mondays)\
+and PC-Pool 2 Raum 3/104 (Thursdays)\
 Sign-up (Heidelberg University students): see [discord](#discord)\
 Language: Lectures are in English but the seminar can be in German if you choose so (in any case, you can always ask questions in German as well).
 :::
@@ -20,16 +22,16 @@ In this course, we will handle different kinds of data, create pretty and insigh
 From penguins to p-values, I got you covered.
 
 ```{r cover-plot}
-#| echo: FALSE
+#| echo: false
 #| fig-cap: One of the plots we will be creating in the first lecture.
 library(tidyverse)
 library(palmerpenguins)
 
 penguins |>
   drop_na() |>
-  ggplot(aes(flipper_length_mm, bill_length_mm,
-                     color = species,
-                     shape = sex)) +
+  ggplot(
+    aes(flipper_length_mm, bill_length_mm, color = species, shape = sex)
+  ) +
   geom_point(size = 2.5) +
   geom_smooth(aes(group = species), method = "lm", se = FALSE,
               show.legend = FALSE) +
@@ -52,25 +54,27 @@ No prior knowledge necessary.
 Software to install:
 
 - [R](https://cloud.r-project.org/)
-- [Rstudio](https://www.rstudio.com/products/rstudio/download/#download)
+- [Rstudio](https://posit.co/download/rstudio-desktop/#download)
 - _windows only_: [Rtools](https://cran.r-project.org/bin/windows/Rtools/)
 
 ## Structure of the course {#structure}
 
 Most participants will be biochemistry bachelor (and master) students, but the material is open to anyone!
 
--   There are 8 lectures in total, each accompanied by:
-    -   A video of the lecture at the top of each page
-    -   The lecture script, which consists of the code written during the lecture (plus some more code to generate illustrative graphics) and explanations
-    -   [Exercises](#exe) to complete and send in
-    -   A [seminar] to discuss the exercises
-    -   A [discord](#discord) server to ask questions and share solutions
+- There are 8 lectures in total, each accompanied by:
+  - A video of the lecture at the top of each page
+  - The lecture script, which consists of the code written during the lecture (plus some more code to generate illustrative graphics) and explanations
+  - [Exercises](#exe) to complete and hand in
+  - A [seminar] to discuss the exercises
+  - A [discord](#discord) server to ask questions and share solutions
 
 In addition to the 8 regular lectures + follow up seminars, there is an introductory seminar in the first week, before the first lecture.
 
-- October 17 (Tuesday, 13:00): First seminar
-- October 24: Seminar for the first lecture
-- December 12: Seminar for the last lecture
+**Key dates**:
+
+- April 14 (Monday, 13:00): First seminar
+- April 17 (Thursday, 13:00): Seminar for the first lecture
+- May 15: Seminar for the last lecture
 
 The first seminar is dedicated to helping you get your laptops set up for the course, show the course structure and explain core concepts.
 
@@ -79,23 +83,25 @@ Code chunks also have a copy-button, which is helpful for quickly playing around
 
 ### Exercises {#exe}
 
-To complete the course, hand in at least 6 out of 8 exercises.
-The important part here is not that each exercise is a perfect solution, but if you encounter questions and struggles during your attempt of the exercise, make sure to include those pain points as well so that we can cover those in the [Seminar].
+To complete the course, hand in at least 7 out of 8 exercises.
+The important part here is not that each exercise is a perfect solution, but if you encounter questions and struggles during your attempt of the exercise make sure to include those pain points as well, so that we can cover those in the [Seminar].
 Please hand in your solutions **before** the seminar via a direct message on [discord](#discord).
-The earlier in the week you submit your solutions, the more time I have to prepare answers for the seminar.
+The earlier you submit your solutions, the more time I have to prepare specific answers to your questions for the seminar.
 
 ### Seminar
 
 Each week, we will meet to discuss the exercises and answer any questions that might have have popped up.
 We will meet in:
 
-> TODO
+> Mathematikon (INF 205)\
+> Seminar room 11, 5.OG (Mondays)\
+> PC-Pool 2 Raum 3/104 (Thursdays)
 
-Please bring your own laptop, so that you can code along and know that you will be able to apply what you learned after the course as well.
+Please bring your own **laptop**, so that you can code along and know that you will be able to apply what you learned after the course as well.
 
 ### Discord and signup {#discord}
 
-If you are a biochemistry student at Heidelberg University, click on this link: <https://discord.gg/TYQhFAAfxu> to join our discord server.
-
-To sign up for the course, send a message to me (Jannik) with your **full name** and **matriculation number** so that we can put the course onto your official transcript of records.
+If you are a biochemistry student at Heidelberg University, click on this link: <https://discord.gg/TYQhFAAfxu> to join our discord server to sign up for the course.
 On the server, you will be able to ask questions that can be answered by me and your fellow learners, hand in the exercises and receive feedback.
+
+I will also need your **full name** and **matriculation number**, so that we can put the course onto your official transcript of records after completion.
