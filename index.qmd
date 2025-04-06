@@ -73,13 +73,16 @@ Most participants will be biochemistry bachelor (and master) students, but the m
   - A [seminar] to discuss the exercises
   - A [discord](#discord) server to ask questions and share solutions
 
-In addition to the 8 regular lectures + follow up seminars, there is an introductory seminar in the first week, before the first lecture.
+In addition to the 8 regular lectures + follow up seminars, there is an introductory seminar in the first week, before watching the first lecture.
 
 **Key dates**:
 
 - April 14 (Monday, 13:00): First seminar
 - April 17 (Thursday, 13:00): Seminar for the first lecture
-- May 15: Seminar for the last lecture
+- May 19: Seminar for the last lecture
+  (Note, that this is 1 week later than would be expected
+  according to a perfect fit of 2 lectures per week,
+  because there are two public holidays (April 21 & May 1) in the timespan that are excluded)
 
 The first seminar is dedicated to helping you get your laptops set up for the course, show the course structure and explain core concepts.
 
