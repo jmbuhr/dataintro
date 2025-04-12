@@ -5,7 +5,7 @@
 ::: {.alert .alert-secondary}
 **Current course dates**\
 SS25\
-2025-04-14 -- 2025-05-15\
+2025-04-14 -- 2025-05-19\
 See [structure of the course](#structure)\
 Lecture online in your own time\
 Seminar twice weekly on Monday and Thursday at 13:00\
